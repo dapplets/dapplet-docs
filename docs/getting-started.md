@@ -34,7 +34,7 @@ There are three environments:
 
 #### 6. You can use another Adapter in your Dapplet.
 
-Dependencies are defined in the `dependencies` section of the `dapplet.json` file.
+Dependencies are defined in the `dependencies` section of the `dapplet.json` file and are injected in the dapplet's `index.ts` file.
 
 The Twitter adapter is used by default.
 
@@ -53,9 +53,22 @@ The list of our adapters are available now:
 - the domain name of a website to which you are creting a dapplet (e.g. `twitter.com`);
 - the identifier of a dynamic context (e.g. `twitter.com/1346093004537425927`).
 
-#### 8. Install the Dapplet Extension for you Chrome browser (if not installed) - follow the [Installation](/docs/installation) steps.
+#### 8. Specify the argument of `@Inject` decorator with chosen adapter in the `/src/index.ts` module.
 
-#### 9. Install dependencies and run the code:
+```js
+@Injectable
+export default class TwitterFeature {
+  constructor(
+    @Inject('twitter-adapter.dapplet-base.eth') public adapter: any,
+  ) {
+     ...
+  }
+}
+```
+
+#### 9. Install the Dapplet Extension for you Chrome browser (if not installed) - follow the [Installation](/docs/installation) steps.
+
+#### 10. Install dependencies and run the code:
 ```bash
 npm i
 npm start

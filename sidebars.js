@@ -7,6 +7,7 @@ module.exports = {
       type: 'category',
       label: 'Next steps',
       items: [
+        'exercises',
         'extra-button',
         'state-machine',
         'insertion-points',
@@ -18,12 +19,12 @@ module.exports = {
         'new-viewport-adapter',
         'new-virtual-adapter',
       ],
+      collapsed: false,
     },
     {
       type: 'category',
       label: 'Adapters API',
       items: ['doc1', 'doc2', 'doc3', 'mdx'],
-      collapsed: false,
     },
     {
       type: 'category',
