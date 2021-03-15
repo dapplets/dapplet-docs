@@ -3,7 +3,9 @@ id: state-machine
 title: State Machine
 ---
 
-The initial code for this example is here: [ex02-state-machine-exercise](https://github.com/dapplets/dapplet-template/tree/ex02-state-machine-exercise)
+Let's change button state on its click.
+
+The initial code for this example is here: [ex02-state-machine-exercise](https://github.com/dapplets/dapplet-template/tree/ex02-state-machine-exercise).
 
 Here is `src/index.ts`:
 
@@ -39,8 +41,6 @@ export default class TwitterFeature {
   }
 }
 ```
-
-Let's change button state on button click.
 
 Firstly add another state with a different badge to the button.
 
@@ -93,7 +93,7 @@ export default class TwitterFeature {
 }
 ```
 
-Here is the result code of the example: [ex02-state-machine-solution](https://github.com/dapplets/dapplet-template/tree/ex02-state-machine-solution)
+Here is the result code of the example: [ex02-state-machine-solution](https://github.com/dapplets/dapplet-template/tree/ex02-state-machine-solution).
 
 Run the dapplet:
 

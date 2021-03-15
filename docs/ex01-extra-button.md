@@ -3,7 +3,7 @@ id: extra-button
 title: Extra button
 ---
 
-The initial code for this example is here: [ex01-add-button-exercise](https://github.com/dapplets/dapplet-template/tree/ex01-add-button-exercise)
+The initial code for this example is here: [ex01-add-button-exercise](https://github.com/dapplets/dapplet-template/tree/ex01-add-button-exercise).
 
 The **basic template** for `your_dapplet/src/index.ts` looks like this:
 
@@ -283,6 +283,6 @@ Run the dapplet in your terminal
 npm start
 ```
 
-Here is the result code of the example: [ex01.2-add-button-server-solution](https://github.com/dapplets/dapplet-template/tree/ex01.2-add-button-server-solution)
+Here is the result code of the example: [ex01.2-add-button-server-solution](https://github.com/dapplets/dapplet-template/tree/ex01.2-add-button-server-solution).
 
 > If you don't know how to run the dapplet in a browser, see [Getting Started](/docs/getting-started#10-connect-the-development-server-to-dapplet-extension).
