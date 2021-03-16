@@ -1,6 +1,6 @@
 ---
 id: insertion-points
-title: Insertion points
+title: "Ex03: Insertion points"
 ---
 
 In this example we add two elements at different insertion points that interact.

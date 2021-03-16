@@ -1,6 +1,6 @@
 ---
 id: exercises
-title: Exercises
+title: About exercises
 ---
 
 In this section we will look at how to use and implement the basic elements of the dapplet structure.

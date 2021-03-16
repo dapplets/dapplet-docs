@@ -1,6 +1,6 @@
 ---
 id: overlays
-title: Overlays
+title: "Ex04: Overlays"
 ---
 
 In this example we add an overlay that opens on click by button in the POST_SOUTH.
@@ -142,7 +142,7 @@ The url `http://localhost:3000` add to config to `default.json`:
 
 ```json
 {
-  // ...
+  ...
   "dev": {
     "overlayUrl": "http://localhost:3000",
     "exampleString": "some string value",
@@ -162,7 +162,7 @@ and add appropriate field to `schema.json`:
       "type": "string",
       "title": "Example of string property"
     },
-    // ...
+    ...
   }
 }
 ```
@@ -170,7 +170,7 @@ and add appropriate field to `schema.json`:
 Before running install dependencies:
 
 ```bash
-npm run prestart
+npm i
 ```
 
 Run the dapplet with pure JS overlay:
@@ -223,6 +223,6 @@ Here is the result code of the example: [ex04-overlays-solution.](https://github
 Run the dapplet:
 
 ```bash
-npm run prestart
+npm i
 npm run start-react
 ```

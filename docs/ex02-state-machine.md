@@ -1,6 +1,6 @@
 ---
 id: state-machine
-title: State Machine
+title: "Ex02: State machine"
 ---
 
 Let's change button state on its click.

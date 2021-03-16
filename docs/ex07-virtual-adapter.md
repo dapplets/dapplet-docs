@@ -1,6 +1,6 @@
 ---
 id: virtual-adapter-int
-title: Virtual adapter (interface)
+title: "Ex07: Virtual adapter (interface)"
 ---
 
 Task: change twitter adapter to **identity** adapter and check it on Twitter and Instagram.
@@ -11,9 +11,9 @@ Change twitter adapter to **identity** adapter in `config/dapplet.json` with a r
 
 ```json
 {
-  // ...
+  ...
   "contextIds": ["identity-adapter.dapplet-base.eth"],
-  // ...
+  ...
   "dependencies": {
     "identity-adapter.dapplet-base.eth": "0.2.0"
   }

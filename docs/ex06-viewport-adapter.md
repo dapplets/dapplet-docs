@@ -1,6 +1,6 @@
 ---
 id: viewport-adapter
-title: Viewport adapter
+title: "Ex06: Viewport adapter"
 ---
 
 Task: change twitter adapter to **common** adapter and check it on Twitter and Instagram.
@@ -11,9 +11,9 @@ Change twitter adapter to **common** adapter in `config/dapplet.json` with a rig
 
 ```json
 {
-  //...
+  ...
   "contextIds": ["common-adapter.dapplet-base.eth"],
-  //...
+  ...
   "dependencies": {
     "common-adapter.dapplet-base.eth": "0.2.5"
   }
@@ -31,7 +31,7 @@ and set the right insertion point:
 ```ts
 BODY: [
   button({
-    // ...
+    ...
   }),
 ],
 ```

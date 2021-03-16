@@ -5,7 +5,7 @@ module.exports = {
     'getting-started',
     {
       type: 'category',
-      label: 'Next steps',
+      label: 'Exercises',
       items: [
         'exercises',
         'extra-button',

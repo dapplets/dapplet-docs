@@ -1,6 +1,6 @@
 ---
 id: wallet
-title: Wallet
+title: "Ex05: Wallet"
 ---
 
 This example shows how to connect a wallet to a dapplet.

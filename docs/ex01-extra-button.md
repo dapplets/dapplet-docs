@@ -1,6 +1,6 @@
 ---
 id: extra-button
-title: Extra button
+title: "Ex01: Extra button"
 ---
 
 The initial code for this example is here: [ex01-add-button-exercise](https://github.com/dapplets/dapplet-template/tree/ex01-add-button-exercise).
@@ -62,7 +62,7 @@ Listen for the button click - output into console.
 exec: async (ctx, me) => {
   console.log(ctx);
   console.log(me);
-  // ...
+  ...
 }
 ```
 
@@ -197,7 +197,7 @@ Add `serverUrl` to the dapplet's config.
 ```json
 // config/default.json
 {
-  // ...
+  ...
   "dev": {
     "serverUrl": "ws://localhost:8080/feature-1",
     "exampleString": "some string value",
@@ -207,13 +207,13 @@ Add `serverUrl` to the dapplet's config.
 
 // config/schema.json
 {
-  // ...
+  ...
   "properties": {
     "serverUrl": {
       "type": "string",
       "title": "Server URL"
     },
-    // ...
+    ...
   }
 }
 ```
