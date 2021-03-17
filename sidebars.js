@@ -24,7 +24,8 @@ module.exports = {
     {
       type: 'category',
       label: 'Adapters API',
-      items: ['doc1', 'doc2', 'doc3', 'mdx'],
+      items: ['adapters-twitter'],
+      collapsed: false,
     },
     {
       type: 'category',
@@ -34,7 +35,8 @@ module.exports = {
     {
       type: 'category',
       label: 'Publishing',
-      items: [],
+      items: ['publishing'],
+      collapsed: false,
     },
     {
       type: 'category',

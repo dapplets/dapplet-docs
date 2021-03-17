@@ -126,4 +126,4 @@ npm i
 npm start
 ```
 
-> If you don't know how to run the dapplet in a browser, see [Getting Started](/docs/getting-started#10-connect-the-development-server-to-dapplet-extension).
+> If you don't know how to run the dapplet in a browser, see [Getting Started](/docs/getting-started#11-connect-the-development-server-to-dapplet-extension).

@@ -45,6 +45,8 @@ The list of our adapters are available now:
 - [identity-adapter.dapplet-base.eth](https://github.com/dapplets/dapplet-modules/tree/master/packages/identity-adapter) - virtual adapter (interface), which is an abstract of two adapters above;
 - [common-adapter.dapplet-base.eth](https://github.com/dapplets/dapplet-modules/tree/master/packages/common-adapter) - viewport adapter is universal adapter which contains generic insertion points and is compatible with any web-sites.
 
+> See for more [here.](/docs/adapters-twitter)
+
 #### 7. Fill in `contextIds` section of the `dapplet.json` file.
 
 `ContextId` is the identifier of a context to which your module is bound. This is usually the same as the name of an adapter you are using. It may be:
@@ -86,7 +88,7 @@ created lib\index.js in 783ms
 
 The address [http://localhost:3001/dapplet.json](http://localhost:3001/dapplet.json) is a link to your dapplet manifest file. Copy it to clipboard.
 
-#### 10. Connect the development server to Dapplet Extension.
+#### 11. Connect the development server to Dapplet Extension.
 
 Paste URL to Developer tab of Dapplet Extension's popup and click **Add**.
 
@@ -96,6 +98,6 @@ You will see your module in the list of development module. Here you can start d
 
 ![Developer tab of Extension](/img/gs_2.jpg)
 
-#### 11. Run your dapplet in the website.
+#### 12. Run your dapplet in the website.
 
 ![Developer tab of Extension](/img/gs_3.jpg)

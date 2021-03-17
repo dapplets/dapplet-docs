@@ -3,9 +3,49 @@ id: new-viewport-adapter
 title: "Ex09: New Viewport adapter"
 ---
 
-In this example we create new viewport adapter anp dapplet for it.
+In this example we create a new viewport adapter and a dapplet for it.
 
 The initial code for this example is here: [ex09-new-viewport-adapter-exercise.](https://github.com/dapplets/dapplet-template/tree/ex09-new-viewport-adapter-exercise)
+
+Our template has an adapter that is similar in structure to the adapter in the previous exercise.
+
+```bash
+adapter
+├── .gitignore
+├── dapplet.json
+├── package-lock.json
+├── package.json
+├── rollup.config.js
+├── src
+|  ├── button.ts
+|  ├── close_cross.svg
+|  ├── globals.d.ts
+|  ├── index.ts
+|  └── popup.ts
+└── tsconfig.json
+```
+
+When you create an adapter don't forget to set **`contextIds`** in `dapplet.json`. In this example we are setting the following contexts:
+
+```json
+{
+  ...
+  "contextIds": [
+    "dapplets.org",
+    "127.0.0.1",
+    "forum.dapplets.org",
+    "youtube.com",
+    "www.youtube.com",
+    "twitter.com",
+    "mobile.twitter.com",
+    "google.com",
+    "www.google.com",
+    "www.instagram.com",
+    "instagram.com"
+  ],
+  ...
+}
+```
 
 1. Implement communication between dapplets and pages in `/adapter/src/index.ts`:
 
@@ -200,4 +240,4 @@ Run the dapplet:
 npm i
 npm start
 ```
-> In this example we run **two servers** concurrently. So you have to add two registry addresses to Dapplet extension in Development tab. How to do it see [here](/docs/getting-started#10-connect-the-development-server-to-dapplet-extension).
+> In this example we run **two servers** concurrently. So you have to add two registry addresses to Dapplet extension in Development tab. How to do it see [here](/docs/getting-started#11-connect-the-development-server-to-dapplet-extension).

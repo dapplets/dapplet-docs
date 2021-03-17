@@ -8,7 +8,7 @@ In this exercise you should implement a virtual adapter for two search adapters.
 
 The initial code for this example is here: [ex10-new-virtual-adapter-exercise.](https://github.com/dapplets/dapplet-template/tree/ex10-new-virtual-adapter-exercise)
 
-The start point of the exercise is a solution for the [example 08: adapter development](https://github.com/dapplets/dapplet-template/tree/ex08.2-new-adapter-widget-solution). There is an adapter for Google and a dapplet for it.
+The start point of the exercise is a solution for the [Ex08: New Site specific adapter](/docs/new-site-adapter). There is an adapter for Google and a dapplet for it.
 
 1. Add search adapter for Yahoo. See the code on GitHub: [yahoo-adapter.](https://github.com/dapplets/dapplet-template/tree/ex10-new-virtual-adapter-solution/yahoo-adapter)
 
@@ -83,4 +83,4 @@ Run the dapplet:
 npm i
 npm start
 ```
-> In this example we run **four servers** concurrently. So you have to add four registry addresses to Dapplet extension in Development tab. How to do it see [here](/docs/getting-started#10-connect-the-development-server-to-dapplet-extension).
+> In this example we run **four servers** concurrently. So you have to add four registry addresses to Dapplet extension in Development tab. How to do it see [here](/docs/getting-started#11-connect-the-development-server-to-dapplet-extension).
