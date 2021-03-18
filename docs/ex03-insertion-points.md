@@ -47,13 +47,13 @@ export default class TwitterFeature {
 - *Example 1:* `exec: (ctx) => $(ctx, 'another_el_id').state = 'SECOND'`
 - *Example 2:* `exec: (ctx) => $(ctx, 'another_el_id').label = 'Hello'`
 
-Get the element 'picture' from adapter
+Get the element 'picture' from the adapter
 
 ```ts
 const { button, picture } = this.adapter.exports;
 ```
 
-Add extra picture to POST_PICTURE and make it hidden by default.
+Add an extra picture to POST_PICTURE and make it hidden by default.
 
 ```ts
 POST_PICTURE: [
