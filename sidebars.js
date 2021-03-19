@@ -24,7 +24,10 @@ module.exports = {
     {
       type: 'category',
       label: 'Adapters API',
-      items: ['adapters-twitter'],
+      items: [
+        'adapter-connection',
+        'adapters-twitter',
+      ],
       collapsed: false,
     },
     {
