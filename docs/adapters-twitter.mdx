@@ -6,156 +6,36 @@ title: Twitter adapter
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## What is the Twitter adapter?
+## About the Twitter adapter
 
 The Twitter adapter provides you with a high-level interface for embedding a series of widgets on top of Twitter. The adapter provides a set of widgets and insertion points for them. Within one dapplet, you can use multiple widgets and use them at the same or different insertion points.
 
 ## Widgets
 
-The Twitter adapter provides the following widgets:
-
-- [badge](adapters-twitter#badge)
-- [button](adapters-twitter#button)
-- [caption](adapters-twitter#caption)
-- [label](adapters-twitter#label)
-- [picture](adapters-twitter#picture)
-
-### badge
-
-Parameters:
-- **img** : `'string'` — a path to the image for the badge;
-- **vertical** : `'top' | 'bottom'` — sets a vertical position;
-- **horizontal** : `'left' | 'right'` — sets a hirizontal position;
-- **hidden** : `'boolean'` — hides the badge;
-- **tooltip** : `'string'` — adds a tooltip.
-
-### button
-
-Parameters:
-- **img**: `'string'` — a path to the image for the button;
-- **label**: `'string'` — sets a label for the button;
-- **loading**: `'boolean'` — sets the loading icon instead of **img**;
-- **disabled**: `'boolean'` — makes the button disabled;
-- **hidden**: `'boolean'` — hides the button;
-- **tooltip**: `'string'` — adds a tooltip.
-
-### caption
-
-Parameters:
-- **img**: `'string'` — a path to the image for the caption;
-- **text**: `'string'` — adds the text to the caption;
-- **hidden**: `'boolean'` — hides the caption;
-- **tooltip**: `'string'` — adds a tooltip.
-
-### label
-
-Parameters:
-- **img**: `'string'` — a path to the image for the label;
-- **text**: `'string'` — adds the text to the label;
-- **postfix**: `'string'` — adds a postfix to **text**;
-- **disabled**: `'boolean'` — makes the label disabled;
-- **hidden**: `'boolean'` — hides the label;
-- **tooltip**: `'string'` — adds a tooltip.
-
-### picture
-
-Parameters:
-- **img**: `'string'` — a path to the image for the picture;
-- **disabled**: `'boolean'` — makes the picture disabled;
-- **hidden**: `'boolean'` — hides the picture;
-- **tooltip**: `'string'` — adds a tooltip.
+| Parameters      | badge  | button | label  | picture | caption |       Type          | Description         |
+|:--------------- |:------:|:------:|:------:|:-------:|:-------:|:-------------------:|:------------------- |
+| **`img`**         |   ✔️   |   ✔️  |   ✔️   |   ✔️   |   ✔️    | `'string'`          | a path to the image |
+| **`vertical`**    |   ✔️   |        |        |         |         | `'top' / 'bottom'` | sets a vertical position |
+| **`horizontal`**  |   ✔️   |        |        |         |         | `'left' / 'right'` | sets a horizontal position |
+| **`label`**       |        |   ✔️   |        |         |         | `'string'`          | sets a label |
+| **`loading`**     |        |   ✔️   |        |         |         | `'boolean'`         | sets the loading icon instead of **img** |
+| **`text`**        |        |        |   ✔️   |         |   ✔️   | `'string'`           | adds the text |
+| **`postfix`**     |        |        |   ✔️   |         |         | `'string'`          | adds a postfix to **text** |
+| **`disabled`**    |        |   ✔️   |   ✔️  |    ✔️   |         | `'boolean'`         | makes the widget disabled |
+| **`hidden`**      |   ✔️   |   ✔️  |   ✔️   |   ✔️   |   ✔️    | `'boolean'`         | hides the widget |
+| **`tooltip`**     |   ✔️   |   ✔️  |   ✔️   |   ✔️   |   ✔️    | `'string'`          | adds a tooltip |
 
 ## Insertion points
 
-### Tweet
+### ▪ Profile
 
-#### • POST_SOUTH:
-<Tabs
-  defaultValue="button"
-  values={[
-    {label: 'button', value: 'button'},
-  ]}>
-  <TabItem value="button">
-    <img src="/img/a_twitter_2.png" alt="button in POST_SOUTH image"/>
-  </TabItem>
-</Tabs>
+![Profile insertion points](/img/a_twitter_10.png)
 
-#### • POST_PICTURE:
-<Tabs
-  defaultValue="picture"
-  values={[
-    {label: 'picture', value: 'picture'},
-  ]}>
-  <TabItem value="picture">
-    <img src="/img/a_twitter_3.png" alt="picture in POST_PICTURE image"/>
-  </TabItem>
-</Tabs>
+### ▪ Tweet
 
-#### • POST_AVATAR_BADGE:
-<Tabs
-  defaultValue="badge"
-  values={[
-    {label: 'badge', value: 'badge'},
-    {label: 'label', value: 'label'},
-  ]}>
-  <TabItem value="badge">
-    <img src="/img/a_twitter_4.png" alt="badge in POST_AVATAR_BADGE image"/>
-  </TabItem>
-  <TabItem value="label">
-    <img src="/img/a_twitter_5.png" alt="label in POST_AVATAR_BADGE image"/>
-  </TabItem>
-</Tabs>
+![Tweet insertion points](/img/a_twitter_11.png)
 
-#### • POST_USERNAME_LABEL:
-<Tabs
-  defaultValue="label"
-  values={[
-    {label: 'label', value: 'label'},
-  ]}>
-  <TabItem value="label">
-    <img src="/img/a_twitter_6.png" alt="label in POST_USERNAME_LABEL image"/>
-  </TabItem>
-</Tabs>
-
-#### • POST_STARTER:
-<Tabs
-  defaultValue="button"
-  values={[
-    {label: 'button', value: 'button'},
-  ]}>
-  <TabItem value="button">
-    <img src="/img/a_twitter_7.png" alt="button in POST_STARTER image"/>
-  </TabItem>
-</Tabs>
-
-### Profile
-
-#### • PROFILE_AVATAR_BADGE:
-<Tabs
-  defaultValue="badge"
-  values={[
-    {label: 'badge', value: 'badge'},
-  ]}>
-  <TabItem value="badge">
-    <img src="/img/a_twitter_8.png" alt="badge in PROFILE_AVATAR_BADGE image"/>
-  </TabItem>
-</Tabs>
-
-#### • PROFILE_BUTTON_GROUP:
-<Tabs
-  defaultValue="button"
-  values={[
-    {label: 'button', value: 'button'},
-    {label: 'badge', value: 'badge'},
-  ]}>
-  <TabItem value="button">
-    <img src="/img/a_twitter_9.png" alt="button in PROFILE_BUTTON_GROUP image"/>
-  </TabItem>
-  <TabItem value="badge">
-  </TabItem>
-</Tabs>
-
-### Insertion point / Widget table
+### ▪ Insertion point / Widget table
 
 | Insertion point        | badge  | button | label  | picture |
 |:---------------------- |:------:|:------:|:------:|:-------:|
@@ -169,13 +49,17 @@ Parameters:
 
 ## Events
 
-### Tweet:
+### ▪ Profile:
 
-- like
+  - profile_changed
 
-- dislike
+### ▪ Tweet:
 
-- starter
+  - like
+
+  - dislike
+
+  - starter
 
 ## Virtual adapters:
 
