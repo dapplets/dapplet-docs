@@ -35,7 +35,7 @@ export default class TwitterFeature {
 ```
 
 The dapplet injects the button to every Tweet on a Twitter page below the main content,
-near the buttons "Like", "Retweet" etc. This insertion point is called `POST_SOUTH`.
+near the buttons "Like", "Retweet" etc. This insertion point is called [`POST_SOUTH`](/docs/adapters-twitter#-tweet).
 
 Before using the `button()` or/and other elements in `this.adapter.attachConfig()` it has to be received from `this.adapter.exports`.
 

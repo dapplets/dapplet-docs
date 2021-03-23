@@ -1,5 +1,5 @@
 ---
-id: adapter-connection
+id: using-adapters
 sidebar_label: Using adapters
 title: How to connect a dapplet to an adapter?
 ---
@@ -96,9 +96,11 @@ import {} from '@dapplets/dapplet-extension';
 
 @Injectable
 export default class MyDapplet {
-  constructor(
-    @Inject('exercise-viewport-adapter.dapplet-base.eth') public adapter: any,
-  ) {
+
+  @Inject('exercise-viewport-adapter.dapplet-base.eth')
+  public adapter: any;
+
+  activate(): any {
     ...
   }
 }
@@ -112,7 +114,7 @@ Widgets are taken from the adapter's **`exports`**:
 const { button, popup } = this.adapter.exports;
 ```
 
-and then use in  the **`attachConfig()`** function:
+and then used in the **`attachConfig()`** function:
 
 ```ts
 const { $ } = this.adapter.attachConfig({
@@ -161,3 +163,21 @@ button({
 ```
 
 Into states we pass **parameters** of the widget described in the adapter.
+
+## Using events
+
+Adapters provide a number of events for different contexts that dapplets can listen to.
+They are used in the **`attachConfig()`** function near the insertion points:
+
+```ts
+// /src/index.ts > TwitterFeature > activate
+
+this.adapter.attachConfig({
+  events: {
+    like: async (ctx) => {
+      ...
+    },
+  },
+  ...
+});
+```
