@@ -1,0 +1,208 @@
+{
+  "title": "Twitter adapter",
+  "about": "The Twitter adapter provides you with a high-level interface for embedding a series of widgets on top of Twitter. The adapter provides a set of widgets and insertion points for them. Within one dapplet, you can use multiple widgets and use them at the same or different insertion points.",
+  "widgets": {
+    "names": [
+      "badge",
+      "button",
+      "label",
+      "picture",
+      "caption"
+    ],
+    "parameters": {
+      "img": {
+        "widgets": [1, 1, 1, 1, 1],
+        "type": "string",
+        "description": "a path to the image"
+      },
+      "vertical": {
+        "widgets": [1, 0, 0, 0, 0],
+        "type": "'top', 'bottom'",
+        "description": "sets a vertical position"
+      },
+      "horizontal": {
+        "widgets": [1, 0, 0, 0, 0],
+        "type": "'left', 'right'",
+        "description": "sets a horizontal position"
+      },
+      "label": {
+        "widgets": [0, 1, 0, 0, 0],
+        "type": "string",
+        "description": "sets a label"
+      },
+      "loading": {
+        "widgets": [0, 1, 0, 0, 0],
+        "type": "boolean",
+        "description": "sets the loading icon instead of **img**"
+      },
+      "text": {
+        "widgets": [0, 0, 1, 0, 1],
+        "type": "string",
+        "description": "adds the text"
+      },
+      "postfix": {
+        "widgets": [0, 0, 1, 0, 0],
+        "type": "string",
+        "description": "adds a postfix to **text**"
+      },
+      "disabled": {
+        "widgets": [0, 1, 1, 1, 0],
+        "type": "boolean",
+        "description": "makes the widget disabled"
+      },
+      "hidden": {
+        "widgets": [1, 1, 1, 1, 1],
+        "type": "boolean",
+        "description": "hides the widget"
+      },
+      "tooltip": {
+        "widgets": [1, 1, 1, 1, 1],
+        "type": "string",
+        "description": "adds a tooltip"
+      },
+      "exec": {
+        "widgets": [1, 1, 1, 1, 1],
+        "type": "(ctx: any, me: IBadgeState) => void",
+        "description": "action on click"
+      },
+      "init": {
+        "widgets": [1, 1, 1, 1, 1],
+        "type": "(ctx: any, me: IBadgeState) => void",
+        "description": "action through initialisation"
+      }
+    }
+  },
+  "instPoints": {
+    "fields": [
+      {
+        "subtitle": "Profile",
+        "image": {
+          "link": "/img/a_twitter_10.png",
+          "alt": "Profile insertion points"
+        }
+      },
+      {
+        "subtitle": "Tweet",
+        "image": {
+          "link": "/img/a_twitter_11.png",
+          "alt": "Tweet insertion points"
+        }
+      }
+    ],
+    "table": {
+      "names": [
+        "badge",
+        "button",
+        "label",
+        "picture"
+      ],
+      "insertion_point": {
+        "POST_SOUTH": [0, 1, 0, 0],
+        "POST_PICTURE": [0, 0, 0, 1],
+        "POST_AVATAR_BADGE": [1, 0, 1, 0],
+        "POST_USERNAME_LABEL": [0, 0, 1, 0],
+        "POST_STARTER": [0, 1, 0, 0],
+        "PROFILE_AVATAR_BADGE": [1, 0, 0, 0],
+        "PROFILE_BUTTON_GROUP": [1, 1, 0, 0]
+      }
+    },
+    "additions": [
+      {
+        "type": "text",
+        "value": "`POST_STARTER` has a different structure:"
+      },
+      {
+        "type": "ts",
+        "value": "POST_STARTER: [{ label:'Add tweet to the Ethereum registry', exec: () => console.log('test'), }],"
+      },
+      {
+        "type": "text",
+        "value": "It doesn't need widgets and has two parameters: `label` and `exec`. Click on the button opens \"Starter\" layout with the button with the label from the dapplet. Click on this button runs the function from `exec`."
+      },
+      {
+        "type": "image",
+        "value": {
+          "link": "/img/a_twitter_12.png",
+          "alt": "Starter layout image"
+        }
+      }
+    ]
+  },
+  "events": [
+    {
+      "subtitle": "Profile",
+      "field_events": [
+        {
+          "name": "profile_changed",
+          "description": [
+            {
+              "type": "text",
+              "value": "Subscription on changing the viewed account."
+            },
+            {
+              "type": "text",
+              "value": "Takes a function:"
+            },
+            {
+              "type": "ts",
+              "value": "profile_changed: async (after, before) => { ... }"
+            },
+            {
+              "type": "text",
+              "value": "`before` contains data of the previous account, `after` contains data of the current account. They are of the same type:"
+            },
+            {
+              "type": "ts",
+              "value": "{ authorFullname: string; authorUsername: string; authorImg: string; }"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subtitle": "Tweet",
+      "field_events": [
+        {
+          "name": "like",
+          "description": [
+            {
+              "type": "text",
+              "value": "Subscription on liking the tweet."
+            },
+            {
+              "type": "text",
+              "value": "Takes a function:"
+            },
+            {
+              "type": "ts",
+              "value": "like: async (ctx) => { ... }"
+            }
+          ]
+        },
+        {
+          "name": "dislike",
+          "description": [
+            {
+              "type": "text",
+              "value": "Subscription on unliking the tweet."
+            },
+            {
+              "type": "text",
+              "value": "Takes a function:"
+            },
+            {
+              "type": "ts",
+              "value": "dislike: async (ctx) => { ... }"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "virtualAdapters": [
+    {
+      "name": "identity-adapter.dapplet-base.eth",
+      "versions": ["0.2.0"]
+    }
+  ]
+}
