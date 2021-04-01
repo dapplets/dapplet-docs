@@ -2,14 +2,21 @@ import React, { useEffect, useState } from 'react';
 import AtV050 from '/docs/at-v0.5.0.mdx';
 import CreateAdapter from '/src/CreateAdapter.jsx';
 
+let counter = 0;
+
+const versions = [
+  { name: 'v0_5_2', link: '/json/atV052.json' },
+  { name: 'v0_5_1', link: '/json/atV051.json' }
+];
+
 export default function TwitterAdapter() {
-  const [ver, setVer] = useState('atV051');
+  const [ver, setVer] = useState(versions[0].name);
 
   const handleChange = (e) => {
     e.preventDefault();
     setVer(e.target.value);
   };
-  
+
   useEffect(() => {
     const versions = document.querySelectorAll('.adVersion');
     versions.forEach(v => {
@@ -26,13 +33,18 @@ export default function TwitterAdapter() {
         value={ver}
         onChange={handleChange}
       >            
-        <option value="atV051">ver. 0.5.1</option>
+        {versions.map((version) => (
+          <option value={`${version.name}`} key={counter++}>
+            ver. {`${version.name.slice(1).split('_').join('.')}`}
+          </option>
+        ))}
         <option value="atV050">ver. 0.5.0</option>
       </select>
-
-      <div className="adVersion atV051" hidden={true}>
-        <CreateAdapter url="/src/atV051.json" />
-      </div>
+      {versions.map((version) => (
+        <div className={`adVersion ${version.name}`} hidden={true} key={counter++}>
+          <CreateAdapter url={version.link} />
+        </div>
+      ))}
       <div className="adVersion atV050" hidden={true}>
         <AtV050/>
       </div>
