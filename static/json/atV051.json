@@ -113,7 +113,14 @@
       },
       {
         "type": "ts",
-        "value": "POST_STARTER: [{ label:'Add tweet to the Ethereum registry', exec: () => console.log('test'), }],"
+        "value": [
+          "POST_STARTER: [",
+          "  {",
+          "    label: 'Add tweet to the Ethereum registry',",
+          "    exec: () => console.log('test'),",
+          "  }",
+          "]"
+        ]
       },
       {
         "type": "text",
@@ -145,7 +152,7 @@
             },
             {
               "type": "ts",
-              "value": "profile_changed: async (after, before) => { ... }"
+              "value": ["profile_changed: async (after, before) => { ... }"]
             },
             {
               "type": "text",
@@ -153,7 +160,13 @@
             },
             {
               "type": "ts",
-              "value": "{ authorFullname: string; authorUsername: string; authorImg: string; }"
+              "value": [
+                "{",
+                "  authorFullname: string;",
+                "  authorUsername: string;",
+                "  authorImg: string;",
+                "}"
+              ]
             }
           ]
         }
@@ -175,7 +188,7 @@
             },
             {
               "type": "ts",
-              "value": "like: async (ctx) => { ... }"
+              "value": ["like: async (ctx) => { ... }"]
             }
           ]
         },
@@ -192,7 +205,7 @@
             },
             {
               "type": "ts",
-              "value": "dislike: async (ctx) => { ... }"
+              "value": ["dislike: async (ctx) => { ... }"]
             }
           ]
         }
