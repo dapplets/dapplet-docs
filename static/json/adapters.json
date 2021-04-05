@@ -1,14 +1,11 @@
-[
-  {
-    "name": "v0_5_2",
-    "link": "/json/atV052.json"
-  },
-  {
-    "name": "v0_5_1",
-    "link": "/json/atV051.json"
-  },
-  {
-    "name": "v0_5_0",
-    "link": "/md/atV050.md"
+{
+  "twitter-adapter.dapplet-base.eth": {
+    "title": "Twitter adapter",
+    "versions": [
+      {
+        "version": "v0_5_1",
+        "link": "/json/atV051.json"
+      }
+    ]
   }
-]
+}

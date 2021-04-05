@@ -1,5 +1,6 @@
 {
   "title": "Twitter adapter",
+  "name_to_connect": "twitter-adapter.dapplet-base.eth",
   "about": "The Twitter adapter provides you with a high-level interface for embedding a series of widgets on top of Twitter. The adapter provides a set of widgets and insertion points for them. Within one dapplet, you can use multiple widgets and use them at the same or different insertion points.",
   "widgets": {
     "names": [

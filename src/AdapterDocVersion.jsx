@@ -19,7 +19,7 @@ ${value.join('\n')}
 
 `;
 
-export default function CreateAdapter(props) {
+export default function AdapterDocVersion(props) {
   const [adapterData, getData] = useState(false);
   const [docType, setDocType] = useState('');
   const cancelToken = axios.CancelToken;
@@ -30,7 +30,7 @@ export default function CreateAdapter(props) {
   let counter = 0;
 
   const addElOfType = {
-    text: (value) => <ReactMarkdown plugins={[gfm]} key={counter++}>{value}</ReactMarkdown>,
+    text: (value, elClass) => <ReactMarkdown plugins={[gfm]} key={counter++} className={elClass}>{value}</ReactMarkdown>,
     image: ({ link, alt }) => <img src={link} alt={alt} key={counter++} />,
     ts: (value) => <ReactMarkdown renderers={renderers} plugins={[gfm]} key={counter++}>{tsJsonParse(value)}</ReactMarkdown>,
   };
@@ -66,8 +66,12 @@ export default function CreateAdapter(props) {
     md: () => <ReactMarkdown renderers={renderers} plugins={[gfm]}>{adapterData}</ReactMarkdown>,
     json: () => (
       <>
+        <h2>Name to connect:</h2>
+        <ul>
+          <li>{adapterData.name_to_connect}</li>
+        </ul>
         <h2>About the {adapterData.title}</h2>
-        <p>{addElOfType.text(adapterData.about)}</p>
+        {addElOfType.text(adapterData.about)}
         <h2>Widgets</h2>
         <table>
           <thead>
@@ -81,11 +85,11 @@ export default function CreateAdapter(props) {
           <tbody>
             {Object.entries(adapterData.widgets.parameters).map(([param, { widgets, type, description }]) => (
               <tr key={counter++}>
-                <th>{addElOfType.text(`\`${param}\``)}</th>
+                <th>{addElOfType.text(`\`${param}\``, 'table-left')}</th>
                 {widgets.map((widget) => (
                   <th key={counter++}>{widget ? '✔️' : ''}</th>
                 ))}
-                <td>{addElOfType.text(`\`${type}\``)}</td>
+                <td>{addElOfType.text(`\`${type}\``, 'table-center')}</td>
                 <td>{description}</td>
               </tr>
             ))}
@@ -109,7 +113,7 @@ export default function CreateAdapter(props) {
           <tbody>
             {Object.entries(adapterData.instPoints.table.insertion_point).map(([instPoint, widgets]) => (
               <tr key={counter++}>
-                <td>{addElOfType.text(`\`${instPoint}\``)}</td>
+                <td>{addElOfType.text(`\`${instPoint}\``, 'table-left')}</td>
                 {widgets.map((widget) => (
                   <th key={counter++}>{widget ? '✔️' : ''}</th>
                 ))}

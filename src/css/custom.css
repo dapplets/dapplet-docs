@@ -95,17 +95,33 @@
   margin-bottom: var(--ifm-leading);
 }
 
-.versionSelector {
+.custom-btn {
   color: var(--ifm-navbar-link-hover-color);
   border: none;
   background: none;
   font-family: inherit;
   font-size: 1em;
-  margin-bottom: 2em;
   font-weight: bold;
+  cursor: pointer;
+  transition: color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
 }
 
-.versionSelector:hover {
+.custom-btn:hover {
   color: black;
   cursor: pointer;
 }
+
+.selector-btn {
+  margin-bottom: 2em;
+}
+
+.table-left > p {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.table-center > p {
+  margin-bottom: 0;
+  text-align: center;
+}
+
