@@ -28,6 +28,7 @@ module.exports = {
         'using-adapters',
         'twitter-adapter',
         'adapters-docs-list',
+        'create-adapter-doc',
       ],
       collapsed: false,
     },
