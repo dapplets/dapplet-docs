@@ -35,7 +35,7 @@ export default class TwitterFeature {
 ```
 
 The dapplet injects the button to every Tweet on a Twitter page below the main content,
-near the buttons "Like", "Retweet" etc. This insertion point is called [`POST_SOUTH`](/docs/twitter-adapter#-tweet).
+near the buttons "Like", "Retweet" etc. This insertion point is called `POST_SOUTH`.
 
 Before using the `button()` or/and other elements in `this.adapter.attachConfig()` it has to be received from `this.adapter.exports`.
 
@@ -44,7 +44,7 @@ But when you add several states you have to set the `initial` state as above.
 
 The `label`, `img` and `exec` are defined in the state. In this case `exec` takes the function that will be executed on button click.
 
-The whole **list of elements** for insertion **and insertion points** are defined in the adapter. The API of **twitter-adapter** you can find [here](/docs/twitter-adapter).
+The whole **list of elements** for insertion **and insertion points** are defined in the adapter. The API of **twitter-adapter** you can find [here](/docs/adapters-docs-list).
 
 In the first exercise we add counter to button's label.
 

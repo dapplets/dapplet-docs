@@ -41,7 +41,7 @@ export default function AllAdaptersDocs() {
     <>
       {adapters && (currentAdapter === '' ? (
         <>
-          <h1>Community adapters</h1>
+          <h1>Community-created adapters</h1>
           <ul>
             {Object.entries(adapters).map(([name, value]) => (
               <li value={name} key={counter++}>

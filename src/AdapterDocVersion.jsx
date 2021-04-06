@@ -68,7 +68,7 @@ export default function AdapterDocVersion(props) {
       <>
         <h2>Name to connect:</h2>
         <ul>
-          <li>{adapterData.name_to_connect}</li>
+          <li>{addElOfType.text(`\`${adapterData.name_to_connect}\``)}</li>
         </ul>
         <h2>About the {adapterData.title}</h2>
         {addElOfType.text(adapterData.about)}
@@ -147,8 +147,8 @@ export default function AdapterDocVersion(props) {
         <h2>Virtual Adapters</h2>
         <ul>
           {adapterData.virtualAdapters.map(({ name, versions }) => (
-            <li key={counter++}><strong>{name}: </strong>
-              {versions.map((version) => `ver. ${version}`).join(', ')}
+            <li key={counter++}>
+              {addElOfType.text(`\`${name}\`: `.concat(versions.map((version) => `ver. ${version}`).join(', ')))}
             </li>
           ))}
         </ul>

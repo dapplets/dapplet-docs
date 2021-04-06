@@ -19,8 +19,8 @@ module.exports = {
         {
           to: 'docs/',
           activeBasePath: 'docs',
-          label: 'Get Started',
-          position: 'left',
+          label: 'Docs',
+          position: 'right',
         },
         {
           href: 'https://github.com/dapplets/dapplet-extension',

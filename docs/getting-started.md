@@ -45,7 +45,7 @@ The list of our adapters are available now:
 - [identity-adapter.dapplet-base.eth](https://github.com/dapplets/dapplet-modules/tree/master/packages/identity-adapter) - virtual adapter (interface), which is an abstract of two adapters above;
 - [common-adapter.dapplet-base.eth](https://github.com/dapplets/dapplet-modules/tree/master/packages/common-adapter) - viewport adapter is universal adapter which contains generic insertion points and is compatible with any web-sites.
 
-> See for more [here.](/docs/twitter-adapter)
+> See for more [here.](/docs/adapters-docs-list)
 
 #### 7. Fill in `contextIds` section of the `dapplet.json` file.
 

@@ -26,7 +26,6 @@ module.exports = {
       label: 'Adapters API',
       items: [
         'using-adapters',
-        'twitter-adapter',
         'adapters-docs-list',
         'create-adapter-doc',
       ],

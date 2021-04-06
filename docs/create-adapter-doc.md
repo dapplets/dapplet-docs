@@ -4,25 +4,17 @@ sidebar_label: Creating adapter docs
 title: Creating documentation for the adapter
 ---
 
-Each adapter must be documented to be audited and available for production use. Adapter documentation should be in two parts:
+Each adapter must be documented to be audited and available for production use.
 
-### 1. Json file with the following structure:
+This website is built using [Docusaurus 2](https://v2.docusaurus.io/). Adapter docs should be written with Markdown and put to the root of your project as `dapplet-docs.md`:
 
-```json
-{
-  "your-adapter-name.eth": {
-    "title": "Your adapter title",
-    "versions": [
-      {
-        "version": "v0_1_0",
-        "link": "path_to_your_docs/your_docs.md"
-      }
-    ]
-  }
-}
+```bash
+my-adapter
+├── dapplet-docs.md
+...
 ```
 
-### 2. MarkDown (.md) file with your documentation. It should contain:
+It should contain:
 
   1. Adapter name.
   2. General information about the adapter.
@@ -31,4 +23,4 @@ Each adapter must be documented to be audited and available for production use. 
   5. Events (text, code).
   6. Supported virtual adapters.
 
-Look at the example [here](/docs/twitter-adapter)
+Look at the examples [here.](https://github.com/dapplets/dapplet-docs/blob/master/static/md/atV050.md)

@@ -7,7 +7,7 @@ title: How to connect a dapplet to an adapter?
 First you need to install **Dapplet extension** package using npm to your project:
 
 ```bash
-npm i @dapplets/dapplet-extension
+npm i -D @dapplets/dapplet-extension
 ```
 
 Then create the manifest **`/dapplet.json`**:
