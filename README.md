@@ -1,8 +1,16 @@
 # Documentation for Dapplet Platform
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ed167e76-865a-413e-ab75-bab553bc1ba9/deploy-status)](https://app.netlify.com/sites/dapplet-docs/deploys)
 
+Documentation for the Dapplet Platform. Includes instructions for using the [Dapplet Browser Extension](https://github.com/dapplets/dapplet-extension), [exercises](https://github.com/dapplets/dapplet-template) for creating dapplets and adapters for the platform, and documentation for community-created adapters.
+
+View at [docs.dapplets.org](https://docs.dapplets.org/)
 
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
+
+## Node Version
+
+You must use **node 14** or above. We recommend [nvm](https://github.com/nvm-sh/nvm).
 
 ## Installation
 
