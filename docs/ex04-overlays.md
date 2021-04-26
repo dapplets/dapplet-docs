@@ -226,3 +226,5 @@ Run the dapplet:
 npm i
 npm run start-react
 ```
+
+![video](/video/ex04-overlay.gif)
