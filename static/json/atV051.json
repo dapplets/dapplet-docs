@@ -46,6 +46,11 @@
         "type": "string",
         "description": "adds a postfix to **text**"
       },
+      "basic": {
+        "widgets": [0, 0, 1, 0, 0],
+        "type": "boolean",
+        "description": "default: false. By default there is a blue background. In case of true there is no background"
+      },
       "disabled": {
         "widgets": [0, 1, 1, 1, 0],
         "type": "boolean",
