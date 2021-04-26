@@ -18,6 +18,7 @@ module.exports = {
         'new-site-adapter',
         'new-viewport-adapter',
         'new-virtual-adapter',
+        'widgets-iterator',
       ],
       collapsed: false,
     },
