@@ -19,6 +19,7 @@ module.exports = {
         'new-viewport-adapter',
         'new-virtual-adapter',
         'widgets-iterator',
+        'new-overlay-interface',
       ],
       collapsed: false,
     },

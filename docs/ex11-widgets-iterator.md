@@ -97,7 +97,7 @@ export default class TwitterFeature {
 
 ```
 
-The complete code for this example can be found here: [ex11-widgets-iterator](https://github.com/dapplets/dapplet-template/tree/ex11-widgets-iterator).
+The complete code for this example can be found here: [ex11-widgets-iterator.](https://github.com/dapplets/dapplet-template/tree/ex11-widgets-iterator)
 
 Run the dapplet:
 
