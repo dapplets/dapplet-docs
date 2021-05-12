@@ -5,7 +5,7 @@ title: "Ex12: New Overlay Interface"
 
 The main advantage of the new interface is the deployment of the dapplet and overlay together.
 
-This example based on [Ex04: Overlays.](overlays)
+This example based on [Ex04: Overlays.](/docs/overlays)
 
 In the code of the **dapplet** change overlay argument `url` to `name`:
 
