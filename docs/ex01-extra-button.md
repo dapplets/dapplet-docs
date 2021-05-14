@@ -285,4 +285,8 @@ npm start
 
 Here is the result code of the example: [ex01.2-add-button-server-solution](https://github.com/dapplets/dapplet-template/tree/ex01.2-add-button-server-solution).
 
+In the browser:
+
+![video](/video/ex01-extra-button.gif)
+
 > If you don't know how to run the dapplet in a browser, see [Getting Started](/docs/getting-started#11-connect-the-development-server-to-dapplet-extension).
