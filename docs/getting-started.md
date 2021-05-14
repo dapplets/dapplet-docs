@@ -120,4 +120,4 @@ You will see your module in the list of development module. Here you can start d
 
 #### Here is an example:
 
-![video](/video/ex00-master.gif)
+![video](/video/ex00-2-master.gif)
