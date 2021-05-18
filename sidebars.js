@@ -20,6 +20,7 @@ module.exports = {
         'new-virtual-adapter',
         'widgets-iterator',
         'new-overlay-interface',
+        'dark-theme-support',
       ],
       collapsed: false,
     },
