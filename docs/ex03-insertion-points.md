@@ -15,10 +15,10 @@ import EXAMPLE_IMG from './icons/icon19.png';
 
 @Injectable
 export default class TwitterFeature {
-  constructor(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
-    @Inject('twitter-adapter.dapplet-base.eth') public adapter: any,
-  ) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
+  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any;
+  
+  activate() {
     // LP: 1. Get the element 'picture' from adapter
     const { button } = this.adapter.exports;
     // LP end
@@ -62,6 +62,7 @@ POST_PICTURE: [
     initial: 'DEFAULT',
     DEFAULT: {
       img: STAMP_IMG,
+      hidden: true,
     },
   }),
 ],
@@ -84,11 +85,13 @@ import BADGE_IMG from './icons/angry-smile19.png';
 
 @Injectable
 export default class TwitterFeature {
-  constructor(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
-    @Inject('twitter-adapter.dapplet-base.eth') public adapter: any,
-  ) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
+  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any;
+  
+  activate() {
+    // LP: 1. Get the element 'picture' from adapter
     const { button, picture } = this.adapter.exports;
+    // LP end
     const { $ } = this.adapter.attachConfig({
       POST_SOUTH: [
         button({
@@ -97,21 +100,26 @@ export default class TwitterFeature {
           DEFAULT: {
             label: 'FAKE',
             img: BADGE_IMG,
+            // LP: 3. Toggle the state “hidden/shown” of the picture on button click
             exec: (ctx) => {
               $(ctx, 'pic').hidden = !$(ctx, 'pic').hidden;
             },
+            // LP end
           },
         }),
       ],
+      // LP: 2. Add extra picture to POST_PICTURE
       POST_PICTURE: [
         picture({
           id: 'pic',
           initial: 'DEFAULT',
           DEFAULT: {
             img: STAMP_IMG,
+            hidden: true,
           },
         }),
       ],
+      // LP end
     });
   }
 }
@@ -125,5 +133,9 @@ Run the dapplet:
 npm i
 npm start
 ```
+
+In the browser:
+
+![video](/video/ex03-insertion-points.gif)
 
 > If you don't know how to run the dapplet in a browser, see [Getting Started](/docs/getting-started#11-connect-the-development-server-to-dapplet-extension).
