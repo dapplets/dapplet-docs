@@ -13,19 +13,30 @@ import EXAMPLE_IMG from './icons/icon19.png';
 
 @Injectable
 export default class TwitterFeature {
-  constructor(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
-    @Inject('twitter-adapter.dapplet-base.eth') public adapter: any,
-  ) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
+  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any;
+  
+  activate() {
+    // LP: 11. Use async method `Core.storage.get(serverUrl: string)` to get server url.
+
+    // LP End
+    // LP: 12. Take a connection with server. Use `Core.connect<{ param }>({ url })`.
+
+    // LP End
     const { button } = this.adapter.exports;
     this.adapter.attachConfig({
       POST_SOUTH: [
         button({
           initial: 'DEFAULT',
           DEFAULT: {
-            label: 'Injected Button',
             img: EXAMPLE_IMG,
+            // LP: 1. Add label with counter for it.
+
+            // LP end
+            // LP: 2. Listen for the button click - output into console.
+            //     3: Make counter incrementing on button click.
             exec: () => alert('Hello, World!'),
+            // LP end
           },
         }),
       ],
@@ -132,6 +143,9 @@ npm start
 
 Here is the code of this part of the example: [ex01.1-add-button-noserver-solution](https://github.com/dapplets/dapplet-template/tree/ex01.1-add-button-noserver-solution)
 
+In the browser:
+
+![video](/video/ex01-extra-button.gif)
 
 ## 2. Implement a server counter storage
 
@@ -184,14 +198,6 @@ counter[currentId].amount += 1;
 emitter.emit('attached', currentId);
 ```
 
-Install dependencies for the server.
-
-```bash
-cd server
-npm i
-cd ..
-```
-
 Add `serverUrl` to the dapplet's config.
 
 ```json
@@ -221,10 +227,10 @@ Add `serverUrl` to the dapplet's config.
 In `src/index.ts` use asynchronous method `Core.storage.get(serverUrl: string)` to get the server url.
 
 ```ts
-Core.storage.get('serverUrl').then((serverUrl) => {
-  // Put here the existing code of the constructor's body
-}
+const serverUrl = await Core.storage.get('serverUrl');
 ```
+
+Don't forget to make the **`activate`** method `async`.
 
 Take a connection with the server. Use `Core.connect<{ param }>({ url })`.
 
@@ -241,25 +247,33 @@ import EXAMPLE_IMG from './icons/smile19.png';
 
 @Injectable
 export default class TwitterFeature {
-  constructor(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
-    @Inject('twitter-adapter.dapplet-base.eth') public adapter: any,
-  ) {
-    Core.storage.get('serverUrl').then((serverUrl) => {
-      const { button } = this.adapter.exports;
-      const server = Core.connect<{ amount: string }>({ url: serverUrl });
-      this.adapter.attachConfig({
-        POST_SOUTH: [
-          button({
-            initial: 'DEFAULT',
-            DEFAULT: {
-              img: EXAMPLE_IMG,
-              label: server.amount,
-              exec: (ctx) => server.send('increment', ctx.id),
-            },
-          }),
-        ],
-      });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
+  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any;
+  
+  async activate() {
+    // LP: 11. Use async method `Core.storage.get(serverUrl: string)` to get server url.
+    const serverUrl = await Core.storage.get('serverUrl');
+    // LP End
+    // LP: 12. Take a connection with server. Use `Core.connect<{ param }>({ url })`.
+    const server = Core.connect<{ amount: string }>({ url: serverUrl });
+    // LP End
+    const { button } = this.adapter.exports;
+    this.adapter.attachConfig({
+      POST_SOUTH: [
+        button({
+          initial: 'DEFAULT',
+          DEFAULT: {
+            img: EXAMPLE_IMG,
+            // LP: 1. Add label with counter for it.
+            label: server.amount,
+            // LP end
+            // LP: 2. Listen for the button click - output into console.
+            //     3: Make counter incrementing on button click.
+            exec: (ctx) => server.send('increment', ctx.id),
+            // LP end
+          },
+        }),
+      ],
     });
   }
 }
@@ -271,9 +285,10 @@ To run the server and the dapplet at the same time in this example we use [Concu
 npm i -D concurrently
 ```
 
-In the package.json use the following script for `"start"`:
+In the package.json use the following script for `"start"` and `"postinstall"`:
 
 ```json
+"postinstall": "cd server && npm i",
 "start": "concurrently -c \"yellow,blue\" -n \"dapplet,server\" \"rollup -w --config rollup.config.js && cd server && node .\" \"cd server && node .\"",
 ```
 
@@ -287,6 +302,6 @@ Here is the result code of the example: [ex01.2-add-button-server-solution](http
 
 In the browser:
 
-![video](/video/ex01-extra-button.gif)
+![video](/video/ex01-2-extra-button-server.gif)
 
 > If you don't know how to run the dapplet in a browser, see [Getting Started](/docs/getting-started#11-connect-the-development-server-to-dapplet-extension).
