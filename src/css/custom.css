@@ -5,6 +5,9 @@
  * work well for content-centric websites.
  */
 
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #25c2a0;
@@ -15,6 +18,78 @@
   --ifm-color-primary-lighter: rgb(102, 212, 189);
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
+  --ifm-menu-color: #919191;
+  --doc-sidebar-width: 443px !important;
+  --ifm-menu-link-padding-horizontal: 0;
+  font-family: Roboto;
+  color: #747376;
+}
+
+.container {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.docItemContainer_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocItem- {
+  padding: 0 50px !important;
+}
+
+h1 {
+  font-family: Montserrat;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 64px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #2A2A2A;
+  padding-top: 60px;
+}
+
+.header {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.header__logo {
+  background-color: #2A2A2A;
+  border-radius: 999px;
+  width: 80px;
+  height: 80px;
+}
+
+.header__title {
+  margin: 15px 20px 0 20px;
+  font-family: Roboto;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #2A2A2A;
+}
+.header__description {
+  margin: 10px 20px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #919191;
+}
+
+.footer--dark {
+  --ifm-footer-background-color: #747376;
+  height: 300px;
+}
+
+.sidebar_src-theme-DocSidebar- {
+  height: initial !important;
+  padding-top: 0 !important;
 }
 
 .docusaurus-highlight-code-line {
@@ -22,6 +97,40 @@
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
+}
+
+.menu {
+  background-color: #F5F5F5;
+  padding: 0.5rem 50px !important;
+}
+
+.menu__link--active {
+  color: #2A2A2A;
+  background: initial !important;
+}
+
+.menu__list-item {
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 15px 0;
+}
+
+.menuLinkText_src-theme-DocSidebar- {
+  font-family: Montserrat;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #2A2A2A;
+  border-top: 1px solid #E3E3E3;
+  padding-top: 30px;
 }
 
 .adVersion {
