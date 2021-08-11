@@ -2,7 +2,7 @@ module.exports = {
   someSidebar: [
     {
       type: 'category',
-      label: 'Augmenatation System',
+      label: 'Getting Started',
       items: [
         'introduction',
         'installation',
@@ -11,7 +11,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Элементы Augmentation UI',
+      label: 'Exercises',
       items: [
         'exercises',
         'extra-button',

@@ -93,23 +93,23 @@ function DocSidebarItemCategory({
   return <li className={clsx('menu__list-item', {
     'menu__list-item--collapsed': collapsed
   })} key={label}>
-      <a className={clsx('menu__link', {
+    <a className={clsx('menu__link', {
       'menu__link--sublist': collapsible,
       'menu__link--active': collapsible && isActive,
       [styles.menuLinkText]: !collapsible
     })} onClick={collapsible ? handleItemClick : undefined} href={collapsible ? '#!' : undefined} {...props}>
-        {label}
-      </a>
-      <ul className="menu__list" ref={menuListRef} style={{
+      {label}
+    </a>
+    <ul className="menu__list" ref={menuListRef} style={{
       height: menuListHeight
     }} onTransitionEnd={() => {
       if (!collapsed) {
         handleMenuListHeight(false);
       }
     }}>
-        {items.map(childItem => <DocSidebarItem tabIndex={collapsed ? '-1' : '0'} key={childItem.label} item={childItem} onItemClick={onItemClick} collapsible={collapsible} activePath={activePath} />)}
-      </ul>
-    </li>;
+      {items.map(childItem => <DocSidebarItem tabIndex={collapsed ? '-1' : '0'} key={childItem.label} item={childItem} onItemClick={onItemClick} collapsible={collapsible} activePath={activePath} />)}
+    </ul>
+  </li>;
 }
 
 function DocSidebarItemLink({
@@ -125,7 +125,7 @@ function DocSidebarItemLink({
   } = item;
   const isActive = isActiveSidebarItem(item, activePath);
   return <li className="menu__list-item" key={label}>
-      <Link className={clsx('menu__link', {
+    <Link className={clsx('menu__link', {
       'menu__link--active': isActive
     })} to={href} {...isInternalUrl(href) ? {
       isNavLink: true,
@@ -135,9 +135,9 @@ function DocSidebarItemLink({
       target: '_blank',
       rel: 'noreferrer noopener'
     }} {...props}>
-        {label}
-      </Link>
-    </li>;
+      {label}
+    </Link>
+  </li>;
 }
 
 function DocSidebarItem(props) {
@@ -182,38 +182,38 @@ function DocSidebar({
     [styles.sidebarWithHideableNavbar]: hideOnScroll,
     [styles.sidebarHidden]: isHidden
   })}>
-      {hideOnScroll && <Logo tabIndex={-1} className={styles.sidebarLogo} />}
-      <div className={clsx('menu', 'menu--responsive', 'thin-scrollbar', styles.menu, {
+    {hideOnScroll && <Logo tabIndex={-1} className={styles.sidebarLogo} />}
+    <div className={clsx('menu', 'menu--responsive', 'thin-scrollbar', styles.menu, {
       'menu--show': showResponsiveSidebar,
       [styles.menuWithAnnouncementBar]: !isAnnouncementBarClosed && scrollY === 0
     })}>
-        <button aria-label={showResponsiveSidebar ? 'Close Menu' : 'Open Menu'} aria-haspopup="true" className="button button--secondary button--sm menu__button" type="button" onClick={() => {
+      <button aria-label={showResponsiveSidebar ? 'Close Menu' : 'Open Menu'} aria-haspopup="true" className="button button--secondary button--sm menu__button" type="button" onClick={() => {
         setShowResponsiveSidebar(!showResponsiveSidebar);
       }}>
-          {showResponsiveSidebar ? <span className={clsx(styles.sidebarMenuIcon, styles.sidebarMenuCloseIcon)}>
-              &times;
-            </span> : <IconMenu className={styles.sidebarMenuIcon} height={MOBILE_TOGGLE_SIZE} width={MOBILE_TOGGLE_SIZE} />}
-        </button>
-        
-        <div className="header">
-          <div className="header__logo"></div>
-          <div>
-            <div className="header__title">Augmentation System</div>
-            <div className="header__description">Dapplets Project Guideline</div>
-          </div>
+        {showResponsiveSidebar ? <span className={clsx(styles.sidebarMenuIcon, styles.sidebarMenuCloseIcon)}>
+          &times;
+        </span> : <IconMenu className={styles.sidebarMenuIcon} height={MOBILE_TOGGLE_SIZE} width={MOBILE_TOGGLE_SIZE} />}
+      </button>
+
+      <header className={styles.header}>
+        <div className={styles.img}></div>
+        <div className={styles.description}>
+          <h1 className={styles.title}>Augmentation System</h1>
+          <p className={styles.subtitle}>Dapplets Project Guideline</p>
         </div>
-        
-        <ul className="menu__list">
-          {sidebar.map(item => <DocSidebarItem key={item.label} item={item} onItemClick={e => {
+      </header>
+
+      <ul className="menu__list">
+        {sidebar.map(item => <DocSidebarItem key={item.label} item={item} onItemClick={e => {
           e.target.blur();
           setShowResponsiveSidebar(false);
         }} collapsible={sidebarCollapsible} activePath={path} />)}
-        </ul>
-      </div>
-      {hideableSidebar && <button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" className={clsx('button button--secondary button--outline', styles.collapseSidebarButton)} onClick={onCollapse}>
-          <IconArrow className={styles.collapseSidebarButtonIcon} />
-        </button>}
-    </div>;
+      </ul>
+    </div>
+    {hideableSidebar && <button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" className={clsx('button button--secondary button--outline', styles.collapseSidebarButton)} onClick={onCollapse}>
+      <IconArrow className={styles.collapseSidebarButtonIcon} />
+    </button>}
+  </div>;
 }
 
 export default DocSidebar;

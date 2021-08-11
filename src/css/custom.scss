@@ -1,12 +1,4 @@
-/* stylelint-disable docusaurus/copyright-header */
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
- @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@400;500;700&display=swap');
 
 /* You can override the default Infima variables here. */
 :root {
@@ -21,7 +13,9 @@
   --ifm-menu-color: #919191;
   --doc-sidebar-width: 443px !important;
   --ifm-menu-link-padding-horizontal: 0;
-  font-family: Roboto;
+  --ifm-navbar-height: 0;
+  
+  font-family: 'Roboto', sans-serif !important;
   color: #747376;
 }
 
@@ -35,7 +29,6 @@
 }
 
 h1 {
-  font-family: Montserrat;
   font-size: 64px;
   font-style: normal;
   font-weight: 500;
@@ -46,41 +39,6 @@ h1 {
   padding-top: 60px;
 }
 
-.header {
-  margin-top: 20px;
-  margin-bottom: 30px;
-  display: flex;
-}
-
-.header__logo {
-  background-color: #2A2A2A;
-  border-radius: 999px;
-  width: 80px;
-  height: 80px;
-}
-
-.header__title {
-  margin: 15px 20px 0 20px;
-  font-family: Roboto;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 26px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #2A2A2A;
-}
-.header__description {
-  margin: 10px 20px;
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #919191;
-}
 
 .footer--dark {
   --ifm-footer-background-color: #747376;
@@ -88,7 +46,6 @@ h1 {
 }
 
 .sidebar_src-theme-DocSidebar- {
-  height: initial !important;
   padding-top: 0 !important;
 }
 
@@ -100,37 +57,60 @@ h1 {
 }
 
 .menu {
-  background-color: #F5F5F5;
-  padding: 0.5rem 50px !important;
-}
-
-.menu__link--active {
-  color: #2A2A2A;
-  background: initial !important;
-}
-
-.menu__list-item {
-  font-family: Roboto;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0em;
-  text-align: left;
-  margin: 15px 0;
+  background: #F5F5F5;
+  padding: 20px 50px;
 }
 
 .menuLinkText_src-theme-DocSidebar- {
-  font-family: Montserrat;
-  font-size: 22px;
-  font-style: normal;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
+  font-size: 22px;
   line-height: 33px;
-  letter-spacing: 0em;
-  text-align: left;
   color: #2A2A2A;
-  border-top: 1px solid #E3E3E3;
+  padding: 0;
   padding-top: 30px;
+  border-top: 1px solid #E3E3E3;
+}
+
+.menu__link--sublist {
+ &::after {
+    content: none;
+  }
+
+}
+
+.menu__link+.menu__list .menu__link {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #919191;
+}
+
+.menu__link--active:not(.menu__link--sublist),
+.menu__link--active {
+  background-color: transparent;
+  color: #2A2A2A !important;
+}
+
+.menu > ul > li > a + ul {
+  margin-left: 0 !important;
+}
+
+.menu > ul > li > a + ul > li.menu__list-item {
+  margin-top: 24px;
+}
+
+.menu__link + .menu__list .menu__link {
+  padding: 3px;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.menu__list-item {
+  margin-bottom: 14px;
 }
 
 .adVersion {

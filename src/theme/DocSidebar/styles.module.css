@@ -49,7 +49,6 @@
 
   .menu {
     flex-grow: 1;
-    padding: 0.5rem;
   }
 
   .menuLinkText {
@@ -118,4 +117,40 @@
 
 :global(.menu__list-item--collapsed) :global(.menu__list) {
   height: 0px !important;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 29px;
+}
+
+.img {
+  width: 80px;
+  height: 80px;
+
+  background-image: url('../../../static/img/logo.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.description {
+  margin-left: 20px;
+}
+
+.title {
+  padding: 0;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  color: #2A2A2A;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 14px;
+  line-height: 14px;
+  color: #919191;
+  margin-bottom: 0;
 }

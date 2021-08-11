@@ -5,7 +5,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo.svg',
   organizationName: 'Dapplets', // Usually your GitHub org/user name.
   projectName: 'dapplet-extension', // Usually your repo name.
   themeConfig: {
@@ -78,16 +78,11 @@ module.exports = {
           editUrl:
             'https://github.com/dapplets/dapplet-docs',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/dapplets/dapplet-docs',
-        },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
       },
     ],
   ],
+  plugins: ['docusaurus-plugin-sass']
 };

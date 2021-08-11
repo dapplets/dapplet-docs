@@ -18,12 +18,14 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.0.0-beta3",
     "clsx": "^1.1.1",
+    "docusaurus-plugin-sass": "^0.2.1",
     "npm": "^7.9.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-markdown": "^5.0.3",
     "react-syntax-highlighter": "^15.4.3",
-    "remark-gfm": "^1.0.0"
+    "remark-gfm": "^1.0.0",
+    "sass": "^1.37.5"
   },
   "browserslist": {
     "production": [
