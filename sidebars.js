@@ -3,6 +3,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Getting Started',
+      collapsed: false,
       items: [
         'introduction',
         'installation',
@@ -12,6 +13,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Exercises',
+      collapsed: false,
       items: [
         'exercises',
         'extra-button',
@@ -28,28 +30,28 @@ module.exports = {
         'new-overlay-interface',
         'dark-theme-support',
       ],
-      collapsed: false,
     },
     {
       type: 'category',
       label: 'Adapters API',
+      collapsed: false,
       items: [
         'using-adapters',
         'adapters-docs-list',
         'create-adapter-doc',
       ],
-      collapsed: false,
     },
     {
       type: 'category',
+      collapsed: false,
       label: 'Development',
       items: [],
     },
     {
       type: 'category',
+      collapsed: false,
       label: 'Publishing',
       items: ['publishing'],
-      collapsed: false,
     },
     {
       type: 'category',

@@ -9,7 +9,7 @@ module.exports = {
   organizationName: 'Dapplets', // Usually your GitHub org/user name.
   projectName: 'dapplet-extension', // Usually your repo name.
   themeConfig: {
-    sidebarCollapsible: false,
+    sidebarCollapsible: true,
     navbar: {
       title: 'Dapplet Platform',
       logo: {

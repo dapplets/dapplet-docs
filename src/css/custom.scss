@@ -24,10 +24,6 @@
   margin: 0 !important;
 }
 
-.docItemContainer_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocItem- {
-  padding: 0 50px !important;
-}
-
 h1 {
   font-size: 64px;
   font-style: normal;
@@ -56,69 +52,9 @@ h1 {
   padding: 0 var(--ifm-pre-padding);
 }
 
-.menu {
-  background: #F5F5F5;
-  padding: 20px 50px;
-}
 
-.menuLinkText_src-theme-DocSidebar- {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 33px;
-  color: #2A2A2A;
-  padding: 0;
-  padding-top: 30px;
-  border-top: 1px solid #E3E3E3;
-
-  &:hover {
-    color: #2A2A2A;
-  }
-}
-
-.menu__link--sublist {
-  &::after {
-    content: none;
-  }
-}
-
-.menu__link+.menu__list .menu__link {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #919191;
-
-  &:hover {
-    color: #2A2A2A;
-  }
-}
-
-.menu__link--active:not(.menu__link--sublist),
-.menu__link--active {
-  background-color: transparent;
-  color: #2A2A2A !important;
-}
-
-.menu > ul > li > a + ul {
-  margin-left: 0 !important;
-}
-
-.menu > ul > li > a + ul > li.menu__list-item {
-  margin-top: 24px;
-}
-
-.menu__link + .menu__list .menu__link {
-  padding: 3px;
-
-  &:hover {
-    background-color: transparent;
-  }
-}
-
-.menu__list-item {
-  margin-bottom: 14px;
-}
+@import './menu';
+@import './doc';
 
 .adVersion {
   --ifm-h1-vertical-rhythm-top: 3;
