@@ -70,13 +70,16 @@ h1 {
   padding: 0;
   padding-top: 30px;
   border-top: 1px solid #E3E3E3;
+
+  &:hover {
+    color: #2A2A2A;
+  }
 }
 
 .menu__link--sublist {
- &::after {
+  &::after {
     content: none;
   }
-
 }
 
 .menu__link+.menu__list .menu__link {
@@ -85,6 +88,10 @@ h1 {
   font-size: 16px;
   line-height: 24px;
   color: #919191;
+
+  &:hover {
+    color: #2A2A2A;
+  }
 }
 
 .menu__link--active:not(.menu__link--sublist),
