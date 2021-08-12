@@ -114,8 +114,8 @@ export default (({
   }
 
   let language = languageClassName && // Force Prism's language union type to `any` because it does not contain all available languages
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  languageClassName.replace(/language-/, '');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    languageClassName.replace(/language-/, '');
 
   if (!language && prism.defaultLanguage) {
     language = prism.defaultLanguage;
@@ -175,51 +175,86 @@ export default (({
   };
 
   return <Highlight {...defaultProps} key={String(mounted)} theme={prismTheme} code={code} language={language}>
-      {({
+    {({
       className,
       style,
       tokens,
       getLineProps,
       getTokenProps
-    }) => <>
-          {codeBlockTitle && <div style={style} className={styles.codeBlockTitle}>
-              {codeBlockTitle}
-            </div>}
-          <div className={styles.codeBlockContent}>
-            <div
-        /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
-        tabIndex={0} className={clsx(className, styles.codeBlock, 'thin-scrollbar', {
-          [styles.codeBlockWithTitle]: codeBlockTitle
-        })}>
-              <div className={styles.codeBlockLines} style={style}>
-                {tokens.map((line, i) => {
-              if (line.length === 1 && line[0].content === '') {
-                line[0].content = '\n'; // eslint-disable-line no-param-reassign
-              }
+    }) => <React.Fragment>
+        {codeBlockTitle && (
+          <div style={style} className={styles.codeBlockTitle}>
+            {
+              <ul className={styles.codeBlockTitleList}>
+                {codeBlockTitle
+                  .split(' ')
+                  .map((titleOne) => {
+                    const activeTitleItem = titleOne.toLowerCase() === language.toLowerCase();
 
-              const lineProps = getLineProps({
-                line,
-                key: i
-              });
-
-              if (highlightLines.includes(i + 1)) {
-                lineProps.className = `${lineProps.className} docusaurus-highlight-code-line`;
-              }
-
-              return <div key={i} {...lineProps}>
-                      {line.map((token, key) => <span key={key} {...getTokenProps({
-                  token,
-                  key
-                })} />)}
-                    </div>;
-            })}
-              </div>
-            </div>
-
-            <button ref={button} type="button" aria-label="Copy code to clipboard" className={clsx(styles.copyButton)} onClick={handleCopyCode}>
+                    return (
+                      <li className={clsx(styles.codeBlockTitleItem, {
+                        [styles.codeBlockTitleItemActive]: activeTitleItem
+                      })} key={titleOne} >
+                        {titleOne}
+                      </li>
+                    )
+                  })
+                }
+              </ul>
+            }
+            <button ref={button}
+              type="button"
+              aria-label="Copy code to clipboard"
+              className={clsx(styles.copyButtonCustom)}
+              onClick={handleCopyCode}
+            >
               {showCopied ? 'Copied' : 'Copy'}
             </button>
           </div>
-        </>}
-    </Highlight>;
+        )}
+        <div className={styles.codeBlockContent}>
+          <div
+            /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
+            tabIndex={0} className={clsx(className, styles.codeBlock, 'thin-scrollbar', {
+              [styles.codeBlockWithTitle]: codeBlockTitle
+            })}>
+            <div className={styles.codeBlockLines} style={style}>
+              {tokens.map((line, i) => {
+                if (line.length === 1 && line[0].content === '') {
+                  line[0].content = '\n'; // eslint-disable-line no-param-reassign
+                }
+
+                const lineProps = getLineProps({
+                  line,
+                  key: i
+                });
+
+                if (highlightLines.includes(i + 1)) {
+                  lineProps.className = `${lineProps.className} docusaurus-highlight-code-line`;
+                }
+
+                return <div key={i} {...lineProps}>
+                  {line.map((token, key) => <span key={key} {...getTokenProps({
+                    token,
+                    key
+                  })} />)}
+                </div>;
+              })}
+            </div>
+          </div>
+
+          {!codeBlockTitle && (
+            <button ref={button}
+              type="button"
+              aria-label="Copy code to clipboard"
+              className={clsx(styles.copyButton)}
+              onClick={handleCopyCode}
+            >
+              {showCopied ? 'Copied' : 'Copy'}
+            </button>
+          )}
+        </div>
+      </React.Fragment>
+    }
+  </Highlight>;
 });
