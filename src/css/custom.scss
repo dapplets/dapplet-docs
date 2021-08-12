@@ -11,6 +11,7 @@
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
   --ifm-menu-color: #919191;
+  --ifm-container-width: 100%;
   --doc-sidebar-width: 443px !important;
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-navbar-height: 0;
@@ -18,6 +19,14 @@
   --ifm-toc-border-color: #E3E3E3;  
   --ifm-spacing-horizontal: 0;
   --ifm-link-color: #5241BF;
+  --ifm-code-background: #F5F5F5;
+  --ifm-code-font-size: 14px;
+  --ifm-font-family-monospace: 'Roboto', sans-serif;
+  --ifm-code-border-radius: 14px;
+  --ifm-code-padding-vertical: 7px; 
+  --ifm-code-padding-horizontal: 7px;
+  --ifm-code-color: var(--ifm-color-primary);
+
   font-family: 'Roboto', sans-serif !important;
   color: #747376;
 }
@@ -61,26 +70,8 @@ h1 {
 @import './toc-table';
 @import './ad-version';
 @import './row';
-
-.custom-btn {
-  color: var(--ifm-navbar-link-hover-color);
-  border: none;
-  background: none;
-  font-family: inherit;
-  font-size: 1em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
-}
-
-.custom-btn:hover {
-  color: black;
-  cursor: pointer;
-}
-
-.selector-btn {
-  margin-bottom: 2em;
-}
+@import './code';
+@import './custom-btn';
 
 .table-left > p {
   margin-bottom: 0;

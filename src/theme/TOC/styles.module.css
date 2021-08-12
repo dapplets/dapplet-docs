@@ -12,6 +12,7 @@
   overflow-y: auto;
   position: fixed;
   top: calc(var(--ifm-navbar-height) + 2rem);
+  padding-left: 0 !important;
 }
 
 @media only screen and (max-width: 996px) {

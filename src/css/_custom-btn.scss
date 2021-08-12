@@ -1,0 +1,19 @@
+.custom-btn {
+  color: var(--ifm-navbar-link-hover-color);
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.custom-btn:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.selector-btn {
+  margin-bottom: 2em;
+}

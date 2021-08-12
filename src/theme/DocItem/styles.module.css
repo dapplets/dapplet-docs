@@ -6,8 +6,14 @@
  */
 
 .docTitle {
-  font-size: 3rem;
-  margin-bottom: calc(var(--ifm-leading-desktop) * var(--ifm-leading));
+  margin-bottom: 40px;
+  padding-top: 150px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 64px;
+  color: #2A2A2A;
 }
 
 .docItemContainer {
@@ -17,7 +23,7 @@
 
 @media only screen and (min-width: 997px) {
   .docItemCol {
-    max-width: 75% !important;
+    max-width: 1020px !important;
   }
 }
 
