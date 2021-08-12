@@ -16,6 +16,8 @@
   --ifm-navbar-height: 0;
   --ifm-toc-link-color: #919191;
   --ifm-toc-border-color: #E3E3E3;  
+  --ifm-spacing-horizontal: 0;
+  --ifm-link-color: #5241BF;
   font-family: 'Roboto', sans-serif !important;
   color: #747376;
 }
@@ -58,6 +60,7 @@ h1 {
 @import './doc';
 @import './toc-table';
 @import './ad-version';
+@import './row';
 
 .custom-btn {
   color: var(--ifm-navbar-link-hover-color);
@@ -89,3 +92,4 @@ h1 {
   text-align: center;
 }
 
+// col docItemCol_node_modules-@docusaurus-theme-classic-lib-next-theme-DocItem-
