@@ -1,0 +1,30 @@
+.table-of-contents {
+	padding: 0
+}
+
+.table-of-contents__left-border {
+	border-left: 2px solid var(--ifm-toc-border-color);
+	border-radius: 2px;
+}
+
+.table-of-contents__link {
+	position: relative;
+	font-size: 16px;
+	line-height: 24px;
+
+	&::before {
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 2px;
+		background-color: var(--ifm-color-primary);
+		transition: opacity var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+		top: 0;
+		left: -10px;
+		opacity: 0;
+	}
+}
+
+.table-of-contents__link--active::before {
+	opacity: 1;
+}

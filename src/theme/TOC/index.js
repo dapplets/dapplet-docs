@@ -21,16 +21,22 @@ function Headings({
     return null;
   }
 
-  return <ul className={isChild ? '' : 'table-of-contents table-of-contents__left-border'}>
-      {toc.map(heading => <li key={heading.id}>
+  return (
+    <React.Fragment>
+      <p className={styles.contentTitle}>Contents</p>
+
+      <ul className={isChild ? '' : 'table-of-contents table-of-contents__left-border'}>
+        {toc.map(heading => <li key={heading.id}>
           <a href={`#${heading.id}`} className={LINK_CLASS_NAME} // Developer provided the HTML, so assume it's safe.
-      // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{
-        __html: heading.value
-      }} />
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: heading.value
+            }} />
           <Headings isChild toc={heading.children} />
         </li>)}
-    </ul>;
+      </ul>
+    </React.Fragment>
+  )
 }
 
 function TOC({
@@ -38,8 +44,8 @@ function TOC({
 }) {
   useTOCHighlight(LINK_CLASS_NAME, ACTIVE_LINK_CLASS_NAME, TOP_OFFSET);
   return <div className={clsx(styles.tableOfContents, 'thin-scrollbar')}>
-      <Headings toc={toc} />
-    </div>;
+    <Headings toc={toc} />
+  </div>;
 }
 
 export default TOC;

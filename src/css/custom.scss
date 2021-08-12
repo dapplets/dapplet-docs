@@ -2,7 +2,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary: #2A2A2A;
   --ifm-color-primary-dark: rgb(33, 175, 144);
   --ifm-color-primary-darker: rgb(31, 165, 136);
   --ifm-color-primary-darkest: rgb(26, 136, 112);
@@ -14,7 +14,8 @@
   --doc-sidebar-width: 443px !important;
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-navbar-height: 0;
-  
+  --ifm-toc-link-color: #919191;
+  --ifm-toc-border-color: #E3E3E3;  
   font-family: 'Roboto', sans-serif !important;
   color: #747376;
 }
@@ -55,77 +56,8 @@ h1 {
 
 @import './menu';
 @import './doc';
-
-.adVersion {
-  --ifm-h1-vertical-rhythm-top: 3;
-  --ifm-h2-vertical-rhythm-top: 2;
-  --ifm-h3-vertical-rhythm-top: 1.5;
-  --ifm-heading-vertical-rhythm-top: 1.25;
-
-  --ifm-h1-vertical-rhythm-bottom: 1.25;
-  --ifm-heading-vertical-rhythm-bottom: 1;
-}
-.adVersion:before {
-  content: '';
-  display: table;
-}
-
-.adVersion:after {
-    clear: both;
-    content: '';
-    display: table;
-  }
-.adVersion > *:first-child {
-  margin-top: 0 !important;
-}
-
-.adVersion > *:last-child {
-  margin-bottom: 0 !important;
-}
-
-.adVersion > h1 {
-  --ifm-h1-font-size: 3rem;
-
-  margin-bottom: calc(
-    var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading)
-  );
-  margin-top: calc(var(--ifm-h1-vertical-rhythm-top) * var(--ifm-leading));
-}
-
-.adVersion > h2 {
-  --ifm-h2-font-size: 2rem;
-
-  margin-bottom: calc(
-    var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
-  );
-  margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading));
-}
-
-.adVersion > h3 {
-  --ifm-h3-font-size: 1.5rem;
-
-  margin-bottom: calc(
-    var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
-  );
-  margin-top: calc(var(--ifm-h3-vertical-rhythm-top) * var(--ifm-leading));
-}
-
-.adVersion > h4,
-.adVersion > h5,
-.adVersion > h6 {
-  margin-bottom: calc(
-    var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
-  );
-  margin-top: calc(
-    var(--ifm-heading-vertical-rhythm-top) * var(--ifm-leading)
-  );
-}
-
-.adVersion > pre,
-.adVersion > ul,
-.adVersion > p {
-  margin-bottom: var(--ifm-leading);
-}
+@import './toc-table';
+@import './ad-version';
 
 .custom-btn {
   color: var(--ifm-navbar-link-hover-color);
