@@ -1,6 +1,11 @@
 .menu {
+  position: relative;
   background: #F5F5F5;
   padding: 20px 50px;
+}
+
+.menu > .menu__list {
+  margin-top: 29px;
 }
 
 .menu > ul > li > a.menu__link.menu__link--sublist {
@@ -63,4 +68,42 @@
 
 .menu__list-item {
   margin-bottom: 14px;
+}
+
+// Mobile Menu
+.menu .menu__button {
+  position: absolute;
+  top: 45px;
+  bottom: auto;
+  right: 50px;
+  background-color: transparent;
+  border: none;
+
+  span {
+    font-size: 2rem;
+    color: var(--ifm-link-color);
+  }
+
+  svg {
+    width: 30px;
+    height: 30px;
+
+    path {
+      stroke: var(--ifm-link-color);
+    }
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .menu {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    overflow-y: hidden;
+  }
+
+  .menu > .menu__list {
+    height: 100%;
+    overflow-x: auto;
+  }
 }
