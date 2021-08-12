@@ -10,6 +10,26 @@ module.exports = {
   projectName: 'dapplet-extension', // Usually your repo name.
   themeConfig: {
     sidebarCollapsible: true,
+    prism: {
+      /**
+       * -- POSSIBLE OPTIONS --
+       * dracula       
+       * github	      
+       * nightOwlLight  
+       * palenight	     
+       * ultramin
+       * duotoneDark   
+       * oceanicNext    
+       * shadesOfPurple  
+       * vsDark 
+       * duotoneLight  
+       * nightOwl	      
+       * okaidia	    
+       * synthwave84     
+       * vsLight
+       */
+      theme: require('prism-react-renderer/themes/vsLight'),
+    },
     navbar: {
       title: 'Dapplet Platform',
       logo: {

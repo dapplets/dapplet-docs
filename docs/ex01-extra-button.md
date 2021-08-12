@@ -7,7 +7,7 @@ The initial code for this example is here: [ex01-add-button-exercise](https://gi
 
 The **basic template** for `your_dapplet/src/index.ts` looks like this:
 
-```ts
+```ts title="HTML CSS TS"
 import {} from '@dapplets/dapplet-extension';
 import EXAMPLE_IMG from './icons/icon19.png';
 
@@ -240,6 +240,7 @@ const server = Core.connect<{ amount: string }>({ url: serverUrl });
 
 The console calls and the alert are no longer needed, so you can remove them.
 The result is like this
+
 
 ```ts
 import {} from '@dapplets/dapplet-extension';
