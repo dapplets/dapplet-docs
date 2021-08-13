@@ -184,32 +184,7 @@ export default (({
     }) => <React.Fragment>
         {codeBlockTitle && (
           <div style={style} className={styles.codeBlockTitle}>
-            {
-              <ul className={styles.codeBlockTitleList}>
-                {codeBlockTitle
-                  .split(' ')
-                  .map((titleOne) => {
-                    const activeTitleItem = titleOne.toLowerCase() === language.toLowerCase();
-
-                    return (
-                      <li className={clsx(styles.codeBlockTitleItem, {
-                        [styles.codeBlockTitleItemActive]: activeTitleItem
-                      })} key={titleOne} >
-                        {titleOne}
-                      </li>
-                    )
-                  })
-                }
-              </ul>
-            }
-            <button ref={button}
-              type="button"
-              aria-label="Copy code to clipboard"
-              className={clsx(styles.copyButtonCustom)}
-              onClick={handleCopyCode}
-            >
-              {showCopied ? 'Copied' : 'Copy'}
-            </button>
+            {codeBlockTitle}
           </div>
         )}
         <div className={styles.codeBlockContent}>

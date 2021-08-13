@@ -7,7 +7,7 @@ The initial code for this example is here: [ex01-add-button-exercise](https://gi
 
 The **basic template** for `your_dapplet/src/index.ts` looks like this:
 
-```ts title="HTML CSS TS"
+```ts
 import {} from '@dapplets/dapplet-extension';
 import EXAMPLE_IMG from './icons/icon19.png';
 
