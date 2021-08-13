@@ -15,9 +15,17 @@
 		font-size: 16px;
 		line-height: 24px;
 		text-decoration-line: underline;
-		color: #5241BF;
+		color: var(--ifm-code-copy-color);
 		margin-left: auto;
 		opacity: 1;
+
+		&:hover {
+			color: var(--ifm-code-copy-color-hover);
+			
+			&::before {
+				background-image: url('../../static/img/copy-icon-hover.png');
+			}
+		}
 		
 		&::before {
 			content: '';

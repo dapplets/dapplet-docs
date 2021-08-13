@@ -28,6 +28,8 @@
   --ifm-code-color: var(--ifm-color-primary);
   --ifm-mardown-paragraph-color: #747376;
   --ifm-pre-padding: 20px;
+  --ifm-code-copy-color: #747376;
+  --ifm-code-copy-color-hover: #5241BF;
 
   font-family: 'Roboto', sans-serif !important;
   color: #747376;
@@ -76,7 +78,6 @@ h1 {
 @import './custom-btn';
 @import './markdown';
 @import './tabs';
-@import './copy-button-custom';
 
 .table-left > p {
   margin-bottom: 0;
