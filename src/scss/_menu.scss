@@ -82,6 +82,7 @@
   span {
     font-size: 2rem;
     color: var(--ifm-link-color);
+    font-weight: 400;
   }
 
   svg {
@@ -106,5 +107,26 @@
   .menu > .menu__list {
     height: 100%;
     overflow-x: auto;
+  }
+}
+
+@media screen and (max-width: 520px){
+
+  .menu {
+    padding: 10px 20px;
+    
+    &.menu--show {
+      padding-bottom: 80px;
+    }
+  }
+
+  .menu .menu__button {
+    top: 18px;
+    right: 0px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
   }
 }
