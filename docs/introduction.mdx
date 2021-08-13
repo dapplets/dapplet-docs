@@ -1,0 +1,57 @@
+---
+id: introduction
+title: Welcome!
+slug: /
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="js"
+  values={[
+    { label: 'JavaScript', value: 'js', },
+    { label: 'Python', value: 'py', },
+    { label: 'TypeScript', value: 'typescript', },
+  ]
+}>
+<TabItem value="js">
+
+```js
+function helloWorld() {
+  console.log('Hello, world!');
+}
+```
+
+</TabItem>
+<TabItem value="py">
+
+```py
+def hello_world():
+  print 'Hello, world!'
+```
+
+</TabItem>
+<TabItem value="typescript">
+
+```typescript
+export defalt function sayHello (value: string) {
+  return value;
+}
+```
+
+</TabItem>
+</Tabs>
+
+Hello and welcome to the Dapplet Platform! We are very happy to have you here with us!
+
+Dapplets is a protocol for permissionless, decentralized and unstoppable Augmented Web.
+
+## Installation
+
+Don't have Dapplets installed yet? Head over to the [Installation](/docs/installation) section to get Dapplets up and running on your computer.
+
+## Quick start
+
+To make the simpliest dapplet from the template and run it in development mode
+go to [Getting started](/docs/getting-started).

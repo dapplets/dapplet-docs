@@ -18,6 +18,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.0.0-beta3",
     "clsx": "^1.1.1",
+    "docusaurus-plugin-fontloader": "^1.0.0",
     "docusaurus-plugin-sass": "^0.2.1",
     "npm": "^7.9.0",
     "react": "^16.8.4",

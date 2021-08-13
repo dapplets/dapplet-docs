@@ -83,10 +83,10 @@ function Tabs(props) {
   };
 
   return <div>
-      <ul role="tablist" aria-orientation="horizontal" className={clsx('tabs', {
+    <ul role="tablist" aria-orientation="horizontal" className={clsx('tabs', {
       'tabs--block': block
     }, className)}>
-        {values.map(({
+      {values.map(({
         value,
         label
       }) => <li role="tab" tabIndex={0} aria-selected={selectedValue === value} className={clsx('tabs__item', styles.tabItem, {
@@ -96,19 +96,19 @@ function Tabs(props) {
       }} onFocus={() => changeSelectedValue(value)} onClick={() => {
         changeSelectedValue(value);
       }}>
-            {label}
-          </li>)}
-      </ul>
+          {label}
+        </li>)}
+    </ul>
 
-      {lazy ? cloneElement(children.filter(tabItem => tabItem.props.value === selectedValue)[0], {
+    {lazy ? cloneElement(children.filter(tabItem => tabItem.props.value === selectedValue)[0], {
       className: 'margin-vert--md'
     }) : <div className="margin-vert--md">
-          {children.map((tabItem, i) => cloneElement(tabItem, {
+      {children.map((tabItem, i) => cloneElement(tabItem, {
         key: i,
         hidden: tabItem.props.value !== selectedValue
       }))}
-        </div>}
-    </div>;
+    </div>}
+  </div>;
 }
 
 export default Tabs;

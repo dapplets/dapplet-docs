@@ -1,0 +1,58 @@
+// --- Consolas ----
+@font-face {
+    font-family: 'Consolas';
+    src: local('Consolas Regular'), local('Consolas-Regular'),
+        url('../../static/fonts/consolas/Consolas.woff2') format('woff2'),
+        url('../../static/fonts/consolas/Consolas.woff') format('woff'),
+        url('../../static/fonts/consolas/Consolas.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+	/* --- ROBOTO --- */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../../static/fonts/roboto/roboto-v27-latin_cyrillic-regular.woff2') format('woff2'), 
+       url('../../static/fonts/roboto/roboto-v27-latin_cyrillic-regular.woff') format('woff'); 
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+       url('../../static/fonts/roboto/roboto-v27-latin_cyrillic-500.woff2') format('woff2'), 
+       url('../../static/fonts/roboto/roboto-v27-latin_cyrillic-500.woff') format('woff'); 
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('../../static/fonts/roboto/roboto-v27-latin_cyrillic-700.woff2') format('woff2'), 
+       url('../../static/fonts/roboto/roboto-v27-latin_cyrillic-700.woff') format('woff'); 
+}
+
+/* --- MONTSERRAT --- */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../../static/fonts/montserrat/montserrat-v17-latin_cyrillic-regular.woff2') format('woff2'), 
+       url('../../static/fonts/montserrat/montserrat-v17-latin_cyrillic-regular.woff') format('woff'); 
+}
+
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+       url('../../static/fonts/montserrat/montserrat-v17-latin_cyrillic-500.woff2') format('woff2'), 
+       url('../../static/fonts/montserrat/montserrat-v17-latin_cyrillic-500.woff') format('woff'); 
+}

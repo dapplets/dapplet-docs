@@ -1,9 +1,16 @@
+@import './mixins';
+
 .markdown {
 	& > p {
 		font-size: 16px;
 		line-height: 24px;
 		color: var(--ifm-mardown-paragraph-color);
 		margin-bottom: 23px;
+	}
+
+	.margin-vert--md {
+		margin-top: 0 !important;
+		@include copyButtonCustom;
 	}
 
 	h2,

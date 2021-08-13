@@ -1,0 +1,36 @@
+@mixin copyButtonCustom {
+	
+	.copy-button-custom {
+		position: absolute;
+		top: -43px;
+		right: 13px;
+		background: transparent;
+		border: none;
+		color: var(--ifm-link-color);
+		cursor: pointer;
+		user-select: none;
+		padding: 8px 13px;
+		transition: opacity 200ms ease-in-out;
+
+		font-size: 16px;
+		line-height: 24px;
+		text-decoration-line: underline;
+		color: #5241BF;
+		margin-left: auto;
+		opacity: 1;
+		
+		&::before {
+			content: '';
+			position: absolute;
+			background-image: url('../../static/img/copy-icon.png');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 18px;
+			height: 18px;
+			top: 50%;
+			transform: translateY(-50%);
+			left: -15px;
+		}
+	}
+}

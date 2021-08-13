@@ -218,16 +218,15 @@ export default (({
             </div>
           </div>
 
-          {!codeBlockTitle && (
-            <button ref={button}
-              type="button"
-              aria-label="Copy code to clipboard"
-              className={clsx(styles.copyButton)}
-              onClick={handleCopyCode}
-            >
-              {showCopied ? 'Copied' : 'Copy'}
-            </button>
-          )}
+
+          <button ref={button}
+            type="button"
+            aria-label="Copy code to clipboard"
+            className={clsx(styles.copyButton, 'copy-button-custom')}
+            onClick={handleCopyCode}
+          >
+            {showCopied ? 'Copied' : 'Copy'}
+          </button>
         </div>
       </React.Fragment>
     }

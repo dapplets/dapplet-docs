@@ -28,7 +28,7 @@ module.exports = {
        * synthwave84     
        * vsLight
        */
-      theme: require('prism-react-renderer/themes/vsLight'),
+      theme: require('./src/theme/custom-theme-code'),
     },
     navbar: {
       title: 'Dapplet Platform',
@@ -99,10 +99,10 @@ module.exports = {
             'https://github.com/dapplets/dapplet-docs',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.scss'),
+          customCss: require.resolve('./src/scss/custom.scss'),
         },
       },
     ],
   ],
-  plugins: ['docusaurus-plugin-sass']
+  plugins: ['docusaurus-plugin-sass', 'docusaurus-plugin-fontloader']
 };
