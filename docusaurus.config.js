@@ -51,41 +51,131 @@ module.exports = {
       ],
     },
     footer: {
-      style: 'dark',
       links: [
+
+        // 1 Coll
         {
-          title: 'Dapplets',
+          title: 'Getting Started',
           items: [
             {
-              label: 'Dapplets',
-              to: 'https://dapplets.org',
-            }
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Telegram',
-              href: 'https://t.me/dapplets',
-            }
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              href: 'https://dapplets.org/publications.html'
+              label: 'Welcome!',
+              to: '/docs',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/dapplets/dapplet-extension',
+              label: 'Installation',
+              to: 'docs/installation',
+            },
+            {
+              label: 'Getting Started',
+              to: 'docs/getting-started',
+            },
+          ],
+        },
+
+        // 2 Coll
+        {
+          title: 'Exercises',
+          items: [
+            {
+              label: 'About exercises!',
+              to: '/docs/exercises',
+            },
+            {
+              label: 'Ex01: Extra button',
+              to: '/docs/extra-button',
+            },
+            {
+              label: 'Ex02: State machine',
+              to: '/docs/state-machine',
+            },
+            {
+              label: 'Ex03: Insertion points',
+              to: '/docs/insertion-points',
+            },
+            {
+              label: 'Ex04: Overlays',
+              to: '/docs/overlays',
+            },
+            {
+              label: 'Ex05: Wallet',
+              to: '/docs/wallet',
+            },
+            {
+              label: 'Ex06: Viewport adapter',
+              to: '/docs/viewport-adapter',
+            },
+            {
+              label: 'Ex07: Virtual adapter (interface)',
+              to: '/docs/virtual-adapter-int',
+            },
+            {
+              label: 'Ex08: New Site specific adapter',
+              to: 'docs/new-site-adapter',
+            },
+            {
+              label: 'Ex09: New Viewport adapter',
+              to: '/docs/new-viewport-adapter',
+            },
+            {
+              label: 'Ex10: New Virtual adapter (interface)',
+              to: '/docs/new-virtual-adapter',
+            },
+            {
+              label: 'Ex11: Widgets Iterator',
+              to: '/docs/widgets-iterator',
+            },
+            {
+              label: 'Ex12: New Overlay Interface',
+              to: '/docs/new-overlay-interface',
+            },
+            {
+              label: 'Ex 13: Dark theme support',
+              to: '/docs/dark-theme-support',
+            },
+          ],
+        },
+
+        // 3 Coll
+        {
+          title: 'Adapters API',
+          items: [
+            {
+              label: 'Using adapters',
+              to: '/docs/using-adapters',
+            },
+            {
+              label: 'Community-created adapters',
+              to: 'docs/adapters-docs-list',
+            },
+            {
+              label: 'Creating adapter docs',
+              to: 'docs/create-adapter-doc',
+            },
+          ],
+        },
+
+        // 4 Coll
+        {
+          title: 'Publishing',
+          items: [
+            {
+              label: 'Publishing',
+              to: 'docs/publishing',
+            },
+          ],
+        },
+
+        // 5 Coll
+        {
+          title: 'Join Us',
+          items: [
+            {
+              label: 'Community',
+              to: 'docs/community',
             },
           ],
         },
       ],
-      copyright: `Copyleft © ${new Date().getFullYear()}`,
     },
   },
   presets: [

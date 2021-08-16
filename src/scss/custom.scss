@@ -30,6 +30,12 @@
   --ifm-pre-padding: 20px;
   --ifm-code-copy-color: #747376;
   --ifm-code-copy-color-hover: #5241BF;
+  --ifm-footer-background-color: #747376;
+  --ifm-footer-title-color: #E3E3E3;
+  --ifm-footer-link-color: #fff;
+  --ifm-footer-padding-vertical: 50px;
+  --ifm-footer-padding-horizontal: 100px;
+  --ifm-footer-link-hover: #8B7DE8;
 
   font-family: 'Roboto', sans-serif !important;
   color: #747376;
@@ -52,13 +58,9 @@ h1 {
 }
 
 
-.footer--dark {
-  --ifm-footer-background-color: #747376;
-  height: 300px;
-}
-
-.sidebar_src-theme-DocSidebar- {
-  padding-top: 0 !important;
+.footer {
+  min-height: 375px;
+  height: 100%;
 }
 
 .docusaurus-highlight-code-line {
@@ -78,6 +80,7 @@ h1 {
 @import './custom-btn';
 @import './markdown';
 @import './tabs';
+@import './footer';
 
 .table-left > p {
   margin-bottom: 0;
