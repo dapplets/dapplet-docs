@@ -1,0 +1,41 @@
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2A2A2A;
+  --ifm-color-primary-dark: rgb(33, 175, 144);
+  --ifm-color-primary-darker: rgb(31, 165, 136);
+  --ifm-color-primary-darkest: rgb(26, 136, 112);
+  --ifm-color-primary-light: rgb(70, 203, 174);
+  --ifm-color-primary-lighter: rgb(102, 212, 189);
+  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-code-font-size: 95%;
+  --ifm-menu-color: #919191;
+  --ifm-container-width: 100%;
+  --doc-sidebar-width: 443px !important;
+  --ifm-menu-link-padding-horizontal: 0;
+  --ifm-navbar-height: 0;
+  --ifm-toc-link-color: #919191;
+  --ifm-toc-border-color: #E3E3E3;  
+  --ifm-spacing-horizontal: 0;
+  --ifm-link-color: #5241BF;
+  --ifm-code-background: #F5F5F5;
+  --ifm-code-font-size: 14px;
+  --ifm-font-family-monospace: 'Consolas';
+  --ifm-code-border-radius: 14px;
+  --ifm-code-padding-vertical: 7px; 
+  --ifm-code-padding-horizontal: 7px;
+  --ifm-code-color: var(--ifm-color-primary);
+  --ifm-mardown-paragraph-color: #747376;
+  --ifm-pre-padding: 20px;
+  --ifm-code-copy-color: #747376;
+  --ifm-code-copy-color-hover: #5241BF;
+  --ifm-footer-background-color: #747376;
+  --ifm-footer-title-color: #E3E3E3;
+  --ifm-footer-link-color: #fff;
+  --ifm-footer-padding-vertical: 50px;
+  --ifm-footer-padding-horizontal: 100px;
+  --ifm-footer-link-hover: #8B7DE8;
+
+  font-family: 'Roboto', sans-serif !important;
+  color: #747376;
+}
+

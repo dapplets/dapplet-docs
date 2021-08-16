@@ -68,3 +68,46 @@
 .footerBottomItem:hover .footerBottomIcon > path:first-child {
   fill: #fff;
 }
+
+
+@media screen and (max-width: 1640px) {
+	.footerLeftContainer {
+    max-width: 100%;
+    display: flex;
+  }
+
+  .footerLeftText {
+    max-width: 400px;
+    margin-left: 100px;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+	.footerLeftContainer {
+	  justify-content: center;
+    margin-right: 0;
+	}
+}
+
+
+@media screen and (max-width: 871px) {
+  .footerLeftContainer {
+    max-width: 400px;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .footerLeftText {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .footerBottomContainer {
+    flex-direction: column-reverse;
+  }
+
+  .footerBottomCopyright {
+    margin-top: 20px;
+  }
+}

@@ -36,3 +36,10 @@
 .docLastUpdatedAt {
   font-weight: bold;
 }
+
+@media screen and (max-width: 420px) {
+  .docTitle {
+    font-size: 44px;
+    line-height: 44px;
+  }
+}
