@@ -12,13 +12,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 import logoFooter from '../../../static/img/logo-footer.svg';
 
-import emailLogo from '../../../static/img/email-icon.svg';
-import discordLogo from '../../../static/img/discord-icon.svg';
-import officialSiteLogo from '../../../static/img/official-site.svg';
-import telegramLogo from '../../../static/img/telegram-icon.svg';
-import youtubeLogo from '../../../static/img/youtube-icon.svg';
-
-import DocusaurusSvg from '../../../static/img/logo.svg';
 import { DiscordIcon } from '../../components/icons/DiscordIcon';
 import { TelegramIcon } from '../../components/icons/TelegramIcon';
 import { EmailIcon } from '../../components/icons/EmailIcon';
