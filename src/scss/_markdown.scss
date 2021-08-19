@@ -11,6 +11,10 @@
 	.margin-vert--md {
 		margin-top: 0 !important;
 		@include copyButtonCustom;
+
+		.code-block-raduis {
+			border-radius: 0 0 var(--ifm-global-radius) var(--ifm-global-radius);
+		}
 	}
 
 	h1 {
