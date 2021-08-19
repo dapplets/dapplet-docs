@@ -3,13 +3,44 @@ id: getting-started
 title: Getting Started
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 To run the simpliest dapplet, follow this steps.
 
 #### 1. Clone [Dapplet Template](https://github.com/dapplets/dapplet-template) repository locally.
 
+<Tabs
+  defaultValue="ssh"
+  values={[
+    { label: 'SSH', value: 'ssh', },
+    { label: 'HTTPS', value: 'https', },
+    { label: 'GitHub CLI', value: 'cli', },
+  ]
+}>
+<TabItem value="ssh">
+
 ```bash
 git clone git@github.com:dapplets/dapplet-template.git
 ```
+
+</TabItem>
+<TabItem value="https">
+
+```bash
+git clone https://github.com/dapplets/dapplet-template.git
+```
+
+</TabItem>
+<TabItem value="cli">
+
+```bash
+gh repo clone dapplets/dapplet-template
+```
+
+</TabItem>
+</Tabs>
+
 
 #### 2. Change module name from "dapplet-template.dapplet-base.eth" to yours in `package.json` file.
 
