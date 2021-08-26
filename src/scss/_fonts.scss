@@ -47,7 +47,6 @@
        url('../../static/fonts/montserrat/montserrat-v17-latin_cyrillic-regular.woff') format('woff'); 
 }
 
-
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
@@ -55,4 +54,13 @@
   src: local(''),
        url('../../static/fonts/montserrat/montserrat-v17-latin_cyrillic-500.woff2') format('woff2'), 
        url('../../static/fonts/montserrat/montserrat-v17-latin_cyrillic-500.woff') format('woff'); 
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('../../static/fonts/montserrat/montserrat-v18-latin_cyrillic-700.woff2') format('woff2'), 
+       url('../../static/fonts/montserrat/montserrat-v18-latin_cyrillic-700.woff') format('woff');
 }

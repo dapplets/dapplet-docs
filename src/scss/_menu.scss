@@ -1,7 +1,7 @@
 .menu {
   position: relative;
   background: #F5F5F5;
-  padding: 22px 18px;
+  padding: 20px;
 }
 
 .menu > .menu__list {
@@ -15,14 +15,12 @@
   line-height: 33px;
   color: #2A2A2A;
   margin-bottom: 9px;
-  padding-top: 24px;
+  padding-top: 16px;
   border-top: 1px solid #E3E3E3;
 
   pointer-events: none;
 }
 .menu__link--sublist {
-
-
   &::after {
     content: none;
   }
@@ -129,4 +127,8 @@
       height: 24px;
     }
   }
+}
+
+.menu__list > .menu__list-item:nth-child(1) > .menu__link.menu__link--sublist {
+  padding-top: 6px;
 }
