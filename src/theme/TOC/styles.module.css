@@ -32,3 +32,12 @@
   line-height: 33px;
   color: #747376;
 }
+
+.TOCBlock {
+  transition: opacity var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+  opacity: 1;
+}
+
+.hide {
+  opacity: 0;
+}
