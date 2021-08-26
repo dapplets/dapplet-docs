@@ -6,13 +6,13 @@
  */
 
 .tableOfContents {
-  margin-top: 80px;
+  margin-top: 42px;
   display: inherit;
   max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
   overflow-y: auto;
   position: fixed;
   top: calc(var(--ifm-navbar-height) + 2rem);
-  padding-left: 0 !important;
+  padding-left: 75px !important;
 }
 
 @media only screen and (max-width: 996px) {
@@ -31,6 +31,7 @@
   font-size: 22px;
   line-height: 33px;
   color: #747376;
+  margin-bottom: 12px;
 }
 
 .TOCBlock {
