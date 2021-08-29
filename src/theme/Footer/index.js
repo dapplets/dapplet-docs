@@ -72,20 +72,19 @@ function Footer () {
     return null;
   }
 
-  return <footer className={clsx('footer', {
-    'footer--dark': footer.style === 'dark'
-  })}>
+  return <footer className={clsx('footer', { 'footer--dark': footer.style === 'dark' })}>
+
     <div className="container footer__wrapper">
 
       {/* FOOTER CUSTOM TOP */}
-      <div className={styles.footerCustomTop}>
-        <img src={logoFooter} alt="Dapplets" />
+      <div className="footer-custom-top">
+        <img src={logoFooter} alt="Dapplets" className="footer-custom-top-logo" />
 
-        <ul className={styles.footerCustomSocials}>
+        <ul className="footer-custom-socials">
           {
             footerSocials.map(({ id, ...item }) => {
               return (
-                <li className={styles.footerCustomSocial} key={id}>
+                <li className="footer-custom-social" key={id}>
                   <FooterBottomItem {...item} />
                 </li>
               );
@@ -95,7 +94,7 @@ function Footer () {
       </div>
       {/* FOOTER CUSTOM END */}
 
-      <span className={styles.footerLine} />
+      <span className="footer-custom-line" />
 
       {links && links.length > 0 && <div className="row footer__links">
         {links.map((linkItem, i) => <div key={i} className="col footer__col">
@@ -128,19 +127,21 @@ function Footer () {
     </div>
 
     {/* FOOTER CUSTOM BOTTOM */}
-    <div className={styles.footerCustomBottom}>
-      <span className={styles.footerCopyright}>
-        @ 2019-{new Date().getFullYear()} Dapplets Project
-      </span>
+    <div className='footer-custom-bottom footer__bottom'>
+      <div className="footer__wrapper">
+        <span className="footer-custom-copyright">
+          @ 2019-{new Date().getFullYear()} Dapplets Project
+        </span>
 
-      <ul className={styles.footerCustomLinks}>
-        <li className={styles.footerCustomLink}>
-          <a href="#" target="_blank">Privacy Policy</a>
-        </li>
-        <li className={styles.footerCustomLink}>
-          <a href="#" target="_blank">Terms & Conditions</a>
-        </li>
-      </ul>
+        <ul className="footer-custom-links">
+          <li className="footer-custom-link">
+            <a href="#" target="_blank">Privacy Policy</a>
+          </li>
+          <li className="footer-custom-link">
+            <a href="#" target="_blank">Terms & Conditions</a>
+          </li>
+        </ul>
+      </div>
     </div>
     {/* FOOTER CUSTOM BOTTOM END */}
 
