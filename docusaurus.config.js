@@ -13,19 +13,19 @@ module.exports = {
     prism: {
       /**
        * -- POSSIBLE OPTIONS --
-       * dracula       
-       * github	      
-       * nightOwlLight  
-       * palenight	     
+       * dracula
+       * github
+       * nightOwlLight
+       * palenight
        * ultramin
-       * duotoneDark   
-       * oceanicNext    
-       * shadesOfPurple  
-       * vsDark 
-       * duotoneLight  
-       * nightOwl	      
-       * okaidia	    
-       * synthwave84     
+       * duotoneDark
+       * oceanicNext
+       * shadesOfPurple
+       * vsDark
+       * duotoneLight
+       * nightOwl
+       * okaidia
+       * synthwave84
        * vsLight
        */
       theme: require('./src/theme/custom-theme-code'),
@@ -55,123 +55,102 @@ module.exports = {
 
         // 1 Coll
         {
-          title: 'Getting Started',
-          items: [
-            {
-              label: 'Welcome!',
-              to: '/docs',
-            },
-            {
-              label: 'Installation',
-              to: 'docs/installation',
-            },
-            {
-              label: 'Getting Started',
-              to: 'docs/getting-started',
-            },
-          ],
+          title: 'Home',
+          items: [],
         },
 
         // 2 Coll
         {
-          title: 'Exercises',
+          title: 'Dapplets Store',
           items: [
             {
-              label: 'About exercises!',
-              to: '/docs/exercises',
+              label: 'Category 1',
+              href: '#1'
             },
             {
-              label: 'Ex01: Extra button',
-              to: '/docs/extra-button',
+              label: 'Category 2',
+              href: '#2'
             },
             {
-              label: 'Ex02: State machine',
-              to: '/docs/state-machine',
+              label: 'Category 3',
+              href: '#3'
             },
             {
-              label: 'Ex03: Insertion points',
-              to: '/docs/insertion-points',
-            },
-            {
-              label: 'Ex04: Overlays',
-              to: '/docs/overlays',
-            },
-            {
-              label: 'Ex05: Wallet',
-              to: '/docs/wallet',
-            },
-            {
-              label: 'Ex06: Viewport adapter',
-              to: '/docs/viewport-adapter',
-            },
-            {
-              label: 'Ex07: Virtual adapter (interface)',
-              to: '/docs/virtual-adapter-int',
-            },
-            {
-              label: 'Ex08: New Site specific adapter',
-              to: 'docs/new-site-adapter',
-            },
-            {
-              label: 'Ex09: New Viewport adapter',
-              to: '/docs/new-viewport-adapter',
-            },
-            {
-              label: 'Ex10: New Virtual adapter (interface)',
-              to: '/docs/new-virtual-adapter',
-            },
-            {
-              label: 'Ex11: Widgets Iterator',
-              to: '/docs/widgets-iterator',
-            },
-            {
-              label: 'Ex12: New Overlay Interface',
-              to: '/docs/new-overlay-interface',
-            },
-            {
-              label: 'Ex 13: Dark theme support',
-              to: '/docs/dark-theme-support',
+              label: 'Category 4',
+              href: '#4'
             },
           ],
         },
 
         // 3 Coll
         {
-          title: 'Adapters API',
+          title: 'Join Us',
           items: [
             {
-              label: 'Using adapters',
-              to: '/docs/using-adapters',
+              label: 'Owner ',
+              href: '#5'
             },
             {
-              label: 'Community-created adapters',
-              to: 'docs/adapters-docs-list',
+              label: 'Lister',
+              href: '#6'
             },
             {
-              label: 'Creating adapter docs',
-              to: 'docs/create-adapter-doc',
+              label: 'Developer',
+              href: '#7'
+            },
+            {
+              label: 'Auditor',
+              href: '#8'
             },
           ],
         },
 
         // 4 Coll
         {
-          title: 'Publishing',
+          title: 'About Dapplets',
           items: [
             {
-              label: 'Publishing',
-              to: 'docs/publishing',
+              label: 'Our Mission ',
+              href: '#'
+            },
+            {
+              label: 'Motivation',
+              href: '#9'
+            },
+            {
+              label: 'Developer',
+              href: '#11'
+            },
+            {
+              label: 'Strategy',
+              href: '#12'
+            },
+            {
+              label: 'Project News',
+              href: '#13'
+            },
+            {
+              label: 'FAQ',
+              href: '#14'
+            },
+            {
+              label: 'Career at Dapplets',
+              href: '#15'
             },
           ],
         },
 
         // 5 Coll
         {
-          title: 'Join Us',
+          title: 'Forum',
           items: [
             {
-              label: 'Community',
-              to: 'docs/community',
+              label: 'Menu  Item 1',
+              href: '#21'
+            },
+            {
+              label: 'Menu  Item 2',
+              href: '#22'
             },
           ],
         },

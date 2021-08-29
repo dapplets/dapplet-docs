@@ -5,109 +5,65 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-.footerLogoLink {
-  opacity: 0.5;
-  transition: opacity var(--ifm-transition-fast) var(--ifm-transition-timing-default);
-}
-
-.footerLogoLink:hover {
-  opacity: 1;
-}
-
-.footerLeftContainer {
-  max-width: 400px;
-	margin-right: 100px;
-}
-
-.footerLeftText {
-  margin-top: 40px;
-  font-size: 16px;
-  line-height: 24px;
-  color: #FFFFFF;
-}
-
-.footerBottomContainer {
-  background-color: #2A2A2A;
-  padding: 13px var(--ifm-footer-padding-horizontal);
-
+.footerCustomTop {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
 }
-
-.footerBottomCopyright {
-  font-size: 16px;
-  color: #E3E3E3;
-}
-
-.footerBottomList {
-  padding-left: 0;
+.footerCustomSocials {
   list-style: none;
-  display: flex;
-  align-items: center;
+  padding-left: 0;
   margin-bottom: 0;
-}
-
-.footerBottomItem {
-  cursor: pointer;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.footerBottomItem:not(:last-child) {
+.footerCustomSocial {
+  transition: opacity var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.footerCustomSocial:hover path {
+  fill: var(--ifm-color-primary);
+}
+
+.footerCustomSocial:not(:last-child) {
   margin-right: 20px;
 }
 
-.footerBottomIcon path {
-  transition: fill var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+.footerLine {
+  display: block;
+  margin: 20px 0;
+  width: 100%;
+  height: 1px;
+  background: #FFFFFF;
 }
 
-.footerBottomItem:hover .footerBottomIcon > path:first-child {
-  fill: #fff;
+.footerCustomBottom {
+  padding: 28px var(--ifm-footer-padding-horizontal);
+  background-color: #303636;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-
-@media screen and (max-width: 1640px) {
-	.footerLeftContainer {
-    max-width: 100%;
-    display: flex;
-  }
-
-  .footerLeftText {
-    max-width: 400px;
-    margin-left: 100px;
-  }
+.footerCopyright,
+.footerCustomLink a {
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
 }
 
-@media screen and (max-width: 1250px) {
-	.footerLeftContainer {
-	  justify-content: center;
-    margin-right: 0;
-	}
+.footerCustomLinks {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  display: flex;
 }
 
-
-@media screen and (max-width: 871px) {
-  .footerLeftContainer {
-    max-width: 400px;
-    flex-direction: column;
-    margin: 0 auto;
-  }
-
-  .footerLeftText {
-    margin-left: 0;
-  }
+.footerCustomLink:not(:last-child) {
+  margin-right: 40px;
 }
 
-@media screen and (max-width: 635px) {
-  .footerBottomContainer {
-    flex-direction: column-reverse;
-  }
-
-  .footerBottomCopyright {
-    margin-top: 20px;
-  }
+.footerCustomLink a {
+  text-decoration-line: underline;
 }
