@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 .footerCustomSocials {
   list-style: none;
   padding-left: 0;
@@ -23,7 +24,7 @@
 }
 
 .footerCustomSocial:hover path {
-  fill: var(--ifm-color-primary);
+  fill: var(--ifm-link-color);;
 }
 
 .footerCustomSocial:not(:last-child) {
@@ -66,4 +67,8 @@
 
 .footerCustomLink a {
   text-decoration-line: underline;
+}
+
+.footerCustomLink:hover a {
+  color: var(--ifm-link-color);
 }

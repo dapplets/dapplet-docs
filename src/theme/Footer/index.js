@@ -135,15 +135,15 @@ function Footer () {
 
       <ul className={styles.footerCustomLinks}>
         <li className={styles.footerCustomLink}>
-          <a href="#">Privacy Policy</a>
+          <a href="#" target="_blank">Privacy Policy</a>
         </li>
         <li className={styles.footerCustomLink}>
-          <a href="#">Terms & Conditions</a>
+          <a href="#" target="_blank">Terms & Conditions</a>
         </li>
       </ul>
     </div>
-
     {/* FOOTER CUSTOM BOTTOM END */}
+
   </footer>;
 }
 
