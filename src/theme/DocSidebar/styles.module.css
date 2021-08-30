@@ -135,22 +135,20 @@
 }
 
 .description {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
-.title {
-  padding: 0;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 26px;
-  color: #2A2A2A;
-  margin-bottom: 12px;
+.title path {
+  fill: var(--ifm-color-primary);
 }
 
 .subtitle {
-  font-size: 14px;
-  line-height: 14px;
-  color: #919191;
+  color: var(--ifm-color-primary);
+  margin-top: -11px;
+  font-size: 16px;
+  line-height: 24px;
+
+  letter-spacing: 0.145em;
   margin-bottom: 0;
 }
 

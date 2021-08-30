@@ -17,6 +17,8 @@ import Logo from '@theme/Logo';
 import IconArrow from '@theme/IconArrow';
 import IconMenu from '@theme/IconMenu';
 import styles from './styles.module.css';
+import { LogoText } from '../../components/icons/LogoText';
+
 const MOBILE_TOGGLE_SIZE = 24;
 
 function usePrevious(value) {
@@ -198,8 +200,8 @@ function DocSidebar({
       <header className={styles.header}>
         <div className={styles.img}></div>
         <div className={styles.description}>
-          <h1 className={styles.title}>Augmentation System</h1>
-          <p className={styles.subtitle}>Dapplets Project Guideline</p>
+          <LogoText className={styles.title} />
+          <p className={styles.subtitle}>Augmentation System</p>
         </div>
       </header>
 

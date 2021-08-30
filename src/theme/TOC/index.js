@@ -4,7 +4,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
 import useTOCHighlight from '@theme/hooks/useTOCHighlight';
 import styles from './styles.module.css';
@@ -17,12 +17,41 @@ function Headings({
   toc,
   isChild
 }) {
+  const [hide, setHide] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(observerCallback, { threshold: 0.5 });
+    if (toc.length >= 1) startObserver(observer)
+
+    return () => {
+      disconnectObserver(observer);
+    }
+  }, [toc.length]);
+
+  const startObserver = useCallback((observer) => {
+    const footer = document.querySelector('footer');
+    observer.observe(footer);
+  }, [])
+
+  function observerCallback(entries) {
+    entries.forEach(isIntersecting);
+  }
+
+  function isIntersecting(entry) {
+    if (entry.isIntersecting) setHide(true);
+    else setHide(false);
+  }
+
+  function disconnectObserver(observer) {
+    observer.disconnect();
+  }
+
   if (!toc.length) {
     return null;
   }
 
   return (
-    <React.Fragment>
+    <div className={clsx(styles.TOCBlock, { [styles.hide]: hide })}>
       <p className={styles.contentTitle}>Contents</p>
 
       <ul className={isChild ? '' : 'table-of-contents table-of-contents__left-border'}>
@@ -35,7 +64,7 @@ function Headings({
           <Headings isChild toc={heading.children} />
         </li>)}
       </ul>
-    </React.Fragment>
+    </div>
   )
 }
 
