@@ -7,7 +7,7 @@ module.exports = {
       items: [
         'introduction',
         'installation',
-        // 'getting-started',
+        'getting-started',
       ]
     },
     {
