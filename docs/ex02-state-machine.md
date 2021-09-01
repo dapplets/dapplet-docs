@@ -22,7 +22,7 @@ export default class TwitterFeature {
   activate() {
     const { button } = this.adapter.exports;
     this.adapter.attachConfig({
-      POST_SOUTH: [
+      POST: () => [
         button({
           initial: 'DEFAULT',
           DEFAULT: {
@@ -44,7 +44,7 @@ export default class TwitterFeature {
 
 Firstly add another state with a different badge to the button.
 
-```ts
+```typescript
 ANOTHER: {
   label: 'FAKE!!!',
   img: ANGRY_BADGE_IMG,
