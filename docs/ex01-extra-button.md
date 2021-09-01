@@ -3,7 +3,8 @@ id: extra-button
 title: "Ex01: Extra button"
 ---
 
-The initial code for this example is here: [ex01-add-button-exercise](https://github.com/dapplets/dapplet-template/tree/ex01-add-button-exercise).
+The initial code for this example is
+here: [ex01-add-button-exercise](https://github.com/dapplets/dapplet-template/tree/ex01-add-button-exercise).
 
 The **basic template** for `your_dapplet/src/index.ts` looks like this:
 
@@ -15,7 +16,7 @@ import EXAMPLE_IMG from './icons/icon19.png';
 export default class TwitterFeature {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
   @Inject('twitter-adapter.dapplet-base.eth') public adapter: any;
-  
+
   activate() {
     // LP: 11. Use async method `Core.storage.get(serverUrl: string)` to get server url.
 
@@ -25,7 +26,7 @@ export default class TwitterFeature {
     // LP End
     const { button } = this.adapter.exports;
     this.adapter.attachConfig({
-      POST_SOUTH: [
+      POST: () => [
         button({
           initial: 'DEFAULT',
           DEFAULT: {
@@ -45,17 +46,59 @@ export default class TwitterFeature {
 }
 ```
 
-The dapplet injects the button to every Tweet on a Twitter page below the main content,
-near the buttons "Like", "Retweet" etc. This insertion point is called `POST_SOUTH`.
+The dapplet injects the button to every Tweet on a Twitter page below the main content, near the buttons "Like", "
+Retweet" etc. This insertion point is called `POST: () => []`. This is a function that returns an array or dapplet.
 
-Before using the `button()` or/and other elements in `this.adapter.attachConfig()` it has to be received from `this.adapter.exports`.
+```typescript
+POST:  () => [button({ ... })] 
+```
 
-This button has only one state - `'DEFAULT'`. In this case you can choose not to set the initial state and delete this field.
+or
+
+```typescript
+POST: () => button({})
+```
+
+Before using the `button()` or/and other elements in `this.adapter.attachConfig()` it has to be received
+from `this.adapter.exports`.
+
+This button has only one state - `'DEFAULT'`. In this case you can choose not to set the initial state and delete this
+field.
+
+```typescript
+ button({
+  DEFAULT: {
+    img: EXAMPLE_IMG,
+    exec: () => alert('Hello, World!'),
+  },
+})
+```
+
 But when you add several states you have to set the `initial` state as above.
 
-The `label`, `img` and `exec` are defined in the state. In this case `exec` takes the function that will be executed on button click.
+```typescript
+button({
+  initial: 'FIRST_STATE', // SECOND_STATE
 
-The whole **list of elements** for insertion **and insertion points** are defined in the adapter. The API of **twitter-adapter** you can find [here](/docs/adapters-docs-list).
+  // First state button
+  FIRST_STATE: {
+    img: LIKE_IMG,
+    exec: () => alert('Hello, World!'),
+  },
+
+  // Second state button
+  SECOND_STATE: {
+    img: DISLIKE_IMG,
+    exec: () => alert('Hello, World!'),
+  }
+})
+```
+
+The `label`, `img` and `exec` are defined in the state. In this case `exec` takes the function that will be executed on
+button click.
+
+The whole **list of elements** for insertion **and insertion points** are defined in the adapter. The API of **
+twitter-adapter** you can find [here](/docs/adapters-docs-list).
 
 In the first exercise we add counter to button's label.
 
@@ -73,7 +116,7 @@ Listen for the button click - output into console.
 exec: async (ctx, me) => {
   console.log(ctx);
   console.log(me);
-  ...
+...
 }
 ```
 
@@ -88,8 +131,7 @@ Make the counter incrementing on the button click.
 me.label += 1;
 ```
 
-Implement the ability to set the User Settings properties of the dapplet
-at its layout in the browser.
+Implement the ability to set the User Settings properties of the dapplet at its layout in the browser.
 
 ![Dapptet's User Settings](/img/ex01_1.jpg)
 
@@ -141,7 +183,8 @@ npm start
 
 > If you don't know how to run the dapplet in a browser, see [Getting Started](/docs/getting-started#11-connect-the-development-server-to-dapplet-extension).
 
-Here is the code of this part of the example: [ex01.1-add-button-noserver-solution](https://github.com/dapplets/dapplet-template/tree/ex01.1-add-button-noserver-solution)
+Here is the code of this part of the
+example: [ex01.1-add-button-noserver-solution](https://github.com/dapplets/dapplet-template/tree/ex01.1-add-button-noserver-solution)
 
 In the browser:
 
@@ -238,9 +281,7 @@ Take a connection with the server. Use `Core.connect<{ param }>({ url })`.
 const server = Core.connect<{ amount: string }>({ url: serverUrl });
 ```
 
-The console calls and the alert are no longer needed, so you can remove them.
-The result is like this
-
+The console calls and the alert are no longer needed, so you can remove them. The result is like this
 
 ```ts
 import {} from '@dapplets/dapplet-extension';
@@ -250,7 +291,7 @@ import EXAMPLE_IMG from './icons/smile19.png';
 export default class TwitterFeature {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
   @Inject('twitter-adapter.dapplet-base.eth') public adapter: any;
-  
+
   async activate() {
     // LP: 11. Use async method `Core.storage.get(serverUrl: string)` to get server url.
     const serverUrl = await Core.storage.get('serverUrl');
@@ -260,7 +301,7 @@ export default class TwitterFeature {
     // LP End
     const { button } = this.adapter.exports;
     this.adapter.attachConfig({
-      POST_SOUTH: [
+      POST: () => [
         button({
           initial: 'DEFAULT',
           DEFAULT: {
@@ -280,7 +321,8 @@ export default class TwitterFeature {
 }
 ```
 
-To run the server and the dapplet at the same time in this example we use [Concurrently](https://www.npmjs.com/package/concurrently):
+To run the server and the dapplet at the same time in this example we
+use [Concurrently](https://www.npmjs.com/package/concurrently):
 
 ```bash
 npm i -D concurrently
@@ -299,7 +341,9 @@ Run the dapplet in your terminal
 npm start
 ```
 
-Here is the result code of the example: [ex01.2-add-button-server-solution](https://github.com/dapplets/dapplet-template/tree/ex01.2-add-button-server-solution).
+Here is the result code of the
+example: [ex01.2-add-button-server-solution](https://github.com/dapplets/dapplet-template/tree/ex01.2-add-button-server-solution)
+.
 
 In the browser:
 
