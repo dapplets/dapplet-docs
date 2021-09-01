@@ -13,7 +13,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Exercises',
-      collapsed: false,
+      collapsed: true,
       items: [
         'exercises',
         'extra-button',
@@ -34,7 +34,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Adapters API',
-      collapsed: false,
+      collapsed: true,
       items: [
         'using-adapters',
         'adapters-docs-list',
@@ -43,13 +43,13 @@ module.exports = {
     },
     {
       type: 'category',
-      collapsed: false,
+      collapsed: true,
       label: 'Development',
       items: [],
     },
     {
       type: 'category',
-      collapsed: false,
+      collapsed: true,
       label: 'Publishing',
       items: ['publishing'],
     },
@@ -57,7 +57,7 @@ module.exports = {
       type: 'category',
       label: 'Join Us',
       items: ['community'],
-      collapsed: false,
+      collapsed: true,
     },
   ],
 };
