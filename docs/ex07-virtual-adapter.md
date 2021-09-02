@@ -7,7 +7,7 @@ Task: change twitter adapter to **identity** adapter and check it on Twitter and
 
 The initial code for this example is in [master.](https://github.com/dapplets/dapplet-template/tree/master)
 
-Change twitter adapter to **identity** adapter in `config/dapplet.json` with a right version:
+Change twitter adapter to **identity** adapter in `/dapplet.json` with a right version:
 
 ```json
 {
