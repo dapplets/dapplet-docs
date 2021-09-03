@@ -3,7 +3,7 @@ id: viewport-adapter
 title: "Ex06: Viewport adapter"
 ---
 
-Task: change twitter adapter to **common** adapter and check it on Twitter.
+Task: change twitter adapter to **common** adapter and check it on Twitter and Dapplets.org
 
 The initial code for this example is in [master](https://github.com/dapplets/dapplet-template/tree/master).
 
