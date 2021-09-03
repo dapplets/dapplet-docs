@@ -73,7 +73,7 @@ function DocItem(props) {
         {permalink && <link rel="canonical" href={siteUrl + permalink} />}
       </Head>
 
-      <div className="row">
+      <div className="row doc-custom-wrapper">
         <div className={clsx('col', {
         [styles.docItemCol]: !hideTableOfContents
       })}>
@@ -130,9 +130,12 @@ function DocItem(props) {
             </div>
           </div>
         </div>
-        {!hideTableOfContents && DocContent.toc && <div className="col col--3">
+        {(!hideTableOfContents && DocContent.toc.length > 0)
+          ? (<div className="col col--3">
             <TOC toc={DocContent.toc} />
-          </div>}
+          </div>)
+          : null
+        }
       </div>
     </>;
 }
