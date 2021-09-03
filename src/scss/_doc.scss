@@ -1,5 +1,14 @@
 .container > .row > .col > div {
-	padding: 0 86px;
+	padding: 0 30px;
+}
+
+.main-wrapper main {
+	overflow: hidden;
+}
+
+.doc-custom-wrapper {
+	max-width: 1360px;
+	margin: 0 auto;
 }
 
 @media screen and (max-width: 420px) {
