@@ -11,24 +11,7 @@ import { useThemeConfig } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 import logoFooter from '../../../static/img/logo-footer.svg';
-
-import GitHubIcon from "../../components/icons/GitHubIcon";
-import DiscordIcon from "../../components/icons/DiscordIcon";
-import TelegramIcon from "../../components/icons/TelegramIcon";
-import MediumIcon from "../../components/icons/MediumIcon";
-import TwitterIcon from "../../components/icons/TwitterIcon";
-import FacebookIcon from "../../components/icons/FacebookIcon";
-import MailIcon from "../../components/icons/MailIcon";
-
-const footerSocials = [
-  { id: 0, component: <GitHubIcon />, href: 'https://github.com/dapplets', type: 'link' },
-  { id: 1, component: <DiscordIcon />, href: 'https://discord.gg/YcxbkcyjMV ', type: 'link' },
-  { id: 2, component: <TelegramIcon />, href: 'https://t.me/dapplets ', type: 'link' },
-  { id: 3, component: <MediumIcon />, href: '', type: 'link' },
-  { id: 4, component: <TwitterIcon />, href: '', type: 'link' },
-  { id: 5, component: <FacebookIcon />, href: '', type: 'link' },
-  { id: 6, component: <MailIcon />, href: 'business@dapplets.org', type: 'email' },
-];
+import { footerSocials } from "../../../config-with-links/footer-solials";
 
 function FooterLink ({
   to,
@@ -83,11 +66,11 @@ function Footer () {
         <ul className="footer-custom-socials">
           {
             footerSocials.map(({ id, ...item }) => {
-              return (
+              return item.href && (
                 <li className="footer-custom-social" key={id}>
                   <FooterBottomItem {...item} />
                 </li>
-              );
+              )
             })
           }
         </ul>
