@@ -17,7 +17,7 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 import { useActivePlugin, useVersions, useActiveVersion } from '@theme/hooks/useDocs';
 
-function DocItem(props) {
+function DocItem (props) {
   const {
     siteConfig
   } = useDocusaurusContext();
@@ -75,8 +75,8 @@ function DocItem(props) {
 
       <div className="row doc-custom-wrapper">
         <div className={clsx('col', {
-        [styles.docItemCol]: !hideTableOfContents
-      })}>
+          [styles.docItemCol]: !hideTableOfContents
+        })}>
           <DocVersionSuggestions />
           <div className={styles.docItemContainer}>
             <article>
@@ -106,10 +106,11 @@ function DocItem(props) {
                           Last updated{' '}
                           {lastUpdatedAt && <>
                               on{' '}
-                              <time dateTime={new Date(lastUpdatedAt * 1000).toISOString()} className={styles.docLastUpdatedAt}>
+                            <time dateTime={new Date(lastUpdatedAt * 1000).toISOString()}
+                                  className={styles.docLastUpdatedAt}>
                                 {new Date(lastUpdatedAt * 1000).toLocaleDateString()}
                               </time>
-                              {lastUpdatedBy && ' '}
+                            {lastUpdatedBy && ' '}
                             </>}
                           {lastUpdatedBy && <>
                               by <strong>{lastUpdatedBy}</strong>
@@ -130,11 +131,9 @@ function DocItem(props) {
             </div>
           </div>
         </div>
-        {(!hideTableOfContents && DocContent.toc.length > 0)
-          ? (<div className="col col--3">
+        {(!hideTableOfContents && DocContent.toc) && <div className="col col--3">
             <TOC toc={DocContent.toc} />
-          </div>)
-          : null
+          </div>
         }
       </div>
     </>;
