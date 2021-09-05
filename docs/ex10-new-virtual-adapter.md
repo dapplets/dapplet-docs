@@ -74,7 +74,8 @@ export default {};
 ```ts
 @Inject('my-virtual-adapter.dapplet-base.eth') public adapter: any,
 ```
-Add to `/package.json`
+
+Add to `/package.json` to install and run all four adapters:
 
 ```json
 // scripts
