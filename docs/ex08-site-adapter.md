@@ -35,17 +35,18 @@ public config = {
   },
   SEARCH_RESULT: {
     containerSelector: '#search',
-    contextSelector: '.hlcw0c',
+    contextSelector: '#rso > .g > div > .tF2Cxc, #rso > div > .g > div > .tF2Cxc',
     insPoints: {
       SOUTH: {
         selector: '.yuRUbf',
       },
     },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     contextBuilder: (searchNode: any): ContextBuilder => ({
       id: searchNode.querySelector('.yuRUbf > a').href,
       title: searchNode.querySelector('h3').textContent,
-      link: searchNode.querySelector('a').href,
-      description: searchNode.querySelector('.IsZvec > div span').textContent,
+      link: searchNode.querySelector('.yuRUbf > a').href,
+      description: searchNode.querySelector('.IsZvec').textContent,
     }),
   },
 }
@@ -205,9 +206,9 @@ public config = {
   ...
   WIDGETS: {
     containerSelector: '#search',
-      contextSelector: '.hlcw0c',
-      insPoints: {
-      SOUTH: {
+    contextSelector: '#rso',
+    insPoints: {
+      WIDGETS: {
         selector: '.ULSxyf',
       },
     },
@@ -226,20 +227,20 @@ public config = {
   ...
   DAPPLET_SEARCH_RESULT: {
     containerSelector: '#search',
-      contextSelector: '.tF2Cxc',
-      insPoints: {
-      SOUTH: {
+    contextSelector: '.hlcw0c-dapp .tF2Cxc',
+    insPoints: {
+      DAPPLET_SEARCH_RESULT: {
         selector: '.yuRUbf',
-      }
+      },
     },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     contextBuilder: (searchNode: any): ContextBuilder => ({
       id: searchNode.querySelector('.yuRUbf > a').href,
-      title: searchNode.querySelector('h3').textContent,
-      link: searchNode.querySelector('a').href,
-      description: searchNode.querySelector('.IsZvec > div span').textContent,
+      title: searchNode.querySelector('h3 > span').textContent,
+      link: searchNode.querySelector('.yuRUbf > a').href,
+      description: searchNode.querySelector('.IsZvec').textContent,
     }),
-  },
-}
+  }
 ```
 
 Implement module `adapter/src/result.ts` that exports class **`Result`**.
