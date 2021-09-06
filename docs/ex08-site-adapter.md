@@ -365,3 +365,5 @@ Run the dapplet:
 npm i
 npm start
 ```
+
+To see the full result, please enter `clouds` into Google
