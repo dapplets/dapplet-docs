@@ -48,7 +48,7 @@ export default class TwitterFeature {
 }
 ```
 
-`$(ctx, 'element_id')` returns object "me". Use it to change state or params of the other element by it's **id**.
+`$(ctx, 'element_id')` returns object "me". Use it to change state or params of the other element by its **id**.
 
 - *Example 1:* `exec: (ctx) => $(ctx, 'another_el_id').state = 'SECOND'`
 - *Example 2:* `exec: (ctx) => $(ctx, 'another_el_id').label = 'Hello'`

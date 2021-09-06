@@ -133,7 +133,7 @@ me.label += 1;
 
 Implement the ability to set the User Settings properties of the dapplet at its layout in the browser.
 
-![Dapptet's User Settings](/img/ex01_1.jpg)
+![Dapplet's User Settings](/img/ex01_1.jpg)
 
 They should be into the alert on the button click.
 
@@ -208,7 +208,7 @@ if (!Object.prototype.hasOwnProperty.call(counter, tweetId)) {
 }
 ```
 
-Send the ounter in `params`.
+Send the counter in `params`.
 
 ```js
 ws.send(
