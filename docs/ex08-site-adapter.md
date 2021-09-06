@@ -24,7 +24,7 @@ public config = {
     containerSelector: '#cnt',
     contextSelector: '#top_nav',
     insPoints: {
-      SOUTH: {
+      MENU: {
         selector: '.MUFPAc'
       },
     },
@@ -37,7 +37,7 @@ public config = {
     containerSelector: '#search',
     contextSelector: '#rso > .g > div > .tF2Cxc, #rso > div > .g > div > .tF2Cxc',
     insPoints: {
-      SOUTH: {
+      SEARCH_RESULT: {
         selector: '.yuRUbf',
       },
     },
@@ -58,6 +58,18 @@ If there are many contexts of one type on the page, like tweets of search result
 It's needed for saving the states of dapplets' elements connected to these contexts.
 
 The next step is creating an element. We have a template of the button in `adapter/src/button.ts`.
+
+To define an insertion point for each context where this widget is used, `contextInsPoints` is used. 
+
+For example, let's define an insertion point for `MENU` and` SEARCH_RESULT`
+
+```ts
+public static contextInsPoints = {
+  MENU: 'MENU',
+  SEARCH_RESULT: 'SEARCH_RESULT',
+}
+```
+
 Let's implement at the public method **`mount()`** of the class `Button` the button HTML with **`label`**, **`image`** and **`tooltip`** for our insertion points `MENU` and `SEARCH_RESULT`.
 
 ```ts
@@ -242,6 +254,8 @@ public config = {
     }),
   }
 ```
+
+Don't forget to add `DAPPLET_SEARCH_RESULT` to `contextInsPoints` as in the example above.
 
 Implement module `adapter/src/result.ts` that exports class **`Result`**.
 It should have an **image**, a **title** and an artificial list of **results**.
