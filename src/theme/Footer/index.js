@@ -11,9 +11,9 @@ import { useThemeConfig } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 import logoFooter from '../../../static/img/logo-footer.svg';
-import { footerSocials } from "../../../config-with-links/footer-solials";
+import { footerSocials, footerLinks } from "../../../config-links/footer";
 
-function FooterLink ({
+function FooterLink({
   to,
   href,
   label,
@@ -40,7 +40,7 @@ const FooterLogo = ({
   alt
 }) => <img className="footer__logo" alt={alt} src={url} />;
 
-function Footer () {
+function Footer() {
   const {
     footer
   } = useThemeConfig();
@@ -84,15 +84,15 @@ function Footer () {
           {linkItem.title != null ? <h4 className="footer__title">{linkItem.title}</h4> : null}
           {linkItem.items != null && Array.isArray(linkItem.items) && linkItem.items.length > 0 ?
             <ul className="footer__items">
-            {linkItem.items.map((item, key) => item.html ?
-              <li key={key} className="footer__item" // Developer provided the HTML, so assume it's safe.
-                // eslint-disable-next-line react/no-danger
+              {linkItem.items.map((item, key) => item.html ?
+                <li key={key} className="footer__item" // Developer provided the HTML, so assume it's safe.
+                  // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{
                     __html: item.html
                   }} /> : <li key={item.href || item.to} className="footer__item">
-              <FooterLink {...item} />
-            </li>)}
-          </ul> : null}
+                  <FooterLink {...item} />
+                </li>)}
+            </ul> : null}
         </div>)}
       </div>}
       {(logo || copyright) && <div className="footer__bottom text--center">
@@ -103,9 +103,9 @@ function Footer () {
         </div>}
         {copyright ? <div className="footer__copyright" // Developer provided the HTML, so assume it's safe.
           // eslint-disable-next-line react/no-danger
-                          dangerouslySetInnerHTML={{
-                            __html: copyright
-                          }} /> : null}
+          dangerouslySetInnerHTML={{
+            __html: copyright
+          }} /> : null}
       </div>}
     </div>
 
@@ -117,12 +117,15 @@ function Footer () {
         </span>
 
         <ul className="footer-custom-links">
-          <li className="footer-custom-link">
-            <a href="#" target="_blank">Privacy Policy</a>
-          </li>
-          <li className="footer-custom-link">
-            <a href="#" target="_blank">Terms & Conditions</a>
-          </li>
+          {
+            footerLinks.map(({ href, label, id }) => {
+              return href && (
+                <li className="footer-custom-link" key={id}>
+                  <a href={href} target="_blank">{label}</a>
+                </li>
+              )
+            })
+          }
         </ul>
       </div>
     </div>
@@ -131,7 +134,7 @@ function Footer () {
   </footer>;
 }
 
-function FooterBottomItem ({ href, type, component }) {
+function FooterBottomItem({ href, type, component }) {
   switch (type) {
     case 'link': {
       return (

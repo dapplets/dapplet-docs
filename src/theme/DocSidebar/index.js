@@ -198,11 +198,7 @@ function DocSidebar({
       </button>
 
       <header className={styles.header}>
-        <div className={styles.img}></div>
-        <div className={styles.description}>
-          <LogoText className={styles.title} />
-          <p className={styles.subtitle}>Augmentation System</p>
-        </div>
+        <div className={styles.headerLogo} />
       </header>
 
       <ul className="menu__list">

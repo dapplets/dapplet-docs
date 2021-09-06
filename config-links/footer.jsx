@@ -17,3 +17,8 @@ export const footerSocials = [
   { id: 5, component: <FacebookIcon />, href: '', type: 'link' },
   { id: 6, component: <MailIcon />, href: 'business@dapplets.org', type: 'email' },
 ];
+
+export const footerLinks = [
+  { id: 0, label: "Privacy Policy", href: '' },
+  { id: 1, label: "Terms & Conditions", href: '' },
+]
