@@ -2,7 +2,7 @@ module.exports = {
   someSidebar: [
     {
       type: 'category',
-      label: '',
+      label: 'Welcome',
       collapsed: false,
       items: [
         'introduction',
