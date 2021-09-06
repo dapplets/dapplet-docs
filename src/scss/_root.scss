@@ -13,7 +13,7 @@
   --ifm-container-width: 100%;
   --doc-sidebar-width: 370px !important;
   --ifm-menu-link-padding-horizontal: 0;
-  --ifm-navbar-height: 0;
+  --ifm-navbar-height: 50px;
   --ifm-toc-link-color: #919191;
   --ifm-toc-border-color: #E3E3E3;  
   --ifm-spacing-horizontal: 0;
@@ -37,6 +37,7 @@
   --ifm-footer-link-hover: #F26680;
   --ifm-alert-padding-vertical: 15px;
   --ifm-alert-padding-horizontal: 15px;
+  --ifm-navbar-background-color: '#FAFAFA';
 
   font-family: 'Montserrat', sans-serif !important;
   color: #747376;

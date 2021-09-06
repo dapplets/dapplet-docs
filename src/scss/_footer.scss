@@ -70,10 +70,13 @@
 }
 
 .footer-custom-social {
-  transition: opacity var(--ifm-transition-fast) var(--ifm-transition-timing-default);
 
   &:not(:last-child) {
     margin-right: 20px;
+  }
+
+  path {
+    transition: fill var(--ifm-transition-fast) var(--ifm-transition-timing-default);
   }
 
   &:hover path {

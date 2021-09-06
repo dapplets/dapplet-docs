@@ -16,7 +16,7 @@
     height: 100vh;
     position: sticky;
     top: 0;
-    padding-top: var(--ifm-navbar-height);
+    padding-top: 0;
     width: var(--doc-sidebar-width);
     transition: opacity 50ms ease;
   }
@@ -122,8 +122,8 @@
 
 .headerLogo {
   background-image: url('../../../static/img/sidebar-header-logo.svg');
-  width: 320px;
-  height: 80px;
+  width: 324px;
+  height: 130px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -131,7 +131,7 @@
 
 @media screen and (max-width: 450px){
   .headerLogo {
-    width: 240px;
-    height: 60px;
+    width: 220px;
+    height: 80px;
   }
 }

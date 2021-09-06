@@ -15,7 +15,7 @@ import LayoutHead from '@theme/LayoutHead';
 import useKeyboardNavigation from '@theme/hooks/useKeyboardNavigation';
 import './styles.css';
 
-function Layout (props) {
+function Layout(props) {
   const {
     children,
     noFooter,
@@ -24,10 +24,10 @@ function Layout (props) {
   useKeyboardNavigation();
   return (
     <LayoutProviders>
+      <Navbar />
       <LayoutHead {...props} />
       <SkipToContent />
       <AnnouncementBar />
-      {/*<Navbar />*/}
       <div className={clsx('main-wrapper', wrapperClassName)}>{children}</div>
       {!noFooter && <Footer />}
     </LayoutProviders>

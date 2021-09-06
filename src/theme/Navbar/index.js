@@ -17,6 +17,8 @@ import NavbarItem from '@theme/NavbarItem';
 import Logo from '@theme/Logo';
 import IconMenu from '@theme/IconMenu';
 import styles from './styles.module.css'; // retrocompatible with v1
+import { headerSocials } from '../../../config-links/header';
+import SearchIcon from '../../components/icons/Search';
 
 const DefaultNavItemPosition = 'right'; // If split links by left/right
 // if position is unspecified, fallback to right (as v1)
@@ -77,37 +79,56 @@ function Navbar() {
     [styles.navbarHideable]: hideOnScroll,
     [styles.navbarHidden]: !isNavbarVisible
   })}>
-      <div className="navbar__inner">
-        <div className="navbar__items">
-          {items != null && items.length !== 0 && <div aria-label="Navigation bar toggle" className="navbar__toggle" role="button" tabIndex={0} onClick={showSidebar} onKeyDown={showSidebar}>
-              <IconMenu />
-            </div>}
-          <Logo className="navbar__brand" imageClassName="navbar__logo" titleClassName={clsx('navbar__title', {
+    <div className="navbar__inner">
+      <div className="navbar__items">
+        {items != null && items.length !== 0 && <div aria-label="Navigation bar toggle" className="navbar__toggle" role="button" tabIndex={0} onClick={showSidebar} onKeyDown={showSidebar}>
+          <IconMenu />
+        </div>}
+        <Logo className="navbar__brand" imageClassName="navbar__logo" titleClassName={clsx('navbar__title', {
           [styles.hideLogoText]: isSearchBarExpanded
         })} />
-          {leftItems.map((item, i) => <NavbarItem {...item} key={i} />)}
-        </div>
-        <div className="navbar__items navbar__items--right">
-          {rightItems.map((item, i) => <NavbarItem {...item} key={i} />)}
-          {!disableColorModeSwitch && <Toggle className={styles.displayOnlyInLargeViewport} aria-label="Dark mode toggle" checked={isDarkTheme} onChange={onToggleChange} />}
-          <SearchBar handleSearchBarToggle={setIsSearchBarExpanded} isSearchBarExpanded={isSearchBarExpanded} />
+        {leftItems.map((item, i) => <NavbarItem {...item} key={i} />)}
+      </div>
+      <div className="navbar__items navbar__items--right">
+        {rightItems.map((item, i) => <NavbarItem {...item} key={i} />)}
+        {!disableColorModeSwitch && <Toggle className={styles.displayOnlyInLargeViewport} aria-label="Dark mode toggle" checked={isDarkTheme} onChange={onToggleChange} />}
+        <SearchBar handleSearchBarToggle={setIsSearchBarExpanded} isSearchBarExpanded={isSearchBarExpanded} />
+      </div>
+    </div>
+    <div role="presentation" className="navbar-sidebar__backdrop" onClick={hideSidebar} />
+    <div className="navbar-sidebar">
+      <div className="navbar-sidebar__brand">
+        <Logo className="navbar__brand" imageClassName="navbar__logo" titleClassName="navbar__title" onClick={hideSidebar} />
+        {!disableColorModeSwitch && sidebarShown && <Toggle aria-label="Dark mode toggle in sidebar" checked={isDarkTheme} onChange={onToggleChange} />}
+      </div>
+      <div className="navbar-sidebar__items">
+        <div className="menu">
+          <ul className="menu__list">
+            {items.map((item, i) => <NavbarItem mobile {...item} onClick={hideSidebar} key={i} />)}
+          </ul>
         </div>
       </div>
-      <div role="presentation" className="navbar-sidebar__backdrop" onClick={hideSidebar} />
-      <div className="navbar-sidebar">
-        <div className="navbar-sidebar__brand">
-          <Logo className="navbar__brand" imageClassName="navbar__logo" titleClassName="navbar__title" onClick={hideSidebar} />
-          {!disableColorModeSwitch && sidebarShown && <Toggle aria-label="Dark mode toggle in sidebar" checked={isDarkTheme} onChange={onToggleChange} />}
-        </div>
-        <div className="navbar-sidebar__items">
-          <div className="menu">
-            <ul className="menu__list">
-              {items.map((item, i) => <NavbarItem mobile {...item} onClick={hideSidebar} key={i} />)}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>;
+    </div>
+
+
+    <ul className="header-custom-socials">
+      {
+        headerSocials.map(({ id, component, href }) => {
+          return (
+            <li key={id} className="header-custom-social">
+              <a href={href} target="_blank">
+                {component}
+              </a>
+            </li>
+          )
+        })
+      }
+    </ul>
+
+    <button className="header-custom-search">
+      <SearchIcon />
+    </button>
+  </nav>;
 }
 
 export default Navbar;

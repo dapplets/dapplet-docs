@@ -9,43 +9,27 @@ module.exports = {
   organizationName: 'Dapplets', // Usually your GitHub org/user name.
   projectName: 'dapplet-extension', // Usually your repo name.
   themeConfig: {
+    colorMode: {
+      disableSwitch: true,
+    },
     sidebarCollapsible: true,
     prism: {
-      /**
-       * -- POSSIBLE OPTIONS --
-       * dracula
-       * github
-       * nightOwlLight
-       * palenight
-       * ultramin
-       * duotoneDark
-       * oceanicNext
-       * shadesOfPurple
-       * vsDark
-       * duotoneLight
-       * nightOwl
-       * okaidia
-       * synthwave84
-       * vsLight
-       */
       theme: require('./src/theme/custom-theme-code'),
     },
     navbar: {
-      title: 'Dapplet Platform',
-      logo: {
-        alt: 'Dapplet Logo',
-        src: 'img/logo.svg',
-      },
       items: [
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
+          type: 'localeDropdown',
+          position: 'left',
+        },
+        {
+          to: 'https://dapplets.org/',
+          label: 'Home',
           position: 'right',
         },
         {
-          href: 'https://github.com/dapplets/dapplet-extension',
-          label: 'GitHub',
+          href: 'https://forum.dapplets.org/',
+          label: 'Forum',
           position: 'right',
         },
       ],
@@ -173,5 +157,9 @@ module.exports = {
       },
     ],
   ],
-  plugins: ['docusaurus-plugin-sass', 'docusaurus-plugin-fontloader']
+  plugins: ['docusaurus-plugin-sass', 'docusaurus-plugin-fontloader'],
+  i18n: {
+    defaultLocale: 'ENG',
+    locales: ['ENG']
+  }
 };
