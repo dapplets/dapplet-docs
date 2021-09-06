@@ -19,14 +19,13 @@ on the page, associated **insertion points** and **`contextBuilder()`**s, that d
 gets the dapplet as a first argument in **`exec()`** and **`init()`** (named **`ctx`** in our examples).
 
 ```ts
-public config = [
-  {
-    containerSelector: '#cnt, .ndYZfc',
-    contextSelector: '#top_nav, .jZWadf',
+public config = {
+  MENU: {
+    containerSelector: '#cnt',
+    contextSelector: '#top_nav',
     insPoints: {
-      MENU: {
-        selector: '.MUFPAc, .T47uwc',
-        insert: 'inside',
+      SOUTH: {
+        selector: '.MUFPAc'
       },
     },
     contextBuilder: (): ContextBuilder => ({
@@ -34,27 +33,26 @@ public config = [
       insertPoint: '#rcnt, .mJxzWe',
     }),
   },
-  {
+  SEARCH_RESULT: {
     containerSelector: '#search',
-    contextSelector: '.hlcw0c .tF2Cxc',
+    contextSelector: '#rso > .g > div > .tF2Cxc, #rso > div > .g > div > .tF2Cxc',
     insPoints: {
-      SEARCH_RESULT: {
+      SOUTH: {
         selector: '.yuRUbf',
-        insert: 'inside',
       },
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     contextBuilder: (searchNode: any): ContextBuilder => ({
       id: searchNode.querySelector('.yuRUbf > a').href,
-      title: searchNode.querySelector('h3 > span').textContent,
+      title: searchNode.querySelector('h3').textContent,
       link: searchNode.querySelector('.yuRUbf > a').href,
       description: searchNode.querySelector('.IsZvec').textContent,
     }),
   },
-];
+}
 ```
 
-Now we have two insertion points: **MENU** and **SEARCH_RESULT**. You can insert a dapplet element inside, before or after the page element selected in the `selector` by setting **`insert`**: **`inside`**, **`begin`** or **`end`**.
+Now we have two insertion points: **MENU** and **SEARCH_RESULT**.
 
 If there are many contexts of one type on the page, like tweets of search results, you have to find **unique `id`** for everyone.
 It's needed for saving the states of dapplets' elements connected to these contexts.
@@ -132,7 +130,9 @@ export class Button {
 }
 ```
 
-Then change the dapplet. Add buttons to search results and top navigation bar in `/dapplet-feature/src/index.ts`.
+Then change the dapplet. 
+
+Add buttons to search results and top navigation bar in `/dapplet-feature/src/index.ts`.
 
 Implement an alert that should be triggered when you click the search results button.
 The alert should contain the **title** of the element, the **link** to the source and
@@ -199,49 +199,52 @@ npm start
 
 Add a new insertion point **`WIDGETS`** on the top of Google widgets like Videos, Images of ..., People also ask etc.
 
-Conplete **config** in `/adapter/src/index.ts`:
+Complete **config** in `/adapter/src/index.ts`:
 
 ```ts
-{
-  containerSelector: '#search',
-  contextSelector: '#rso',
-  insPoints: {
-    WIDGETS: {
-      selector: '.ULSxyf',
-      insert: 'begin',
+public config = {
+  ...
+  WIDGETS: {
+    containerSelector: '#search',
+    contextSelector: '#rso',
+    insPoints: {
+      WIDGETS: {
+        selector: '.ULSxyf',
+      },
     },
+    contextBuilder: (): ContextBuilder => ({
+      id: '',
+    }),
   },
-  contextBuilder: (): ContextBuilder => ({
-    id: '',
-  }),
-},
+}
 ```
 
 Add a new insertion point **`DAPPLET_SEARCH_RESULT`**, which is similar to `SEARCH_RESULT`
 but adds a button to our search widget. This is to prevent overwriting of similar search results from different sources.
 
 ```ts
-{
-  containerSelector: '#search',
-  contextSelector: '.hlcw0c-dapp .tF2Cxc',
-  insPoints: {
-    DAPPLET_SEARCH_RESULT: {
-      selector: '.yuRUbf',
-      insert: 'inside',
+public config = {
+  ...
+  DAPPLET_SEARCH_RESULT: {
+    containerSelector: '#search',
+    contextSelector: '.hlcw0c-dapp .tF2Cxc',
+    insPoints: {
+      DAPPLET_SEARCH_RESULT: {
+        selector: '.yuRUbf',
+      },
     },
-  },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  contextBuilder: (searchNode: any): ContextBuilder => ({
-    id: searchNode.querySelector('.yuRUbf > a').href,
-    title: searchNode.querySelector('h3 > span').textContent,
-    link: searchNode.querySelector('.yuRUbf > a').href,
-    description: searchNode.querySelector('.IsZvec').textContent,
-  }),
-},
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    contextBuilder: (searchNode: any): ContextBuilder => ({
+      id: searchNode.querySelector('.yuRUbf > a').href,
+      title: searchNode.querySelector('h3 > span').textContent,
+      link: searchNode.querySelector('.yuRUbf > a').href,
+      description: searchNode.querySelector('.IsZvec').textContent,
+    }),
+  }
 ```
 
 Implement module `adapter/src/result.ts` that exports class **`Result`**.
-It should have an **image**, a **title** and a artificial list of **results**.
+It should have an **image**, a **title** and an artificial list of **results**.
 
 See the code of [result.ts](https://github.com/dapplets/dapplet-template/blob/ex08.2-new-adapter-widget-solution/adapter/src/result.ts)
 
@@ -260,7 +263,7 @@ export default class GoogleAdapter {
 }
 ```
 
-In `dapplet-feature/src/index.ts` add **`result`** to **`WIDGETS`**. Use `searchResults` from the template as a content sourse.
+In `dapplet-feature/src/index.ts` add **`result`** to **`WIDGETS`**. Use `searchResults` from the template as a content source.
 
 ```ts
 WIDGETS: [
@@ -362,3 +365,5 @@ Run the dapplet:
 npm i
 npm start
 ```
+
+To see the full result, please enter `clouds` into Google

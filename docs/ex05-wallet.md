@@ -7,14 +7,29 @@ This example shows how to connect a wallet to a dapplet.
 
 The initial code for this example is here: [ex05-wallet-exercise.](https://github.com/dapplets/dapplet-template/tree/ex05-wallet-exercise)
 
-In `src/index.ts`open the wallet on the button click. Use `await Core.wallet()`:
+In `src/index.ts` declare variables to be used for transactions:
+
+```typescript
+private wallet: any;
+private _currentAddress: string | null = null;
+private _transferAmount = '0x1BC16D674EC80000';
+```
+
+The wallet will open when you click on the button. Use `await Core.wallet()`. The method accepts an object, with two required arguments: `type` and `network`:
 
 ```ts
 exec: async (ctx, me) => {
   me.state = 'PENDING';
-  this.wallet = this.wallet || (await Core.wallet());
+
+  if (!this.wallet) {
+    this.wallet = await Core.wallet({ type: 'ethereum', network: 'rinkeby' });
+    
+    const isWalletConnected = await this.wallet.isConnected();
+    if (!isWalletConnected) await this.wallet.connect();
+  }
+
   this.wallet.sendAndListen('eth_accounts', [], {
-    result: (op, { data }) => {
+    result: (_, { data }) => {
       this._currentAddress = data[0];
       me.state = 'CONNECTED';
     },
@@ -22,7 +37,7 @@ exec: async (ctx, me) => {
 },
 ```
 
-Add states `CONNECTED`, `PENDING`, `REGECTED`, `COMPLETED` and `UNAVAILABLE`.
+Add states `CONNECTED`, `PENDING`, `REGECTED`, `MINING`, `COMPLETED` and `UNAVAILABLE`.
 
 ```ts
 CONNECTED: {
@@ -101,17 +116,17 @@ import ICON_LOADING from './icons/loading.svg';
 
 @Injectable
 export default class TwitterFeature {
+  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any;
+  
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private wallet: any;
   private _currentAddress: string | null = null;
   private _transferAmount = '0x1BC16D674EC80000'; // 2ETH
-  constructor(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
-    @Inject('twitter-adapter.dapplet-base.eth') public adapter: any,
-  ) {
+  
+  async activate(): Promise<void> {
     const { button } = this.adapter.exports;
     this.adapter.attachConfig({
-      POST_SOUTH: [
+      POST: async (ctx) => [
         button({
           initial: 'DEFAULT',
           DEFAULT: {
@@ -119,9 +134,15 @@ export default class TwitterFeature {
             img: EXAMPLE_IMG,
             exec: async (ctx, me) => {
               me.state = 'PENDING';
-              this.wallet = this.wallet || (await Core.wallet());
+
+              if (!this.wallet) {
+                this.wallet = await Core.wallet({ type: 'ethereum', network: 'rinkeby' });
+                const isWalletConnected = await this.wallet.isConnected();
+                if (!isWalletConnected) await this.wallet.connect();
+              }
+
               this.wallet.sendAndListen('eth_accounts', [], {
-                result: (op, { data }) => {
+                result: (_, { data }) => {
                   this._currentAddress = data[0];
                   me.state = 'CONNECTED';
                 },
@@ -180,6 +201,8 @@ export default class TwitterFeature {
   }
 }
 ```
+
+![video](/video/ex05-wallet.gif)
 
 Here is the result code of the example: [ex05-wallet-solution.](https://github.com/dapplets/dapplet-template/tree/ex05-wallet-solution)
 

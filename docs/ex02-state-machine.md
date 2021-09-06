@@ -18,11 +18,11 @@ import COOL_BADGE_IMG from './icons/smile19.png';
 export default class TwitterFeature {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
   @Inject('twitter-adapter.dapplet-base.eth') public adapter: any;
-  
+
   activate() {
     const { button } = this.adapter.exports;
     this.adapter.attachConfig({
-      POST_SOUTH: [
+      POST: () => [
         button({
           initial: 'DEFAULT',
           DEFAULT: {
@@ -44,7 +44,7 @@ export default class TwitterFeature {
 
 Firstly add another state with a different badge to the button.
 
-```ts
+```typescript
 ANOTHER: {
   label: 'FAKE!!!',
   img: ANGRY_BADGE_IMG,
@@ -73,7 +73,7 @@ export default class TwitterFeature {
   activate() {
     const { button } = this.adapter.exports;
     this.adapter.attachConfig({
-      POST_SOUTH: [
+      POST: () => [
         button({
           initial: 'DEFAULT',
           DEFAULT: {

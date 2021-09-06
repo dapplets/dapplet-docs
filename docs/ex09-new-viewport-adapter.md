@@ -25,7 +25,7 @@ adapter
 └── tsconfig.json
 ```
 
-When you create an adapter don't forget to set **`contextIds`** in `dapplet.json`. In this example we are setting the following contexts:
+When you create an adapter don't forget to set **`contextIds`** in `/adapter/dapplet.json`. In this example we are setting the following contexts. On these sites, the adapter will work:
 
 ```json
 {
@@ -50,64 +50,85 @@ When you create an adapter don't forget to set **`contextIds`** in `dapplet.json
 1. Implement communication between dapplets and pages in `/adapter/src/index.ts`:
 
 ```ts
-public config = [
-  {
+public config = {
+  POST: {
     containerSelector: 'html',
-    contextSelector: 'body > *:nth-last-child(2)',
+    contextSelector: 'body',
     insPoints: {
-      BODY: {},
+      SOUTH: 'body'
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
     contextBuilder: (): ContextBuilder => ({
       id: document.location.href,
     }),
   },
-];
+};
 ```
 
 2. Implement the **button** HTML with **`image`** and **`tooltip`** in `/adapter/src/button.ts`:
 
-```ts
+To do this, we will create a function that returns the markup.
+
+```typescript
+function layoutButton ({ img }: IButtonState) {
+    return `
+      <div style="
+        position:fixed;
+        width:60px;
+        height:60px;
+        bottom:40px;
+        left:40px;
+        background-color:#fff;
+        color:#FFF;
+        border-radius:50px;
+        border: 3px solid #d10019;
+        text-align:center;
+        box-shadow: 2px 2px 3px #999;
+        cursor: pointer;
+        display: block;
+        box-sizing: content-box;
+        z-index: 9999;
+      ">
+        <img style="margin-top:11px;" height="32" src="${img}">
+      </div>
+    `;
+}
+```
+Use the function:
+
+```typescript
 // class Button
 
 public mount(): void {
   if (!this.el) this._createElement();
   const { img, tooltip } = this.state;
-  const htmlString = `
-    <div style="
-      position:fixed;
-      width:60px;
-      height:60px;
-      bottom:40px;
-      left:40px;
-      background-color:#fff;
-      color:#FFF;
-      border-radius:50px;
-      border: 3px solid #d10019;
-      text-align:center;
-      box-shadow: 2px 2px 3px #999;
-      cursor: pointer;
-      display: block;
-      box-sizing: content-box;
-      z-index: 9999;
-    ">
-      <img style="margin-top:11px;" height="32" src="${img}">
-    </div>
-  `;
+  
   this.el.title = tooltip ?? '';
-  this.el.innerHTML = htmlString;
+  this.el.innerHTML = layoutButton({ img });
+}
+```
+
+As in the previous example, define the insertion point for the button
+```typescript
+export class Button {
+  public el: HTMLElement;
+  public state: IButtonState;
+  public insPointName: string;
+
+  public static contextInsPoints = {
+    POST: 'SOUTH'
+  }
+  ...
 }
 ```
 
 3. Implement the **popup** HTML with **`text`**, **`link`**, **`img`** and **`closed`**:
 
-```ts
-// class Popup
+To do this, we will also create a separate function so as not to clutter up the code.
 
-public mount(): void {
-  if (!this.el) this._createElement();
-  const { text, link, img, closed } = this.state;
-  const htmlString = `
+```typescript
+function layoutPopup({ text, link, closed, img }: IPopupState) {
+  return `
     <style>
       .dapplet-widget-basic-container {
         position: absolute;
@@ -171,19 +192,40 @@ public mount(): void {
         display: none;
       }
     </style>
-    <div class="dapplet-widget-basic-container ${closed ? 'no-displayed' : 'displayed'} ">  
-      <div class="dapplet-widget-close">
-        <img src="${CLOSE_ICON}" class="dapplet-widget-close-icon" alt="close icon">
+    <div class='dapplet-widget-basic-container ${closed ? 'no-displayed' : 'displayed'} '>  
+      <div class='dapplet-widget-close'>
+        <img src="${CLOSE_ICON}" class='dapplet-widget-close-icon' alt='close icon'>
       </div>
-      <div class="dapplet-widget-mascot-img">
-        <img src="${img}">
+      <div class='dapplet-widget-mascot-img'>
+        <img src='${img}' alt='CLOSE'>
       </div>
       <div>
-        <a href="${link}" target="_blank">${text}</a>
+        <a href='${link}' target='_blank'>${text}</a>
       </div>
     </div>
   `;
-  this.el.innerHTML = htmlString;
+}
+```
+Let's apply the function:
+
+```ts
+public mount(): void {
+  if (!this.el) this._createElement();
+  this.el.innerHTML = layoutPopup(this.state);
+}
+```
+
+Define the insertion point:
+```typescript
+export class Popup {
+  public el: HTMLElement;
+  public state: IPopupState;
+  public insPointName: string;
+
+  public static contextInsPoints = {
+    POST: 'SOUTH'
+  }
+  ...  
 }
 ```
 
@@ -203,7 +245,7 @@ public mount(): void {
 5. Add a valid adapter in `/dapplet-feature/src/index.ts`:
 
 ```ts
-@Inject('exercise-viewport-adapter.dapplet-base.eth') public adapter: any,
+@Inject('exercise-viewport-adapter.dapplet-base.eth') public adapter: any;
 ```
 
 6. Add popup with **`text`**, **`image`** and some **`link`** from the page to **`BODY`**:

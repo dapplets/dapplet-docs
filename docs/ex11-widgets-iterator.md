@@ -12,42 +12,40 @@ The iteration is in the insertion point and looks like this:
 ```ts
 // /dapplet/src/index.ts > TwitterFeature > activate > this.adapter.attachConfig
 ...
-POST_USERNAME_LABEL: async (ctx) => {
-  const res = await fetch(url);
-  const data = res.json();
-  return data.map((nft) =>
-    label({
+POST: async (ctx) => {
+  const nfts = await this._fetchNfts(url);
+
+  return nfts.map((nft) => label({
       DEFAULT: {
-        img: data.image,
+        img: nft.image,
         basic: true,
-        tooltip: data.text + ' of ' + ctx.authorFullname,
+        tooltip: nft.text + ' of ' + ctx.authorFullname,
       },
     }),
   );
 },
-...
 ```
 
 Here we return the array of labels or another widgets.
 
-We also can returnthe only one widget or `null`:
+We also can return the only one widget or `null`:
 
 ```ts
 ...
-return data && label({
-  DEFAULT: {
-    img: data[0].image,
-    basic: true,
-    tooltip: data[0].text + ' of ' + ctx.authorFullname,
-  },
-});
+  return nft && label({
+    DEFAULT: {
+      img: nft.image,
+      basic: true,
+      tooltip: nft.text + ' of ' + ctx.authorFullname,
+    },
+  })
 ...
 ```
 
 Here is the full code of `/dapplet/src/index.ts` of the example:
 
 ```ts
-import {} from '@dapplets/dapplet-extension';
+import { } from '@dapplets/dapplet-extension';
 
 interface NftMetadata {
   image: string;
@@ -64,28 +62,17 @@ export default class TwitterFeature {
     return res.json();
   }
 
-  async activate() {
-    const { label, button } = this.adapter.exports;
+  async activate(): Promise<void> {
+    const { label } = this.adapter.exports;
     const url = await Core.storage.get('dataUrl');
     this.adapter.attachConfig({
-      POST_USERNAME_LABEL: async (ctx) => {
+      POST: async (ctx) => {
         const nfts = await this._fetchNfts(url);
-        return nfts.map((nft) =>
-          label({
+
+        return nfts.map((nft) => label({
             DEFAULT: {
               img: nft.image,
               basic: true,
-              tooltip: nft.text + ' of ' + ctx.authorFullname,
-            },
-          }),
-        );
-      },
-      PROFILE_BUTTON_GROUP: async (ctx) => {
-        const nfts = await this._fetchNfts(url);
-        return nfts.map((nft) =>
-          button({
-            DEFAULT: {
-              img: nft.image,
               tooltip: nft.text + ' of ' + ctx.authorFullname,
             },
           }),
@@ -96,6 +83,7 @@ export default class TwitterFeature {
 }
 
 ```
+You can change the icons displayed in the example to your own. This is done in `/src/data.json`.
 
 The complete code for this example can be found here: [ex11-widgets-iterator.](https://github.com/dapplets/dapplet-template/tree/ex11-widgets-iterator)
 

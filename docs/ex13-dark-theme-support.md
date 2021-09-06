@@ -8,7 +8,7 @@ You can add different icons for **light** and **dark** themes.
 ```typescript
 ...
 this.adapter.attachConfig({
-  POST_SOUTH: [
+  POST: () => [
     button({
       initial: 'DEFAULT',
       DEFAULT: {

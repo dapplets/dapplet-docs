@@ -75,6 +75,15 @@ export default {};
 @Inject('my-virtual-adapter.dapplet-base.eth') public adapter: any,
 ```
 
+Add to `/package.json` to install and run virtual, google, yahoo adapters and the dapplet:
+
+```json
+// scripts
+
+"postinstall": "concurrently -c \"yellow,magenta,green,blue\" -n \"google-adapter,yahoo-adapter,dapplet,my-virtual-adapter\" \"cd google-adapter && npm i\" \"cd yahoo-adapter && npm i\" \"cd dapplet-feature && npm i\" \"cd my-virtual-adapter && npm i\"",
+"start": "concurrently -c \"yellow,magenta,green,blue\" -n \"google-adapter,yahoo-adapter,dapplet,my-virtual-adapter\" \"cd google-adapter && npm start\" \"cd yahoo-adapter && npm start\" \"cd dapplet-feature && npm start\" \"cd my-virtual-adapter && npm start\"",
+```
+
 Here is the result: [ex10-new-virtual-adapter-solution.](https://github.com/dapplets/dapplet-template/tree/ex10-new-virtual-adapter-solution)
 
 Run the dapplet:

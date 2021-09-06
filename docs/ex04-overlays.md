@@ -3,17 +3,19 @@ id: overlays
 title: "Ex04: Overlays"
 ---
 
-In this example we add an overlay that opens on click by button in the POST_SOUTH.
+In this example we add an overlay that opens on click by button in the POST.
 
 Here are two examples of the overlay:
+
 - [Pure HTML page](https://github.com/dapplets/dapplet-overlay-bridge/tree/master/examples/pure-html-page)
 - [React.js based example](https://github.com/dapplets/dapplet-overlay-bridge/tree/master/examples/react-overlay)
 
-At first we implement an overlay written on HTML with pure JavaScript and at second - the React based component.
+At first, we implement an overlay written on HTML with pure JavaScript and at second - the React based component.
 
-The initial code for this example, including both of the above overlays, is here: [ex04-overlays-exercise.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-exercise)
+The initial code for this example, including both of the above overlays, is
+here: [ex04-overlays-exercise.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-exercise)
 
-First of all install [Dapplet-Overlay Bridge:](https://github.com/dapplets/dapplet-overlay-bridge)
+First install [Dapplet-Overlay Bridge:](https://github.com/dapplets/dapplet-overlay-bridge)
 
 ```bash
 npm i @dapplets/dapplet-overlay-bridge
@@ -23,9 +25,11 @@ Now let's create overlays.
 
 ### HTML with JavaScript overlay
 
-The `pure-html-page/index.html` has a `<span>` tag with a `dappletMessage` class and a button with a `ch-state-btn` class.
+The `pure-html-page/index.html` has a `<span>` tag with a `dappletMessage` class and a button with a `ch-state-btn`
+class.
 
 ```html
+
 <div>
   Info from dapplet:
   <span class="dappletMessage"></span>
@@ -33,8 +37,8 @@ The `pure-html-page/index.html` has a `<span>` tag with a `dappletMessage` class
 <button class="ch-state-btn">Counter +1</button>
 ```
 
-In a `<script>` tag we import class **`Bridge`** from `dapplet-overlay-bridge` and create
-class `MyBridge`, that extends `Bridge`, with methods **`onData()`** and **`onClick()`**.
+In a `<script>` tag we import class **`Bridge`** from `dapplet-overlay-bridge` and create class `MyBridge`, that
+extends `Bridge`, with methods **`onData()`** and **`onClick()`**.
 
 **`onData()`** increments the counter received from the dapplet and sends back.
 
@@ -45,26 +49,29 @@ import Bridge from 'https://unpkg.com/@dapplets/dapplet-overlay-bridge';
 
 class MyBridge extends Bridge {
   _subId = 0;
-  onData(callback) {
+
+  onData (callback) {
     this.subscribe('data', (data) => {
       callback(data);
       return (++this._subId).toString();
     });
   }
-  onClick(tickTock) {
+  
+  onClick (tickTock) {
     this.publish(this._subId.toString(), {
       type: 'onClick',
       message: tickTock ? 'tick' : 'tock',
     });
   }
 }
+
 const bridge = new MyBridge();
 bridge.onData((data) => (document.querySelector('.dappletMessage').innerText = data));
 let tickTock = true;
 const button = document.querySelector('.ch-state-btn');
 button.addEventListener('click', () => {
   bridge.onClick(tickTock);
-  tickTack = !tickTock;
+  tickTock = !tickTock;
 });
 ```
 
@@ -82,7 +89,7 @@ In `/overlayWithReact` we do the same.
 In `/overlayWithReact/src/App.tsx`  we add variable to the state:
 
 ```tsx
-tickTack: boolean;
+tickTock: boolean;
 ```
 
 add event on button click:
@@ -123,7 +130,7 @@ onClick(tickTack: boolean, callback: (data: any) => void) {
 
 4. Send some data to overlay and get callback **`onClick`**.
 
-5. In callback increse current counter and add received message to `label`.
+5. In callback increase current counter and add received message to `label`.
 
 ```ts
 exec: async (ctx, me) => {
@@ -156,12 +163,17 @@ and add appropriate field to `schema.json`:
 ```json
 {
   "type": "object",
-  "required": ["overlayUrl", "exampleString", "exampleHiddenString"],
+  "required": [
+    "overlayUrl",
+    "exampleString",
+    "exampleHiddenString"
+  ],
   "properties": {
     "overlayUrl": {
       "type": "string",
       "title": "Example of string property"
     },
+    
     ...
   }
 }
@@ -192,9 +204,9 @@ In overlay's `package.json` add `"homepage": "./"` and scripts `"archive"`, `"sw
 ```json
 "homepage": "./",
 "scripts": {
-   "archive": "cd ./build && tar -cvf temp.tar .",
-   "swarm:upload": "curl -X POST -H \"Content-Type: application/x-tar\" -H \"Swarm-Index-Document: index.html\" -H \"Swarm-Error-Document: index.html\" --data-binary @build/temp.tar https://gateway.ethswarm.org/dirs",
-   "deploy": "npm run build && npm run archive && npm run swarm:upload"
+"archive": "cd ./build && tar -cvf temp.tar .",
+"swarm:upload": "curl -X POST -H \"Content-Type: application/x-tar\" -H \"Swarm-Index-Document: index.html\" -H \"Swarm-Error-Document: index.html\" --data-binary @build/temp.tar https://gateway.ethswarm.org/dirs",
+"deploy": "npm run build && npm run archive && npm run swarm:upload"
 }
 ```
 
@@ -210,7 +222,8 @@ Copy hash from console:
 {"reference":"7cf\*\*\*dac17e"}
 ```
 
-Add to url `https://gateway.ethswarm.org/bzz/` (expects something like this: `https://gateway.ethswarm.org/bzz/7cf\*\*\*dac17e/`).
+Add to url `https://gateway.ethswarm.org/bzz/` (expects something like
+this: `https://gateway.ethswarm.org/bzz/7cf\*\*\*dac17e/`).
 
 The url add to config to `default.json`:
 
@@ -218,7 +231,8 @@ The url add to config to `default.json`:
 "overlayUrl": "https://gateway.ethswarm.org/bzz/7cf\*\*\*dac17e/",
 ```
 
-Here is the result code of the example: [ex04-overlays-solution.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-solution)
+Here is the result code of the
+example: [ex04-overlays-solution.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-solution)
 
 Run the dapplet:
 

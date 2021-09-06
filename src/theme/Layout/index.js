@@ -15,26 +15,23 @@ import LayoutHead from '@theme/LayoutHead';
 import useKeyboardNavigation from '@theme/hooks/useKeyboardNavigation';
 import './styles.css';
 
-function Layout(props) {
+function Layout (props) {
   const {
     children,
     noFooter,
     wrapperClassName
   } = props;
   useKeyboardNavigation();
-  return <LayoutProviders>
+  return (
+    <LayoutProviders>
       <LayoutHead {...props} />
-
       <SkipToContent />
-
       <AnnouncementBar />
-
-      {/* <Navbar /> */}
-
+      {/*<Navbar />*/}
       <div className={clsx('main-wrapper', wrapperClassName)}>{children}</div>
-
       {!noFooter && <Footer />}
-    </LayoutProviders>;
+    </LayoutProviders>
+  )
 }
 
 export default Layout;
