@@ -2,12 +2,12 @@ module.exports = {
   someSidebar: [
     {
       type: 'category',
-      label: 'Welcome',
+      label: 'Getting Started',
       collapsed: false,
       items: [
         'introduction',
         'installation',
-        'getting-started',
+        'get-started',
       ]
     },
     {
