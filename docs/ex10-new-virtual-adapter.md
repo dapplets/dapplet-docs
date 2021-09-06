@@ -75,7 +75,7 @@ export default {};
 @Inject('my-virtual-adapter.dapplet-base.eth') public adapter: any,
 ```
 
-Add to `/package.json` to install and run all four adapters:
+Add to `/package.json` to install and run virtial, google, yahoo adaptets and the dapplet:
 
 ```json
 // scripts
