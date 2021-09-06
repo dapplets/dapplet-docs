@@ -111,6 +111,14 @@
   }
 }
 
+.menu__list > .menu__list-item:nth-child(1) > .menu__link.menu__link--sublist {
+  padding-top: 6px;
+}
+
+.menu__list > .menu__list-item:nth-child(1) > .menu__list {
+  margin-left: 0 !important;
+}
+
 @media screen and (max-width: 520px) {
 
   .menu {
@@ -122,7 +130,7 @@
   }
 
   .menu .menu__button {
-    top: 18px;
+    top: 30px;
     right: 0px;
 
     svg {
@@ -132,10 +140,9 @@
   }
 }
 
-.menu__list > .menu__list-item:nth-child(1) > .menu__link.menu__link--sublist {
-  padding-top: 6px;
+@media screen and (max-width: 520px) {
+  .menu .menu__button {
+    top: 24px;
+  }
 }
 
-.menu__list > .menu__list-item:nth-child(1) > .menu__list {
-  margin-left: 0 !important;
-}

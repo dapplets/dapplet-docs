@@ -28,7 +28,7 @@
 }
 
 .footer__wrapper {
-  padding: var(--ifm-footer-padding-vertical) var(--ifm-footer-padding-horizontal) !important;
+  padding: 25px var(--ifm-footer-padding-horizontal) !important;
 }
 
 .footer__title {
@@ -59,9 +59,6 @@
   justify-content: space-between;
 }
 
-.footer-custom-top-logo {
-
-}
 
 .footer-custom-socials {
   list-style: none;
