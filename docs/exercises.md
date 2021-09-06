@@ -4,7 +4,7 @@ title: About exercises
 ---
 
 In this section we will look at how to use and implement the basic elements of the dapplet structure.
-If you went through [Getting started](/docs/getting-started) you had to install the
+If you went through [Get started](/docs/get-started) you had to install the
 [Dapplet Template](https://github.com/dapplets/dapplet-template) locally and change some params in the master branch.
 
 In addition to master branch, there are numbered brunches with examples marked as `-exercise` and `-solution`.

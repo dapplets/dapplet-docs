@@ -111,14 +111,6 @@
   }
 }
 
-.menu__list > .menu__list-item:nth-child(1) > .menu__link.menu__link--sublist {
-  padding-top: 6px;
-}
-
-.menu__list > .menu__list-item:nth-child(1) > .menu__list {
-  margin-left: 0 !important;
-}
-
 @media screen and (max-width: 520px) {
 
   .menu {
