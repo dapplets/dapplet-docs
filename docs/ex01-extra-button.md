@@ -139,7 +139,7 @@ Run the dapplet in your terminal
 npm start
 ```
 
-> If you don't know how to run the dapplet in a browser, see [Getting Started](/docs/getting-started#11-connect-the-development-server-to-dapplet-extension).
+> If you don't know how to run the dapplet in a browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
 
 Here is the code of this part of the example: [ex01.1-add-button-noserver-solution](https://github.com/dapplets/dapplet-template/tree/ex01.1-add-button-noserver-solution)
 
@@ -305,4 +305,4 @@ In the browser:
 
 ![video](/video/ex01-2-extra-button-server.gif)
 
-> If you don't know how to run the dapplet in a browser, see [Getting Started](/docs/getting-started#11-connect-the-development-server-to-dapplet-extension).
+> If you don't know how to run the dapplet in a browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
