@@ -17,7 +17,7 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 import { useActivePlugin, useVersions, useActiveVersion } from '@theme/hooks/useDocs';
 
-function DocItem (props) {
+function DocItem(props) {
   const {
     siteConfig
   } = useDocusaurusContext();
@@ -60,83 +60,83 @@ function DocItem (props) {
     absolute: true
   });
   return <>
-      <Head>
-        <title>{metaTitle}</title>
-        <meta property="og:title" content={metaTitle} />
-        {description && <meta name="description" content={description} />}
-        {description && <meta property="og:description" content={description} />}
-        {keywords && keywords.length && <meta name="keywords" content={keywords.join(',')} />}
-        {metaImage && <meta property="og:image" content={metaImageUrl} />}
-        {metaImage && <meta name="twitter:image" content={metaImageUrl} />}
-        {metaImage && <meta name="twitter:image:alt" content={`Image for ${title}`} />}
-        {permalink && <meta property="og:url" content={siteUrl + permalink} />}
-        {permalink && <link rel="canonical" href={siteUrl + permalink} />}
-      </Head>
+    <Head>
+      <title>{metaTitle}</title>
+      <meta property="og:title" content={metaTitle} />
+      {description && <meta name="description" content={description} />}
+      {description && <meta property="og:description" content={description} />}
+      {keywords && keywords.length && <meta name="keywords" content={keywords.join(',')} />}
+      {metaImage && <meta property="og:image" content={metaImageUrl} />}
+      {metaImage && <meta name="twitter:image" content={metaImageUrl} />}
+      {metaImage && <meta name="twitter:image:alt" content={`Image for ${title}`} />}
+      {permalink && <meta property="og:url" content={siteUrl + permalink} />}
+      {permalink && <link rel="canonical" href={siteUrl + permalink} />}
+    </Head>
 
-      <div className="row doc-custom-wrapper">
-        <div className={clsx('col', {
-          [styles.docItemCol]: !hideTableOfContents
-        })}>
-          <DocVersionSuggestions />
-          <div className={styles.docItemContainer}>
-            <article>
-              {showVersionBadge && <div>
-                  <span className="badge badge--secondary">
-                    Version: {version.label}
-                  </span>
-                </div>}
-              {!hideTitle && <header>
-                  <h1 className={styles.docTitle}>{title}</h1>
-                </header>}
-              <div className="markdown">
-                <DocContent />
-              </div>
-            </article>
-            {(editUrl || lastUpdatedAt || lastUpdatedBy) && <div className="margin-vert--xl">
-                <div className="row">
-                  <div className="col">
-                    {editUrl && <a href={editUrl} target="_blank" rel="noreferrer noopener">
-                        <IconEdit />
-                        Edit this page
-                      </a>}
-                  </div>
-                  {(lastUpdatedAt || lastUpdatedBy) && <div className="col text--right">
-                      <em>
-                        <small>
-                          Last updated{' '}
-                          {lastUpdatedAt && <>
-                              on{' '}
-                            <time dateTime={new Date(lastUpdatedAt * 1000).toISOString()}
-                                  className={styles.docLastUpdatedAt}>
-                                {new Date(lastUpdatedAt * 1000).toLocaleDateString()}
-                              </time>
-                            {lastUpdatedBy && ' '}
-                            </>}
-                          {lastUpdatedBy && <>
-                              by <strong>{lastUpdatedBy}</strong>
-                            </>}
-                          {process.env.NODE_ENV === 'development' && <div>
-                              <small>
-                                {' '}
-                                (Simulated during dev for better perf)
-                              </small>
-                            </div>}
-                        </small>
-                      </em>
-                    </div>}
-                </div>
-              </div>}
-            <div className="margin-vert--lg">
-              <DocPaginator metadata={metadata} />
+    <div className="row doc-custom-wrapper">
+      <div className={clsx('col', 'doc-custom-col', {
+        [styles.docItemCol]: !hideTableOfContents
+      })}>
+        <DocVersionSuggestions />
+        <div className={styles.docItemContainer}>
+          <article>
+            {showVersionBadge && <div>
+              <span className="badge badge--secondary">
+                Version: {version.label}
+              </span>
+            </div>}
+            {!hideTitle && <header>
+              <h1 className={styles.docTitle}>{title}</h1>
+            </header>}
+            <div className="markdown">
+              <DocContent />
             </div>
+          </article>
+          {(editUrl || lastUpdatedAt || lastUpdatedBy) && <div className="margin-vert--xl">
+            <div className="row">
+              <div className="col">
+                {editUrl && <a href={editUrl} target="_blank" rel="noreferrer noopener">
+                  <IconEdit />
+                  Edit this page
+                </a>}
+              </div>
+              {(lastUpdatedAt || lastUpdatedBy) && <div className="col text--right">
+                <em>
+                  <small>
+                    Last updated{' '}
+                    {lastUpdatedAt && <>
+                      on{' '}
+                      <time dateTime={new Date(lastUpdatedAt * 1000).toISOString()}
+                        className={styles.docLastUpdatedAt}>
+                        {new Date(lastUpdatedAt * 1000).toLocaleDateString()}
+                      </time>
+                      {lastUpdatedBy && ' '}
+                    </>}
+                    {lastUpdatedBy && <>
+                      by <strong>{lastUpdatedBy}</strong>
+                    </>}
+                    {process.env.NODE_ENV === 'development' && <div>
+                      <small>
+                        {' '}
+                        (Simulated during dev for better perf)
+                      </small>
+                    </div>}
+                  </small>
+                </em>
+              </div>}
+            </div>
+          </div>}
+          <div className="margin-vert--lg">
+            <DocPaginator metadata={metadata} />
           </div>
         </div>
-        {(!hideTableOfContents && DocContent.toc) && <div className="col col--3">
-            <TOC toc={DocContent.toc} />
-          </div>
-        }
       </div>
-    </>;
+      {(!hideTableOfContents && DocContent.toc) && <div className="col col--3 doc-custom-toc">
+        <TOC toc={DocContent.toc} />
+      </div>
+      }
+    </div>
+  </>;
 }
 
 export default DocItem;

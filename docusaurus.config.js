@@ -18,10 +18,10 @@ module.exports = {
     },
     navbar: {
       items: [
-        {
-          type: 'localeDropdown',
-          position: 'left',
-        },
+        // {
+        //   type: 'localeDropdown',
+        //   position: 'left',
+        // },
         {
           to: 'https://dapplets.org/',
           label: 'Home',
@@ -158,8 +158,8 @@ module.exports = {
     ],
   ],
   plugins: ['docusaurus-plugin-sass', 'docusaurus-plugin-fontloader'],
-  i18n: {
-    defaultLocale: 'ENG',
-    locales: ['ENG']
-  }
+  // i18n: {
+  //   defaultLocale: 'ENG',
+  //   locales: ['ENG']
+  // }
 };

@@ -51,7 +51,7 @@ function Headings({
   }
 
   return (
-    <div className={clsx(styles.TOCBlock, { [styles.hide]: hide })}>
+    <div className={clsx(styles.TOCBlock, 'custom-toc-block', { [styles.hide]: hide })}>
       <p className={styles.contentTitle}>Contents</p>
 
       <ul className={isChild ? '' : 'table-of-contents table-of-contents__left-border'}>

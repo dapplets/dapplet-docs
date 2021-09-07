@@ -29,3 +29,12 @@
 .table-of-contents__link--active::before {
   opacity: 1;
 }
+
+
+@media screen and (max-width: 1185px){
+  .custom-toc-block {
+    transition: opacity 0s;
+    pointer-events: none;
+    opacity: 0;
+  }
+}

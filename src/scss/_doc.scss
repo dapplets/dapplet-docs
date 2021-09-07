@@ -11,8 +11,36 @@
 	margin: 0 auto;
 }
 
+@media screen and (max-width: 1185px){
+	.doc-custom-toc {
+		display: none;
+	}
+
+  .doc-custom-col {
+		overflow: visible;
+	}
+}
+
 @media screen and (max-width: 420px) {
 	.container > .row > .col > div {
 		padding: 0 30px;
 	}
 }
+
+.doc-custom-col {
+	overflow: hidden;
+}
+
+
+@media screen and (max-width: 996px){
+	.doc-custom-wrapper {
+		margin-top: 140px;
+	}
+}
+
+@media screen and (max-width: 450px){
+	.doc-custom-wrapper {
+		margin-top: 90px;
+	}
+}
+

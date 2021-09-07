@@ -42,3 +42,11 @@
 		}
 	}
 }
+
+@media screen and (max-width: 465px) {
+	.copy-button-custom {
+		pointer-events: none;
+		opacity: 0;
+		display: none;
+	}
+}
