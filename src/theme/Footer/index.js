@@ -113,7 +113,7 @@ function Footer() {
     <div className='footer-custom-bottom footer__bottom'>
       <div className="footer__wrapper">
         <span className="footer-custom-copyright">
-          @ 2019-{new Date().getFullYear()} Dapplets Project
+          © 2019-{new Date().getFullYear()} Dapplets Project
         </span>
 
         <ul className="footer-custom-links">
