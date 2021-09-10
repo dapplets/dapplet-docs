@@ -3,6 +3,10 @@
     "title": "Twitter adapter",
     "versions": [
       {
+        "version": "v0_9_0",
+        "link": "/md/twitter_adapter_0_9_0.md"
+      },
+      {
         "version": "v0_5_1",
         "link": "/json/atV051.json"
       }
