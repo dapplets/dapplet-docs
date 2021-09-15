@@ -120,6 +120,20 @@ name: `caption`
 | **`label`**      | `string`                                      | text label          |
 | **`exec`**       | `(ctx: any, me: IButtonStarterState) => void` | action on click     |
 
+**Starter** has a different structure:
+
+```ts
+[
+  {
+    label: 'Add tweet to the Ethereum registry',
+    exec: () => console.log('test'),
+  }
+],
+```
+Instead of a function we add an array of objects, which consists of the `label` and `exec` parameters, to the context.
+Click on the button in the context opens **Starter overlay** with the buttons defined in the array.
+Starter overlay conbine buttons from **all turned on dapples** which use starter.
+
 \* - mandatory parameters
 
 
@@ -127,15 +141,25 @@ name: `caption`
 
 ### ▪ POST
 
+![Profile insertion points](/img/a_twitter_14.png)
+
 ### ▪ PROFILE
+
+![Profile insertion points](/img/a_twitter_13.png)
 
 ### ▪ HEADING
 
+![Profile insertion points](/img/a_twitter_15.png)
+
 ### ▪ SUSPENDED
+
+![Profile insertion points](/img/a_twitter_16.png)
 
 ### ▪ QUOTE_POST
 
-#### Widget / Context table
+![Profile insertion points](/img/a_twitter_17.png)
+
+#### Widget \ Context table
 
   | Widgets         | POST | PROFILE | HEADING | SUSPENDED | QUOTE_POST |
   |:--------------- |:----:|:-------:|:-------:|:---------:|:----------:|
@@ -147,20 +171,6 @@ name: `caption`
   | `picture`       |  ✔️   |         |         |           |            |
   | `caption`       |  ✔️   |         |         |           |            |
   | `Starter`       |  ✔️   |         |         |           |            |
-
-  \* **Starter** has a different structure:
-
-  ```ts
-  [
-    {
-      label: 'Add tweet to the Ethereum registry',
-      exec: () => console.log('test'),
-    }
-  ],
-  ```
-  It doesn't need widgets and has two parameters: `label` and `exec`.
-  Click on the button opens "Starter" layout with the button with the label from the dapplet.
-  Click on this button runs the function from `exec`.
 
 ## Events
 
