@@ -15,7 +15,8 @@ The iteration is in the insertion point and looks like this:
 POST: async (ctx) => {
   const nfts = await this._fetchNfts(url);
 
-  return nfts.map((nft) => label({
+  return nfts.map((nft) => 
+    label({
       DEFAULT: {
         img: nft.image,
         basic: true,
@@ -69,7 +70,8 @@ export default class TwitterFeature {
       POST: async (ctx) => {
         const nfts = await this._fetchNfts(url);
 
-        return nfts.map((nft) => label({
+        return nfts.map((nft) => 
+          label({
             DEFAULT: {
               img: nft.image,
               basic: true,

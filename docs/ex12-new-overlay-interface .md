@@ -25,7 +25,9 @@ const overlay = Core.overlay({ name: 'exercise-12-overlay', title: 'Exercise 12'
 
 Now we don't get the **url** from the *Core.storage*, so we can remove **overlayUrl** from `/config/default.json` and `/config/schema.json`.
 
-Add to the `dapplet.json` manifest the following option. *Be careful your port may differ from the example*:
+Add to the `dapplet.json` manifest the following option. 
+
+*Be careful your port may differ from the example*:
 
 ```json
 "overlays": {

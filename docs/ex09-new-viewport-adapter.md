@@ -108,7 +108,7 @@ public mount(): void {
 }
 ```
 
-As in the previous example, define the insertion point for the button
+As in the previous example, define the context for the button
 ```typescript
 export class Button {
   public el: HTMLElement;
@@ -215,7 +215,7 @@ public mount(): void {
 }
 ```
 
-Define the insertion point:
+Define the context:
 ```typescript
 export class Popup {
   public el: HTMLElement;
@@ -248,7 +248,7 @@ export class Popup {
 @Inject('exercise-viewport-adapter.dapplet-base.eth') public adapter: any;
 ```
 
-6. Add popup with **`text`**, **`image`** and some **`link`** from the page to **`BODY`**:
+6. Add popup with **text**, **image** and some **link** from the page in `POST`:
 
 ```ts
 popup({
@@ -257,7 +257,7 @@ popup({
   DEFAULT: {
     text: 'The link opens this page in a new tab',
     img: EXAMPLE_IMG,
-    init: (ctx, me) => (me.link = ctx.id),
+    init: (_, me) => (me.link = ctx.id),
   },
 }),
 ```
@@ -269,7 +269,7 @@ button({
   ...
   DEFAULT: {
     ...
-    exec: (ctx) => ($(ctx, 'popup').closed = false),
+    exec: () => ($(ctx, 'popup').closed = false),
   },
 }),
 ```
