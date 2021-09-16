@@ -45,17 +45,18 @@ export default class TwitterFeature {
 }
 ```
 
-The dapplet injects the **button** to every Tweet on a Twitter page below the main content, near the buttons "Like", "
-Retweet" etc. This function returns the widget, the array of widgets or `null`.
+The dapplet injects the **button** to every Tweet on a Twitter page below the main content, near the buttons *Like*, *Retweet* etc. The function passed to `POST` takes `ctx` and returns the **widget**, the **array of widgets** or **null**.
+
+`ctx` - is an *object* that contains parameters of the current **context** where the dapplet widgets were injected. Parameters are defined by the adapter.
 
 ```typescript
-POST:  () => [ button({ ... }) ] 
+POST:  (ctx) => [ button({ ... }) ] 
 ```
 
 or
 
 ```typescript
-POST: () => button({})
+POST: (ctx) => button({})
 ```
 
 Before using the `button` or/and other widgets in `this.adapter.attachConfig()` it has to be received
@@ -118,8 +119,6 @@ exec: async (_, me) => {
 }
 ```
 
-`ctx` - is an *object* that contains parameters of the current context where the dapplet widget was injected. Parameters are defined by the adapter.
-
 `me` - is a *Proxy* of the widget.
 
 Make the counter incrementing on the button click.
@@ -128,11 +127,13 @@ Make the counter incrementing on the button click.
 me.label += 1;
 ```
 
-Implement the ability to set the User Settings properties of the dapplet at its layout in the browser.
+Let's display a message in the browser alert by clicking on the widget. We will also give the opportunity to customize the message text in the dapplet settings in the extension.
+
+The dapplet settings are as follows:
 
 ![Dapplet's User Settings](/img/ex01_1.jpg)
 
-They should be into the alert on the button click.
+To do this, add the following code to the dapplet's `exec`:
 
 ```ts
 const message1 = await Core.storage.get('exampleString');
@@ -140,7 +141,7 @@ const message2 = await Core.storage.get('exampleHiddenString');
 alert(`I wrote: ${message1}. Then wrote: ${message2}.`);
 ```
 
-Here is the result of 2-4th points:
+Here is the complete `exec` code:
 
 ```ts
 exec: async (_, me) => {

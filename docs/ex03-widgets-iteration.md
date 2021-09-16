@@ -36,7 +36,7 @@ export default class TwitterFeature {
           },
         }),
 
-        // LP: 2. Add extra picture to POST_PICTURE and make it hidden by default
+        // LP: 2. Add extra picture to POST and make it hidden by default
 
         // LP end
       ],
@@ -113,7 +113,7 @@ export default class TwitterFeature {
           },
         }),
 
-        // LP: 2. Add extra picture to PICTURE
+        // LP: 2. Add extra picture to POST and make it hidden by default
         picture({
           id: 'pic',
           initial: 'DEFAULT',
