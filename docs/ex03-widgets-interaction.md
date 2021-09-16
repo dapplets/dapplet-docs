@@ -1,11 +1,11 @@
 ---
-id: widgets-iteration 
-title: "Ex03: Widgets iteration"
+id: widgets-interaction 
+title: "Ex03: Widgets interaction"
 ---
 
 In this example we add two widgets to `POST` that interact.
 
-The initial code for this example is here: [ex03-widgets-iteration-exercise](https://github.com/dapplets/dapplet-template/tree/ex03-insertion-points-exercise).
+The initial code for this example is here: [ex03-widgets-interaction-exercise](https://github.com/dapplets/dapplet-template/tree/ex03-widgets-interaction-exercise).
 
 Here is `src/index.ts`:
 
@@ -129,7 +129,7 @@ export default class TwitterFeature {
 }
 ```
 
-Here is the result code of the example: [ex03-widgets-iteration-solution](https://github.com/dapplets/dapplet-template/tree/ex03-insertion-points-solution).
+Here is the result code of the example: [ex03-widgets-interaction-solution](https://github.com/dapplets/dapplet-template/tree/ex03-widgets-interaction-solution).
 
 Run the dapplet:
 

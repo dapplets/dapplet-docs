@@ -18,7 +18,7 @@ module.exports = {
         'exercises',
         'extra-button',
         'state-machine',
-        'widgets-iteration',
+        'widgets-interaction',
         'overlays',
         'wallet',
         'viewport-adapter',
