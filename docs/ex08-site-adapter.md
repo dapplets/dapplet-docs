@@ -11,12 +11,9 @@ The adapter and the dapplet are divided into two directories: `/adapter` and `/d
 
 ### Create an adapter with one widget `button` for two contexts.  
 
-At the beginning we change the adapter template. Let's add buttons
-under the title of each element of the standard search results and one button in the top navigation bar.
+At the beginning we change the adapter template. Let's add buttons under the title of each element of the standard search results and one button in the top navigation bar. 
 
-In `adapter/src/index.ts` implement **`config`**. It is an array of objects which describe different **contexts**
-on the page, associated **insertion points** and **`contextBuilder()`**s, that define what information
-gets the dapplet as a first argument in **`exec()`** and **`init()`** (named **`ctx`** in our examples).
+In `adapter/src/index.ts` implement **`config`**. It is an array of objects which describe different **contexts** which determine where on the page the widget is located. `contextBuilder` determines context information the widget receives in `POST` (named **`ctx`** in our examples).
 
 ```ts
 public config = {
@@ -52,16 +49,15 @@ public config = {
 }
 ```
 
-Now we have two insertion points: **MENU** and **SEARCH_RESULT**.
+Now we have two contexts: **MENU** and **SEARCH_RESULT**.
 
-If there are many contexts of one type on the page, like tweets of search results, you have to find **unique `id`** for everyone.
-It's needed for saving the states of dapplets' elements connected to these contexts.
+If there are many contexts of one type on the page, like tweets of search results, you have to find **unique `id`** for everyone. It's needed for saving the states of dapplets' elements connected to these contexts.
 
-The next step is creating an element. We have a template of the button in `adapter/src/button.ts`.
+The next step - is creating an element. We have a template of the button in `adapter/src/button.ts`.
 
-To define an insertion point for each context where this widget is used, `contextInsPoints` is used. 
+To define a context where this widget is used, is used `contextInsPoints`. 
 
-For example, let's define an insertion point for `MENU` and` SEARCH_RESULT`
+For example, let's define a contexts for `MENU` and` SEARCH_RESULT`
 
 ```ts
 public static contextInsPoints = {
@@ -147,11 +143,11 @@ Then change the dapplet.
 Add buttons to search results and top navigation bar in `/dapplet-feature/src/index.ts`.
 
 Implement an alert that should be triggered when you click the search results button.
-The alert should contain the **title** of the element, the **link** to the source and
-a short description of the found fragment from the element.
+The alert should contain the **title**, the **link** to the source and
+a **short description** of the found fragment from the element.
 
 ```ts
-exec: (ctx) => {
+exec: () => {
   const { title, link, description } = ctx;
   alert(`  title: ${title}\n  link: ${link}\n  description: ${description}`);
 },
@@ -167,7 +163,7 @@ button({
     img: GRAY_IMG,
     tooltip: 'Hi, friend!',
     isActive: false,
-    exec: (ctx, me) => {
+    exec: (_, me) => {
       const el = document.querySelector(ctx.insertPoint);
       el.style.display = 'none';
       if (!('replacedEl' in ctx)) {
@@ -187,7 +183,7 @@ button({
     img: GOOGLE_IMG,
     tooltip: 'Go to results',
     isActive: true,
-    exec: (ctx, me) => {
+    exec: (_, me) => {
       const el = document.querySelector(ctx.insertPoint);
       el.style.display = 'block';
       ctx.replacedEl.style.display = 'none';
@@ -332,7 +328,7 @@ DAPPLET_SEARCH_RESULT: [
       label: 'Get data',
       tooltip: 'Show in the alert',
       img: EXAMPLE_IMG,
-      exec: (ctx) => {
+      exec: () => {
         const { title, link, description } = ctx;
         alert(`  title: ${title}\n  link: ${link}\n  description: ${description}`);
       },
