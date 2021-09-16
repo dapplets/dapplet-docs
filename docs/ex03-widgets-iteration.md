@@ -1,13 +1,11 @@
 ---
-id: insertion-points 
-title: "Ex03: Insertion points"
+id: widgets-iteration 
+title: "Ex03: Widgets iteration"
 ---
 
-In this example we add two elements at different insertion points that interact.
+In this example we add two widgets to `POST` that interact.
 
-The initial code for this example is
-here: [ex03-insertion-points-exercise](https://github.com/dapplets/dapplet-template/tree/ex03-insertion-points-exercise)
-.
+The initial code for this example is here: [ex03-widgets-iteration-exercise](https://github.com/dapplets/dapplet-template/tree/ex03-insertion-points-exercise).
 
 Here is `src/index.ts`:
 
@@ -41,7 +39,6 @@ export default class TwitterFeature {
         // LP: 2. Add extra picture to POST_PICTURE and make it hidden by default
 
         // LP end
-
       ],
     });
   }
@@ -50,16 +47,16 @@ export default class TwitterFeature {
 
 `$(ctx, 'element_id')` returns object "me". Use it to change state or params of the other element by its **id**.
 
-- *Example 1:* `exec: (ctx) => $(ctx, 'another_el_id').state = 'SECOND'`
-- *Example 2:* `exec: (ctx) => $(ctx, 'another_el_id').label = 'Hello'`
+- *Example 1:* `exec: () => $(ctx, 'another_el_id').state = 'SECOND'`
+- *Example 2:* `exec: () => $(ctx, 'another_el_id').label = 'Hello'`
 
-Get the element 'picture' from the adapter
+Get the widget `picture` from the adapter
 
 ```ts
 const { button, picture } = this.adapter.exports;
 ```
 
-Add an extra picture to POST and make it hidden by default.
+Add an extra picture to `POST` and make it hidden by default.
 
 ```ts
 POST: () => [
@@ -79,7 +76,7 @@ POST: () => [
 Toggle the state "hidden/shown" of the picture on button click.
 
 ```ts
-exec: (ctx) => {
+exec: () => {
   $(ctx, 'pic').hidden = !$(ctx, 'pic').hidden;
 },
 ```
@@ -101,7 +98,7 @@ export default class TwitterFeature {
     const { button, picture } = this.adapter.exports;
     // LP end
     const { $ } = this.adapter.attachConfig({
-      POST: () => [
+      POST: (ctx) => [
         button({
           id: 'button',
           initial: 'DEFAULT',
@@ -109,7 +106,7 @@ export default class TwitterFeature {
             label: 'FAKE',
             img: BADGE_IMG,
             // LP: 3. Toggle the state “hidden/shown” of the picture on button click
-            exec: (ctx) => {
+            exec: () => {
               $(ctx, 'pic').hidden = !$(ctx, 'pic').hidden;
             },
             // LP end
@@ -132,9 +129,7 @@ export default class TwitterFeature {
 }
 ```
 
-Here is the result code of the
-example: [ex03-insertion-points-solution](https://github.com/dapplets/dapplet-template/tree/ex03-insertion-points-solution)
-.
+Here is the result code of the example: [ex03-widgets-iteration-solution](https://github.com/dapplets/dapplet-template/tree/ex03-insertion-points-solution).
 
 Run the dapplet:
 

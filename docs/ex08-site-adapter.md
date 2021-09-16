@@ -9,7 +9,7 @@ The initial code for this example is here: [ex08-new-adapter-exercise.](https://
 
 The adapter and the dapplet are divided into two directories: `/adapter` and `/dapplet-feature`.
 
-### Create an adapter with one element `button` and two insertion points for it 
+### Create an adapter with one widget `button` for two contexts.  
 
 At the beginning we change the adapter template. Let's add buttons
 under the title of each element of the standard search results and one button in the top navigation bar.

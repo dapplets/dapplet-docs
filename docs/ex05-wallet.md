@@ -18,7 +18,7 @@ private _transferAmount = '0x1BC16D674EC80000';
 The wallet will open when you click on the button. Use `await Core.wallet()`. The method accepts an object, with two required arguments: `type` and `network`:
 
 ```ts
-exec: async (ctx, me) => {
+exec: async (_, me) => {
   me.state = 'PENDING';
 
   if (!this.wallet) {
@@ -43,7 +43,7 @@ Add states `CONNECTED`, `PENDING`, `REGECTED`, `MINING`, `COMPLETED` and `UNAVAI
 CONNECTED: {
   label: `Send ${BigInt(this._transferAmount) / BigInt(1000000000000000000)} ETH`,
   img: EXAMPLE_IMG,
-  exec: async (ctx, me) => {
+  exec: async (_, me) => {
     // LP: 3. Send the necessary data to wallet and listen for the answer.
       // LP: 4. Show the state of the transaction
       // LP end
@@ -57,7 +57,7 @@ PENDING: {
 REGECTED: {
   label: 'Rejected',
   img: EXAMPLE_IMG,
-  exec: (ctx, me) => (me.state = 'CONNECTED'),
+  exec: (_, me) => (me.state = 'CONNECTED'),
 },
 MINING: {
   label: 'Mining',
@@ -66,12 +66,12 @@ MINING: {
 COMPLETED: {
   label: 'Completed',
   img: EXAMPLE_IMG,
-  exec: (ctx, me) => (me.state = 'CONNECTED'),
+  exec: (_, me) => (me.state = 'CONNECTED'),
 },
 UNAVAILABLE: {
   label: 'Not available',
   img: EXAMPLE_IMG,
-  exec: (ctx, me) => (me.state = 'CONNECTED'),
+  exec: (_, me) => (me.state = 'CONNECTED'),
 },
 ```
 
@@ -104,7 +104,7 @@ Use them to change the button state.
 pending: () => (me.state = 'PENDING'),
 rejected: () => (me.state = 'REGECTED'),
 result: () => (me.state = 'MINING'),
-mined: (op, { hash }) => (me.state = hash === 0 || hash === 0x0 ? 'UNAVAILABLE' : 'COMPLETED'),
+mined: (_, { hash }) => (me.state = hash === 0 || hash === 0x0 ? 'UNAVAILABLE' : 'COMPLETED'),
 ```
 
 Result:
@@ -126,13 +126,13 @@ export default class TwitterFeature {
   async activate(): Promise<void> {
     const { button } = this.adapter.exports;
     this.adapter.attachConfig({
-      POST: async (ctx) => [
+      POST: async (ctx) =>
         button({
           initial: 'DEFAULT',
           DEFAULT: {
             label: 'Connect',
             img: EXAMPLE_IMG,
-            exec: async (ctx, me) => {
+            exec: async (_, me) => {
               me.state = 'PENDING';
 
               if (!this.wallet) {
@@ -152,7 +152,7 @@ export default class TwitterFeature {
           CONNECTED: {
             label: `Send ${BigInt(this._transferAmount) / BigInt(1000000000000000000)} ETH`,
             img: EXAMPLE_IMG,
-            exec: async (ctx, me) => {
+            exec: async (_, me) => {
               this.wallet.sendAndListen(
                 'eth_sendTransaction',
                 [
@@ -166,7 +166,7 @@ export default class TwitterFeature {
                   pending: () => (me.state = 'PENDING'),
                   rejected: () => (me.state = 'REGECTED'),
                   result: () => (me.state = 'MINING'),
-                  mined: (op, { hash }) =>
+                  mined: (_, { hash }) =>
                     (me.state = hash === 0 || hash === 0x0 ? 'UNAVAILABLE' : 'COMPLETED'),
                 },
               );
@@ -179,7 +179,7 @@ export default class TwitterFeature {
           REGECTED: {
             label: 'Rejected',
             img: EXAMPLE_IMG,
-            exec: (ctx, me) => (me.state = 'CONNECTED'),
+            exec: (_, me) => (me.state = 'CONNECTED'),
           },
           MINING: {
             label: 'Mining',
@@ -188,15 +188,14 @@ export default class TwitterFeature {
           COMPLETED: {
             label: 'Completed',
             img: EXAMPLE_IMG,
-            exec: (ctx, me) => (me.state = 'CONNECTED'),
+            exec: (_, me) => (me.state = 'CONNECTED'),
           },
           UNAVAILABLE: {
             label: 'Not available',
             img: EXAMPLE_IMG,
-            exec: (ctx, me) => (me.state = 'CONNECTED'),
+            exec: (_, me) => (me.state = 'CONNECTED'),
           },
         }),
-      ],
     });
   }
 }

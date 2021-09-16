@@ -26,7 +26,7 @@ export default class TwitterFeature {
     // LP End
     const { button } = this.adapter.exports;
     this.adapter.attachConfig({
-      POST: () => [
+      POST: (ctx) => 
         button({
           initial: 'DEFAULT',
           DEFAULT: {
@@ -40,17 +40,16 @@ export default class TwitterFeature {
             // LP end
           },
         }),
-      ],
     });
   }
 }
 ```
 
-The dapplet injects the button to every Tweet on a Twitter page below the main content, near the buttons "Like", "
-Retweet" etc. This insertion point is called `POST: () => []`. This is a function that returns an array or dapplet.
+The dapplet injects the **button** to every Tweet on a Twitter page below the main content, near the buttons "Like", "
+Retweet" etc. This function returns the widget, the array of widgets or `null`.
 
 ```typescript
-POST:  () => [button({ ... })] 
+POST:  () => [ button({ ... }) ] 
 ```
 
 or
@@ -59,11 +58,10 @@ or
 POST: () => button({})
 ```
 
-Before using the `button()` or/and other elements in `this.adapter.attachConfig()` it has to be received
+Before using the `button` or/and other widgets in `this.adapter.attachConfig()` it has to be received
 from `this.adapter.exports`.
 
-This button has only one state - `'DEFAULT'`. In this case you can choose not to set the initial state and delete this
-field.
+This button has only one state - `DEFAULT`. In this case you can choose not to set the initial state and delete this field.
 
 ```typescript
  button({
@@ -74,11 +72,11 @@ field.
 })
 ```
 
-But when you add several states you have to set the `initial` state as above.
+When you haven't `DEFAULT` state you have to set the `initial` state as above.
 
 ```typescript
 button({
-  initial: 'FIRST_STATE', // SECOND_STATE
+  initial: 'FIRST_STATE', // or SECOND_STATE
 
   // First state button
   FIRST_STATE: {
@@ -97,10 +95,9 @@ button({
 The `label`, `img` and `exec` are defined in the state. In this case `exec` takes the function that will be executed on
 button click.
 
-The whole **list of elements** for insertion **and insertion points** are defined in the adapter. The API of **
-twitter-adapter** you can find [here](/docs/adapters-docs-list).
+The whole list of **widgets** and **contexts** are defined in the adapter. The API of **twitter-adapter** you can find [here](/docs/adapters-docs-list).
 
-In the first exercise we add counter to button's label.
+In the first exercise we add counter to button's label in `POST`.
 
 ## 1. Implement a counter in the dapplet
 
@@ -113,17 +110,17 @@ label: 0
 Listen for the button click - output into console.
 
 ```ts
-exec: async (ctx, me) => {
+exec: async (_, me) => {
+  // ctx - the argument of the function passed to POST
   console.log(ctx);
   console.log(me);
 ...
 }
 ```
 
-`ctx` - is an *object* that contains parameters of the current context where the dapplet element was injected.
-Parameters are defined by the adapter.
+`ctx` - is an *object* that contains parameters of the current context where the dapplet widget was injected. Parameters are defined by the adapter.
 
-`me` - is a *Proxy* of the element.
+`me` - is a *Proxy* of the widget.
 
 Make the counter incrementing on the button click.
 
@@ -146,7 +143,7 @@ alert(`I wrote: ${message1}. Then wrote: ${message2}.`);
 Here is the result of 2-4th points:
 
 ```ts
-exec: async (ctx, me) => {
+exec: async (_, me) => {
   console.log(ctx);
   console.log(me);
   me.label += 1;
@@ -301,7 +298,7 @@ export default class TwitterFeature {
     // LP End
     const { button } = this.adapter.exports;
     this.adapter.attachConfig({
-      POST: () => [
+      POST: (ctx) => 
         button({
           initial: 'DEFAULT',
           DEFAULT: {
@@ -311,11 +308,10 @@ export default class TwitterFeature {
             // LP end
             // LP: 2. Listen for the button click - output into console.
             //     3: Make counter incrementing on button click.
-            exec: (ctx) => server.send('increment', ctx.id),
+            exec: () => server.send('increment', ctx.id),
             // LP end
           },
         }),
-      ],
     });
   }
 }

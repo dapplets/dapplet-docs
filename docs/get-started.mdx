@@ -6,7 +6,7 @@ title: Get Started
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To run the simpliest dapplet, follow this steps.
+To run the simplest dapplet, follow this steps.
 
 #### 1. Clone [Dapplet Template](https://github.com/dapplets/dapplet-template) repository locally.
 
@@ -83,7 +83,7 @@ The list of our adapters are available now:
 `ContextId` is the identifier of a context to which your module is bound. This is usually the same as the name of an adapter you are using. It may be:
 
 - the name of an adapter you depend on (e.g. `twitter-adapter.dapplet-base.eth`);
-- the domain name of a website to which you are creting a dapplet (e.g. `twitter.com`);
+- the domain name of a website to which you are creating a dapplet (e.g. `twitter.com`);
 - the identifier of a dynamic context (e.g. `twitter.com/1346093004537425927`).
 
 #### 8. Specify the argument of `@Inject` decorator with chosen adapter in the `/src/index.ts` module and add method `activate()` with the simple dapplet code.
@@ -100,16 +100,15 @@ export default class TwitterFeature {
   activate() {
     const { button } = this.adapter.exports;
     this.adapter.attachConfig({
-      POST_SOUTH: [
+      POST: () =>
         button({
           initial: 'DEFAULT',
           DEFAULT: {
             label: 'Injected Button',
             img: EXAMPLE_IMG,
             exec: () => alert('Hello, World!'),
-          },
-        }),
-      ],
+          }
+        })
     });
   }
 }

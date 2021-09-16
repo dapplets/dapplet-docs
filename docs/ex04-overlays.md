@@ -3,7 +3,7 @@ id: overlays
 title: "Ex04: Overlays"
 ---
 
-In this example we add an overlay that opens on click by button in the POST.
+In this example we add an overlay that opens on click by button in the `POST`.
 
 Here are two examples of the overlay:
 
@@ -29,7 +29,6 @@ The `pure-html-page/index.html` has a `<span>` tag with a `dappletMessage` class
 class.
 
 ```html
-
 <div>
   Info from dapplet:
   <span class="dappletMessage"></span>
@@ -37,8 +36,7 @@ class.
 <button class="ch-state-btn">Counter +1</button>
 ```
 
-In a `<script>` tag we import class **`Bridge`** from `dapplet-overlay-bridge` and create class `MyBridge`, that
-extends `Bridge`, with methods **`onData()`** and **`onClick()`**.
+In a `<script>` tag we import class **`Bridge`** from `dapplet-overlay-bridge` and create class `MyBridge`, that extends `Bridge`, with methods **`onData()`** and **`onClick()`**.
 
 **`onData()`** increments the counter received from the dapplet and sends back.
 
@@ -89,14 +87,23 @@ In `/overlayWithReact` we do the same.
 In `/overlayWithReact/src/App.tsx`  we add variable to the state:
 
 ```tsx
-tickTock: boolean;
+tickTock: true;
+```
+
+add `tickTock` to the `State` interface:
+
+```ts
+interface State {
+  data: string | null;
+  tickTock: boolean; 
+} 
 ```
 
 add event on button click:
 
 ```tsx
 handleClick = () => {
-  bridge.onClick(this.state.tickTack, (tickTack) => this.setState({ tickTack }));
+  bridge.onClick(this.state.tickTock, (tickTock) => this.setState({ tickTock }));
 };
 ```
 
@@ -111,11 +118,11 @@ and add **`onClick`** attribute to the button:
 In `dappletBridge.ts` we add method **`onClick()`** that sends message to dapplet:
 
 ```ts
-onClick(tickTack: boolean, callback: (data: any) => void) {
-  callback(!tickTack);
+onClick(tickTock: boolean, callback: (data: any) => void) {
+  callback(!tickTock);
   this.publish(this._subId.toString(), {
     type: 'onClick',
-    message: tickTack ? 'tick' : 'tack',
+    message: tickTock ? 'tick' : 'tock',
   });
 }
 ```
@@ -133,12 +140,12 @@ onClick(tickTack: boolean, callback: (data: any) => void) {
 5. In callback increase current counter and add received message to `label`.
 
 ```ts
-exec: async (ctx, me) => {
+exec: async (_, me) => {
   const overlayUrl = await Core.storage.get('overlayUrl');
   const overlay = Core.overlay({ url: overlayUrl, title: 'Overlay' });
   overlay.sendAndListen('data', 'Hello, World!', {
     onClick: (op, { message }) => {
-      ctx.counter = ctx.counter === undefined ? 0 : ctx.counter + 1;
+      ctx.counter = ctx.counter === undefined ? 1 : ctx.counter + 1;
       me.label = `${message} ${ctx.counter}`;
     },
   });
@@ -197,42 +204,7 @@ or with the React based overlay:
 npm run start-react
 ```
 
-### Publish React overlay to the decentralized storage (Swarm)
-
-In overlay's `package.json` add `"homepage": "./"` and scripts `"archive"`, `"swarm:upload"` and `"deploy"`:
-
-```json
-"homepage": "./",
-"scripts": {
-"archive": "cd ./build && tar -cvf temp.tar .",
-"swarm:upload": "curl -X POST -H \"Content-Type: application/x-tar\" -H \"Swarm-Index-Document: index.html\" -H \"Swarm-Error-Document: index.html\" --data-binary @build/temp.tar https://gateway.ethswarm.org/dirs",
-"deploy": "npm run build && npm run archive && npm run swarm:upload"
-}
-```
-
-From overlay's directory run deploy:
-
-```bash
-npm run deploy
-```
-
-Copy hash from console:
-
-```bash
-{"reference":"7cf\*\*\*dac17e"}
-```
-
-Add to url `https://gateway.ethswarm.org/bzz/` (expects something like
-this: `https://gateway.ethswarm.org/bzz/7cf\*\*\*dac17e/`).
-
-The url add to config to `default.json`:
-
-```json
-"overlayUrl": "https://gateway.ethswarm.org/bzz/7cf\*\*\*dac17e/",
-```
-
-Here is the result code of the
-example: [ex04-overlays-solution.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-solution)
+Here is the result code of the example: [ex04-overlays-solution.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-solution)
 
 Run the dapplet:
 

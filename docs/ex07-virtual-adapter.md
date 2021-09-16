@@ -15,7 +15,7 @@ Change twitter adapter to **identity** adapter in `/dapplet.json` with a right v
   "contextIds": ["identity-adapter.dapplet-base.eth"],
   ...
   "dependencies": {
-    "identity-adapter.dapplet-base.eth": "0.2.0"
+    "identity-adapter.dapplet-base.eth": "0.3.0"
   }
 }
 ```
@@ -23,7 +23,7 @@ Change twitter adapter to **identity** adapter in `/dapplet.json` with a right v
 In `src/index.ts` change injected adapter:
 
 ```ts
-@Inject('identity-adapter.dapplet-base.eth') public adapter: any,
+@Inject('identity-adapter.dapplet-base.eth') public adapter: any;
 ```
 
 Here is the result code of the example: [ex07-virtual-adapter.](https://github.com/dapplets/dapplet-template/tree/ex07-virtual-adapter)
