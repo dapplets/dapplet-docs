@@ -13,16 +13,17 @@ The adapter and the dapplet are divided into two directories: `/adapter` and `/d
 
 At the beginning we change the adapter template. Let's add buttons under the title of each element of the standard search results and one button in the top navigation bar. 
 
-In `adapter/src/index.ts` implement **`config`**. It is an array of objects which describe different **contexts** which determine where on the page the widget is located. `contextBuilder` determines context information the widget receives in `POST` (named **`ctx`** in our examples).
+In `adapter/src/index.ts` implement **`config`**. It is an object which describes different **contexts** on the page. Selectors for container, context data and insertion points for widgets are described here. `contextBuilder` determines context information the widget receives in `POST` (named **`ctx`** in our examples).
 
 ```ts
 public config = {
   MENU: {
-    containerSelector: '#cnt',
-    contextSelector: '#top_nav',
+    containerSelector: '#cnt, .ndYZfc',
+    contextSelector: '#top_nav, .jZWadf',
     insPoints: {
       MENU: {
-        selector: '.MUFPAc'
+        selector: '.MUFPAc, .T47uwc',
+        insert: 'inside',
       },
     },
     contextBuilder: (): ContextBuilder => ({
@@ -36,6 +37,7 @@ public config = {
     insPoints: {
       SEARCH_RESULT: {
         selector: '.yuRUbf',
+        insert: 'inside',
       },
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -51,11 +53,11 @@ public config = {
 
 Now we have two contexts: **MENU** and **SEARCH_RESULT**.
 
-If there are many contexts of one type on the page, like tweets of search results, you have to find **unique `id`** for everyone. It's needed for saving the states of dapplets' elements connected to these contexts.
+If there are many contexts of one type on the page, like tweets or search results, you have to find **unique `id`** for everyone. It's needed for saving the states of dapplets' widgets connected to these contexts.
 
-The next step - is creating an element. We have a template of the button in `adapter/src/button.ts`.
+The next step - is creating a **widget**. We have a template of the button in `adapter/src/button.ts`.
 
-To define a context where this widget is used, is used `contextInsPoints`. 
+To define the contexts in which this widget is used, you must specify `contextInsPoints`.
 
 For example, let's define a contexts for `MENU` and` SEARCH_RESULT`
 
@@ -66,7 +68,7 @@ public static contextInsPoints = {
 }
 ```
 
-Let's implement at the public method **`mount()`** of the class `Button` the button HTML with **`label`**, **`image`** and **`tooltip`** for our insertion points `MENU` and `SEARCH_RESULT`.
+Let's implement at the public method **`mount`** of the class `Button` the button HTML with **`label`**, **`image`** and **`tooltip`** for our insertion points `MENU` and `SEARCH_RESULT`.
 
 ```ts
 const activeNavEl: HTMLElement = document.querySelector('.hdtb-msel, .rQEFy');
@@ -95,7 +97,7 @@ if (this.insPointName === 'MENU') {
 }
 ```
 
-Add styles for the element depending on the insertion point.
+Add styles for the widget depending on the context.
 
 ```ts
 let stylesAdded = false;
@@ -201,11 +203,12 @@ Run the dapplet:
 npm i
 npm start
 ```
+
 > In this example we run **two servers** concurrently. So you have to add two registry addresses to Dapplet extension in Development tab. How to do it see [here](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
 
-### Add an element `result` to the adapter with one insertion point
+### Add a widget `result` to the adapter with one context insertion point
 
-Add a new insertion point **`WIDGETS`** on the top of Google widgets like Videos, Images of ..., People also ask etc.
+Add a new context **`WIDGETS`**. `insPoint` should be on the top of Google widgets like *Videos*, *Images of ...*, *People also ask* etc.
 
 Complete **config** in `/adapter/src/index.ts`:
 
@@ -218,6 +221,7 @@ public config = {
     insPoints: {
       WIDGETS: {
         selector: '.ULSxyf',
+        insert: 'begin',
       },
     },
     contextBuilder: (): ContextBuilder => ({
@@ -227,7 +231,7 @@ public config = {
 }
 ```
 
-Add a new insertion point **`DAPPLET_SEARCH_RESULT`**, which is similar to `SEARCH_RESULT`
+Add a new context **`DAPPLET_SEARCH_RESULT`**, which is similar to `SEARCH_RESULT`
 but adds a button to our search widget. This is to prevent overwriting of similar search results from different sources.
 
 ```ts
@@ -239,6 +243,7 @@ public config = {
     insPoints: {
       DAPPLET_SEARCH_RESULT: {
         selector: '.yuRUbf',
+        insert: 'inside',
       },
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -276,7 +281,7 @@ export default class GoogleAdapter {
 In `dapplet-feature/src/index.ts` add **`result`** to **`WIDGETS`**. Use `searchResults` from the template as a content source.
 
 ```ts
-WIDGETS: [
+WIDGETS: () =>
   result({
     initial: 'DEFAULT',
     DEFAULT: {
@@ -284,8 +289,7 @@ WIDGETS: [
       title: 'clouds',
       searchResults,
     },
-  }),
-],
+  }), 
 ```
 
 ```ts
@@ -321,7 +325,7 @@ const searchResults = [
 Implement the insertion of buttons into our widget.
 
 ```ts
-DAPPLET_SEARCH_RESULT: [
+DAPPLET_SEARCH_RESULT: (ctx) =>
   button({
     initial: 'DEFAULT',
     DEFAULT: {
@@ -334,15 +338,21 @@ DAPPLET_SEARCH_RESULT: [
       },
     },
   }),
-],
 ```
 
-Add to `adapter/src/button.ts` support for `DAPPLET_SEARCH_RESULT` insertion point.
+Add to `adapter/src/button.ts` support for `DAPPLET_SEARCH_RESULT` context.
 
 ```ts
 // class Button
 ...
+public static contextInsPoints = {
+  MENU: 'MENU',
+  SEARCH_RESULT: 'SEARCH_RESULT',
+  DAPPLET_SEARCH_RESULT: 'DAPPLET_SEARCH_RESULT',
+}
+...
 public mount(): void {
+  ...
   if (this.insPointName === 'MENU') {
     ...
   } else if (

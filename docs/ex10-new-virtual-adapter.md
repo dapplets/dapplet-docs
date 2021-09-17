@@ -45,7 +45,7 @@ export default {};
 }
 ```
 
-5. Add virtual adapter to `"interfaces: []"` in `dapplet.json` of Google and Yahoo adapters and to `"contextIds"` and `"dependencies"` of the dapplet.
+5. Add virtual adapter to `"interfaces: []"` in `dapplet.json` of Google and Yahoo adapters and to `"contextIds"` and `"dependencies"` of the dapplet-feature.
 
 ```json
 // google-adapter/dapplet.json yahoo-adapter/dapplet.json
@@ -72,7 +72,7 @@ export default {};
 6. Change injecting of Google adapter to Virtual adapter in `/dapplet-feature/src/index.ts`.
 
 ```ts
-@Inject('my-virtual-adapter.dapplet-base.eth') public adapter: any,
+@Inject('my-virtual-adapter.dapplet-base.eth') public adapter: any;
 ```
 
 Add to `/package.json` to install and run virtual, google and yahoo adapters and dapplet

@@ -6,6 +6,41 @@
 
 The Twitter adapter provides you with a high-level interface for Twitter **augmentation**. The adapter provides a set of **widgets** that can be inserted into specific types of **contexts**. In one dapplet, you can augment different contexts with widgets defined for them.
 
+## Contexts
+
+### ▪ POST
+
+![Profile insertion points](/img/a_twitter_14.png)
+
+### ▪ PROFILE
+
+![Profile insertion points](/img/a_twitter_13.png)
+
+### ▪ HEADING
+
+![Profile insertion points](/img/a_twitter_15.png)
+
+### ▪ SUSPENDED
+
+![Profile insertion points](/img/a_twitter_16.png)
+
+### ▪ QUOTE_POST
+
+![Profile insertion points](/img/a_twitter_17.png)
+
+#### Widget \ Context table
+
+  | Widgets         | POST | PROFILE | HEADING | SUSPENDED | QUOTE_POST |
+  |:--------------- |:----:|:-------:|:-------:|:---------:|:----------:|
+  | `avatar`        |  ✔️   |    ✔️    |         |     ✔️     |            |
+  | `avatarBadge`   |  ✔️   |    ✔️    |         |           |            |
+  | `usernameBadge` |  ✔️   |    ✔️    |    ✔️    |     ✔️     |            |
+  | `button`        |  ✔️   |    ✔️    |         |           |      ✔️     |
+  | `label`         |  ✔️   |         |         |           |            |
+  | `picture`       |  ✔️   |         |         |           |            |
+  | `caption`       |  ✔️   |         |         |           |            |
+  | `Starter`       |  ✔️   |         |         |           |            |
+
 ## Widgets
 
 The way the widget will look is made up of three components:
@@ -14,7 +49,7 @@ The way the widget will look is made up of three components:
 2. **parameters** that we set the widget according to its **api**
 3. styles written in the adapter for a specific widget in a specific context
 
-The table shows the **api** of widgets.
+The tables show the **api** of widgets.
 
 ### 1. Avatar
 
@@ -135,42 +170,6 @@ Click on the button in the context opens **Starter overlay** with the buttons de
 Starter overlay conbine buttons from **all turned on dapples** which use starter.
 
 \* - mandatory parameters
-
-
-## Contexts
-
-### ▪ POST
-
-![Profile insertion points](/img/a_twitter_14.png)
-
-### ▪ PROFILE
-
-![Profile insertion points](/img/a_twitter_13.png)
-
-### ▪ HEADING
-
-![Profile insertion points](/img/a_twitter_15.png)
-
-### ▪ SUSPENDED
-
-![Profile insertion points](/img/a_twitter_16.png)
-
-### ▪ QUOTE_POST
-
-![Profile insertion points](/img/a_twitter_17.png)
-
-#### Widget \ Context table
-
-  | Widgets         | POST | PROFILE | HEADING | SUSPENDED | QUOTE_POST |
-  |:--------------- |:----:|:-------:|:-------:|:---------:|:----------:|
-  | `avatar`        |  ✔️   |    ✔️    |         |     ✔️     |            |
-  | `avatarBadge`   |  ✔️   |    ✔️    |         |           |            |
-  | `usernameBadge` |  ✔️   |    ✔️    |    ✔️    |     ✔️     |            |
-  | `button`        |  ✔️   |    ✔️    |         |           |      ✔️     |
-  | `label`         |  ✔️   |         |         |           |            |
-  | `picture`       |  ✔️   |         |         |           |            |
-  | `caption`       |  ✔️   |         |         |           |            |
-  | `Starter`       |  ✔️   |         |         |           |            |
 
 ## Events
 

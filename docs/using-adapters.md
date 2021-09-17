@@ -28,7 +28,7 @@ Then create the manifest **`/dapplet.json`**:
     "default": "config/default.json"
   },
   "dependencies": {
-    "twitter-adapter.dapplet-base.eth": "0.5.1"
+    "twitter-adapter.dapplet-base.eth": "0.9.0"
   }
 }
 ```
@@ -86,8 +86,6 @@ In the `schema.json` we specify the settings for the dapplet, which will be avai
 
 ![Dapplet Settings](/img/a_twitter_1.jpg)
 
-> The parameter `"hidden"` doesn't work temporarily. It will work in the future releases.
-
 Finally, implement `/src/index.ts` of the dapplet according to the example:
 
 ```ts
@@ -118,7 +116,7 @@ and then used in the **`attachConfig()`** function:
 
 ```ts
 const { $ } = this.adapter.attachConfig({
-  BODY: [
+  BODY: (ctx) => [
     button({
       ...
     }),
@@ -130,8 +128,8 @@ const { $ } = this.adapter.attachConfig({
 });
 ```
 
-`attachConfig()` receives an object with insertion points as keys and arrays of widgets as values
-and returns the object with **`$(ctx, 'element_id')`** function,
+`attachConfig` receives an object with context names as keys and function returned widget or array of widgets as values.
+`attachConfig` returns the object with **`$(ctx, 'element_id')`** function,
 which returns the Proxy of the widget by its **id**.
 
 Widgets have **states**. The **DEFAULT** (case sensitive) state is used as initial.
@@ -167,7 +165,7 @@ Into states we pass **parameters** of the widget described in the adapter.
 ## Using events
 
 Adapters provide a number of events for different contexts that dapplets can listen to.
-They are used in the **`attachConfig()`** function near the insertion points:
+They are used in the **`attachConfig`** function near the insertion points:
 
 ```ts
 // /src/index.ts > TwitterFeature > activate

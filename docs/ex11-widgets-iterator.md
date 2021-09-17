@@ -3,89 +3,61 @@ id: widgets-iterator
 title: "Ex11: Widgets Iterator"
 ---
 
-It is possible to create multiple widgets at the same insertion point by iterating over the array. Data for iteration can be obtained asynchronously from external sources directly inside the `adapter.attachConfig()` function.
+The function that we pass to augment the context can return either a **single widget**, or an **array of widgets**, or a **null**. The widgets in the array can be of the same or different types. The function itself can be either **synchronous** or **asynchronous**.
 
 The complete code for this example can be found here: [ex11-widgets-iterator](https://github.com/dapplets/dapplet-template/tree/ex11-widgets-iterator).
 
-The iteration is in the insertion point and looks like this:
+Let's create a few `label`-s for `POST` and `button`-s for `PROFILE`. We will use `data.json` as data. We will fetch *nfts*, which contain an *image* and *text*, in an asynchronous `activate` function.
 
 ```ts
-// /dapplet/src/index.ts > TwitterFeature > activate > this.adapter.attachConfig
-...
-POST: async (ctx) => {
-  const nfts = await this._fetchNfts(url);
-
-  return nfts.map((nft) => 
-    label({
-      DEFAULT: {
-        img: nft.image,
-        basic: true,
-        tooltip: nft.text + ' of ' + ctx.authorFullname,
-      },
-    }),
-  );
-},
-```
-
-Here we return the array of labels or another widgets.
-
-We also can return the only one widget or `null`:
-
-```ts
-...
-  return nft && label({
-    DEFAULT: {
-      img: nft.image,
-      basic: true,
-      tooltip: nft.text + ' of ' + ctx.authorFullname,
-    },
-  })
-...
-```
-
-Here is the full code of `/dapplet/src/index.ts` of the example:
-
-```ts
-import { } from '@dapplets/dapplet-extension';
-
-interface NftMetadata {
-  image: string;
-  text: string;
-}
-
-@Injectable
-export default class TwitterFeature {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
-  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any;
-
-  private async _fetchNfts(url: string): Promise<NftMetadata[]> {
-    const res = await fetch(url);
-    return res.json();
+// /dapplet/src/index.ts > TwitterFeature
+async activate() {
+  const url = await Core.storage.get('dataUrl');
+  let nfts: NftMetadata[];
+  try {
+    nfts = await this._fetchNfts(url);
+  } catch (err) {
+    console.log('Error getting NFTs.', err)
   }
 
-  async activate(): Promise<void> {
-    const { label } = this.adapter.exports;
-    const url = await Core.storage.get('dataUrl');
-    this.adapter.attachConfig({
-      POST: async (ctx) => {
-        const nfts = await this._fetchNfts(url);
-
-        return nfts.map((nft) => 
-          label({
-            DEFAULT: {
-              img: nft.image,
-              basic: true,
-              tooltip: nft.text + ' of ' + ctx.authorFullname,
-            },
-          }),
-        );
-      },
-    });
-  }
+  const { label, button } = this.adapter.exports;
+  this.adapter.attachConfig({
+    POST: (ctx) =>
+      nfts && nfts.map((nft) =>
+        label({
+          DEFAULT: {
+            img: nft.image,
+            basic: true,
+            tooltip: ctx.authorFullname + "'s " + nft.text,
+          },
+        }),
+      ),
+    PROFILE: (ctx) =>
+      nfts && nfts.map((nft) =>
+        button({
+          DEFAULT: {
+            img: nft.image,
+            tooltip: ctx.authorFullname + "'s " + nft.text,
+          },
+        }),
+      ),
+  });
 }
-
 ```
-You can change the icons displayed in the example to your own. This is done in `/src/data.json`.
+
+Also add `_fetchNfts` function:
+
+```ts
+private async _fetchNfts(url: string): Promise<NftMetadata[]> {
+  let res: any;
+  try {
+    res = await fetch(url);
+  } catch (err) {
+    console.log('Error fetching NFTs.', err)
+  }
+  return res.json();
+}
+```
 
 The complete code for this example can be found here: [ex11-widgets-iterator.](https://github.com/dapplets/dapplet-template/tree/ex11-widgets-iterator)
 
