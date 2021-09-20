@@ -13,22 +13,12 @@
   font-weight: 400;
 
   padding: 0 20px;
-
+  transition: all 0s;
   margin-right: 50px;
-  &::before {
-    position: absolute;
-    content: '';
-    width: 100%;
-    transition: all var(--ifm-transition-fast) var(--ifm-transition-timing-default);
-    height: 4px;
-    background-color: var(--ifm-link-color);
-    left: 0;
-    top: -9px;
-    transform: translateY(-200%)
-  }
 
-  &:hover::before {
-    transform: translateY(-100%)
+  &:hover {
+    color: var(--ifm-link-color);
+    text-decoration: underline;
   }
 
   &::after {

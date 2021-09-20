@@ -113,9 +113,9 @@ function Navbar() {
 
     <ul className="header-custom-socials">
       {
-        headerSocials.map(({ id, component, href }) => {
+        headerSocials.map(({ id, component, href, title }) => {
           return (
-            <li key={id} className="header-custom-social">
+            <li key={id} className="header-custom-social" title={title}>
               <a href={href} target="_blank">
                 {component}
               </a>
