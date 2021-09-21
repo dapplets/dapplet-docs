@@ -19,6 +19,6 @@ export const footerSocials = [
 ];
 
 export const footerLinks = [
-  { id: 0, label: "Privacy Policy", href: 'https://quizzical-dubinsky-ae4361.netlify.app/privacy-policy.html' },
-  { id: 1, label: "Terms & Conditions", href: 'https://quizzical-dubinsky-ae4361.netlify.app/terms-conditions.html' },
+  { id: 0, label: "Privacy Policy", href: 'https://dapplets.org/privacy-policy.html' },
+  { id: 1, label: "Terms & Conditions", href: 'https://dapplets.org/terms-conditions.html' },
 ]
