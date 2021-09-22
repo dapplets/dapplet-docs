@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Dapplets Platform',
+  title: 'Documentation | Dapplets Platform',
   tagline: 'Welcome to the Dapplets',
   url: 'https://docs.dapplets.org',
   baseUrl: '/',
