@@ -8,6 +8,7 @@
   --ifm-color-primary-light: rgb(70, 203, 174);
   --ifm-color-primary-lighter: rgb(102, 212, 189);
   --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-color-success: #e5fbec;
   --ifm-code-font-size: 95%;
   --ifm-menu-color: #919191;
   --ifm-container-width: 100%;
@@ -35,11 +36,24 @@
   --ifm-footer-padding-vertical: 40px;
   --ifm-footer-padding-horizontal: 15px;
   --ifm-footer-link-hover: #F26680;
+  --ifm-alert-color: #2A2A2A;
   --ifm-alert-padding-vertical: 15px;
   --ifm-alert-padding-horizontal: 15px;
   --ifm-navbar-background-color: '#FAFAFA';
 
   font-family: 'Montserrat', sans-serif !important;
   color: #747376;
+}
+
+.admonition-tip {
+  --ra-admonition-icon-color: #26A651 !important;
+
+  & h5 {
+    color: #26A651 !important;
+  }
+
+  & p {
+    padding-left: 26px !important;
+  }
 }
 

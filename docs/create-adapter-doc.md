@@ -18,8 +18,8 @@ It should contain:
 
   1. Adapter name.
   2. General information about the adapter.
-  3. Widgets with description, parameters, their types. It is better if this information is presented in the form of a table.
-  4. Insertion points of the widgets (pictures, table, additions).
+  4. Contexts with insertion points for the widgets (pictures, table, additions).
+  3. Widgets with description, parameters, their types. It is better if this information is presented in the form of a table or tables.
   5. Events (text, code).
   6. Supported virtual adapters.
 

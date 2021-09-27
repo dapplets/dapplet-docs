@@ -68,7 +68,13 @@ public static contextInsPoints = {
 }
 ```
 
-Let's implement at the public method **`mount`** of the class `Button` the button HTML with **`label`**, **`image`** and **`tooltip`** for our insertion points `MENU` and `SEARCH_RESULT`.
+Let's implement at the public method **`mount`** of the class `Button` the HTML with **`label`**, **`image`** and **`tooltip`** for our insertion points `MENU` and `SEARCH_RESULT`.
+
+:::tip
+
+Adapters allow the dapplet to **customize** the widgets. This can be the `text` of the button, the `image` on the icon, the choice of one of the `location` options, etc. The adapter developer decides what **parameters** to make customizable. They should be described in the documentation as follows: parameter's `name`, `mandatory` or not, data `TYPE`, text `description`. If you need to select one of several value options for a parameter, they must be listed (this can be specified in the parameter type). If the parameter type is a number, then it is recommended to indicate in which units it will be converted: pixels, percentages, fractions, etc.
+
+:::
 
 ```ts
 const activeNavEl: HTMLElement = document.querySelector('.hdtb-msel, .rQEFy');
