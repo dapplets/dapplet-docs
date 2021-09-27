@@ -9,6 +9,14 @@
   --collapse-button-bg-color-dark: #2e333a;
 }
 
+.headerLogo {
+  transition: transform var(--ifm-transition-fast) linear;
+}
+
+.customHeader:hover .headerLogo {
+  transform: translateY(-5px)
+}
+
 @media (min-width: 997px) {
   .sidebar {
     display: flex;

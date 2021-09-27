@@ -65,9 +65,9 @@ function Footer() {
 
         <ul className="footer-custom-socials">
           {
-            footerSocials.map(({ id, ...item }) => {
+            footerSocials.map(({ id, title, ...item }) => {
               return item.href && (
-                <li className="footer-custom-social" key={id}>
+                <li className="footer-custom-social" key={id} title={title}>
                   <FooterBottomItem {...item} />
                 </li>
               )

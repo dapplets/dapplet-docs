@@ -197,8 +197,10 @@ function DocSidebar({
         </span> : <IconMenu className={styles.sidebarMenuIcon} height={MOBILE_TOGGLE_SIZE} width={MOBILE_TOGGLE_SIZE} />}
       </button>
 
-      <header className={styles.header}>
-        <div className={styles.headerLogo} />
+      <header className={styles.customHeader}>
+        <Link to="/docs" className={styles.headerLink}>
+          <div className={styles.headerLogo} />
+        </Link>
       </header>
 
       <ul className="menu__list">
