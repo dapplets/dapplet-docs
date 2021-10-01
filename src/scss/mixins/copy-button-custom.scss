@@ -1,5 +1,4 @@
 @mixin copyButtonCustom {
-	
 	.copy-button-custom {
 		position: absolute;
 		top: -43px;
@@ -14,7 +13,7 @@
 
 		font-size: 16px;
 		line-height: 24px;
-		text-decoration-line: underline;
+    text-decoration: none;
 		color: var(--ifm-code-copy-color);
 		margin-left: auto;
 		opacity: 1;
@@ -23,22 +22,21 @@
 			color: var(--ifm-code-copy-color-hover);
 			
 			&::before {
-				background-image: url('../../static/img/copy-icon-hover.png');
+        background: no-repeat 2px url('../../static/img/copy-icon-hover.png') #c9c9c945;
 			}
 		}
 		
 		&::before {
 			content: '';
 			position: absolute;
-			background-image: url('../../static/img/copy-icon.png');
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			width: 18px;
-			height: 18px;
+			width: 74px;
+			height: 28px;
 			top: 50%;
 			transform: translateY(-50%);
 			left: -15px;
+      background: no-repeat 2px url('../../static/img/copy-icon.png') #c9c9c945;
+      border-radius: 6px;
+      box-shadow: 0px 4px 6px -2px #c4c4c4;
 		}
 	}
 }

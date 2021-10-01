@@ -37,7 +37,7 @@
 
   font-size: 16px;
   line-height: 24px;
-  text-decoration-line: underline;
+  text-decoration: none;
   margin-left: auto;
   opacity: 0;
 
@@ -53,21 +53,20 @@
 }
 
 .copyButton:hover::before {
-  background-image: url('../../../static/img/copy-icon-hover.png');
+  background: no-repeat 2px url('../../../static/img/copy-icon-hover.png') #c9c9c945;
 }
 
 .copyButton::before {
   content: '';
   position: absolute;
-  background-image: url('../../../static/img/copy-icon.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 18px;
-  height: 18px;
+  width: calc(100% + 5px);
+  height: 28px;
   top: 50%;
   transform: translateY(-50%);
   left: -15px;
+  background: no-repeat 2px url('../../../static/img/copy-icon.png') #c9c9c945;
+  border-radius: 6px;
+  box-shadow: 0px 4px 6px -2px #c4c4c4;
 }
 
 .codeBlockLines {

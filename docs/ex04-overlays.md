@@ -131,18 +131,15 @@ onClick(tickTock: boolean, callback: (data: any) => void) {
 
 1. Implement overlay opening on button click.
 
-2. To get url use `Core.storage.get('url_name')`.
+2. To get current overlay use `Core.overlay({ name: string, title: string })`.
 
-3. To get current overlay use `Core.overlay({ url: string, title: string })`.
+3. Send some data to overlay and get callback **`onClick`**.
 
-4. Send some data to overlay and get callback **`onClick`**.
-
-5. In callback increase current counter and add received message to `label`.
+4. In callback increase current counter and add received message to `label`.
 
 ```ts
 exec: async (_, me) => {
-  const overlayUrl = await Core.storage.get('overlayUrl');
-  const overlay = Core.overlay({ url: overlayUrl, title: 'Overlay' });
+  const overlay = Core.overlay({ name: 'example-04-overlay', title: 'Example 4' });
   overlay.sendAndListen('data', 'Hello, World!', {
     onClick: (op, { message }) => {
       ctx.counter = ctx.counter === undefined ? 1 : ctx.counter + 1;
@@ -152,36 +149,13 @@ exec: async (_, me) => {
 },
 ```
 
-The url `http://localhost:3000` add to config to `default.json`:
+Add to the `dapplet.json` manifest the following option:
 
 ```json
 {
   ...
-  "dev": {
-    "overlayUrl": "http://localhost:3000",
-    "exampleString": "some string value",
-    "exampleHiddenString": "some string value"
-  }
-}
-```
-
-and add appropriate field to `schema.json`:
-
-```json
-{
-  "type": "object",
-  "required": [
-    "overlayUrl",
-    "exampleString",
-    "exampleHiddenString"
-  ],
-  "properties": {
-    "overlayUrl": {
-      "type": "string",
-      "title": "Example of string property"
-    },
-    
-    ...
+  "overlays": {
+    "example-04-overlay": "http://localhost:3000"
   }
 }
 ```
@@ -192,25 +166,38 @@ Before running install dependencies:
 npm i
 ```
 
-Run the dapplet with pure JS overlay:
+To run the dapplet with pure JS overlay, change `start` script in `package.json`:
 
-```bash
-npm run start-html
+```json
+"start": "concurrently -c \"yellow,green\" -n \"dapplet,overlay\" \"rollup -w --config rollup.config.js\" \"cd pure-html-page && npx serve -l 3000\"",
 ```
 
-or with the React based overlay:
+To run the dapplet with ReactJS overlay, change `start` script to the following:
+
+```json
+"start": "concurrently -c \"yellow,blue\" -n \"dapplet,overlay\" \"rollup -w --config rollup.config.js\" \"cd overlayWithReact && npm start\"",
+```
+
+Run the dapplet
 
 ```bash
-npm run start-react
+npm start
 ```
+
+:::tip
+
+To publish a dapplet with an overlay, you need `assets-manifest.json`. When an overlay is written in React, webpack or another module bundler builds it on its own. But when you write it in pure JS, you need to create the manifest yourself. As you can see, if you create a React based overlay from the example, the manifest will have the following structure:
+
+```json
+{
+  "index.html": "index.html",
+  "main.js": "main.js"
+}
+```
+
+:::
 
 Here is the result code of the example: [ex04-overlays-solution.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-solution)
 
-Run the dapplet:
-
-```bash
-npm i
-npm run start-react
-```
 
 ![video](/video/ex04-overlay.gif)

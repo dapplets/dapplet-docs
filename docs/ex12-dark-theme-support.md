@@ -1,6 +1,6 @@
 ---
 id: dark-theme-support
-title: "Ex 13: Dark theme support"
+title: "Ex 12: Dark theme support"
 ---
 
 You can add different icons for **light** and **dark** themes.
@@ -29,4 +29,4 @@ this.adapter.attachConfig({
 
 Also `ctx` contains `theme` parameter, which can be `'LIGHT'` or `'DARK'`. This information determines by the adapter and can be used in the dapplet-feature or in the overlay.
 
-The complete code for this example can be found here: [ex13-dark-theme-support.](https://github.com/dapplets/dapplet-template/tree/ex13-dark-theme-support)
+The complete code for this example can be found here: [ex12-dark-theme-support.](https://github.com/dapplets/dapplet-template/tree/ex12-dark-theme-support)
