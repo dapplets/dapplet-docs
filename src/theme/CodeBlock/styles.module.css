@@ -53,7 +53,8 @@
 }
 
 .copyButton:hover::before {
-  background: no-repeat 2px url('../../../static/img/copy-icon-hover.png') #c9c9c945;
+  background: no-repeat 2px url('../../../static/img/copy-icon-hover.png');
+  background-color: #c9c9c945;
 }
 
 .copyButton::before {
@@ -64,7 +65,8 @@
   top: 50%;
   transform: translateY(-50%);
   left: -15px;
-  background: no-repeat 2px url('../../../static/img/copy-icon.png') #c9c9c945;
+  background: no-repeat 2px url('../../../static/img/copy-icon.png');
+  background-color: #c9c9c945;
   border-radius: 6px;
   box-shadow: 0px 4px 6px -2px #c4c4c4;
 }
