@@ -72,25 +72,22 @@ public config = {
 // LP: 2. implement the button HTML with "image" and "tooltip".
 const { img, tooltip } = this.state;
 const htmlString = `
-  <div style="
-    position:fixed;
-    width:60px;
-    height:60px;
-    bottom:40px;
-    left:40px;
-    background-color:#fff;
-    color:#FFF;
-    border-radius:50px;
-    border: 3px solid #d10019;
-    text-align:center;
-    box-shadow: 2px 2px 3px #999;
-    cursor: pointer;
-    display: block;
-    box-sizing: content-box;
-    z-index: 9999;
-  ">
-    <img style="margin-top:11px;" height="32" src="${img}">
-  </div>
+    <div style="
+        position:fixed;
+        width:60px;
+        height:60px;
+        bottom:40px;
+        left:40px;
+        color:#FFF;
+        border-radius:99em;
+        text-align:center;
+        box-shadow: 2px 2px 3px #999;
+        cursor: pointer;
+        display: block;
+        box-sizing: content-box;
+        background: no-repeat center/100% url(${img}) #d4e0e9;
+    ">
+    </div>
 `;
 this.el.title = tooltip ?? '';
 this.el.innerHTML = htmlString;
@@ -203,10 +200,10 @@ public static contextInsPoints = {
 ```json
 {
   ...
-  "contextIds": ["exercise-viewport-adapter.dapplet-base.eth"],
+  "contextIds": ["example-viewport-adapter.dapplet-base.eth"],
   ...
   "dependencies": {
-    "exercise-viewport-adapter.dapplet-base.eth": "0.1.0"
+    "example-viewport-adapter.dapplet-base.eth": "0.2.0"
   }
 }
 ```
@@ -214,7 +211,7 @@ public static contextInsPoints = {
 5. Add a valid adapter in `/dapplet-feature/src/index.ts`:
 
 ```ts
-@Inject('exercise-viewport-adapter.dapplet-base.eth') public adapter: any;
+@Inject('example-viewport-adapter.dapplet-base.eth') public adapter: any;
 ```
 
 6. Add `popup` with **text**, **image** and some **link** from the page in `BODY`:

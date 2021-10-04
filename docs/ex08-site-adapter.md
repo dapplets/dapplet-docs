@@ -85,8 +85,8 @@ if (this.insPointName === 'MENU') {
       display: inline; cursor: pointer;"
       ${tooltip ? `title="${tooltip}"` : ''}
     >
-      <img style="margin-right: 5px; margin-bottom: -3px;" src="${img}"/>
-      <div style="display: inline-block; font-size: 13px; line-hight: 16px; -webkit-tap-highlight-color: rgba(0,0,0,.10); color: #5f6368;">${label}</div>
+      <img style="width: 20px; margin-right: 5px; margin-bottom: -3px;" src="${img}"/>
+      <div style="display: inline-block; font-size: 13px; line-hight: 16px; ${isActive ? 'color: #1a73e8;' : '-webkit-tap-highlight-color: rgba(0,0,0,.10); color: #5f6368;'}">${label}</div>
     </div>
   `;
   activeNavEl.style.borderBottom = isActive ? 'none' : '3px solid #1a73e8';
@@ -96,7 +96,7 @@ if (this.insPointName === 'MENU') {
       style="display: flex; align-items: center; cursor: pointer;"
       ${tooltip ? `title="${tooltip}"` : ''}
     >
-      <img style="margin-right: 1em; margin-bottom: 3px;" src="${img}"/>
+      <img style="width: 20px; margin-right: 1em; margin-bottom: 3px;" src="${img}"/>
       <div style="display: inline-block; font-size: 1.1em; color: #F5504A; font-weight: bold;">${label}</div>
     </div>
   `;

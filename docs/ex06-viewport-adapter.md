@@ -32,7 +32,11 @@ and set the right insertion point:
 ```ts
 BODY: () => 
   button({
-    ...
+    DEFAULT: {
+      tooltip: 'Injected Button',
+      img: EXAMPLE_IMG,
+      exec: () => alert('Hello, World!'),
+    },
   }),
 ```
 

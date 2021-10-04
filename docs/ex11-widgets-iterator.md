@@ -5,7 +5,7 @@ title: "Ex11: Widgets Iterator"
 
 The function that we pass to augment the context can return either a **single widget**, or an **array of widgets**, or a **null**. The widgets in the array can be of the same or different types. The function itself can be either **synchronous** or **asynchronous**.
 
-The complete code for this example can be found here: [ex11-widgets-iterator](https://github.com/dapplets/dapplet-template/tree/ex11-widgets-iterator).
+The initial code for this example is in [master.](https://github.com/dapplets/dapplet-template/tree/master)
 
 Let's create a few `label`-s for `POST` and `button`-s for `PROFILE`. We will use `data.json` as data. We will fetch *nfts*, which contain an *image* and *text*, in an asynchronous `activate` function.
 

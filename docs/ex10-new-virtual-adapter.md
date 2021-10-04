@@ -10,12 +10,12 @@ The initial code for this example is here: [ex10-new-virtual-adapter-exercise.](
 
 The start point of the exercise is a solution for the [Ex08: New Site specific adapter](/docs/new-site-adapter). There is an adapter for Google and a dapplet for it.
 
-1. Add search adapter for Yahoo. See the code on GitHub: [yahoo-adapter.](https://github.com/dapplets/dapplet-template/tree/ex10-new-virtual-adapter-solution/yahoo-adapter)
+1. Add search adapter for Yahoo. See the code on GitHub: [example-yahoo-adapter.](https://github.com/dapplets/dapplet-template/tree/ex10-new-virtual-adapter-solution/example-yahoo-adapter)
 
-2. Add `/my-virtual-adapter/` folder that should have a structure similar to Google adapter.
+2. Add `/example-virtual-adapter/` folder that should have a structure similar to Google Adapter Example.
 
 ```bash
-my-virtual-adapter
+example-virtual-adapter
 ├── dapplet.json
 ├── package-lock.json
 ├── package.json
@@ -25,13 +25,13 @@ my-virtual-adapter
 └── tsconfig.json
 ```
 
-3. The `/my-virtual-adapter/src/` folder should contain only `index.ts` that exports an empty object.
+3. The `/example-virtual-adapter/src/` folder should contain only `index.ts` that exports an empty object.
 
 ```ts
 export default {};
 ```
 
-4. In the `/my-virtual-adapter/dapplet.json` set `"type": "INTERFACE"` and remove `"contextIds"` and `"dependencies"`.
+4. In the `/example-virtual-adapter/dapplet.json` set `"type": "INTERFACE"` and remove `"contextIds"` and `"dependencies"`.
 
 ```json
 {
@@ -39,7 +39,7 @@ export default {};
   "branch": "default",
   "version": { "$ref": "package.json#/version" },
   "type": "INTERFACE",
-  "title": "My Virtual Adapter",
+  "title": "Virtual Adapter Example",
   "description": { "$ref": "package.json#/description" },
   "main": { "$ref": "package.json#/main" }
 }
@@ -48,11 +48,11 @@ export default {};
 5. Add virtual adapter to `"interfaces: []"` in `dapplet.json` of Google and Yahoo adapters and to `"contextIds"` and `"dependencies"` of the dapplet-feature.
 
 ```json
-// google-adapter/dapplet.json yahoo-adapter/dapplet.json
+// example-google-adapter/dapplet.json example-yahoo-adapter/dapplet.json
 {
   ...
   "interfaces": {
-    "my-virtual-adapter.dapplet-base.eth": "0.1.0"
+    "example-virtual-adapter.dapplet-base.eth": "0.2.0"
   }
 }
 ```
@@ -61,27 +61,27 @@ export default {};
 // dapplet-feature/dapplet.json
 {
   ...
-  "contextIds": ["my-virtual-adapter.dapplet-base.eth"],
+  "contextIds": ["example-virtual-adapter.dapplet-base.eth"],
   ...
   "dependencies": {
-    "my-virtual-adapter.dapplet-base.eth": "0.1.0"
+    "example-virtual-adapter.dapplet-base.eth": "0.2.0"
   }
 }
 ```
 
-6. Change injecting of Google adapter to Virtual adapter in `/dapplet-feature/src/index.ts`.
+6. Change injecting of Google adapter to virtual adapter in `/dapplet-feature/src/index.ts`.
 
 ```ts
-@Inject('my-virtual-adapter.dapplet-base.eth') public adapter: any;
+@Inject('example-virtual-adapter.dapplet-base.eth') public adapter: any;
 ```
 
-Add to `/package.json` to install and run virtual, google and yahoo adapters and dapplet
+Add to `/package.json` to install and run the virtual, Google and Yahoo adapters and the dapplet
 
 ```json
 // scripts
 
-"postinstall": "concurrently -c \"yellow,magenta,green,blue\" -n \"google-adapter,yahoo-adapter,dapplet,my-virtual-adapter\" \"cd google-adapter && npm i\" \"cd yahoo-adapter && npm i\" \"cd dapplet-feature && npm i\" \"cd my-virtual-adapter && npm i\"",
-"start": "concurrently -c \"yellow,magenta,green,blue\" -n \"google-adapter,yahoo-adapter,dapplet,my-virtual-adapter\" \"cd google-adapter && npm start\" \"cd yahoo-adapter && npm start\" \"cd dapplet-feature && npm start\" \"cd my-virtual-adapter && npm start\"",
+"postinstall": "concurrently -c \"yellow,magenta,green,blue\" -n \"example-google-adapter,example-yahoo-adapter,dapplet,example-virtual-adapter\" \"cd example-google-adapter && npm i\" \"cd example-yahoo-adapter && npm i\" \"cd dapplet-feature && npm i\" \"cd example-virtual-adapter && npm i\"",
+"start": "concurrently -c \"yellow,magenta,green,blue\" -n \"example-google-adapter,example-yahoo-adapter,dapplet,example-virtual-adapter\" \"cd example-google-adapter && npm start\" \"cd example-yahoo-adapter && npm start\" \"cd dapplet-feature && npm start\" \"cd example-virtual-adapter && npm start\"",
 ```
 
 Here is the result: [ex10-new-virtual-adapter-solution.](https://github.com/dapplets/dapplet-template/tree/ex10-new-virtual-adapter-solution)

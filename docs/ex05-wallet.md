@@ -52,7 +52,7 @@ CONNECTED: {
 },
 PENDING: {
   label: 'Pending',
-  img: ICON_LOADING,
+  loading: true,
 },
 REGECTED: {
   label: 'Rejected',
@@ -61,7 +61,7 @@ REGECTED: {
 },
 MINING: {
   label: 'Mining',
-  img: ICON_LOADING,
+  loading: true,
 },
 COMPLETED: {
   label: 'Completed',
@@ -111,8 +111,7 @@ Result:
 
 ```ts
 import {} from '@dapplets/dapplet-extension';
-import EXAMPLE_IMG from './icons/icon19.png';
-import ICON_LOADING from './icons/loading.svg';
+import EXAMPLE_IMG from './icons/ex05.png';
 
 @Injectable
 export default class TwitterFeature {
@@ -174,7 +173,7 @@ export default class TwitterFeature {
           },
           PENDING: {
             label: 'Pending',
-            img: ICON_LOADING,
+            loading: true,
           },
           REGECTED: {
             label: 'Rejected',
@@ -183,7 +182,7 @@ export default class TwitterFeature {
           },
           MINING: {
             label: 'Mining',
-            img: ICON_LOADING,
+            loading: true,
           },
           COMPLETED: {
             label: 'Completed',

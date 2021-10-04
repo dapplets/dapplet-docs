@@ -10,7 +10,7 @@ The **basic template** for `your_dapplet/src/index.ts` looks like this:
 
 ```ts
 import {} from '@dapplets/dapplet-extension';
-import EXAMPLE_IMG from './icons/icon19.png';
+import EXAMPLE_IMG from './icons/ex01.png';
 
 @Injectable
 export default class TwitterFeature {
@@ -283,7 +283,7 @@ The console calls and the alert are no longer needed, so you can remove them. Th
 
 ```ts
 import {} from '@dapplets/dapplet-extension';
-import EXAMPLE_IMG from './icons/smile19.png';
+import EXAMPLE_IMG from './icons/ex01.png';
 
 @Injectable
 export default class TwitterFeature {

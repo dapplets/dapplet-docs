@@ -11,7 +11,8 @@ Here is `src/index.ts`:
 
 ```ts
 import {} from '@dapplets/dapplet-extension';
-import EXAMPLE_IMG from './icons/icon19.png';
+import EXAMPLE_IMG from './icons/ex03.png';
+//import STAMP_IMG from './icons/fakeStamp.png';
 
 @Injectable
 export default class TwitterFeature {
@@ -85,8 +86,8 @@ Result:
 
 ```ts
 import {} from '@dapplets/dapplet-extension';
+import EXAMPLE_IMG from './icons/ex03.png';
 import STAMP_IMG from './icons/fakeStamp.png';
-import BADGE_IMG from './icons/angry-smile19.png';
 
 @Injectable
 export default class TwitterFeature {
@@ -104,7 +105,7 @@ export default class TwitterFeature {
           initial: 'DEFAULT',
           DEFAULT: {
             label: 'FAKE',
-            img: BADGE_IMG,
+            img: EXAMPLE_IMG,
             // LP: 3. Toggle the state “hidden/shown” of the picture on button click
             exec: () => {
               $(ctx, 'pic').hidden = !$(ctx, 'pic').hidden;
