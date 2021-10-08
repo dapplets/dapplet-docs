@@ -9,6 +9,7 @@
 .doc-custom-wrapper {
 	max-width: 1360px;
 	margin: 0 auto;
+	margin-top: 50px;
 }
 
 @media screen and (max-width: 1185px){
@@ -16,7 +17,7 @@
 		display: none;
 	}
 
-  .doc-custom-col {
+	.doc-custom-col {
 		overflow: visible;
 	}
 }
