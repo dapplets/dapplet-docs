@@ -9,21 +9,22 @@ import Layout from '@theme/Layout';
 import { VersionAdapter, VersionAdapterProvider } from '../context/VersionAdapter.context';
 
 const NotFound = () => {
-  const [location, setLocation] = useState(window.location.href)
+  // const [location, setLocation] = useState(window.location.href)
   // const { version } = useContext(VersionAdapter);
 
-  useEffect(() => {
-    // console.log('version:', version);
+  // useEffect(() => {
+  //   console.log('version:', version);
 
-    if (location.includes('adapters-docs-list')) {
-      // const baseUrl = '/docs/adapters-docs-list/';
 
-      // window.location.href = baseUrl;
+  //   if (location.includes('adapters-docs-list')) {
+  //     // const baseUrl = '/docs/adapters-docs-list/';
 
-      // console.log(location);
-    }
+  //     // window.location.href = baseUrl;
 
-  }, []);
+  //     // console.log(location);
+  //   }
+
+  // }, []);
 
   return (
     <Layout title="Page Not Found">
