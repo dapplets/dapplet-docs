@@ -2,6 +2,10 @@
 	padding: 0 30px;
 }
 
+.main-wrapper {
+	margin-top: 50px;
+}
+
 .main-wrapper main {
 	overflow: hidden;
 }
@@ -9,7 +13,6 @@
 .doc-custom-wrapper {
 	max-width: 1360px;
 	margin: 0 auto;
-	margin-top: 50px;
 }
 
 @media screen and (max-width: 1185px){

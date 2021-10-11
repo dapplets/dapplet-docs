@@ -13,6 +13,7 @@ import Footer from '@theme/Footer';
 import LayoutProviders from '@theme/LayoutProviders';
 import LayoutHead from '@theme/LayoutHead';
 import useKeyboardNavigation from '@theme/hooks/useKeyboardNavigation';
+import { VersionAdapter, VersionAdapterProvider } from '../../context/VersionAdapter.context';
 import './styles.css';
 
 function Layout(props) {

@@ -48,8 +48,8 @@ function DocPageContent({
     version,
     tag: docVersionSearchTag(pluginId, version)
   }}>
-      <div className={styles.docPage}>
-        {sidebar && <div className={clsx(styles.docSidebarContainer, {
+    <div className={styles.docPage}>
+      {sidebar && <div className={clsx(styles.docSidebarContainer, {
         [styles.docSidebarContainerHidden]: hiddenSidebarContainer
       })} onTransitionEnd={e => {
         if (!e.currentTarget.classList.contains(styles.docSidebarContainer)) {
@@ -60,23 +60,23 @@ function DocPageContent({
           setHiddenSidebar(true);
         }
       }} role="complementary">
-            <DocSidebar key={// Reset sidebar state on sidebar changes
-        // See https://github.com/facebook/docusaurus/issues/3414
-        sidebarName} sidebar={sidebar} path={currentDocRoute.path} sidebarCollapsible={siteConfig.themeConfig?.sidebarCollapsible ?? true} onCollapse={toggleSidebar} isHidden={hiddenSidebar} />
+        <DocSidebar key={// Reset sidebar state on sidebar changes
+          // See https://github.com/facebook/docusaurus/issues/3414
+          sidebarName} sidebar={sidebar} path={currentDocRoute.path} sidebarCollapsible={siteConfig.themeConfig?.sidebarCollapsible ?? true} onCollapse={toggleSidebar} isHidden={hiddenSidebar} />
 
-            {hiddenSidebar && <div className={styles.collapsedDocSidebar} title="Expand sidebar" aria-label="Expand sidebar" tabIndex={0} role="button" onKeyDown={toggleSidebar} onClick={toggleSidebar}>
-                <IconArrow />
-              </div>}
-          </div>}
-        <main className={styles.docMainContainer}>
-          <div className={clsx('container padding-vert--lg', styles.docItemWrapper, {
+        {hiddenSidebar && <div className={styles.collapsedDocSidebar} title="Expand sidebar" aria-label="Expand sidebar" tabIndex={0} role="button" onKeyDown={toggleSidebar} onClick={toggleSidebar}>
+          <IconArrow />
+        </div>}
+      </div>}
+      <main className={styles.docMainContainer}>
+        <div className={clsx('container padding-vert--lg', styles.docItemWrapper, {
           [styles.docItemWrapperEnhanced]: hiddenSidebarContainer
         })}>
-            <MDXProvider components={MDXComponents}>{children}</MDXProvider>
-          </div>
-        </main>
-      </div>
-    </Layout>;
+          <MDXProvider components={MDXComponents}>{children}</MDXProvider>
+        </div>
+      </main>
+    </div>
+  </Layout>;
 }
 
 function DocPage(props) {
@@ -94,8 +94,8 @@ function DocPage(props) {
   }
 
   return <DocPageContent currentDocRoute={currentDocRoute} versionMetadata={versionMetadata}>
-      {renderRoutes(docRoutes)}
-    </DocPageContent>;
+    {renderRoutes(docRoutes)}
+  </DocPageContent>;
 }
 
 export default DocPage;

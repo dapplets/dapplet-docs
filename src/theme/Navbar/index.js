@@ -33,21 +33,6 @@ function splitNavItemsByPosition(items) {
 }
 
 function Navbar() {
-  const [isHover, setIsHover] = useState(false);
-
-  const onMouseOver = (event) => {
-    if (event.target.classList.contains('home-hover-menu')) {
-      setIsHover(true);
-    }
-  }
-
-  const onMouseOut = (event) => {
-    if (event.target.classList.contains('home-hover-menu')) {
-      setIsHover(false);
-    }
-  }
-
-
   const {
     navbar: {
       items,
@@ -60,6 +45,7 @@ function Navbar() {
   } = useThemeConfig();
   const [sidebarShown, setSidebarShown] = useState(false);
   const [isSearchBarExpanded, setIsSearchBarExpanded] = useState(false);
+  const [isHover, setIsHover] = useState(false);
   const {
     isDarkTheme,
     setLightTheme,
@@ -87,6 +73,19 @@ function Navbar() {
     leftItems,
     rightItems
   } = splitNavItemsByPosition(items);
+
+  const onMouseOver = (event) => {
+    if (event.target.classList.contains('home-hover-menu')) {
+      setIsHover(true);
+    }
+  }
+
+  const onMouseOut = (event) => {
+    if (event.target.classList.contains('home-hover-menu')) {
+      setIsHover(false);
+    }
+  }
+
   return (
     <nav ref={navbarRef} className={clsx('navbar', 'navbar--fixed-top', {
       'navbar--dark': style === 'dark',
