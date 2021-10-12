@@ -3,7 +3,8 @@
   margin-left: var(--doc-sidebar-width);
   width: auto;
   padding: 0 37px;
-  padding-left: var(--doc-sidebar-width)
+  padding-left: var(--doc-sidebar-width);
+  box-shadow: none;
 }
 
 .navbar--fixed-top {
@@ -115,7 +116,7 @@
   padding-right: 47px;
 
   right: 0;
-  top: 51px;
+  top: 50px;
   background-color: transparent;
   width: 100%;
 
@@ -137,7 +138,7 @@
 .header__nav-list {
   opacity: 0;
   transition: all 0s;
-
+  
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
