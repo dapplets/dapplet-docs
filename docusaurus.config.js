@@ -149,7 +149,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/dapplets/dapplet-docs',
+            'https://github.com/dapplets/dapplet-docs/blob/master/',
         },
         theme: {
           customCss: require.resolve('./src/scss/custom.scss'),
