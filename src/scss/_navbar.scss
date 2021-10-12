@@ -112,8 +112,10 @@
 
 .header-custom-nav {
   position: absolute;
+  padding-right: 47px;
+
   right: 0;
-  top: 50px;
+  top: 51px;
   background-color: transparent;
   width: 100%;
 
@@ -143,8 +145,11 @@
   padding-left: 0;
   list-style: none;
   height: 70px;
-  margin-right: 37px;
   padding-bottom: 20px;
+
+  max-width: 612px;
+  margin-left: auto;
+  background-color: #fff;
 }
 
 
