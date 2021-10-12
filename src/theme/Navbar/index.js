@@ -45,7 +45,7 @@ function Navbar() {
   } = useThemeConfig();
   const [sidebarShown, setSidebarShown] = useState(false);
   const [isSearchBarExpanded, setIsSearchBarExpanded] = useState(false);
-  const [isHover, setIsHover] = useState(true);
+  const [isHover, setIsHover] = useState(false);
   const {
     isDarkTheme,
     setLightTheme,
