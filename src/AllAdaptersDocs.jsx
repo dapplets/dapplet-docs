@@ -7,6 +7,10 @@ import Link from '@docusaurus/Link';
 const url = '/json/adapters.json';
 let counter = 0;
 
+export const getAdapterPath = ({ name, title, currentVer }) => {
+  return `/docs/adapters-docs-list#name=${name}&title=${title}&version=v${currentVer.slice(1).split('_').join('.')}`
+}
+
 export default function AllAdaptersDocs() {
   const location = useLocation();
 
@@ -71,7 +75,7 @@ export default function AllAdaptersDocs() {
                       <li>
                         <i>versions: </i>
                         {value.versions.map((ver) => {
-                          const to = `/docs/adapters-docs-list#name=${name}&title=${value.title}&version=v${ver.version.slice(1).split('_').join('.')}`
+                          const to = getAdapterPath({ name, title: value.title, currentVer: ver.version });
                           const config = {
                             name,
                             title: value.title,
