@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import AdapterDocVersion from './AdapterDocVersion';
 import axios from 'axios';
-import AdapterDocVersion from '/src/AdapterDocVersion.jsx';
 
 const url = '/json/adapters.json';
 let counter = 0;
@@ -32,7 +32,9 @@ export default function AdapterDocs(props) {
   };
 
   useEffect(() => {
-    if (currentVer === false) setData();
+    if (currentVer === false) {
+      setData();
+    };
 
     return () => {
       source.cancel();
@@ -46,22 +48,24 @@ export default function AdapterDocs(props) {
   };
 
   return (
-    <>{currentVer && <>
-      <h1>{props.title}</h1>
-      <select
-        className="custom-btn selector-btn"
-        value={currentVer.version}
-        onChange={handleChange}
-      >
-        {versions.map((ver) => (
-          <option value={`${ver.version}`} key={counter++}>
-            ver. {`${ver.version.slice(1).split('_').join('.')}`}
-          </option>
-        ))}
-      </select>
-      <div className={`adVersion ${currentVer.version}`} key={counter++}>
-        <AdapterDocVersion url={currentVer.link} />
-      </div>
-    </>}</>
+    <>
+      {currentVer && <>
+        <h1>{props.title}</h1>
+        <select
+          className="custom-btn selector-btn"
+          value={currentVer.version}
+          onChange={handleChange}
+        >
+          {versions.map((ver) => (
+            <option value={`${ver.version}`} key={counter++}>
+              ver. {`${ver.version.slice(1).split('_').join('.')}`}
+            </option>
+          ))}
+        </select>
+        <div className={`adVersion ${currentVer.version}`} key={counter++}>
+          <AdapterDocVersion url={currentVer.link} />
+        </div>
+      </>}
+    </>
   );
 }
