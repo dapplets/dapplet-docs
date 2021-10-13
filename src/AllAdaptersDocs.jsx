@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import AdapterDocs from '/src/AdapterDocs.jsx';
-import { Route, Switch, BrowserRouter, useLocation } from '@docusaurus/router';
+import { useLocation } from '@docusaurus/router';
 import Link from '@docusaurus/Link';
 
 const url = '/json/adapters.json';
@@ -56,7 +56,7 @@ export default function AllAdaptersDocs() {
 
 
   return (
-    <BrowserRouter>
+    <React.Fragment>
       {
         adapters && (!currentAdapter.name ?
           (
@@ -112,6 +112,6 @@ export default function AllAdaptersDocs() {
             </React.Fragment>
           ))
       }
-    </BrowserRouter>
+    </React.Fragment>
   );
 }
