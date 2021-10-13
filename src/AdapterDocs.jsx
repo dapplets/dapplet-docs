@@ -4,12 +4,11 @@ import AdapterDocVersion from '/src/AdapterDocVersion.jsx';
 
 const url = '/json/adapters.json';
 let counter = 0;
-const baseUrl = 'docs/adapters-docs-list/v0_9_0';
 
 export default function AdapterDocs(props) {
   const [versions, getVersions] = useState([false]);
   const [currentVer, setCurrentVer] = useState(versions[0]);
-  
+
   const cancelToken = axios.CancelToken;
   const source = cancelToken.source();
 
@@ -34,7 +33,6 @@ export default function AdapterDocs(props) {
 
   useEffect(() => {
     if (currentVer === false) setData();
-    getUrls();
 
     return () => {
       source.cancel();
@@ -47,14 +45,6 @@ export default function AdapterDocs(props) {
     setCurrentVer(selectedVersion);
   };
 
-  function getUrls() {
-    const params = (props.title.toLowerCase().split(' ').join('_') + '-' + (currentVer.version)).replaceAll('_', '-');
-    
-    if (!params.includes('undefined')) {
-      window.history.pushState(null, null, `/docs/adapters-docs-list/${params}`);
-    }
-  }
-
   return (
     <>{currentVer && <>
       <h1>{props.title}</h1>
@@ -62,7 +52,7 @@ export default function AdapterDocs(props) {
         className="custom-btn selector-btn"
         value={currentVer.version}
         onChange={handleChange}
-      >            
+      >
         {versions.map((ver) => (
           <option value={`${ver.version}`} key={counter++}>
             ver. {`${ver.version.slice(1).split('_').join('.')}`}
