@@ -26,6 +26,7 @@ module.exports = {
           to: 'https://dapplets.org/',
           label: 'Home',
           position: 'right',
+          className: 'home-hover-menu'
         },
         {
           href: 'https://forum.dapplets.org/',

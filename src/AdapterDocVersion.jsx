@@ -26,7 +26,7 @@ export default function AdapterDocVersion(props) {
   const source = cancelToken.source();
 
   const { url } = props;
-
+  
   let counter = 0;
 
   const addElOfType = {

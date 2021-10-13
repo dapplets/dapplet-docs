@@ -33,7 +33,10 @@ export default function AdapterDocs(props) {
 
   useEffect(() => {
     if (currentVer === false) setData();
-    return () => source.cancel();
+
+    return () => {
+      source.cancel();
+    };
   });
 
   const handleChange = (e) => {
@@ -49,7 +52,7 @@ export default function AdapterDocs(props) {
         className="custom-btn selector-btn"
         value={currentVer.version}
         onChange={handleChange}
-      >            
+      >
         {versions.map((ver) => (
           <option value={`${ver.version}`} key={counter++}>
             ver. {`${ver.version.slice(1).split('_').join('.')}`}

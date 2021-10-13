@@ -3,6 +3,16 @@
   margin-left: var(--doc-sidebar-width);
   width: auto;
   padding: 0 37px;
+  padding-left: var(--doc-sidebar-width);
+  box-shadow: none;
+}
+
+.navbar--fixed-top {
+  position: fixed;
+  width: 100%;
+  margin-left: 0;
+  top: 0;
+  background-color: #FAFAFA;
 }
 
 .navbar__items > .navbar__item.navbar__link {
@@ -12,7 +22,7 @@
   color: #919191;
   font-weight: 400;
 
-  padding: 0 20px;
+  padding: 13px 20px;
   transition: all 0s;
   margin-right: 50px;
 
@@ -28,7 +38,7 @@
     transform: translateY(-50%);
     background-color: #E3E3E3;
     width: 1px;
-    height: 100%;
+    height: 24px;
     right: -20px;
   }
 }
@@ -80,9 +90,111 @@
   display: none;
 }
 
+.home-hover-menu-show {
+  transition: all 0s;
+
+  .header-custom-nav {
+    transform: translateY(0);
+  }
+
+  .header__nav-list {
+    opacity: 1;
+  }
+}
+
+.header__nav-link,
+.header__nav-link::after,
+.header-custom-nav,
+.header__nav-list {
+  transition-timing-function: cubic-bezier(.24,.22,.015,1.56);
+  transition-duration: .2s;
+  transition-property: width, color, transform, opacity, background-color;
+}
+
+.header-custom-nav {
+  position: absolute;
+  padding-right: 47px;
+
+  right: 0;
+  top: 50px;
+  background-color: transparent;
+  width: 100%;
+
+  transform: translateY(-100%);
+  z-index: -2;
+
+  .header__nav-link {
+    opacity: 1;
+  }
+
+  &:hover {
+    transform: translateY(0);
+    .header__nav-list {
+      opacity: 1;
+    }
+  }
+}
+
+.header__nav-list {
+  opacity: 0;
+  transition: all 0s;
+  
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  height: 70px;
+  padding-bottom: 20px;
+
+  max-width: 612px;
+  margin-left: auto;
+  background-color: #fff;
+}
+
+
+.header__nav-item {
+  background-color: #fff;
+}
+
+.header__nav-item:not(:last-child) {
+  padding-right: 33px;
+}
+
+.header__nav-link {
+  opacity: 0;
+
+  position: relative;
+  padding: 0 20px;
+  padding-top: 20px;
+  color: #2a2a2a;
+  font-size: 16px;
+  line-height: 24px;
+
+  &::after {
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    content: '';
+    transform: translateX(-50%);
+    background-color: var(--ifm-link-color);
+  }
+
+  &:hover {
+    color: var(--ifm-link-color);
+    text-decoration: none;
+    &::after {
+      width: 100%;
+    }
+  }
+}
 
 @media screen and (max-width: 996px) {
   .navbar {
     display: none;
   }
 }
+
