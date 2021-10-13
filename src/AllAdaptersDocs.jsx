@@ -31,8 +31,6 @@ export default function AllAdaptersDocs() {
     }
   };
 
-
-
   const onLoad = () => {
     const hash = location.hash;
     if (hash) {
@@ -40,9 +38,6 @@ export default function AllAdaptersDocs() {
       const { '#name': name, title, version: currentVer } = hashParse;
 
       setCurrentAdapter({ name, title, currentVer });
-      console.log({});
-      console.log('currentAdapter:', currentAdapter);
-
     }
   }
 
@@ -76,7 +71,7 @@ export default function AllAdaptersDocs() {
                       <li>
                         <i>versions: </i>
                         {value.versions.map((ver) => {
-                          const to = `/docs/adapters-docs-list#name=${name}&title=${value.title}&version=${ver.version.slice(1).split('_').join('.')}`
+                          const to = `/docs/adapters-docs-list#name=${name}&title=${value.title}&version=v${ver.version.slice(1).split('_').join('.')}`
                           const config = {
                             name,
                             title: value.title,

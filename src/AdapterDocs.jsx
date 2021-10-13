@@ -19,9 +19,14 @@ export default function AdapterDocs(props) {
         cancelToken: source.token,
       });
       getVersions(data[props.name].versions);
+
       const curVer = props.currentVer
-        ? data[props.name].versions.find((v) => v.version === props.currentVer)
+        ? data[props.name].versions.find((v) => {
+          const transformVersion = `${props.currentVer.split('.').join('_')}`;
+          return v.version === transformVersion;
+        })
         : data[props.name].versions[0];
+
       setCurrentVer(curVer);
     } catch (err) {
       if (axios.isCancel(err)) {
