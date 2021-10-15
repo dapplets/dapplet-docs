@@ -18,7 +18,4 @@ export const footerSocials = [
   { id: 6, component: <MailIcon />, href: 'business@dapplets.org', type: 'email', title: "Email" },
 ];
 
-export const footerLinks = [
-  { id: 0, label: "Privacy Policy", href: 'https://dapplets.org/privacy-policy.html' },
-  { id: 1, label: "Terms & Conditions", href: 'https://dapplets.org/terms-conditions.html' },
-]
+export const footerLinks = []
