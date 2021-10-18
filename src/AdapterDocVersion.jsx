@@ -26,7 +26,7 @@ export default function AdapterDocVersion(props) {
   const source = cancelToken.source();
 
   const { url } = props;
-  
+
   let counter = 0;
 
   const addElOfType = {
@@ -135,12 +135,12 @@ export default function AdapterDocVersion(props) {
           <React.Fragment key={counter++}>
             <h3>▪ {subtitle}:</h3>
             <ul>
-            {field_events.map(({ name, description }) => (
-              <li key={counter++}>
-                <h4 id={subtitle.concat(name)}>{name}</h4>
-                {description.map(({ type, value }) => addElOfType[type](value))}
-              </li>
-            ))}
+              {field_events.map(({ name, description }) => (
+                <li key={counter++}>
+                  <h4 id={subtitle.concat(name)}>{name}</h4>
+                  {description.map(({ type, value }) => addElOfType[type](value))}
+                </li>
+              ))}
             </ul>
           </React.Fragment>
         ))}
