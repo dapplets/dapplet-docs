@@ -66,7 +66,9 @@ function DocPageContent({
 
         {hiddenSidebar && <div className={styles.collapsedDocSidebar} title="Expand sidebar" aria-label="Expand sidebar" tabIndex={0} role="button" onKeyDown={toggleSidebar} onClick={toggleSidebar}>
           <IconArrow />
-        </div>}
+        </div>
+        }
+
       </div>}
       <main className={styles.docMainContainer}>
         <div className={clsx('container padding-vert--lg', styles.docItemWrapper, {

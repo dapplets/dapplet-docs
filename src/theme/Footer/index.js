@@ -89,7 +89,7 @@ function Footer() {
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{
                     __html: item.html
-                  }} /> : <li key={item.href || item.to} className="footer__item">
+                  }} /> : <li key={key} className="footer__item">
                   <FooterLink {...item} />
                 </li>)}
             </ul> : null}
