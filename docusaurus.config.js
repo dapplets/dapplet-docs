@@ -41,51 +41,45 @@ module.exports = {
         // 1 Coll
         {
           title: 'Home',
-          items: [],
-        },
-
-        // 2 Coll
-        {
-          title: 'Dapplets Store',
           items: [
             {
-              label: 'Category 1',
-              href: '#1'
+              label: 'What is Dapplets Project?',
+              href: 'https://dapplets.org/#what-is'
             },
             {
-              label: 'Category 2',
-              href: '#2'
+              label: 'Innovation',
+              href: 'https://dapplets.org/#innovation'
             },
             {
-              label: 'Category 3',
-              href: '#3'
+              label: 'How to use it?',
+              href: 'https://dapplets.org/#to-use'
             },
             {
-              label: 'Category 4',
-              href: '#4'
+              label: 'Role model',
+              href: 'https://dapplets.org/#economic'
             },
           ],
         },
 
-        // 3 Coll
+        // 2 Coll
         {
           title: 'Join Us',
           items: [
             {
               label: 'Owner ',
-              href: '#5'
+              href: 'https://dapplets.org/join-us.html#owner'
             },
             {
               label: 'Lister',
-              href: '#6'
+              href: 'https://dapplets.org/join-us.html#lister'
             },
             {
               label: 'Developer',
-              href: '#7'
+              href: 'https://dapplets.org/join-us.html#auditors'
             },
             {
               label: 'Auditor',
-              href: '#8'
+              href: 'https://dapplets.org/join-us.html#auditors'
             },
           ],
         },
@@ -96,31 +90,15 @@ module.exports = {
           items: [
             {
               label: 'Our Mission ',
-              href: '#'
+              href: 'https://dapplets.org/about.html#mission'
             },
             {
               label: 'Motivation',
-              href: '#9'
-            },
-            {
-              label: 'Developer',
-              href: '#11'
-            },
-            {
-              label: 'Strategy',
-              href: '#12'
-            },
-            {
-              label: 'Project News',
-              href: '#13'
-            },
-            {
-              label: 'FAQ',
-              href: '#14'
+              href: 'https://dapplets.org/about.html#motivation'
             },
             {
               label: 'Career at Dapplets',
-              href: '#15'
+              href: 'https://dapplets.org/about.html#career'
             },
           ],
         },
@@ -130,12 +108,8 @@ module.exports = {
           title: 'Forum',
           items: [
             {
-              label: 'Menu  Item 1',
-              href: '#21'
-            },
-            {
-              label: 'Menu  Item 2',
-              href: '#22'
+              label: 'Forum Dapplets',
+              href: 'https://forum.dapplets.org'
             },
           ],
         },
