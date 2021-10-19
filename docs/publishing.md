@@ -33,7 +33,7 @@ title: Publishing
 
 ![Image to point 6](/img/pub_07.jpg)
 
-7. After connecting the wallet, you'll get this window. Click **Continue**
+7. After connecting the wallet, you will see a window like this. Click **Continue**
 
 ![Image to point 7](/img/pub_08.jpg)
 
@@ -45,6 +45,6 @@ title: Publishing
 
 ![Image to point 9](/img/pub_10.png)
 
-10. Turn off the Development Server. There is the application in the list of dupplets.
+10. Turn off the Development Server. There is an application in the list of dapplets.
 
 ![Image to point 10](/img/pub_11.png)
