@@ -3,11 +3,11 @@ id: virtual-adapter-int
 title: "Ex07: Virtual adapter (interface)"
 ---
 
-Task: change twitter adapter to **identity** adapter and check it on Twitter and Instagram.
+Task: change the twitter adapter to an **identity** adapter and check it on Twitter and Instagram.
 
 The initial code for this example is in [master.](https://github.com/dapplets/dapplet-template/tree/master)
 
-Change twitter adapter to **identity** adapter in `/dapplet.json` with a right version:
+Change the twitter adapter to an **identity** adapter in `/dapplet.json` with a right version:
 
 ```json
 {
@@ -20,7 +20,7 @@ Change twitter adapter to **identity** adapter in `/dapplet.json` with a right v
 }
 ```
 
-In `src/index.ts` change injected adapter:
+In `src/index.ts` change the injected adapter:
 
 ```ts
 @Inject('identity-adapter.dapplet-base.eth') public adapter: any;
