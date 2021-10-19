@@ -14,5 +14,4 @@ Don't have Dapplets installed yet? Head over to the [Installation](/docs/install
 
 ## Quick start
 
-To make the simpliest dapplet from the template and run it in development mode
-go to [Get started](/docs/get-started).
+To create a dapplet using a template and run it in development mode go to [Get started](/docs/get-started).
