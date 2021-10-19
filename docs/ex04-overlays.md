@@ -3,17 +3,16 @@ id: overlays
 title: "Ex04: Overlays"
 ---
 
-In this example we add an overlay that opens on click by button in the `POST`.
+In this example we will add an overlay to a `POST`. This overlay will open with a button click.
 
-Here are two examples of the overlay:
+Here are two examples of an overlay:
 
 - [Pure HTML page](https://github.com/dapplets/dapplet-overlay-bridge/tree/master/examples/pure-html-page)
 - [React.js based example](https://github.com/dapplets/dapplet-overlay-bridge/tree/master/examples/react-overlay)
 
-At first, we implement an overlay written on HTML with pure JavaScript and at second - the React based component.
+First we implement an overlay written on HTML with pure JavaScript. Second - the React based component.
 
-The initial code for this example, including both of the above overlays, is
-here: [ex04-overlays-exercise.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-exercise)
+The initial code for this example, including both of the above overlays, is here: [ex04-overlays-exercise.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-exercise)
 
 First install [Dapplet-Overlay Bridge:](https://github.com/dapplets/dapplet-overlay-bridge)
 
@@ -40,7 +39,7 @@ In a `<script>` tag we import class **`Bridge`** from `dapplet-overlay-bridge` a
 
 **`onData()`** increments the counter received from the dapplet and sends back.
 
-**`onClick()`** receives boolean variable and sends *'tick'* or *'tock'* to dapplet on every click.
+**`onClick()`** receives boolean variable and sends *'tick'* or *'tock'* to the dapplet on every click.
 
 ```js
 import Bridge from 'https://unpkg.com/@dapplets/dapplet-overlay-bridge';
