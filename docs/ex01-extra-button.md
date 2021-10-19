@@ -45,7 +45,7 @@ export default class TwitterFeature {
 }
 ```
 
-The dapplet injects the **button** to every Tweet on a Twitter page below the main content, near the buttons *Like*, *Retweet* etc. The function passed to `POST` takes `ctx` and returns the **widget**, the **array of widgets** or **null**.
+The dapplet injects a **button** to every Tweet on a Twitter page. This button is displayed below the main content, near the buttons *Like*, *Retweet* etc. The function passed to `POST` takes `ctx` and returns the **widget**, the **array of widgets** or **null**.
 
 `ctx` - is an *object* that contains parameters of the current **context** where the dapplet widgets were injected. Parameters are defined by the adapter.
 
@@ -73,7 +73,7 @@ This button has only one state - `DEFAULT`. In this case you can choose not to s
 })
 ```
 
-When you haven't `DEFAULT` state you have to set the `initial` state as above.
+When you don’t have the `DEFAULT` state you have to set the `initial` state as above.
 
 ```typescript
 button({
@@ -93,16 +93,16 @@ button({
 })
 ```
 
-The `label`, `img` and `exec` are defined in the state. In this case `exec` takes the function that will be executed on
+The `label`, `img` and `exec` are defined in the state. In this case `exec` takes the function that will be executed with a
 button click.
 
-The whole list of **widgets** and **contexts** are defined in the adapter. The API of **twitter-adapter** you can find [here](/docs/adapters-docs-list).
+The whole list of **widgets** and **contexts** is defined in the adapter. The **twitter-adapter** API can be found [here](/docs/adapters-docs-list).
 
-In the first exercise we add counter to button's label in `POST`.
+In the first exercise we will add a counter to the button label in `POST`.
 
 ## 1. Implement a counter in the dapplet
 
-Add a label with a counter for it.
+Add a label with a counter.
 
 ```ts
 label: 0
@@ -127,7 +127,7 @@ Make the counter incrementing on the button click.
 me.label += 1;
 ```
 
-Let's display a message in the browser alert by clicking on the widget. We will also give the opportunity to customize the message text in the dapplet settings in the extension.
+Let's display a message in the browser alert by clicking on the widget. We will also give an opportunity to customize the message text in the extension’s dapplet settings.
 
 The dapplet settings are as follows:
 
