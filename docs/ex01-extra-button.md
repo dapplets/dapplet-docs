@@ -190,13 +190,13 @@ In the browser:
 
 ## 2. Implement a server counter storage
 
-Add the storage for the counters in `server/index.js`.
+Add a storage for the counters in `server/index.js`.
 
 ```js
 const counter = {};
 ```
 
-Initialize the counter for the current tweet.
+Initialize a counter for the current tweet.
 
 ```js
 if (!Object.prototype.hasOwnProperty.call(counter, tweetId)) {
@@ -279,7 +279,7 @@ Take a connection with the server. Use `Core.connect<{ param }>({ url })`.
 const server = Core.connect<{ amount: string }>({ url: serverUrl });
 ```
 
-The console calls and the alert are no longer needed, so you can remove them. The result is like this
+The console calls and the alert are no longer needed, you can remove them. The result is like this
 
 ```ts
 import {} from '@dapplets/dapplet-extension';
@@ -318,8 +318,7 @@ export default class TwitterFeature {
 }
 ```
 
-To run the server and the dapplet at the same time in this example we
-use [Concurrently](https://www.npmjs.com/package/concurrently):
+To run the server and the dapplet at the same time we use [Concurrently](https://www.npmjs.com/package/concurrently):
 
 ```bash
 npm i -D concurrently
@@ -338,12 +337,10 @@ Run the dapplet in your terminal
 npm start
 ```
 
-Here is the result code of the
-example: [ex01.2-add-button-server-solution](https://github.com/dapplets/dapplet-template/tree/ex01.2-add-button-server-solution)
-.
+Here is the result code of the example: [ex01.2-add-button-server-solution](https://github.com/dapplets/dapplet-template/tree/ex01.2-add-button-server-solution).
 
 In the browser:
 
 ![video](/video/ex01-2-extra-button-server.gif)
 
-> If you don't know how to run the dapplet in a browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
+> If you don't know how to run a dapplet in your browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
