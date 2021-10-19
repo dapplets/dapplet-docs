@@ -4,7 +4,7 @@ sidebar_label: Using adapters
 title: How to connect a dapplet to an adapter?
 ---
 
-First you need to install **Dapplet extension** package using npm to your project:
+First you need to install the **Dapplet extension** package to your project. Use npm for this:
 
 ```bash
 npm i -D @dapplets/dapplet-extension
@@ -35,7 +35,7 @@ Then create the manifest **`/dapplet.json`**:
 
 Here set the title and icon and check if the other fields match your project.
 
-As you can see **`"contextIds"`** and **`"dependencies"`** contains the name of our Twitter adapter: `"twitter-adapter.dapplet-base.eth"`, and the last field specifies **version** to be used.
+As you can see **`"contextIds"`** and **`"dependencies"`** contain the name of our Twitter adapter: `"twitter-adapter.dapplet-base.eth"`. The last field specifies which **version** should be used.
 
 Add the `/config` directory with the following structure:
 
@@ -86,7 +86,7 @@ In the `schema.json` we specify the settings for the dapplet, which will be avai
 
 ![Dapplet Settings](/img/a_twitter_1.jpg)
 
-Finally, implement `/src/index.ts` of the dapplet according to the example:
+Finally, implement the dapplet’s `/src/index.ts` according to the example:
 
 ```ts
 import {} from '@dapplets/dapplet-extension';
@@ -128,8 +128,7 @@ const { $ } = this.adapter.attachConfig({
 });
 ```
 
-`attachConfig` receives an object with context names as keys and function returned widget or array of widgets as values.
-`attachConfig` returns the object with **`$(ctx, 'element_id')`** function,
+`attachConfig` receives an object with context names as keys. The values of the object are  functions which return a widget or an array of widgets. `attachConfig` returns the object with `$(ctx, 'element_id')` function,
 which returns the Proxy of the widget by its **id**.
 
 Widgets have **states**. The **DEFAULT** (case sensitive) state is used as initial.
@@ -143,7 +142,7 @@ button({
 }),
 ```
 
-It's possible to inplement many states.
+It's possible to implement many states.
 
 If the **DEFAULT** state is not presented, the **initial** state has to be specified explicitly.
 
@@ -159,8 +158,7 @@ button({
   ...
 }),
 ```
-
-Into states we pass **parameters** of the widget described in the adapter.
+We pass **parameters** of the widget described in the adapter into states.
 
 ## Using events
 
