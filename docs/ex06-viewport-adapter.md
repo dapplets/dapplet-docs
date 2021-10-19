@@ -3,11 +3,11 @@ id: viewport-adapter
 title: "Ex06: Viewport adapter"
 ---
 
-Task: change twitter adapter to **common** adapter and check it on Twitter, YouTube, Instagram and Dapplets.org.
+Task: change the twitter adapter to a **common** adapter and check it on Twitter, YouTube, Instagram and Dapplets.org.
 
 The initial code for this example is in [master](https://github.com/dapplets/dapplet-template/tree/master).
 
-Change twitter adapter to **common** adapter in `/dapplet.json` with a right version:
+Change twitter adapter to a **common** adapter in `/dapplet.json` with a right version:
 
 ```json
 {
