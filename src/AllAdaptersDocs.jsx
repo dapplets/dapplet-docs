@@ -1,13 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import AdapterDocs from '/src/AdapterDocs.jsx';
+import { useLocation } from '@docusaurus/router';
+import Link from '@docusaurus/Link';
 
 const url = '/json/adapters.json';
 let counter = 0;
 
+export const getAdapterPath = ({ name, title, currentVer }) => {
+  return `/docs/adapters-docs-list#name=${name}&title=${title}&version=v${currentVer.slice(1).split('_').join('.')}`
+}
+
 export default function AllAdaptersDocs() {
+  const location = useLocation();
+
   const [adapters, getAdapters] = useState(false);
-  const [currentAdapter, setCurrentAdapter] = useState('');
+  const [currentAdapter, setCurrentAdapter] = useState({});
 
   const cancelToken = axios.CancelToken;
   const source = cancelToken.source();
@@ -27,49 +35,87 @@ export default function AllAdaptersDocs() {
     }
   };
 
+  const onLoad = () => {
+    const hash = location.hash;
+    if (hash) {
+      const hashParse = JSON.parse('{"' + decodeURI(hash).replace(/"/g, '\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
+      const { '#name': name, title, version: currentVer } = hashParse;
+
+      setCurrentAdapter({ name, title, currentVer });
+    }
+  }
+
+  useEffect(onLoad, [setCurrentAdapter]);
+
   useEffect(() => {
     if (adapters === false) setData();
     return () => source.cancel();
   });
 
-  const handleChoose = (choosenAdapter) => (e) => {
-    e.preventDefault();
-    setCurrentAdapter(choosenAdapter);
-  };
+  const onClick = ({ name, title, currentVer }) => {
+    setCurrentAdapter({ name, title, currentVer });
+  }
+
+  const cleanCurrentAdapter = () => setCurrentAdapter({});
+
 
   return (
-    <>
-      {adapters && (currentAdapter === '' ? (
-        <>
-          <h1>Community-created adapters</h1>
-          <ul>
-            {Object.entries(adapters).map(([name, value]) => (
-              <li value={name} key={counter++}>
-                <h4>{value.title}:</h4>
-                <ul>
-                  <li>{name}</li>
-                  <li><i>versions: </i>{value.versions.map((ver) => <button
-                    onClick={handleChoose({ name: name, title: value.title, currentVer: ver.version })}
-                    key={counter++}
-                    className="custom-btn"
-                  >
-                    {`${ver.version.slice(1).split('_').join('.')}`}
-                  </button>)}</li>
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </>
-      ) : (
-        <>
-          <button className="custom-btn" onClick={handleChoose('')}>‹ Back to adapters list</button>
-          <AdapterDocs
-            name={currentAdapter.name}
-            title={currentAdapter.title}
-            currentVer={currentAdapter.currentVer}
-          />
-        </>
-      ))}
-    </>
+    <React.Fragment>
+      {
+        adapters && (!currentAdapter.name ?
+          (
+            <React.Fragment>
+              <h1>Community-created adapters</h1>
+              <ul>
+                {Object.entries(adapters).map(([name, value]) => (
+                  <li value={name} key={counter++}>
+                    <h4>{value.title}:</h4>
+                    <ul>
+                      <li>{name}</li>
+                      <li>
+                        <i>versions: </i>
+                        {value.versions.map((ver) => {
+                          const to = getAdapterPath({ name, title: value.title, currentVer: ver.version });
+                          const config = {
+                            name,
+                            title: value.title,
+                            currentVer: ver.version
+                          }
+
+                          return (
+                            <Link to={to}
+                              onClick={() => onClick(config)}
+                              key={counter++}
+                              className="custom-btn"
+                            >
+                              {`${ver.version.slice(1).split('_').join('.')}`}
+                            </Link>
+                          )
+                        })
+                        }
+                      </li>
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              <Link to="/docs/adapters-docs-list"
+                className="custom-btn"
+                onClick={cleanCurrentAdapter}
+              >
+                ‹ Back to adapters list
+              </Link>
+
+              <AdapterDocs
+                name={currentAdapter.name ?? ''}
+                title={currentAdapter.title ?? ''}
+                currentVer={currentAdapter.currentVer ?? ''}
+              />
+            </React.Fragment>
+          ))
+      }
+    </React.Fragment>
   );
 }
