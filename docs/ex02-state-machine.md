@@ -3,7 +3,7 @@ id: state-machine
 title: "Ex02: State machine"
 ---
 
-Let's change button state on its click.
+Now let’s try to have the button change its appearance when clicked.
 
 The initial code for this example is here: [ex02-state-machine-exercise](https://github.com/dapplets/dapplet-template/tree/ex02-state-machine-exercise).
 
@@ -95,7 +95,7 @@ export default class TwitterFeature {
 }
 ```
 
-Here is the result code of the example: [ex02-state-machine-solution](https://github.com/dapplets/dapplet-template/tree/ex02-state-machine-solution).
+Here is our example’s result code: [ex02-state-machine-solution](https://github.com/dapplets/dapplet-template/tree/ex02-state-machine-solution).
 
 Run the dapplet:
 
@@ -108,4 +108,4 @@ In the browser:
 
 ![video](/video/ex02-state-machine.gif)
 
-> If you don't know how to run the dapplet in a browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
+> If you don't know how to run a dapplet in your browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
