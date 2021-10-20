@@ -4,7 +4,7 @@ title: Welcome
 slug: /
 ---
 
-Hello and welcome to the Dapplet Platform! We are very happy to have you here with us!
+Hello and welcome to the Dapplets Platform! We are very happy to have you here with us!
 
 Dapplets is a protocol for permissionless, decentralized and unstoppable Augmented Web.
 
