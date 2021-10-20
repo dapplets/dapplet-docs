@@ -25,6 +25,4 @@ If you are using **Visual Studio Code** you can try the **Git Graph** extension 
 
 ![brunches in Git Graph](/img/ex00_2.jpg)
 
-You can also run the example's solution directly
-
 You can also **run the example's solution directly**, see how it works, and **use it as a template** for your project.
