@@ -1,7 +1,7 @@
 {
   "title": "Twitter adapter",
   "name_to_connect": "twitter-adapter.dapplet-base.eth",
-  "about": "The Twitter adapter provides you with a high-level interface for embedding a series of widgets on top of Twitter. The adapter provides a set of widgets and insertion points for them. Within one dapplet, you can use multiple widgets and use them at the same or different insertion points.",
+  "about": "The Twitter adapter provides you with a high-level interface for embedding a series of widgets on top of Twitter. The adapter provides a set of widgets and insertion points for them. Within one dapplet, you can use multiple widgets at the same or at different insertion points.",
   "widgets": {
     "names": [
       "badge",
@@ -12,67 +12,145 @@
     ],
     "parameters": {
       "img": {
-        "widgets": [1, 1, 1, 1, 1],
+        "widgets": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
         "type": "string",
         "description": "a path to the image"
       },
       "vertical": {
-        "widgets": [1, 0, 0, 0, 0],
+        "widgets": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
         "type": "'top', 'bottom'",
         "description": "sets a vertical position"
       },
       "horizontal": {
-        "widgets": [1, 0, 0, 0, 0],
+        "widgets": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
         "type": "'left', 'right'",
         "description": "sets a horizontal position"
       },
       "label": {
-        "widgets": [0, 1, 0, 0, 0],
+        "widgets": [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
         "type": "string",
         "description": "sets a label"
       },
       "loading": {
-        "widgets": [0, 1, 0, 0, 0],
+        "widgets": [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
         "type": "boolean",
         "description": "sets the loading icon instead of **img**"
       },
       "text": {
-        "widgets": [0, 0, 1, 0, 1],
+        "widgets": [
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
         "type": "string",
         "description": "adds the text"
       },
       "postfix": {
-        "widgets": [0, 0, 1, 0, 0],
+        "widgets": [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
         "type": "string",
         "description": "adds a postfix to **text**"
       },
       "basic": {
-        "widgets": [0, 0, 1, 0, 0],
+        "widgets": [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
         "type": "boolean",
         "description": "default: false. By default there is a blue background. In case of true there is no background"
       },
       "disabled": {
-        "widgets": [0, 1, 1, 1, 0],
+        "widgets": [
+          0,
+          1,
+          1,
+          1,
+          0
+        ],
         "type": "boolean",
         "description": "makes the widget disabled"
       },
       "hidden": {
-        "widgets": [1, 1, 1, 1, 1],
+        "widgets": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
         "type": "boolean",
         "description": "hides the widget"
       },
       "tooltip": {
-        "widgets": [1, 1, 1, 1, 1],
+        "widgets": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
         "type": "string",
         "description": "adds a tooltip"
       },
       "exec": {
-        "widgets": [1, 1, 1, 1, 1],
+        "widgets": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
         "type": "(ctx: any, me: IBadgeState) => void",
         "description": "action on click"
       },
       "init": {
-        "widgets": [1, 1, 1, 1, 1],
+        "widgets": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
         "type": "(ctx: any, me: IBadgeState) => void",
         "description": "action through initialisation"
       }
@@ -103,13 +181,48 @@
         "picture"
       ],
       "insertion_point": {
-        "POST_SOUTH": [0, 1, 0, 0],
-        "POST_PICTURE": [0, 0, 0, 1],
-        "POST_AVATAR_BADGE": [1, 0, 1, 0],
-        "POST_USERNAME_LABEL": [0, 0, 1, 0],
-        "POST_STARTER": [0, 1, 0, 0],
-        "PROFILE_AVATAR_BADGE": [1, 0, 0, 0],
-        "PROFILE_BUTTON_GROUP": [1, 1, 0, 0]
+        "POST_SOUTH": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "POST_PICTURE": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "POST_AVATAR_BADGE": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "POST_USERNAME_LABEL": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "POST_STARTER": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "PROFILE_AVATAR_BADGE": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "PROFILE_BUTTON_GROUP": [
+          1,
+          1,
+          0,
+          0
+        ]
       }
     },
     "additions": [
@@ -130,7 +243,7 @@
       },
       {
         "type": "text",
-        "value": "It doesn't need widgets and has two parameters: `label` and `exec`. Click on the button opens \"Starter\" layout with the button with the label from the dapplet. Click on this button runs the function from `exec`."
+        "value": "It doesn't need widgets and has two parameters: `label` and `exec`. A Click on the button opens \"Starter\" layout. The layout contains a button with a label from the dapplet. A click on this button runs the function from `exec`."
       },
       {
         "type": "image",
@@ -150,7 +263,7 @@
           "description": [
             {
               "type": "text",
-              "value": "Subscription on changing the viewed account."
+              "value": "Subscription to an account change."
             },
             {
               "type": "text",
@@ -158,7 +271,9 @@
             },
             {
               "type": "ts",
-              "value": ["profile_changed: async (after, before) => { ... }"]
+              "value": [
+                "profile_changed: async (after, before) => { ... }"
+              ]
             },
             {
               "type": "text",
@@ -186,7 +301,7 @@
           "description": [
             {
               "type": "text",
-              "value": "Subscription on liking the tweet."
+              "value": "Subscription to liking the tweet."
             },
             {
               "type": "text",
@@ -194,7 +309,9 @@
             },
             {
               "type": "ts",
-              "value": ["like: async (ctx) => { ... }"]
+              "value": [
+                "like: async (ctx) => { ... }"
+              ]
             }
           ]
         },
@@ -203,7 +320,7 @@
           "description": [
             {
               "type": "text",
-              "value": "Subscription on unliking the tweet."
+              "value": "Subscription to unliking the tweet."
             },
             {
               "type": "text",
@@ -211,7 +328,9 @@
             },
             {
               "type": "ts",
-              "value": ["dislike: async (ctx) => { ... }"]
+              "value": [
+                "dislike: async (ctx) => { ... }"
+              ]
             }
           ]
         }
@@ -221,7 +340,9 @@
   "virtualAdapters": [
     {
       "name": "identity-adapter.dapplet-base.eth",
-      "versions": ["0.2.0"]
+      "versions": [
+        "0.2.0"
+      ]
     }
   ]
 }

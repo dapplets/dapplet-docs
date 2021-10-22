@@ -221,7 +221,7 @@ A Starter overlay combines buttons from **all turned on dapples** which use a st
 
   * #### dislike
 
-  Subscription on unliking the tweet.
+  Subscription to unliking the tweet.
 
   Takes a function:
 
