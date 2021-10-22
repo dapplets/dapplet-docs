@@ -3,7 +3,6 @@ import AdapterDocVersion from './AdapterDocVersion';
 import axios from 'axios';
 import { useHistory } from '@docusaurus/router';
 
-import Link from '@docusaurus/Link';
 import { getAdapterPath } from './AllAdaptersDocs';
 
 const url = '/json/adapters.json';
@@ -71,7 +70,6 @@ export default function AdapterDocs(props) {
           onChange={handleChange}
         >
           {versions.map((ver) => {
-            // const to = getAdapterPath({ name: props.name, title: props.title, currentVer: props.currentVer.slice(1) })
             return (
               <option value={`${ver.version}`} key={counter++}>
                 ver. {`${ver.version.slice(1).split('_').join('.')}`}
