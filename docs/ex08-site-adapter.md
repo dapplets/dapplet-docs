@@ -11,7 +11,7 @@ The adapter and the dapplet are divided into two directories: `/adapter` and `/d
 
 ### Create an adapter with one widget `button` for two contexts.  
 
-At the beginning we change the adapter template. Let's add buttons under the title of each element of the standard search results and one button in the top navigation bar. 
+At the beginning we change the adapter template. In standard search results, let's add buttons under each element’s title, and one button in the top navigation bar.
 
 In `adapter/src/index.ts` implement **`config`**. It is an object which describes different **contexts** on the page. Selectors for container, context data and insertion points for widgets are described here. `contextBuilder` determines context information the widget receives in `POST` (named **`ctx`** in our examples).
 
@@ -53,13 +53,13 @@ public config = {
 
 Now we have two contexts: **MENU** and **SEARCH_RESULT**.
 
-If there are many contexts of one type on the page, like tweets or search results, you have to find **unique `id`** for everyone. It's needed for saving the states of dapplets' widgets connected to these contexts.
+If there are many contexts of one type on the page, like tweets or search results, you have to find a **unique** `id` for each one. It's needed for saving the states of dapplets' widgets connected to these contexts.
 
 The next step - is creating a **widget**. We have a template of the button in `adapter/src/button.ts`.
 
 To define the contexts in which this widget is used, you must specify `contextInsPoints`.
 
-For example, let's define a contexts for `MENU` and` SEARCH_RESULT`
+For example, let's define the contexts for `MENU` and `SEARCH_RESULT`
 
 ```ts
 public static contextInsPoints = {
@@ -160,8 +160,7 @@ exec: () => {
   alert(`  title: ${title}\n  link: ${link}\n  description: ${description}`);
 },
 ```
-
-Implement two states for top navigation bar button with actions: replace search results with `HI_GIF` and return to default results.
+Implement two states for the top navigation bar button. Actions: replace search results with `HI_GIF` and return to default results.
 
 ```ts
 button({
@@ -210,11 +209,11 @@ npm i
 npm start
 ```
 
-> In this example we run **two servers** concurrently. So you have to add two registry addresses to Dapplet extension in Development tab. How to do it see [here](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
+> In this example we run **two servers** concurrently. So you have to add two registry addresses to the Dapplet extension in the Development tab. Development tab. Click [here](/docs/get-started#11-connect-the-development-server-to-dapplet-extension) for instructions.
 
 ### Add a widget `result` to the adapter with one context insertion point
 
-Add a new context **`WIDGETS`**. `insPoint` should be on the top of Google widgets like *Videos*, *Images of ...*, *People also ask* etc.
+Add new context **`WIDGETS`**. `insPoint` should be on the top of Google widgets like *Videos*, *Images of ...*, *People also ask* etc.
 
 Complete **config** in `/adapter/src/index.ts`:
 
@@ -346,7 +345,7 @@ DAPPLET_SEARCH_RESULT: (ctx) =>
   }),
 ```
 
-Add to `adapter/src/button.ts` support for `DAPPLET_SEARCH_RESULT` context.
+Add support for `DAPPLET_SEARCH_RESULT` context to `adapter/src/button.ts`.
 
 ```ts
 // class Button

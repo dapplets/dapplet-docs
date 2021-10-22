@@ -4,7 +4,7 @@ title: Welcome
 slug: /
 ---
 
-Hello and welcome to the Dapplet Platform! We are very happy to have you here with us!
+Hello and welcome to the Dapplets Platform! We are very happy to have you here with us!
 
 Dapplets is a protocol for permissionless, decentralized and unstoppable Augmented Web.
 
@@ -14,5 +14,4 @@ Don't have Dapplets installed yet? Head over to the [Installation](/docs/install
 
 ## Quick start
 
-To make the simpliest dapplet from the template and run it in development mode
-go to [Get started](/docs/get-started).
+To create a dapplet using a template and run it in development mode go to [Get started](/docs/get-started).

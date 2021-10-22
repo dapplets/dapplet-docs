@@ -4,7 +4,7 @@ sidebar_label: Creating adapter docs
 title: Creating documentation for the adapter
 ---
 
-Each adapter must be documented to be audited and available for production use.
+Each adapter must be documented to be audited and to assure its availability for production use.
 
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/). Adapter docs should be written with Markdown and put to the root of your project as `dapplet-docs.md`:
 
@@ -14,12 +14,12 @@ my-adapter
 ...
 ```
 
-It should contain:
+Documentation should contain:
 
   1. Adapter name.
   2. General information about the adapter.
-  4. Contexts with insertion points for the widgets (pictures, table, additions).
-  3. Widgets with description, parameters, their types. It is better if this information is presented in the form of a table or tables.
+  3. Contexts with insertion points for the widgets (pictures, table, additions).
+  4. Widgets with their types, description and parameters. It is better if this information is presented in the form of a table or tables.
   5. Events (text, code).
   6. Supported virtual adapters.
 

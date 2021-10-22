@@ -3,7 +3,7 @@ id: widgets-interaction
 title: "Ex03: Widgets interaction"
 ---
 
-In this example we add two widgets to `POST` that interact.
+In this example we add two interactive widgets to `POST`.
 
 The initial code for this example is here: [ex03-widgets-interaction-exercise](https://github.com/dapplets/dapplet-template/tree/ex03-widgets-interaction-exercise).
 
@@ -46,7 +46,7 @@ export default class TwitterFeature {
 }
 ```
 
-`$(ctx, 'element_id')` returns object "me". Use it to change state or params of the other element by its **id**.
+`$(ctx, 'element_id')` returns object "me". Use it to change state or params of the other element using its **id**.
 
 - *Example 1:* `exec: () => $(ctx, 'another_el_id').state = 'SECOND'`
 - *Example 2:* `exec: () => $(ctx, 'another_el_id').label = 'Hello'`
@@ -74,7 +74,7 @@ POST: () => [
 ],
 ```
 
-Toggle the state "hidden/shown" of the picture on button click.
+With a button click, toggle the picture’s state - "hidden/shown".
 
 ```ts
 exec: () => {
@@ -143,4 +143,4 @@ In the browser:
 
 ![video](/video/ex03-insertion-points.gif)
 
-> If you don't know how to run the dapplet in a browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
+> If you don't know how to run a dapplet in your browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).

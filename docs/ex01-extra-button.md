@@ -45,7 +45,7 @@ export default class TwitterFeature {
 }
 ```
 
-The dapplet injects the **button** to every Tweet on a Twitter page below the main content, near the buttons *Like*, *Retweet* etc. The function passed to `POST` takes `ctx` and returns the **widget**, the **array of widgets** or **null**.
+The dapplet injects a **button** to every Tweet on a Twitter page. This button is displayed below the main content, near the buttons *Like*, *Retweet* etc. The function passed to `POST` takes `ctx` and returns the **widget**, the **array of widgets** or **null**.
 
 `ctx` - is an *object* that contains parameters of the current **context** where the dapplet widgets were injected. Parameters are defined by the adapter.
 
@@ -73,7 +73,7 @@ This button has only one state - `DEFAULT`. In this case you can choose not to s
 })
 ```
 
-When you haven't `DEFAULT` state you have to set the `initial` state as above.
+When you don’t have the `DEFAULT` state you have to set the `initial` state as above.
 
 ```typescript
 button({
@@ -93,16 +93,16 @@ button({
 })
 ```
 
-The `label`, `img` and `exec` are defined in the state. In this case `exec` takes the function that will be executed on
+The `label`, `img` and `exec` are defined in the state. In this case `exec` takes the function that will be executed with a
 button click.
 
-The whole list of **widgets** and **contexts** are defined in the adapter. The API of **twitter-adapter** you can find [here](/docs/adapters-docs-list).
+The whole list of **widgets** and **contexts** is defined in the adapter. The **twitter-adapter** API can be found [here](/docs/adapters-docs-list).
 
-In the first exercise we add counter to button's label in `POST`.
+In the first exercise we will add a counter to the button label in `POST`.
 
 ## 1. Implement a counter in the dapplet
 
-Add a label with a counter for it.
+Add a label with a counter.
 
 ```ts
 label: 0
@@ -127,7 +127,7 @@ Make the counter incrementing on the button click.
 me.label += 1;
 ```
 
-Let's display a message in the browser alert by clicking on the widget. We will also give the opportunity to customize the message text in the dapplet settings in the extension.
+Let's display a message in the browser alert by clicking on the widget. We will also give an opportunity to customize the message text in the extension’s dapplet settings.
 
 The dapplet settings are as follows:
 
@@ -190,13 +190,13 @@ In the browser:
 
 ## 2. Implement a server counter storage
 
-Add the storage for the counters in `server/index.js`.
+Add a storage for the counters in `server/index.js`.
 
 ```js
 const counter = {};
 ```
 
-Initialize the counter for the current tweet.
+Initialize a counter for the current tweet.
 
 ```js
 if (!Object.prototype.hasOwnProperty.call(counter, tweetId)) {
@@ -279,7 +279,7 @@ Take a connection with the server. Use `Core.connect<{ param }>({ url })`.
 const server = Core.connect<{ amount: string }>({ url: serverUrl });
 ```
 
-The console calls and the alert are no longer needed, so you can remove them. The result is like this
+The console calls and the alert are no longer needed, you can remove them. The result is like this
 
 ```ts
 import {} from '@dapplets/dapplet-extension';
@@ -318,8 +318,7 @@ export default class TwitterFeature {
 }
 ```
 
-To run the server and the dapplet at the same time in this example we
-use [Concurrently](https://www.npmjs.com/package/concurrently):
+To run the server and the dapplet at the same time we use [Concurrently](https://www.npmjs.com/package/concurrently):
 
 ```bash
 npm i -D concurrently
@@ -338,12 +337,10 @@ Run the dapplet in your terminal
 npm start
 ```
 
-Here is the result code of the
-example: [ex01.2-add-button-server-solution](https://github.com/dapplets/dapplet-template/tree/ex01.2-add-button-server-solution)
-.
+Here is the result code of the example: [ex01.2-add-button-server-solution](https://github.com/dapplets/dapplet-template/tree/ex01.2-add-button-server-solution).
 
 In the browser:
 
 ![video](/video/ex01-2-extra-button-server.gif)
 
-> If you don't know how to run the dapplet in a browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
+> If you don't know how to run a dapplet in your browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).

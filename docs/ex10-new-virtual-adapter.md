@@ -10,9 +10,9 @@ The initial code for this example is here: [ex10-new-virtual-adapter-exercise.](
 
 The start point of the exercise is a solution for the [Ex08: New Site specific adapter](/docs/new-site-adapter). There is an adapter for Google and a dapplet for it.
 
-1. Add search adapter for Yahoo. See the code on GitHub: [example-yahoo-adapter.](https://github.com/dapplets/dapplet-template/tree/ex10-new-virtual-adapter-solution/example-yahoo-adapter)
+1. Add a search adapter for Yahoo. See the code on GitHub: [example-yahoo-adapter.](https://github.com/dapplets/dapplet-template/tree/ex10-new-virtual-adapter-solution/example-yahoo-adapter)
 
-2. Add `/example-virtual-adapter/` folder that should have a structure similar to Google Adapter Example.
+2. Add `/example-virtual-adapter/` folder that should have a structure similar to the Google Adapter Example.
 
 ```bash
 example-virtual-adapter
@@ -75,7 +75,7 @@ export default {};
 @Inject('example-virtual-adapter.dapplet-base.eth') public adapter: any;
 ```
 
-Add to `/package.json` to install and run the virtual, Google and Yahoo adapters and the dapplet
+Add to `/package.json` to install and run the virtual Google adapters, Yahoo adapters and the dapplet.
 
 ```json
 // scripts
@@ -92,4 +92,5 @@ Run the dapplet:
 npm i
 npm start
 ```
-> In this example we run **four servers** concurrently. So you have to add four registry addresses to Dapplet extension in Development tab. How to do it see [here](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
+> In this example we run four servers concurrently. This means you have to add four registry addresses to the Dapplet extension in the Development tab. Click [here](/docs/get-started#11-connect-the-development-server-to-dapplet-extension) for instructions.
+
