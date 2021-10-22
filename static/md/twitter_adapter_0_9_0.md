@@ -4,7 +4,7 @@
 
 ## About the Twitter adapter
 
-The Twitter adapter provides you with a high-level interface for Twitter **augmentation**. The adapter provides a set of **widgets** that can be inserted into specific types of **contexts**. In one dapplet, you can augment different contexts with widgets defined for them.
+The Twitter adapter provides you with a high-level interface for Twitter **augmentation**. The adapter provides a set of **widgets** which can be inserted into specific types of **contexts**. In one dapplet, you can augment different contexts with widgets defined for them.
 
 ## Contexts
 
@@ -43,10 +43,10 @@ The Twitter adapter provides you with a high-level interface for Twitter **augme
 
 ## Widgets
 
-The way the widget will look is made up of three components:
+The way a widget will look is made up of three components:
 
 1. choosing the **context** into which the widget is inserted
-2. **parameters** that we set the widget according to its **api**
+2. **parameters** which we set to the widget according to its **api**
 3. styles written in the adapter for a specific widget in a specific context
 
 The tables show the **api** of widgets.
@@ -166,8 +166,9 @@ name: `caption`
 ],
 ```
 Instead of a function we add an array of objects, which consists of the `label` and `exec` parameters, to the context.
-Click on the button in the context opens **Starter overlay** with the buttons defined in the array.
-Starter overlay conbine buttons from **all turned on dapples** which use starter.
+A button click in the context opens a **Starter overlay** with the buttons defined in the array.
+
+A Starter overlay combines buttons from **all turned on dapples** which use a starter.
 
 \* - mandatory parameters
 
@@ -187,7 +188,7 @@ Starter overlay conbine buttons from **all turned on dapples** which use starter
 
   * #### profile_changed
 
-  Subscription on changing the viewed account.
+  Subscription to an account change.
 
   Takes a function:
 
@@ -210,7 +211,7 @@ Starter overlay conbine buttons from **all turned on dapples** which use starter
 
   * #### like
 
-  Subscription on liking the tweet.
+  Subscription to liking the tweet.
 
   Takes a function:
 
