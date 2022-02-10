@@ -125,6 +125,12 @@ overlay.declare(dappletApi);
 overlay.send('data', { message: 'Hello, World!', counter: ctx.counter });
 ```
 
+There is also an `onClose` function. It allows to subscribe to the closing of the overlay.
+
+```ts
+overlay.onClose(() => console.log('The overlay closed!'));
+```
+
 5. Add to the `dapplet.json` manifest the following option:
 
 ```json
