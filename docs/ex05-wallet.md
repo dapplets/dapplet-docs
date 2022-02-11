@@ -3,6 +3,12 @@ id: wallet
 title: "Ex05: Wallet"
 ---
 
+:::tip
+
+The `Core.wallet()` method described in this exercise is legacy. We recommend to try a new interface `Core.login()` described in [Ex14 Core Login](/docs/core-login).
+
+:::
+
 This example shows how to connect a wallet to a dapplet.
 
 The initial code for this example is here: [ex05-wallet-exercise.](https://github.com/dapplets/dapplet-template/tree/ex05-wallet-exercise)
