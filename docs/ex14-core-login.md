@@ -118,7 +118,7 @@ console.log('Your NEAR address', wallet.accountId);
 
 The similar interface is returned here by `session.contract()`. But contract methods should be called a little differently.
 
-```typescript=
+```typescript
 const contract = await session.contract('dev-1634890606019-41631155713650', {
   viewMethods: ['getTweets'],
   changeMethods: ['addTweet', 'removeTweet'],
