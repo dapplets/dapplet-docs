@@ -103,7 +103,7 @@ interface IDappletApi {
 2. Implement the overlay opening on the button click. To get the current overlay use `Core.overlay({ name: string, title: string })`.
 
 ```ts
-const overlay = (<any>Core).overlay({ name: 'example-04-overlay', title: 'Example 4' });
+const overlay = Core.overlay({ name: 'example-04-overlay', title: 'Example 4' });
 ```
 
 3. Create an obgect that implements the interface. Write increaseCounterAndToggleLabel function. Declare the API in the overlay.
