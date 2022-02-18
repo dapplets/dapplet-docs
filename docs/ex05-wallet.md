@@ -28,7 +28,7 @@ exec: async (_, me) => {
   me.state = 'PENDING';
 
   if (!this.wallet) {
-    this.wallet = await Core.wallet({ type: 'ethereum', network: 'rinkeby' });
+    this.wallet = await Core.wallet({ type: 'ethereum', network: 'goerli' });
     
     const isWalletConnected = await this.wallet.isConnected();
     if (!isWalletConnected) await this.wallet.connect();
@@ -141,7 +141,7 @@ export default class TwitterFeature {
               me.state = 'PENDING';
 
               if (!this.wallet) {
-                this.wallet = await Core.wallet({ type: 'ethereum', network: 'rinkeby' });
+                this.wallet = await Core.wallet({ type: 'ethereum', network: 'goerli' });
                 const isWalletConnected = await this.wallet.isConnected();
                 if (!isWalletConnected) await this.wallet.connect();
               }
