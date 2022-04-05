@@ -5,7 +5,7 @@ title: "Ex14: Core Login"
 
 This example shows how to work with Ethereum/NEAR wallets and smart-contracts via new Core Login API.
 
-The initial code for this example is here: [`ex14-core-login`](https://github.com/dapplets/dapplet-template/tree/ex14-core-login).
+The initial code for this example is here: [`ex14-core-login-exercise`](https://github.com/dapplets/dapplet-template/tree/ex14-core-login-exercise).
 
 ### Introduction to Core Login API
 

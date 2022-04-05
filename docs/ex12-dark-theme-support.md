@@ -1,6 +1,6 @@
 ---
 id: dark-theme-support
-title: "Ex 12: Dark theme support"
+title: "Ex12: Dark theme support"
 ---
 
 You can add different icons for **light** and **dark** themes.
