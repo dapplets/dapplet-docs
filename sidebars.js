@@ -28,7 +28,9 @@ module.exports = {
         'new-virtual-adapter',
         'widgets-iterator',
         'dark-theme-support',
+        'shared-state',
         'core-login',
+        'server-connection',
       ],
     },
     {
