@@ -5,13 +5,13 @@ title: "Ex15: Server Connection"
 
 In this example we use `Core` methods for connecting to the server using WebSockets.
 
-We implement the button with counters like in `ex01`. The difference is that the state of the counters kept in the simple Node.js (Express) server.
+We implement a button with counters like in `ex01`. The difference is that the state of the counters is kept in the simple Node.js (Express) server.
 
 The initial code for this example is here: [`ex15-server-connection-exercise`](https://github.com/dapplets/dapplet-template/tree/ex15-server-connection-exercise)
 
-### Dapplet with the connection to the server
+### Dapplet with a connection to the server
 
-1.  The server's URL we add to `./config/default.json`
+1.  We add the server's URL to `./config/default.json`
 
   ```json
   {
@@ -29,7 +29,7 @@ The initial code for this example is here: [`ex15-server-connection-exercise`](h
   const serverUrl = await Core.storage.get('serverUrl');
   ```
 
-2.  Then we have to create a connection with the server. `Core.connect` have its own state, so we have to provide the default state and its type or interface.
+2.  Then we have to create a connection with the server. `Core.connect` has its own state, so we have to provide the default state and its type or interface.
 
   ```typescript
   interface IDappState { amount: any }
@@ -40,7 +40,7 @@ The initial code for this example is here: [`ex15-server-connection-exercise`](h
 
   > To understand how the dapplet's state works look at [example 13](/docs/shared-state).
 
-  In this simple example we can use only `connection`'s state. But in your dapplet you might want to use one complex state for the entire app.
+  In this simple example we can only use `connection`'s state. But in your dapplet you might want to use one complex state for the entire app.
 
   So let's create a common state.
 
@@ -48,16 +48,16 @@ The initial code for this example is here: [`ex15-server-connection-exercise`](h
   const state = Core.state<IDappState>(defaultState);
   ```
 
-  Here we use the same interface and default state, but in your dapplet you can use the other ones.
+  Here we use the same interface and default state, but in your dapplet you can use other ones.
 
-3.  In the config we get `ctx`. We can use `ctx.id` as a key in our states. If we use the common state, we can pass observable value of server's state to it.
+3.  In the config we get `ctx`. We can use `ctx.id` as a key in our states. If we use the common state, we can pass observable value of the server's state to it.
 
   ```typescript
   state[ctx.id].amount.next(server.state[ctx.id].amount);
   ```
 
-4.  In the `button`'s DEFAULT state we pass observable counter to the label and in `exec` increase its value by click.
-The function that increases the counters we implement on the server side. In the dapplet we call this function by using `send` method. The first parameter is the name of the function and the second is a parameter for the server's function. In our case it's context ID.
+4.  In the `button`'s DEFAULT state we pass the observable counter to the label and in `exec` increase its value with a click.
+We implement the function that increases the counters on the server side. In the dapplet we call this function by using the `send` method. The first parameter is the name of the function and the second is a parameter for the server's function. In our case it's context ID.
 
   ```typescript
   DEFAULT: {
@@ -70,12 +70,12 @@ The function that increases the counters we implement on the server side. In the
 
 :::caution
 
-Note that we pass to the `label` not the entire observable state's `amount` but it's **value**. It's because this value is **observable server's amount**.
-When we use directly `server.state[ctx.id].amount` without common state we don't have to get its value here.
+Note that we don't pass the entire observable state's `amount`, but instead it's **value** to the `label`. This is because this value is **observable server's amount**.
+When we directly use `server.state[ctx.id].amount` without the common state we don't have to get its value here.
 
 :::
 
-  It is the entire `activate` method:
+  This is the entire `activate` method:
 
   ```typescript
   async activate() {
