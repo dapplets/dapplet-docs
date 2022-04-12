@@ -13,7 +13,7 @@ The adapter and the dapplet are divided into two directories: `/adapter` and `/d
 
 At the beginning we change the adapter template. In standard search results, let's add buttons under each element’s title, and one button in the top navigation bar.
 
-In `adapter/src/index.ts` implement **`config`**. It is an object which describes different **contexts** on the page. Selectors for container, context data and insertion points for widgets are described here. `contextBuilder` determines context information the widget receives in `POST` (named **`ctx`** in our examples).
+In `adapter/src/index.ts` implement **`config`**. It is an object which describes different **contexts** on the page. Selectors for container, context data and insertion points for widgets are described here. `contextBuilder` defines context information that the widget receives in these context types: `MENU` and `SEARCH_RESULT` in our case (named **`ctx`** in our examples).
 
 ```ts
 public config = {
@@ -33,7 +33,7 @@ public config = {
   },
   SEARCH_RESULT: {
     containerSelector: '#search',
-    contextSelector: '#rso > .g > div > .tF2Cxc, #rso > div > .g > div > .tF2Cxc',
+    contextSelector: '#rso > .g .jtfYYd, #rso > div > .g .jtfYYd, #rso > div > div > .g .jtfYYd',
     insPoints: {
       SEARCH_RESULT: {
         selector: '.yuRUbf',
@@ -42,14 +42,85 @@ public config = {
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     contextBuilder: (searchNode: any): ContextBuilder => ({
-      id: searchNode.querySelector('.yuRUbf > a').href,
-      title: searchNode.querySelector('h3').textContent,
-      link: searchNode.querySelector('.yuRUbf > a').href,
-      description: searchNode.querySelector('.IsZvec').textContent,
+      id: searchNode.querySelector('.yuRUbf > a')?.href,
+      title: searchNode.querySelector('h3')?.textContent,
+      link: searchNode.querySelector('.yuRUbf > a')?.href,
+      description: searchNode.querySelector('.uUuwM')?.textContent || searchNode.querySelector('.IsZvec')?.textContent,
     }),
   },
-}
 ```
+
+:::tip
+
+**How to create adapter's config?**
+
+Now we are talking about site-specific adapters. It means that dapplets using this adapter interact with some specific website.
+Also it means that we should **use the website's HTML structure** to add our widgets in certain places on the pages.
+
+The idea of **separating adapters from dapplets** is to provide **dapplets' developers** with simple interface to add some augmentation, that we call widgets, to existing pages.
+They don't need to take care about how to add their code in a certain places or how to parse different blocks of information on the page. They get the template, customise it and add some behavior.
+
+The goals of the **adapters' developer** are to create this template, define the data that can be parsed from this context and be useful in the dapplet
+and to describe exact places on the pages where the widgets will be inserted. To describe them we use valid CSS selectors that can be used in the Document method `querySelector()`.
+
+For example, let's look at the Google Search page. Enter some search query, `clouds` for example.
+Look at the structure of the page in the browser's developer tools, Elements tab.
+You can find there the block with `search` id, that contains all the main search results.
+It will be our **containerSelector** where we will search some separate results.
+
+```js
+document.querySelector('#search')
+▸ <div id="search">…</div>
+```
+
+Then try to pick out selectors' chain that provides access to separate context — **contextSelector**.
+You can choose relevant selectors manually or you can left click on the element in the Elements tab and choose Copy selector.
+In the most cases the selector has to be edited.
+
+```js
+document.querySelectorAll('#search #rso > .g .jtfYYd')
+▸ NodeList(6) [div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd]
+```
+
+In some cases there are several relevant selector for different places on the page or different pages. In this case you can define them separating by commas.
+
+```js
+document.querySelectorAll('#search #rso > .g .jtfYYd, #rso > div > .g .jtfYYd, #rso > div > div > .g .jtfYYd')
+▸ NodeList(11) [div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd]
+```
+
+Take care not to include unwanted blocks.
+
+By the same way define selectors for insertion point — exact places where the widgets will be placed.
+There are 3 insert options: `end`, `start` and `inside`. The first one is default.
+
+```typescript
+insPoints: {
+  SEARCH_RESULT: {
+    selector: '.yuRUbf',
+    insert: 'inside',
+  },
+},
+```
+
+Also in the **contextBuilder** you have to get all properties for the context. There is a function that recives the node given by the **contextSelector**.
+
+```typescript
+contextBuilder: (searchNode: any): ContextBuilder => ({
+  id: searchNode.querySelector('.yuRUbf > a')?.href,
+  title: searchNode.querySelector('h3')?.textContent,
+  link: searchNode.querySelector('.yuRUbf > a')?.href,
+  description: searchNode.querySelector('.uUuwM')?.textContent || searchNode.querySelector('.IsZvec')?.textContent,
+}),
+```
+
+**!!** Note that websites can be changed and you will get errors trying to get properties when the nodes will not be found.
+
+It is assumed that **all interactions with DOM** are happened in the adapters and not in the dapplets.
+
+So let's go back to our exarcise.
+
+:::
 
 Now we have two contexts: **MENU** and **SEARCH_RESULT**.
 
