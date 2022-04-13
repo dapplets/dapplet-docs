@@ -52,20 +52,20 @@ public config = {
 
 :::tip
 
-**How to create adapter's config?**
+**How to create an adapter's config?**
 
 Now we are talking about site-specific adapters. It means that dapplets using this adapter interact with some specific website.
-Also it means that we should **use the website's HTML structure** to add our widgets in certain places on the pages.
+Also it means that we should **use the website's HTML structure** to add our widgets in certain parts of the pages.
 
-The idea of **separating adapters from dapplets** is to provide **dapplets' developers** with simple interface to add some augmentation, that we call widgets, to existing pages.
-They don't need to take care about how to add their code in a certain places or how to parse different blocks of information on the page. They get the template, customise it and add some behavior.
+The idea of **separating adapters from dapplets** is to provide **dapplets' developers** with a simple interface to add their augmentations (we call them widgets) to existing pages.
+This way, **dapplets develoeprs** don't need to worry about how to add their code in certain places or how to parse different blocks of information on the page. They get the template, customise it and add the behavior they need.
 
-The goals of the **adapters' developer** are to create this template, define the data that can be parsed from this context and be useful in the dapplet
-and to describe exact places on the pages where the widgets will be inserted. To describe them we use valid CSS selectors that can be used in the Document method `querySelector()`.
+The goals of the **adapters' developer** are to create this template, define the data that can be parsed from the context, that can be useful in the dapplet.
+**Adapters' developer** also need to describe exact places on the pages where the widgets will be inserted. To describe them we use valid CSS selectors that can be used in the Document method `querySelector()`.
 
 For example, let's look at the Google Search page. Enter some search query, `clouds` for example.
 Look at the structure of the page in the browser's developer tools, Elements tab.
-You can find there the block with `search` id, that contains all the main search results.
+There you can find the block with `search` id, that contains all the main search results.
 It will be our **containerSelector** where we will search some separate results.
 
 ```js
@@ -73,25 +73,25 @@ document.querySelector('#search')
 ▸ <div id="search">…</div>
 ```
 
-Then try to pick out selectors' chain that provides access to separate context — **contextSelector**.
+Then try to pick out the selectors' chain that provides access to separate context — **contextSelector**.
 You can choose relevant selectors manually or you can left click on the element in the Elements tab and choose Copy selector.
-In the most cases the selector has to be edited.
+In most cases the selector has to be edited.
 
 ```js
 document.querySelectorAll('#search #rso > .g .jtfYYd')
 ▸ NodeList(6) [div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd]
 ```
 
-In some cases there are several relevant selector for different places on the page or different pages. In this case you can define them separating by commas.
+In some cases there are several relevant selectors for different places on the page or different pages. In this case you can define them separating by using commas.
 
 ```js
 document.querySelectorAll('#search #rso > .g .jtfYYd, #rso > div > .g .jtfYYd, #rso > div > div > .g .jtfYYd')
 ▸ NodeList(11) [div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd]
 ```
 
-Take care not to include unwanted blocks.
+Make sure not to include unwanted blocks.
 
-By the same way define selectors for insertion point — exact places where the widgets will be placed.
+Using the same method define selectors for insertion points — exact places where the widgets will be placed.
 There are 3 insert options: `end`, `start` and `inside`. The first one is default.
 
 ```typescript
@@ -103,7 +103,7 @@ insPoints: {
 },
 ```
 
-Also in the **contextBuilder** you have to get all properties for the context. There is a function that recives the node given by the **contextSelector**.
+Also in the **contextBuilder** you have to get all the properties for the context. There is a function that recives the node given by the **contextSelector**.
 
 ```typescript
 contextBuilder: (searchNode: any): ContextBuilder => ({
@@ -116,7 +116,7 @@ contextBuilder: (searchNode: any): ContextBuilder => ({
 
 **!!** Note that websites can be changed and you will get errors trying to get properties when the nodes will not be found.
 
-It is assumed that **all interactions with DOM** are happened in the adapters and not in the dapplets.
+It is assumed that **all interactions with DOM** happen in the adapters and not in the dapplets.
 
 So let's go back to our exarcise.
 
@@ -124,7 +124,7 @@ So let's go back to our exarcise.
 
 Now we have two contexts: **MENU** and **SEARCH_RESULT**.
 
-If there are many contexts of one type on the page, like tweets or search results, you have to find a **unique** `id` for each one. It's needed for saving the states of dapplets' widgets connected to these contexts.
+If there are many contexts of the same type on the page, like tweets or search results, you have to find a **unique** `id` for each one. It's needed for saving the states of dapplets' widgets connected to these contexts.
 
 The next step - is creating a **widget**. We have a template of the button in `adapter/src/button.ts`.
 
