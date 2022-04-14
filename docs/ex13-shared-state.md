@@ -7,9 +7,9 @@ In this exercise we create a dapplet with an overlay with shared state.
 
 The overlay will be React App with Typescript (TSX).
 
-In our dapplet we add `button` with a counter and `input` to every tweet and to the overlay. The values of all the counters and inputs will be kept in a single shared state.
+In our dapplet will we add `button` with a counter and `input` to every tweet and to the overlay. The values of all the counters and inputs will be kept in a single shared state.
 
-The initial code for this example, which is similar to the base template, is here: [`ex13-shared-state-exercise`](https://github.com/dapplets/dapplet-template/tree/ex13-shared-state-exercise)
+Here is the initial code for this example, which is similar to the base template: [`ex13-shared-state-exercise`](https://github.com/dapplets/dapplet-template/tree/ex13-shared-state-exercise)
 
 ### Dapplet
 
@@ -45,7 +45,7 @@ In a dapplet you can create **several states and overlays**. So you can use one 
 
 4.  Let's add the **`Core.onAction`** method. It inserts a **home** button near the dapplets name in the extension's dapplets' list. It receives a callback.
 
-  We add a callback to the overlay when opened with a click.
+  We add a callback to the overlay opening event.
 
   ```typescript
   Core.onAction(() => overlay.open());
@@ -87,7 +87,7 @@ In a dapplet you can create **several states and overlays**. So you can use one 
   }
   ```
 
-  You don't need to create the current context state in advance. It will be created from the default state when the key will not be found in the storage.
+  You don't need to create the current context state in advance. It will be created from the default state when the key is not found in the storage.
 
 :::tip
 
@@ -107,7 +107,7 @@ state[someId].someParameter.next(newValue);
 
 :::
 
-6.  Increse the counter by clicking the button and open the overlay.
+6.  Increase the counter by clicking the button and open the overlay.
 
   ```typescript
   {
