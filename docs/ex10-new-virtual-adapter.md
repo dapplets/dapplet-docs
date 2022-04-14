@@ -6,9 +6,9 @@ title: "Ex10: New Virtual adapter (interface)"
 The point of a virtual adapter is to run one dapplet on many adapters.
 In this exercise you should implement a virtual adapter for two search adapters.
 
-The initial code for this example is here: [ex10-new-virtual-adapter-exercise.](https://github.com/dapplets/dapplet-template/tree/ex10-new-virtual-adapter-exercise)
+Here is the initial code for this example: [ex10-new-virtual-adapter-exercise.](https://github.com/dapplets/dapplet-template/tree/ex10-new-virtual-adapter-exercise)
 
-The start point of the exercise is a solution for the [Ex08: New Site specific adapter](/docs/new-site-adapter). There is an adapter for Google and a dapplet for it.
+The starting point of exercise is the solution for the [Ex08: New Site specific adapter](/docs/new-site-adapter). There is an adapter for Google Search and a dapplet for it.
 
 1. Add a search adapter for Yahoo. See the code on GitHub: [example-yahoo-adapter.](https://github.com/dapplets/dapplet-template/tree/ex10-new-virtual-adapter-solution/example-yahoo-adapter)
 
