@@ -5,14 +5,14 @@ title: "Ex14: Core Login"
 
 This example shows how to work with Ethereum/NEAR wallets and smart-contracts via new Core Login API.
 
-The initial code for this example is here: [`ex14-core-login-exercise`](https://github.com/dapplets/dapplet-template/tree/ex14-core-login-exercise).
+Here is the initial code for this example: [`ex14-core-login-exercise`](https://github.com/dapplets/dapplet-template/tree/ex14-core-login-exercise).
 
 ### Introduction to Core Login API
 
 The Core Login API is developed as a replacement of `Core.wallet()` and `Core.contract()` functions. It provides two functions to manage Login Sessions:
 
 * `Core.login()` - creates login sessions for a specified authorization method, during which wallet and contract interaction will take place. It shows a pop-up window for a user where he is able to select a suitable wallet. 
-* `Core.sessions()` - returns existing sessions that are not expired, to reuse previous authorization and to not show a login pop-up again.
+* `Core.sessions()` - returns existing sessions that are not expired, to reuse previous authorization and to avoid showing a login pop-up again.
 
 The `Core.login()` accepts one or more login requests as an input parameter. `LoginRequest` is an object with the following properties:
 
