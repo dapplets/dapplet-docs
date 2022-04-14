@@ -3,8 +3,7 @@ id: extra-button
 title: "Ex01: Extra button"
 ---
 
-The initial code for this example is
-here: [ex01-add-button-exercise](https://github.com/dapplets/dapplet-template/tree/ex01-add-button-exercise).
+Here is the initial code for this example: [ex01-add-button-exercise](https://github.com/dapplets/dapplet-template/tree/ex01-add-button-exercise).
 
 The **basic template** for `your_dapplet/src/index.ts` looks like this:
 
@@ -29,7 +28,7 @@ export default class TwitterFeature {
 
             // LP end
             // LP: 2. Listen for the button click - output into console.
-            //     3: Make counter incrementing on button click.
+            //     3: Increase the counter value on the button click
             exec: () => alert('Hello, World!'),
             // LP end
           },
@@ -115,7 +114,7 @@ exec: async (_, me) => {
 
 `me` - is a *Proxy* of the widget.
 
-Make the counter incrementing on the button click.
+Increase the counter value on the button click
 
 ```ts
 me.label += 1;
@@ -181,4 +180,4 @@ In the browser:
 
 ![video](/video/ex01-extra-button.gif)
 
-> If you want to save counters' values and get them from the server look at [example 15](/docs/server-connection).
+> If you want to save counters' values and get them from the server, look at [example 15](/docs/server-connection).
