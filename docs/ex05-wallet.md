@@ -11,7 +11,7 @@ The `Core.wallet()` method described in this exercise is legacy. We recommend to
 
 This example shows how to connect a wallet to a dapplet.
 
-The initial code for this example is here: [ex05-wallet-exercise.](https://github.com/dapplets/dapplet-template/tree/ex05-wallet-exercise)
+Here is the initial code for this example: [ex05-wallet-exercise.](https://github.com/dapplets/dapplet-template/tree/ex05-wallet-exercise)
 
 In `src/index.ts` declare variables to be used for transactions:
 
@@ -21,7 +21,7 @@ private _currentAddress: string | null = null;
 private _transferAmount = '0x1BC16D674EC80000';
 ```
 
-The wallet will open when you click on the button. Use `await Core.wallet()`. The method accepts an object, with two required arguments: `type` and `network`:
+The wallet will be opened when you click on the button. Use `await Core.wallet()`. The method accepts an object, with two required arguments: `type` and `network`:
 
 ```ts
 exec: async (_, me) => {
