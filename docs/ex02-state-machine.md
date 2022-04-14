@@ -5,7 +5,7 @@ title: "Ex02: State machine"
 
 Now let’s try to have the button change its appearance when clicked.
 
-The initial code for this example is here: [ex02-state-machine-exercise](https://github.com/dapplets/dapplet-template/tree/ex02-state-machine-exercise).
+Here is the initial code for this example: [ex02-state-machine-exercise](https://github.com/dapplets/dapplet-template/tree/ex02-state-machine-exercise).
 
 Here is `src/index.ts`:
 
@@ -41,7 +41,7 @@ export default class TwitterFeature {
 }
 ```
 
-Firstly add another state with a different badge to the button.
+Firstly, add another state with a different badge to the button.
 
 ```typescript
 ANOTHER: {
@@ -51,7 +51,7 @@ ANOTHER: {
 },
 ```
 
-Secondary implement toggling states on button click.
+Secondly, implement toggling states on button click.
 
 ```ts
 exec: (_, me) => (me.state = 'ANOTHER'),
