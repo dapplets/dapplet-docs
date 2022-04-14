@@ -7,7 +7,7 @@ In this example we use `Core` methods for connecting to the server using WebSock
 
 We implement a button with counters like in `ex01`. The difference is that the state of the counters is kept in the simple Node.js (Express) server.
 
-The initial code for this example is here: [`ex15-server-connection-exercise`](https://github.com/dapplets/dapplet-template/tree/ex15-server-connection-exercise)
+Here is the initial code for this example: [`ex15-server-connection-exercise`](https://github.com/dapplets/dapplet-template/tree/ex15-server-connection-exercise)
 
 ### Dapplet with a connection to the server
 
