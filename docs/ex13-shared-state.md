@@ -191,21 +191,21 @@ In this example we don't talk about native JavaScript overlay because the intera
   }
   ```
 
-9.  In `render` method get props: **commonState, id, changeState**
+9.  In `render` method get props: **sharedState, changeSharedState, id**
 
   ```typescript
-  const { commonState, changeState, id } = this.props;
+  const { sharedState, changeSharedState, id } = this.props;
   ```
 
-  *  **commonState** is an object that's matched to the dapplets **state** but its values are scalar. So you don't need to get `.value` of them and you cannot change them directly.
-  *  **changeState** is a function that changes the state's parametes. It receives two arguments: an object with parameters that you want to change and an ID of the changing state. The second argument is optional.
+  *  **sharedState** is an object that's matched to the dapplets **state** but its values are scalar. So you don't need to get `.value` of them and you cannot change them directly.
+  *  **changeSharedState** is a function that changes the state's parametes. It receives two arguments: an object with parameters that you want to change and an ID of the changing state. The second argument is optional.
   *  **id** is an ID, that passed through the `overlay.open` function.
 
 :::tip
 
-There is one key-value state that's created by default. It is **state.all**. Use it for the state's parameters that are common for entire app or for all IDs in the current state.
+There is one key-value state that's created by default. It is **state.global**. Use it for the state's parameters that are common for entire app or for all IDs in the current state.
 
-When you want to change its parameters in the overlay, you don't need to pass the second argument to the **changeState** function.
+When you want to change its parameters in the overlay, you don't need to pass the second argument to the **changeSharedState** function.
 
 :::
 
@@ -218,12 +218,12 @@ When there is no ID (click the **home** button) we need to show all the states: 
       <h1>Shared State</h1>
       {id ? (
         <>
-          <p>Counter: {commonState[id]?.counter ?? 0}</p>
-          <input value={commonState[id].text} onChange={(e) => changeState?.({ text: e.target.value }, id)} />
+          <p>Counter: {sharedState[id]?.counter ?? 0}</p>
+          <input value={sharedState[id].text} onChange={(e) => changeSharedState?.({ text: e.target.value }, id)} />
           <p></p>
-          <button className="ch-state-btn" onClick={() => changeState?.({ counter: commonState[id].counter + 1 }, id)}>Counter +1</button>
+          <button className="ch-state-btn" onClick={() => changeSharedState?.({ counter: sharedState[id].counter + 1 }, id)}>Counter +1</button>
         </>
-      ) : Object.entries(commonState)
+      ) : Object.entries(sharedState)
         .map(([id, value]: [string, any]) => <p key={id}><b>{id}:</b> {value?.counter} / {value?.text} </p>)}
     </>
   );
