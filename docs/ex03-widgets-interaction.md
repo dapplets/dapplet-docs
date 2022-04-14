@@ -3,9 +3,9 @@ id: widgets-interaction
 title: "Ex03: Widgets interaction"
 ---
 
-In this example we add two interactive widgets to `POST`.
+In this example we will add two interactive widgets to `POST`.
 
-The initial code for this example is here: [ex03-widgets-interaction-exercise](https://github.com/dapplets/dapplet-template/tree/ex03-widgets-interaction-exercise).
+Here is the initial code for this example: [ex03-widgets-interaction-exercise](https://github.com/dapplets/dapplet-template/tree/ex03-widgets-interaction-exercise).
 
 Here is `src/index.ts`:
 
