@@ -3,17 +3,17 @@ id: new-site-adapter
 title: "Ex08: New Site specific adapter"
 ---
 
-In this example we implement an adapter for Google and a dapplet for it.
+In this example we implement an adapter for Google Search and a dapplet for it.
 
-The initial code for this example is here: [ex08-new-adapter-exercise.](https://github.com/dapplets/dapplet-template/tree/ex08-new-adapter-exercise)
+Here is the initial code for this example: [ex08-new-adapter-exercise.](https://github.com/dapplets/dapplet-template/tree/ex08-new-adapter-exercise)
 
 The adapter and the dapplet are divided into two directories: `/adapter` and `/dapplet-feature`.
 
 ### Create an adapter with one widget `button` for two contexts.  
 
-At the beginning we change the adapter template. In standard search results, let's add buttons under each element’s title, and one button in the top navigation bar.
+At the beginning we change the adapter template. Let's add buttons under each element’s title of standard Google search results and one button in the top navigation bar.
 
-In `adapter/src/index.ts` implement **`config`**. It is an object which describes different **contexts** on the page. Selectors for container, context data and insertion points for widgets are described here. `contextBuilder` defines context information that the widget receives in these context types: `MENU` and `SEARCH_RESULT` in our case (named **`ctx`** in our examples).
+In `adapter/src/index.ts` implement **`config`**. It is an object which describes different **contexts** on the page. Selectors for container, context data and insertion points for widgets are described here. `contextBuilder` defines context information that widget receives in these context types: `MENU` and `SEARCH_RESULT` in our case (named **`ctx`** in our examples).
 
 ```ts
 public config = {
@@ -54,11 +54,11 @@ public config = {
 
 **How to create an adapter's config?**
 
-Now we are talking about site-specific adapters. It means that dapplets using this adapter interact with some specific website.
-Also it means that we should **use the website's HTML structure** to add our widgets in certain parts of the pages.
+Now we could talk about site-specific adapters. It means that dapplets using this adapter interact with some specific website.
+It also means that we should **use the website's HTML structure** to add our widgets to certain parts of the pages.
 
 The idea of **separating adapters from dapplets** is to provide **dapplets' developers** with a simple interface to add their augmentations (we call them widgets) to existing pages.
-This way, **dapplets develoeprs** don't need to worry about how to add their code in certain places or how to parse different blocks of information on the page. They get the template, customise it and add the behavior they need.
+This way, **dapplets developers** don't need to worry about how to add their code in certain places or how to parse different blocks of information on the page. They get the template, customize it and add the behavior they need.
 
 The goals of the **adapters' developer** are to create this template, define the data that can be parsed from the context, that can be useful in the dapplet.
 **Adapters' developer** also need to describe exact places on the pages where the widgets will be inserted. To describe them we use valid CSS selectors that can be used in the Document method `querySelector()`.
@@ -103,7 +103,7 @@ insPoints: {
 },
 ```
 
-Also in the **contextBuilder** you have to get all the properties for the context. There is a function that recives the node given by the **contextSelector**.
+Also in the **contextBuilder** you have to get all the properties for the context. There is a function that receives the node given by the **contextSelector**.
 
 ```typescript
 contextBuilder: (searchNode: any): ContextBuilder => ({
@@ -118,7 +118,7 @@ contextBuilder: (searchNode: any): ContextBuilder => ({
 
 It is assumed that **all interactions with DOM** happen in the adapters and not in the dapplets.
 
-So let's go back to our exarcise.
+So let's go back to our exercise.
 
 :::
 
@@ -221,7 +221,7 @@ Then change the dapplet.
 
 Add buttons to search results and top navigation bar in `/dapplet-feature/src/index.ts`.
 
-Implement an alert that should be triggered when you click the search results button.
+Implement an alert that would be triggered when you click the search results button.
 The alert should contain the **title**, the **link** to the source and
 a **short description** of the found fragment from the element.
 
@@ -280,7 +280,7 @@ npm i
 npm start
 ```
 
-> In this example we run **two servers** concurrently. So you have to add two registry addresses to the Dapplet extension in the Development tab. Development tab. Click [here](/docs/get-started#11-connect-the-development-server-to-dapplet-extension) for instructions.
+> In this example we run **two servers** concurrently. So you have to add two registry addresses to the Dapplet extension in the Development tab. Click [here](/docs/get-started#11-connect-the-development-server-to-dapplet-extension) for instructions.
 
 ### Add a widget `result` to the adapter with one context insertion point
 
@@ -308,7 +308,7 @@ public config = {
 ```
 
 Add a new context **`DAPPLET_SEARCH_RESULT`**, which is similar to `SEARCH_RESULT`
-but adds a button to our search widget. This is to prevent overwriting of similar search results from different sources.
+but adds a button to our search widget. This is done to prevent overwriting of similar search results from different sources.
 
 ```ts
 public config = {
