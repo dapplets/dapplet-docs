@@ -7,7 +7,7 @@ In this exercise we create a dapplet with an overlay with shared state.
 
 The overlay will be React App with Typescript (TSX).
 
-In our dapplet will we add `button` with a counter and `input` to every tweet and to the overlay. The values of all the counters and inputs will be kept in a single shared state.
+In our dapplet we will add `button` with a counter and `input` to every tweet and to the overlay. The values of all the counters and inputs will be kept in a single shared state.
 
 Here is the initial code for this example, which is similar to the base template: [`ex13-shared-state-exercise`](https://github.com/dapplets/dapplet-template/tree/ex13-shared-state-exercise)
 
