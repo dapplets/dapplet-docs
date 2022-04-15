@@ -12,7 +12,7 @@ title: Installation
 
    ![image](https://user-images.githubusercontent.com/43613968/117107075-ad076580-ad89-11eb-9046-58dd1ede2868.png)
 
-5. **Drag and drop** the downloaded file into the extensions page. The extension will install automatically.
+5. **Drag and drop** the downloaded file into the extensions page. The extension will be installed automatically.
 
    ![image](https://user-images.githubusercontent.com/43613968/117132354-6cb8df00-adab-11eb-93bb-eb17b287e140.png)
 

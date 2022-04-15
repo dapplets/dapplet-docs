@@ -3,7 +3,7 @@ id: overlays
 title: "Ex04: Overlays"
 ---
 
-In this example we will add an overlay to a `POST`. This overlay will open with a button click.
+In this example we will add an overlay to a `POST`. This overlay will be opened with a button click.
 
 Here are two examples of an overlay:
 
@@ -12,19 +12,19 @@ Here are two examples of an overlay:
 
 First we implement an overlay written on HTML with pure JavaScript. Second - the React based component.
 
-The initial code for this example, including both of the above overlays, is here: [ex04-overlays-exercise.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-exercise)
+Here is the initial code for this example, including both of the above overlays: [ex04-overlays-exercise.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-exercise)
 
 Now let's create overlays.
 
 ### HTML with JavaScript overlay
 
-1. In `pure-html-page/index.html` import Bridge class from `https://unpkg.com/@dapplets/dapplet-overlay-bridge` pachage.
+1. In `pure-html-page/index.html` import Bridge class from `https://unpkg.com/@dapplets/dapplet-overlay-bridge` package.
 
 ```js
 import Bridge from 'https://unpkg.com/@dapplets/dapplet-overlay-bridge';
 ```
 
-2. Create Bridge class instance and subscribe for the `data` event.
+2. Create Bridge class instance and subscribe it to the `data` event.
 
 ```js
 const bridge = new Bridge();
@@ -35,7 +35,7 @@ bridge.on('data', ({ message, counter }) => {
 });
 ```
 
-3. Add an event on the button click.
+3. Add an event handler to the button click.
 
 ```js
 let isTick = true;
@@ -57,7 +57,7 @@ npm i @dapplets/dapplet-overlay-bridge
 cd ..
 ```
 
-1. In `/overlayWithReact/src/App.tsx` import Bridge class from @dapplets/dapplet-overlay-bridge pachage.
+1. In `/overlayWithReact/src/App.tsx` import Bridge class from @dapplets/dapplet-overlay-bridge package.
 
 ```tsx
 import Bridge from '@dapplets/dapplet-overlay-bridge';
@@ -81,7 +81,7 @@ componentDidMount() {
 }
 ```
 
-4. Add an event on the button click.
+4. Add an event handler to the button click.
 
 ```tsx
 handleClick = async () => {
@@ -92,7 +92,7 @@ handleClick = async () => {
 
 ### Change the dapplet
 
-1. Implement the  IDappletApi interface, the same as in the React-based overlay.
+1. Implement the IDappletApi interface, the same as in the React-based overlay.
 
 ```ts
 interface IDappletApi {
@@ -106,7 +106,7 @@ interface IDappletApi {
 const overlay = Core.overlay({ name: 'example-04-overlay', title: 'Example 4' });
 ```
 
-3. Create an obgect that implements the interface. Write increaseCounterAndToggleLabel function. Declare the API in the overlay.
+3. Create an object that implements the interface. Write increaseCounterAndToggleLabel function. Declare the API in the overlay.
 
 ```ts
 const dappletApi: IDappletApi = {
@@ -125,7 +125,7 @@ overlay.declare(dappletApi);
 overlay.send('data', { message: 'Hello, World!', counter: ctx.counter });
 ```
 
-There is also an `onClose` function. It allows to subscribe to the closing of the overlay.
+There is also an `onClose` function. It allows handling the closing of the overlay.
 
 ```ts
 overlay.onClose(() => console.log('The overlay closed!'));
@@ -142,7 +142,7 @@ overlay.onClose(() => console.log('The overlay closed!'));
 }
 ```
 
-Before running install dependencies:
+Dependencies must be installed before running:
 
 ```bash
 npm i
@@ -168,7 +168,7 @@ npm start
 
 :::tip
 
-To publish a dapplet with an overlay, you need `assets-manifest.json`. When an overlay is written in React, webpack or another module bundler builds it on its own. But when you write it in pure JS, you need to create the manifest yourself. As you can see, if you create a React based overlay from the example, the manifest will have the following structure:
+To publish a dapplet with an overlay, you need `assets-manifest.json`. When overlay is written in React, webpack or another module bundler builds it on its own. But when you write it in pure JS, you need to create the manifest yourself. As you can see, if you create a React based overlay from the example, the manifest will have the following structure:
 
 ```json
 {

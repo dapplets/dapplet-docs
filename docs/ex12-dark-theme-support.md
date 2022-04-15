@@ -5,7 +5,7 @@ title: "Ex12: Dark theme support"
 
 You can add different icons for **light** and **dark** themes.
 
-Usually we pass to `img` the image encoded as `base64`. This can also be an absolute image `URL`. But we can also pass an object, that contains two images with the keys `LIGHT` and `DARK` for light and dark themes respectively.
+Usually we pass an image encoded as `base64` to `img`. This can also be an absolute image `URL`. But we can also pass an object, that contains two images with the keys `LIGHT` and `DARK` for light and dark themes respectively.
 
 ```typescript
 this.adapter.attachConfig({

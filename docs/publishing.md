@@ -23,7 +23,7 @@ title: Publishing
 
 ![Image to point 5](/img/pub_05.png)
 
-  If the name of your wallet is not added to a trusted user you will see a warning like this:
+  If your wallet address is not in trusted users list you will see a warning like this:
 
 ![Image of admonition to point 5](/img/pub_06.png)
 

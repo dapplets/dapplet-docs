@@ -5,9 +5,9 @@ title: "Ex09: New Viewport adapter"
 
 In this example we create a new viewport adapter and a dapplet for it.
 
-The initial code for this example is here: [ex09-new-viewport-adapter-exercise.](https://github.com/dapplets/dapplet-template/tree/ex09-new-viewport-adapter-exercise)
+Here is the initial code for this example: [ex09-new-viewport-adapter-exercise.](https://github.com/dapplets/dapplet-template/tree/ex09-new-viewport-adapter-exercise)
 
-Our template has an adapter that is similar in structure to the adapter in the previous exercise.
+Our template has an adapter that in structure is similar to the adapter in the previous exercise.
 
 ```bash
 adapter
@@ -65,11 +65,11 @@ public config = {
 };
 ```
 
-2. Implement the **button** HTML with **`image`** and **`tooltip`** in `/adapter/src/button.ts`:
+2. Implement the **button** markup with **`image`** and **`tooltip`** in `/adapter/src/button.ts`:
 
 ```typescript
 // class Button
-// LP: 2. implement the button HTML with "image" and "tooltip".
+// LP: 2. implement the button markup with "image" and "tooltip".
 const { img, tooltip } = this.state;
 const htmlString = `
     <div style="
@@ -102,10 +102,10 @@ public static contextInsPoints = {
 }
 ```
 
-3. Implement the **popup** HTML with **`text`**, **`link`**, **`img`** and **`closed`**:
+3. Implement the **popup** markup with **`text`**, **`link`**, **`img`** and **`closed`**:
 
 ```typescript
-// LP: 3. Implement the popup HTML with "text", "link", "img" and "closed".
+// LP: 3. Implement the popup markup with "text", "link", "img" and "closed".
 const { text, link, img, closed } = this.state;
 const htmlString = `
   <style>
