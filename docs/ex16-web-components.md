@@ -16,7 +16,7 @@ The initial code for this exmple is stored in this branch: [`ex16-web-components
 Web Components - is a way of creating reusable custom HTML-elements while encapsulating their logic and isolating CSS-styles. This method usually presumes the use of the following specifications:
 
 * Custom Elements allows the creation of custom HTML-elements with their own tag attribution. Technically, every custom element is a successor of the `HTMLElement` class that's declared in the web-page with the use of the *`window.customElements.define('my-custom-element', MyCustomElement)` function.
-After declaration the element becomes available for reuse in DOM, the same as normal HTML-elements`<my-custom-element />`.
+After declaration the element becomes available for reuse in DOM, the same as normal HTML-elements `<my-custom-element />`.
 
 * Shadow DOM provides an isolation of CSS compomnent styles from global styles of the parent web-page. It works in two modes (`open` and `closed`), that define whether the parent web-page has access to the component's content or not. Shadow DOM doesn't use JavaScript-context, which allows it to use general link type components between the parent page and the web-component.
 
@@ -196,7 +196,7 @@ Pseudo-classes like `:hover` are also available here. You can use all of CSS' po
 
 Together we have realized a button, that will be inserted into search results on the Google search page. 
 
-![](https://i.imgur.com/RnDKvcQ.gif)
+![](/video/ex16-search-result-button.gif)
 
 The final solution is available in this branch: [`ex16-web-components-solution`](https://github.com/dapplets/dapplet-template/tree/ex16-web-components-solution).
 
