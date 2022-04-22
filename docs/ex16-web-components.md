@@ -11,13 +11,12 @@ You can download and install them before starting the tutorial, or can find anal
 
 The initial code for this exmple is stored in this branch: [`ex16-web-components-exercise`](https://github.com/dapplets/dapplet-template/tree/ex16-web-components-exercise). You can pull it to go through the lesson.
 
-## Introduction to Web Components
+### Introduction to Web Components
 
 Web Components - is a way of creating reusable custom HTML-elements while encapsulating their logic and isolating CSS-styles. This method usually presumes the use of the following specifications:
 
 * Custom Elements allows the creation of custom HTML-elements with their own tag attribution. Technically, every custom element is a successor of the `HTMLElement` class that's declared in the web-page with the use of the *`window.customElements.define('my-custom-element', MyCustomElement)` function.
 After declaration the element becomes available for reuse in DOM, the same as normal HTML-elements`<my-custom-element />`.
-
 
 * Shadow DOM provides an isolation of CSS compomnent styles from global styles of the parent web-page. It works in two modes (`open` and `closed`), that define whether the parent web-page has access to the component's content or not. Shadow DOM doesn't use JavaScript-context, which allows it to use general link type components between the parent page and the web-component.
 
@@ -25,9 +24,9 @@ After declaration the element becomes available for reuse in DOM, the same as no
 
 This approach integrates into the adapter architecture perfectly. It enables the creation of widgets by using any compatible libraries, linters, code formatting and other instruments that facilitate the development process. 
 
-## Creating a widget
+### Creating a widget
 
-### Prerequisites
+#### Prerequisites
 
 1. Clone the project template from this branch: [`ex16-web-components-exercise`](https://github.com/dapplets/dapplet-template/tree/ex16-web-components-exercise)
 2. Install `npm i` dependencies. (this example differs from others by having a library`lit`)
@@ -37,7 +36,7 @@ This approach integrates into the adapter architecture perfectly. It enables the
     * `http://localhost:3002/dapplet.json` (adapter)
 5. On a [Google search result](https://www.google.com/search?q=dapplets) activate the dapplet `Ex16: Using of Web Components`.
 
-### LP: 1. Import dependencies
+#### LP: 1. Import dependencies
 
 First let's import the necessary elements from the library Lit
 
@@ -55,7 +54,7 @@ import { property } from 'lit/decorators.js';
 
 Read more about other Lit possibilities in our [official documentation](https://lit.dev/docs/).
 
-### LP: 2. Declare custom element class
+#### LP: 2. Declare custom element class
 
 Succeed the widget class from the `LitElement` class, and from the interface with public properties `IButtonProps`.
 
@@ -67,7 +66,7 @@ export class Button extends LitElement implements IButtonProps {
 
 Most likey, your IDE will not like that unrealized class properties are missing. Do not worry, we will do this below.
 
-### LP: 3. Declare a map between contexts and insertion points
+#### LP: 3. Declare a map between contexts and insertion points
 
 Widgets can work in different contexts. The contexts can have various insertion points. The compliance between them must be declared transparently.
 
@@ -77,7 +76,7 @@ public static contextInsPoints = {
 };
 ```
 
-### LP: 4. Implement IButtonProps interface
+#### LP: 4. Implement IButtonProps interface
 
 Adding the properties that will be available to the dapplets developer. Every property is marked with a decorator `@property`, this makes them reactive.
 
@@ -98,7 +97,7 @@ Adding the properties that will be available to the dapplets developer. Every pr
 
 Please be aware that there are several obligatory properties that must be realized in your widget. They are system properties, which are defined by the Dynamic Adapter.
 
-### LP: 5. Add init callback
+#### LP: 5. Add init callback
 
 All widgets are provided with an `init` hook so that dapplets developers can do something the moment a new context appears. This moment needs to be realized transparently.
 
@@ -111,7 +110,7 @@ connectedCallback() {
 
 An overload of the `connectedCallback()` method in LitElement allows us to intersect the component rendering event. We will use this. 
 
-### LP: 6. Add a click handler function
+#### LP: 6. Add a click handler function
 
 A dapplets developer should have the possibility to subscribe to the button click event. Beforehand, we will add a click handler with a callback from the `exec` property.
 
@@ -122,7 +121,7 @@ private _clickHandler(e) {
 }
 ```
 
-### LP: 7. Write the HTML code of the widget
+#### LP: 7. Write the HTML code of the widget
 
 Let's begin writing the HTML-template of the component.
 
@@ -150,7 +149,7 @@ Learn more about all template possibilities in the official Lit documentation. T
 You can also look at an example of a complex widget from the [Twitter Adapter](https://github.com/dapplets/dapplet-modules/blob/a02906b001d3199ad5002e016f3dd18fbb65160a/packages/twitter-adapter-new/src/wb-button/index.ts).
 
 
-### LP: 8. Stylize the widget by CSS
+#### LP: 8. Stylize the widget by CSS
 
 Declaration of CSS-styles is very similar to the approach used in the [`style-components`](https://styled-components.com/) library, famous among React.js developers. Here the Tagged Template Literal - `css` function is used again.
 
@@ -193,7 +192,7 @@ Remeber that your Web Components are rendered inside Shadow DOM, which provides 
 Inside Shadow DOM you can stylize the shadow root element with the use of a CSS pseudo-class `:host()`. Sometimes this is useful for seamless website integration.
 
 Pseudo-classes like `:hover` are also available here. You can use all of CSS' power to stylize your components.
-## Final Result
+### Final Result
 
 Together we have realized a button, that will be inserted into search results on the Google search page. 
 
