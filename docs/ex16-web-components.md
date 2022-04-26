@@ -7,7 +7,7 @@ In this example you will learn how to write Web Components style widgets for ada
 
 We will be using the [LitElement](https://lit.dev/) library as an example. The library has different pulgins ([lit-plugin](https://marketplace.visualstudio.com/items?itemName=runem.lit-plugin), [lit-html](https://marketplace.visualstudio.com/items?itemName=bierner.lit-html)) for formating and highlighting syntaxis in the Visual Studio Code.
 
-You can download and install them before starting the tutorial, or can find analogies of your favourite IDE.
+You can download and install them before starting the tutorial, or can find analogies in your favourite IDE.
 
 The initial code for this exmple is stored in this branch: [`ex16-web-components-exercise`](https://github.com/dapplets/dapplet-template/tree/ex16-web-components-exercise). You can pull it to go through the lesson.
 
@@ -18,7 +18,7 @@ Web Components - is a way of creating reusable custom HTML-elements while encaps
 * Custom Elements allows the creation of custom HTML-elements with their own tag attribution. Technically, every custom element is a successor of the `HTMLElement` class that's declared in the web-page with the use of the *`window.customElements.define('my-custom-element', MyCustomElement)` function.
 After declaration the element becomes available for reuse in DOM, the same as normal HTML-elements `<my-custom-element />`.
 
-* Shadow DOM provides an isolation of CSS compomnent styles from global styles of the parent web-page. It works in two modes (`open` and `closed`), that define whether the parent web-page has access to the component's content or not. Shadow DOM doesn't use JavaScript-context, which allows it to use general link type components between the parent page and the web-component.
+* Shadow DOM provides an isolation of CSS component styles from global styles of the parent web-page. It works in two modes (`open` and `closed`), that define whether the parent web-page has access to the component's content or not. Shadow DOM doesn't use JavaScript-context, which allows it to use general link type components between the parent page and the web-component.
 
 * HTML Templates are special HTML-elements under the `<template>` tag. They provide a convenient opportunity to clone the template's content into a new element, by using the `template.content.cloneNode(true)` function. 
 
@@ -34,29 +34,29 @@ This approach integrates into the adapter architecture perfectly. It enables the
 4. Add development servers to the extension with the following addresses:
     * `http://localhost:3001/dapplet.json` (dapplet)
     * `http://localhost:3002/dapplet.json` (adapter)
-5. On a [Google search result](https://www.google.com/search?q=dapplets) activate the dapplet `Ex16: Using of Web Components`.
+5. On a [Google search result](https://www.google.com/search?q=dapplets) activate the dapplet `Example 16`.
 
 #### LP: 1. Import dependencies
 
-First let's import the necessary elements from the library Lit
+First let's import to the `./adapter/src/button.ts` the necessary elements from the library Lit
 
 ```typescript
 import { LitElement, html, css } from 'lit';
 import { property } from 'lit/decorators.js';
 ```
 
-`LitElement` - is a basic class which we will be succeeding from. It expands the native
+`LitElement` - is a basic class which we will be inheriting from. It expands the native
 `HTMLElement` and hides the extra template rendering, style application, and reactive state change logic.
 
 `html` and `css` - are Tagged Template Literals, which you can use to write HTML and CSS component code. The code inside literals can be highlighted and automatically formatted with the use of the according plugins, which makes the development more convenient.
 
-`property` - is a decorator. It can be used to make the properties of the component reactive and publically available to change from the outside. These prooperties will rerender the compnent when their values are altered.
+`property` - is a decorator. It can be used to make the properties of the component reactive and publically available to change from the outside. These properties will rerender the component when their values are altered.
 
-Read more about other Lit possibilities in our [official documentation](https://lit.dev/docs/).
+Read more about other Lit possibilities in its [official documentation](https://lit.dev/docs/).
 
 #### LP: 2. Declare custom element class
 
-Succeed the widget class from the `LitElement` class, and from the interface with public properties `IButtonProps`.
+Inherit the widget class from the `LitElement` class, and implement the interface with public properties `IButtonProps`.
 
 ```typescript
 export class Button extends LitElement implements IButtonProps {
@@ -78,7 +78,7 @@ public static contextInsPoints = {
 
 #### LP: 4. Implement IButtonProps interface
 
-Adding the properties that will be available to the dapplets developer. Every property is marked with a decorator `@property`, this makes them reactive.
+Add the properties that will be available to the dapplets developer. Every property is marked with a decorator `@property`, this makes them reactive.
 
 ```typescript
 @property() state; // required
@@ -95,7 +95,7 @@ Adding the properties that will be available to the dapplets developer. Every pr
 @property() init: (ctx: any, me: IButtonProps) => void;
 ```
 
-Please be aware that there are several obligatory properties that must be realized in your widget. They are system properties, which are defined by the Dynamic Adapter.
+Please be aware that there are several required properties that must be realized in your widget. They are system properties, which are defined by the Dynamic Adapter.
 
 #### LP: 5. Add init callback
 
@@ -108,7 +108,7 @@ connectedCallback() {
 }
 ```
 
-An overload of the `connectedCallback()` method in LitElement allows us to intersect the component rendering event. We will use this. 
+An overload of the `connectedCallback()` method in LitElement allows us to subscribe to the component rendering event. We will use this. 
 
 #### LP: 6. Add a click handler function
 
@@ -125,7 +125,7 @@ private _clickHandler(e) {
 
 Let's begin writing the HTML-template of the component.
 
-The `render()` method is very similar to a method with the same name in a class-based approach to writing `React.js` components. Here you can also return `null` when it is not necessary to render the component. However, instead of JSK we use Tagged Template Literal - `html`.  
+The `render()` method is very similar to a method with the same name in a class-based approach to writing `React.js` components. Here you can also return `null` when it is not necessary to render the component. However, instead of JSX we use Tagged Template Literal - `html`.  
 
 ```typescript
 override render() {
@@ -149,9 +149,9 @@ Learn more about all template possibilities in the official Lit documentation. T
 You can also look at an example of a complex widget from the [Twitter Adapter](https://github.com/dapplets/dapplet-modules/blob/a02906b001d3199ad5002e016f3dd18fbb65160a/packages/twitter-adapter-new/src/wb-button/index.ts).
 
 
-#### LP: 8. Stylize the widget by CSS
+#### LP: 8. Style the widget by CSS
 
-Declaration of CSS-styles is very similar to the approach used in the [`style-components`](https://styled-components.com/) library, famous among React.js developers. Here the Tagged Template Literal - `css` function is used again.
+Declaration of CSS-styles is very similar to the approach used in the [`styled-components`](https://styled-components.com/) library, famous among React.js developers. Here the Tagged Template Literal - `css` function is used again.
 
 ```typescript
 public static override styles = css`
@@ -185,13 +185,12 @@ public static override styles = css`
 `;
 ```
 
-
 Remeber that your Web Components are rendered inside Shadow DOM, which provides an isolation of the styles. This means that global styles of the parent web-page will not be able to redefine internal styles of your component and you will not be able to use them again. 
 
+Inside Shadow DOM you can style the shadow root element with the use of a CSS pseudo-class `:host()`. Sometimes this is useful for seamless website integration.
 
-Inside Shadow DOM you can stylize the shadow root element with the use of a CSS pseudo-class `:host()`. Sometimes this is useful for seamless website integration.
+Pseudo-classes like `:hover` are also available here. You can use all of CSS power to style your components.
 
-Pseudo-classes like `:hover` are also available here. You can use all of CSS' power to stylize your components.
 ### Final Result
 
 Together we have realized a button, that will be inserted into search results on the Google search page. 
