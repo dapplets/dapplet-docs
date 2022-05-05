@@ -70,8 +70,8 @@ To interact with the wallet within the established session call the `session.wal
 
 ```typescript
 const wallet = await session.wallet();
-const accountId = await wallet.request({ method: 'eth_accounts', params: [] });
-console.log('Your Ethereum address', accountId);
+const accountIds = await wallet.request({ method: 'eth_accounts', params: [] });
+console.log('Your Ethereum addresses', accountIds);
 ```
 
 ### LP: 5. Ethereum contract interaction
@@ -82,7 +82,7 @@ To interact with contracts you need to create wrapper object with `session.contr
 
 ```typescript
 const contract = await session.contract('0x7702aE3E1E0a96A428052BF3E4CB94965F5C0d7F', ABI);
-const tweets = await contract.getTweets(accountId); // read
+const tweets = await contract.getTweets(accountIds[0]); // read
 console.log('Tweets from Ethereum contract', tweets);
 await contract.addTweet(JSON.stringify(tweet)); // write
 ```
