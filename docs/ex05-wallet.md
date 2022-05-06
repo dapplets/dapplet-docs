@@ -11,25 +11,25 @@ Here is the initial code for this example: [ex05-wallet-exercise](https://github
 
 ### 1. Get the **wallet** object and common variables
 
-We have the `Core.wallet()` method that receives config with one parameter `authMetods` and returns Promise.
-**AuthMethods** is an array of strings that are combinations of chain an net names.
+The `Core.wallet()` method receives config with one parameter - `authMetods` and returns Promise.
+**AuthMethods** is an array of strings that are combinations of chain and net names.
 At the moment three combinations are available: `ethereum/goerli`, `near/testnet` and `near/mainnet`.
-You can define one or more combination if you want user to choose the chain and the net he wants.
-But you have to understand that APIs of different chains are not equal. So giving the choice you make your code more complex.
+You can define one or more combinations if you want users to choose the chain and the net they want.
+However, you have to understand that APIs of different chains are not equal. So when you provide a choice your code becomes more complex.
 Let's consider this situation and get the `ethereum/goerli` or `near/testnet` wallet:
 
 ```typescript
 const wallet = await Core.wallet({ authMethods: ['ethereum/goerli', 'near/testnet'] });
 ```
 
-On this stage we are not commected to any wallet so our `wallet` is typed with `IEthWallet | INearWallet` interfaces.
-Each of them consists of chain **specific API** and `WalletConnection` interface.
+On this stage we are not connected to any wallet so our `wallet` is typed with `IEthWallet | INearWallet` interfaces.
+Each of them consists of **specific API** chain  and `WalletConnection` interface.
 
 **WalletConnection** contains `authMethod` parameter and three methods: `isConnected()`, `connect()` and `disconnect()`.
-`wallet.authMethod` appears after connecting to some wallet and shows which wallet is connected.
+`wallet.authMethod` appears after connecting to a wallet and shows which one is connected.
 
-Also we have to set **transfer amounts of ETH and NEAR**. It's convenient to define appropriate values in the config and get them in the dapplet.
-In this case the user would set such amounts as he wants.
+We also have to set **transfer amounts of ETH and NEAR**. It's convenient to define appropriate values in the config and get them in the dapplet.
+In this case the user would set any amounts they like.
 
 ```json
 // ./config/default.json
@@ -73,7 +73,7 @@ const transferAmountEth: number = await Core.storage.get('transferAmountEth')
 const transferAmountNear: number = await Core.storage.get('transferAmountNear');
 ```
 
-At last define variable to save and reuse Ethereum addresses that we will get from the connected Ethereum wallet.
+At last define the variable to save and reuse Ethereum addresses that we will get from the connected Ethereum wallet.
 
 ```typescript
 let currentEthAddresses: string[];
@@ -81,14 +81,14 @@ let currentEthAddresses: string[];
 
 ### 2. Define the button states
 
-There is a `button` in the `POST`. We want to connect the wallet on button click, to see the transfer amount and currancy near the button and on the second click to send tokens.
-So we consider a few states of the button besides the `DEFAULT` state. Look at the scheme which describes all the states.
+There is a `button` in the `POST`. We want the wallet to connect when the button is clicked, to see the transfer amount and currency near the button, and on second click to send the tokens.
+We consider a few states of the button besides the `DEFAULT` state. Look at the scheme that describes all the states.
 
 ![Button states](/img/pub_05_button_states.png)
 
-Firstly we need to describe button with a label. But we remember that wallets' APIs are different.
-So we have two ways: create `CONNECTED` state and make several forks for Ethereum and NEAR wallets inside or to create two separate states.
-Let's go the second way and create `ETH_CONNECTED` and `NEAR_CONNECTED` states.
+Firstly, we need to describe button with a label. But we remember that wallets' APIs are different.
+We have two ways: create a `CONNECTED` state and make several forks for Ethereum and NEAR wallets inside, or create two separate states.
+Let's choose the second option and create `ETH_CONNECTED` and `NEAR_CONNECTED` states.
 
 ```typescript
 ETH_CONNECTED: {
@@ -115,7 +115,7 @@ NEAR_CONNECTED: {
 
 We implement the logic of sending transactions later, after creating all the states.
 
-Secondly we want to see if the transaction succeeded or failed. Accordingly create `COMPLETED` and `FAILURE` states.
+Next we want to see if the transaction succeeded or failed. Accordingly create `COMPLETED` and `FAILURE` states.
 
 ```typescript
 COMPLETED: {
@@ -140,9 +140,9 @@ FAILURE: {
 },
 ```
 
-These states appear after successfully wallets' connections, so `wallet`s have `authMetod` value. 
+These states appear after successful wallet connections, so `wallet`s have `authMetod` value. 
 
-Also we can reject any transaction. So we need the `REJECTED` state.
+We can also reject any transaction. So we need the `REJECTED` state.
 
 ```typescript
 REJECTED: {
@@ -159,10 +159,10 @@ REJECTED: {
 },
 ```
 
-The other two states are when the button is waiting for a transaction to be approved or mined.
-Let's add `PENDING` and `MINING` states. These states are intermediate and the button has to be disabled,
+The other two states PENDING` and `MINING`, are for when the button is waiting for a transaction to be approved or mined.
+These states are intermediate and the button has to be disabled,
 thats why they have no `exec` functions and the `loading` perameter is `true`.
-The last one shows the loader instead of the picture on the button and makes it disabled.
+The last one disables the button and shows the loader instead of the picture on it.
 
 ```typescript
 PENDING: {
@@ -179,10 +179,10 @@ MINING: {
 
 ### 3. Connect the wallet
 
-We've defined all the button's states and now are going back to the `DEFAULT`.
-Here we have to add the on click action that makes connection to the wallet.
+We've defined all of the button's states and now we are going back to the `DEFAULT`.
+Here we have to add the button click action that connects the wallet.
 
-There is a **wallet.connect()** method. It returns `Promise<void>`.
+This is a **wallet.connect()** method. It returns `Promise<void>`.
 
 ```typescript
 exec: async (_, me) => {
@@ -200,13 +200,12 @@ exec: async (_, me) => {
 
 After a successful connection the button switches the state to `ETH_CONNECTED'` or `NEAR_CONNECTED` depending on which wallet has been chosen.
 
-If the connection was canceled we switch the state to `REJECTED`.
+If the connection was cancelled we switch the state to `REJECTED`.
 
 ### 4. Send the necessary data to Ethereum wallet and listen to the response
 
-Firstly add check of the `wallet.authMethod`. If we implement the states' switching correctly it will always be `ethereum/goerli`.
-But if we make a mistake the check save us from the error. Also after the check the typescript compiler will exactly understand
-what the type of the wallet we use.
+Firstly, add a check of the `wallet.authMethod`. If we implement the states' switching correctly it will always be `ethereum/goerli`.
+But if we make a mistake the check will save us from an error. Also, after the check the typescript compiler will understand exactly the type of the wallet we use.
 
 ```typescript
 exec: async (_, me) => {
@@ -228,7 +227,7 @@ Switch the button's state to `PENDING`.
 me.state = 'PENDING';
 ```
 
-Then if we haven't got the `currentEthAddresses` yet, get it using **wallet.request()** method.
+If we haven't got the `currentEthAddresses` yet, we need to get it using the **wallet.request()** method.
 This method is used for all requests to the Ethereum wallet. It recieves a config with two required parameters: **method** and **params**.
 The `method` parameter of the `string` type is one of the [Ethereum JSON-RPC methods](https://eth.wiki/json-rpc/API).
 `params` is an array of parameters that are passed to the method.
@@ -247,8 +246,8 @@ if (!currentEthAddresses) {
 }
 ```
 
-The next step is to **send tokens**. We use `eth_sendTransaction` method. It requires three parameters: `from`, `to` and `value`.
-**From** and **to** are the same in our example. It is current Ethereum address.
+The next step is to **send tokens**. We use the `eth_sendTransaction` method. It requires three parameters: `from`, `to` and `value`.
+**From** and **to** are the same in our example. It is the current Ethereum address.
 **Value** is a string representation of a hexadecimal number.
 
 ```typescript
@@ -275,19 +274,19 @@ try {
 }
 ```
 
-When the transaction will be approved by the user we will get the transaction hash.
-It is a time to switch the button's state to `MINING`.
+When the transaction is approved by the user we will get the transaction hash.
+It's time to switch the button's state to `MINING`.
 
 Now all we can do is wait for the the chain to confirm the transaction.
-And we have the **wallet.waitTransaction()** method.
-It recieves two parameters:
+We have the **wallet.waitTransaction()** method.
+It receives two parameters:
 
 * `txHash`: string - (required) a transaction hash returned from `wallet.request()`;
 * `confirmations`?: number - (optional, default === 1) the number of blocks confirming the transaction;
 
 and returns `Promise<ITransactionReceipt>`. **ITransactionReceipt** has a `status` property
-that can tell us if the transaction completed successfully (`"0x1"`) or failed (`"0x0"`).
-So we can set the appropriate button's state.
+that can tell us if the transaction has been completed successfully (`"0x1"`) or failed (`"0x0"`).
+We can set an appropriate state for the button.
 
 ```typescript
 try {
@@ -355,9 +354,9 @@ exec: async (_, me) => {
 },
 ```
 
-### 5. Send the necessary data to NEAR wallet and listen to the response
+### 5. Send the necessary data to a NEAR wallet and listen to the response
 
-Start this step also by checking `wallet.authMethod` and switching the button's state to `PENDING`.
+Start this step by checking `wallet.authMethod` and switching the button's state to `PENDING`.
 
 ```typescript
 exec: async (_, me) => {
@@ -374,18 +373,18 @@ exec: async (_, me) => {
 },
 ```
 
-We don't need to make a request to get account ID working with NEAR wallet. It's already available in the connected wallet.
+We don't need to make a request to get an account ID when working with a NEAR wallet. It's already available in the connected wallet.
 
 There are methods of [NEAR-API-JS](https://docs.near.org/docs/api/javascript-library) library in the **INearWallet**.
 
-In the example we will use [`wallet.sendMoney()`](https://docs.near.org/docs/api/naj-quick-reference#send-tokens) method. It receives two parameters:
+In the example we will use the [`wallet.sendMoney()`](https://docs.near.org/docs/api/naj-quick-reference#send-tokens) method. It receives two parameters:
 
 * `receiverId` — NEAR account receiving Ⓝ;
 * `amount` — Amount to send in yoctoⓃ;
 
 and returns `Promise<FinalExecutionOutcome>`.
 
-To convert the transfer amount to yoctoⓃ we use [bn.js](https://github.com/indutny/bn.js) library and [parseNearAmount()](https://near.github.io/near-api-js/modules/utils_format.html#parsenearamount) method
+To convert the transfer amount to yoctoⓃ we use [bn.js](https://github.com/indutny/bn.js) library and the [parseNearAmount()](https://near.github.io/near-api-js/modules/utils_format.html#parsenearamount) method
 from utils/format module of NEAR-API-JS library.
 
 Let's add the library.
@@ -475,7 +474,7 @@ npm i
 npm start
 ```
 
-> We currently need to reload the page to select a different wallet after disconnection it. We will fix it soon.
+> Currently you need to reload the page to select a different wallet after disconnecting it. We will fix it soon.
 
 Here is the result code of the example: [ex05-wallet-solution.](https://github.com/dapplets/dapplet-template/tree/ex05-wallet-solution)
 
