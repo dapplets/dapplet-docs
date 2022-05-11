@@ -23,7 +23,7 @@ const wallet = await Core.wallet({ authMethods: ['ethereum/goerli', 'near/testne
 ```
 
 On this stage we are not connected to any wallet so our `wallet` is typed with `IEthWallet | INearWallet` interfaces.
-Each of them consists of **specific API** chain  and `WalletConnection` interface.
+Each of them consists of **chain-specific API** and `WalletConnection` interface.
 
 **WalletConnection** contains `authMethod` parameter and three methods: `isConnected()`, `connect()` and `disconnect()`.
 `wallet.authMethod` appears after connecting to a wallet and shows which one is connected.
@@ -248,7 +248,7 @@ if (!currentEthAddresses) {
 
 The next step is to **send tokens**. We use the `eth_sendTransaction` method. It requires three parameters: `from`, `to` and `value`.
 **From** and **to** are the same in our example. It is the current Ethereum address.
-**Value** is a string representation of a hexadecimal number.
+**Value** is a transfer amount in Wei with a string representation of a hexadecimal number.
 
 ```typescript
 try {
