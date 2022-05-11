@@ -150,7 +150,7 @@ REJECTED: {
   img: EXAMPLE_IMG,
   loading: false,
   exec: async (_, me) => {
-    me.state = wait wallet.isConnected()
+    me.state = await wallet.isConnected()
       ? wallet.authMethod === 'ethereum/goerli'
         ? 'ETH_CONNECTED'
         : 'NEAR_CONNECTED'
@@ -159,7 +159,7 @@ REJECTED: {
 },
 ```
 
-The other two states PENDING` and `MINING`, are for when the button is waiting for a transaction to be approved or mined.
+The other two states `PENDING` and `MINING`, are for when the button is waiting for a transaction to be approved or mined.
 These states are intermediate and the button has to be disabled,
 thats why they have no `exec` functions and the `loading` perameter is `true`.
 The last one disables the button and shows the loader instead of the picture on it.
