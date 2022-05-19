@@ -82,6 +82,29 @@
   background-color: #F5F5F5 !important;
 }
 
+.codeLine {
+  display: table-row;
+}
+
+.codeLineNumber {
+  display: table-cell;
+  text-align: right;
+  width: 1%;
+  position: sticky;
+  left: 0;
+  padding: 0 var(--ifm-pre-padding);
+  background: var(--ifm-pre-background);
+  opacity: 0.3;
+}
+
+.codeLineContent {
+  padding-right: var(--ifm-pre-padding);
+}
+
+.codeBlockLines {
+  padding: var(--ifm-pre-padding) 0;
+}
+
 @media print {
   .codeBlockLines {
     white-space: pre-wrap;

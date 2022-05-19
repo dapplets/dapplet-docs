@@ -201,7 +201,8 @@ export default (({
 
                 const lineProps = getLineProps({
                   line,
-                  key: i
+                  key: i,
+                  className: styles.codeLine,
                 });
 
                 if (highlightLines.includes(i + 1)) {
@@ -209,10 +210,13 @@ export default (({
                 }
 
                 return <div key={i} {...lineProps}>
-                  {line.map((token, key) => <span key={key} {...getTokenProps({
-                    token,
-                    key
-                  })} />)}
+                    {<span className={styles.codeLineNumber}>{tokens.length > 3 ? i + 1 : ''}</span>}
+                    <span className={styles.codeLineContent}>
+                      {line.map((token, key) => <span key={key} {...getTokenProps({
+                        token,
+                        key
+                      })} />)}
+                    </span>
                 </div>;
               })}
             </div>
