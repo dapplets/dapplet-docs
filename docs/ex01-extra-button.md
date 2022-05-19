@@ -104,17 +104,31 @@ label: 0
 Listen for the button click - output into console.
 
 ```ts
-exec: async (_, me) => {
-  // ctx - the argument of the function passed to POST
+exec: async (ctx, me) => {
   console.log(ctx);
   console.log(me);
 ...
 }
 ```
 
-`me` - is a *Proxy* of the widget.
+The extension provides **exec** function with two parameters:
 
-Increase the counter value on the button click
+* **ctx** — the current parsed context;
+* **me** — a *Proxy* of the widget.
+
+We got the `ctx` object earlier so in our example we don't need to get it here.
+
+Using `me` we can change the widget's parameters and its state.
+
+```ts
+// Changing the state
+exec: (ctx, me) => me.state = 'SECOND';
+
+// Changing the label
+exec: (ctx, me) => me.label = 'Hello';
+```
+
+Increase the counter value on the button click.
 
 ```ts
 me.label += 1;

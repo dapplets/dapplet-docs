@@ -3,7 +3,7 @@ id: widgets-interaction
 title: "Ex03: Widgets interaction"
 ---
 
-In this example we will add two interactive widgets to `POST`.
+In this exercise we will add two interactive widgets to `POST` context.
 
 Here is the initial code for this example: [ex03-widgets-interaction-exercise](https://github.com/dapplets/dapplet-template/tree/ex03-widgets-interaction-exercise).
 
@@ -46,12 +46,30 @@ export default class TwitterFeature {
 }
 ```
 
-`$(ctx, 'element_id')` returns object "me". Use it to change state or params of the other element using its **id**.
+:::tip
 
-- *Example 1:* `exec: () => $(ctx, 'another_el_id').state = 'SECOND'`
-- *Example 2:* `exec: () => $(ctx, 'another_el_id').label = 'Hello'`
+There is a **$ Function** used to access to an existing widget on the website.
 
-Get the widget `picture` from the adapter
+It receives two parameters:
+
+* **ctx** — parsed context of the block in which the desired widget is located;
+* **id** — the widget ID that needs to be specified manually.
+
+`$(ctx, 'element_id')` returns the **me** object we used in the previous exercises, but for the desired widget.
+
+Use it to change the **state** or **parameters**.
+
+```ts
+// Changing the state
+exec: () => $(ctx, 'another_el_id').state = 'SECOND';
+
+// Changing the label
+exec: () => $(ctx, 'another_el_id').label = 'Hello';
+```
+
+:::
+
+Let's get the widget `picture` from the adapter
 
 ```ts
 const { button, picture } = this.adapter.exports;
