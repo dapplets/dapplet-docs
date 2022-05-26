@@ -92,7 +92,7 @@ document.querySelectorAll('#search #rso > .g .jtfYYd, #rso > div > .g .jtfYYd, #
 Make sure not to include unwanted blocks.
 
 Using the same method define selectors for insertion points — exact places where the widgets will be placed.
-There are 3 insert options: `end`, `start` and `inside`. The first one is default.
+There are 3 insert options: `end`, `begin` and `inside`. The first one is default.
 
 ```typescript
 insPoints: {
