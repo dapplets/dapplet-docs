@@ -1,9 +1,8 @@
 ---
-id: whitepapers
-title: "Whitepapers"
+id: start
+title: "Start"
 ---
 
-## TL/DR
 In the internet business, as we know it now, only website owners can create and earn money from business processes that run on their websites. This is because ownership means full control over the users' communications.
 
 Dapplets Project disrupts this paradigm and creates technology that enables new kinds of applications - *dapplets*. These dapplets run on top of existing websites, in the websites' context, but out of the website owners' control. This new paradigm enables tons of brand new applications and business opportunities.
