@@ -10,7 +10,7 @@ But usually, the dapplet developer will reuse an existing adapter with some chan
 ## Using the launch pool to reward an adapter creator
 A dapplet developer can allocate a part of the Initial Token Supply as a conditional reward for the adapter developer. He will get the reward only if his adaptor will be used by the dapplet, which actually means that the adapter developer has implemented all necessary features required by the dapplet. Receiving launch rewards and holding tokens of supported dapplets is the main incentivization mechanism for the adapter developer to keep it operational and reputable.
 
-![](https://i.imgur.com/ZoirRvT.png)
+![](https://raw.githubusercontent.com/dapplets/dapplet-docs/master/docs/whitepapers/21-adapter-developer-motivation.png)
 *Pic: Using the Collateral Stake as the first transaction on the Bonding curve and as a reward for the adapter developer*
 
 ## How to receive the launch reward
@@ -23,4 +23,3 @@ A dapplet developer can allocate a part of the Initial Token Supply as a conditi
 Note, there is no formal agreement between the dapplet owner and the adapter owner about the cooperation. Such agreement is unnecessary. 
 
 The adapter owner becomes the share only if a dapplet uses the adapter. A dapplet deployed without the necessary dependency can’t work. Otherwise, if it starts with the dependency, it activates the share dedicated to the owner of the adapter.
-
