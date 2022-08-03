@@ -7,7 +7,7 @@ The general architecture is based on the 3-tier model of *Content*, *Adapter* an
 
 Let us see an example in the picture below.
 
-![](https://github.com/dapplets/dapplet-docs/blob/master/docs/whitepapers/07-architecture.png)
+![](https://raw.githubusercontent.com/dapplets/dapplet-docs/master/docs/whitepapers/07-architecture.png)
 
 The сontent (a web page or video stream) is assumed to exist independently from augmentation dapplets. 
 
@@ -25,5 +25,3 @@ It is essential to mention that dapplets should not define their augmentation wi
 
 * At first, it provides maximum isolation between dapplet and content and allows dapplets working on different content types. 
 * Secondly, it increases the overall security because a dapplet becomes relatively small, so it becomes hard to create malicious code that bypasses an audit. 
-
-
