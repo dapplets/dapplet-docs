@@ -1,6 +1,6 @@
 ---
-id: start
-title: "Start"
+id: summary
+title: "Whitepapers Summary"
 ---
 
 In the internet business, as we know it now, only website owners can create and earn money from business processes that run on their websites. This is because ownership means full control over the users' communications.
