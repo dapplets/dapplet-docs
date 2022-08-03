@@ -7,7 +7,7 @@ The general architecture is based on the 3-tier model of *Content*, *Adapter* an
 
 Let us see an example in the picture below.
 
-![](https://i.imgur.com/HLhIYs8.png)
+![](https://github.com/dapplets/dapplet-docs/blob/master/docs/whitepapers/07-architecture.png)
 
 The сontent (a web page or video stream) is assumed to exist independently from augmentation dapplets. 
 
