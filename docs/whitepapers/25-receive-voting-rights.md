@@ -2,7 +2,10 @@
 id: receive-voting-rights
 title: "How to receive voting rights - the algorithm"
 ---
- 
+
+![](https://raw.githubusercontent.com/dapplets/dapplet-docs/master/docs/whitepapers/24-stake-blocking.png)
+*Pic. The User gets voting rights in the DAO*
+
 1. A user acquires AUGE tokens.
 1. The user sends the necessary AUGE amount to the staking to receive voting rights.
 1. The user amount of votes received depends on the staking term.
