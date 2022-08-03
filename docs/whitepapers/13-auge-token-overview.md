@@ -7,7 +7,7 @@ AUGE is a native utility ecosystem token.
 
 AUGE emission is based on the Bonding Curve model. The Bonding Curve is a form of a smart contract that buys and sells tokens, based on the price formula that’s been introduced.
 
-![](https://github.com/dapplets/dapplet-docs/blob/master/docs/whitepapers/13-bonding-curve.png)
+![](https://github.com/dapplets/dapplet-docs/raw/master/docs/whitepapers/13-bonding-curve.png)
 
 
 In this example, the X-axis represents the total amount of tokens released (*Q*), and the Y-axis represents the current price of the token (*P*). The relationship between the amount and the price can be shown as a formula, and in this specific graph is depicted as the *BC curve*.
