@@ -8,7 +8,5 @@ title: "Stake blocking options"
 * blocking for 6 months (1 AUGE = 2 votes)
 * blocking for 1 year (1 AUGE = 3 votes)
 
-![](https://i.imgur.com/p06hEyZ.png)
-
+![](https://raw.githubusercontent.com/dapplets/dapplet-docs/master/docs/whitepapers/24-stake-blocking.png)
 *Pic. The User gets voting rights in the DAO*
-
