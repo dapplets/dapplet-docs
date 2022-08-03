@@ -29,7 +29,7 @@ module.exports = {
           className: "home-hover-menu",
         },
         {
-          href: "https://forum.dapplets.org/",
+          href: "https://forum.augmentedweb.club/",
           label: "Forum",
           position: "right",
         },
@@ -108,7 +108,7 @@ module.exports = {
           items: [
             {
               label: "Forum Dapplets",
-              href: "https://forum.dapplets.org",
+              href: "https://forum.augmentedweb.club/",
             },
           ],
         },
