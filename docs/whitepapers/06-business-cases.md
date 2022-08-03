@@ -25,7 +25,7 @@ We envision a world where communities become self-sovereign, even if they were c
 ## Embedded Business Processes
 The protocol offers new ways in marketing and allows new business cases on the legacy web. Instead of buying traffic to a website, the owner can embed his business processes into other communities.
 
-![](https://github.com/dapplets/dapplet-docs/blob/master/docs/whitepapers/06-1-embedded-processes.png)
+![](https://raw.githubusercontent.com/dapplets/dapplet-docs/master/docs/whitepapers/06-1-embedded-processes.png)
 
 There are many business cases where embedding own business processes into third party communities is better than trying to bring the audience to their own website. Executing your own business processes in place where the people are could be the better choice.
 
@@ -33,7 +33,7 @@ Commenting and content tagging, for example, is much more efficient in the origi
 
 It becomes possible to embed new services into the legacy websites even if the website is not prepared to run them.
 
-![](https://github.com/dapplets/dapplet-docs/blob/master/docs/whitepapers/06-2-embedded-crypto.png)
+![](https://raw.githubusercontent.com/dapplets/dapplet-docs/master/docs/whitepapers/06-2-embedded-crypto.png)
 
 A good example could be any crypto-based services like payments and identity embedded on the top of existing legacy sites, but even without any knowledge of them about the integration.
 
@@ -59,8 +59,3 @@ For example, they can be like:
 **Site Reviews** - a dapplet that provides independent and unstoppable site and project reviews, with undeletable comments, and ratings, all stored in blockchain.
 
 **Avatar Trolling** - a dapplet that provides the opportunity to change other users' avatars and draw something on top.
-
-
-
-
-
