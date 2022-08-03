@@ -15,7 +15,7 @@ module.exports = {
       label: 'Whitepapers',
       collapsed: true,
       items: [
-        'whitepapers/start',
+        'whitepapers/summary',
         'whitepapers/motivation',
         'whitepapers/our-mission',
         'whitepapers/technological-overview',
