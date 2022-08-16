@@ -5,46 +5,38 @@ title: Publishing
 
 1. Launch the application locally. Click on the link `Currently registry address:`
 
-![Image to point 1](/img/pub_01.jpg)
+![Image to point 1](/img/pub_01.png)
 
-2. A window opens in the browser. Copying the address.
+2. A window opens in the browser. If an error occurs, you must agree to use the certificate
 
-![Image to point 2](/img/pub_02.jpg)
+![Image to point 2](/img/pub_02.png)
 
-3. Insert the address into the Development Servers field of the extension's Developer tab.
+3. Add the address into the Development Servers field of the extension's Developer page.
 
-![Image to point 3](/img/pub_03.jpg)
+![Image to point 3](/img/pub_03.png)
 
 4. Added a server and a module for deployment. Click **Deploy**
 
 ![Image to point 4](/img/pub_04.png)
 
-5. Here is the deployment information.
+5. Connect the wallet, if it was not connected before
 
-![Image to point 5](/img/pub_05.png)
+![Image to point 5](/img/pub_05_1.png)
 
-  If your wallet address is not in trusted users list you will see a warning like this:
+![Image to point 5](/img/pub_05_2.png)
 
-![Image of admonition to point 5](/img/pub_06.png)
+6. Click **Deploy**. The modal window appears if the module is deployed for the first time. Click **Ok**
 
-  Click **Deploy** once again.
+![Image to point 6](/img/pub_07.png)
 
-6. Connect the wallet, if it was not connected before
+7. MetaMask opens. **Confirm** the transaction.
 
-![Image to point 6](/img/pub_07.jpg)
+![Image to point 7](/img/pub_08.png)
 
-7. After connecting the wallet, you will see a window like this. Click **Continue**
-
-![Image to point 7](/img/pub_08.jpg)
-
-8. MetaMask opens. **Confirm** the transaction.
+8. The new module will appear in the registry.
 
 ![Image to point 8](/img/pub_09.png)
 
-9. Receive a message about the deployment.
+9. Turn off the Development Server. There is an application in the list of dapplets.
 
 ![Image to point 9](/img/pub_10.png)
-
-10. Turn off the Development Server. There is an application in the list of dapplets.
-
-![Image to point 10](/img/pub_11.png)
