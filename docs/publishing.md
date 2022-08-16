@@ -25,7 +25,7 @@ title: Publishing
 
 ![Image to point 5](/img/pub_05_2.png)
 
-6. Click **Deploy**. If module deployed first time - will open modal window. Click **Ok**
+6. Click **Deploy**. The modal window appears if the module is deployed for the first time. Click **Ok**
 
 ![Image to point 6](/img/pub_07.png)
 
