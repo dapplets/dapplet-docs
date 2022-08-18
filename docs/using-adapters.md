@@ -84,7 +84,7 @@ In the `schema.json` we specify the settings for the dapplet, which will be avai
 }
 ```
 
-![Dapplet Settings](/img/a_twitter_1.jpg)
+![Dapplet Settings](/img/a_twitter_1.png)
 
 Finally, implement the dapplet’s `/src/index.ts` according to the example:
 
