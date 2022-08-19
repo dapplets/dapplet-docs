@@ -192,6 +192,6 @@ Here is the result code of the example: [ex01-add-button-solution](https://githu
 
 In the browser:
 
-![video](/video/ex01-extra-button.gif)
+![video](/video/ex_1_2.gif)
 
 > If you want to save counters' values and get them from the server, look at [example 15](/docs/server-connection).
