@@ -159,6 +159,6 @@ npm start
 
 In the browser:
 
-![video](/video/ex03-insertion-points.gif)
+![video](/video/ex_3.gif)
 
 > If you don't know how to run a dapplet in your browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).

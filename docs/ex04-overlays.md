@@ -182,4 +182,4 @@ To publish a dapplet with an overlay, you need `assets-manifest.json`. When over
 Here is the result code of the example: [ex04-overlays-solution.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-solution)
 
 
-![video](/video/ex04-overlay.gif)
+![video](/video/ex_4.gif)
