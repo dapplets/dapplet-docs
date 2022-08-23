@@ -138,7 +138,7 @@ Let's display a message in the browser alert by clicking on the widget. We will 
 
 The dapplet settings are as follows:
 
-![Dapplet's User Settings](/img/ex01_1.jpg)
+![Dapplet's User Settings](/img/ex01_1.png)
 
 To do this, add the following code to the dapplet's `exec`:
 
