@@ -229,6 +229,17 @@ When there is no ID (click the **home** button) we need to show all the states: 
   );
   ```
 
+:::tip
+
+This example uses a **two-way binding**. This connection is implemented using the **state.global**
+
+By changing the value in the widget, we are changing the value of the input or counter in the overlay.
+
+And vice versa - when the data in the overlay changes, the value in the widgets.
+
+
+:::
+
 Here is the result code of the example: [`ex13-shared-state-solution`](https://github.com/dapplets/dapplet-template/tree/ex13-shared-state-solution)
 
 Run the dapplet:
