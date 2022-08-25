@@ -46,6 +46,40 @@ gh repo clone dapplets/dapplet-template
 
 #### 3. Fill in fields in the manifests `package.json` and `dapplet.json`.
 
+:::tip
+
+** `dapplet.json` **
+
+In a ** `dapplet.json` **, fields marked with "$ref" refer to the **`package.json`**.
+
+**"branch"** field - should be changed if the dapplet needs to be published not from the main branch.
+
+Field **"type"**: "FEATURE" indicates the type of module.
+
+Field **"title"**: name of the dapplet.
+
+Field **"icon"**: link to dapplet icon.
+
+Field  **"contextIds"**: name of the module (adapter, interface), site domain, dynamic context, contexts determined by content-detecors
+more about the **"config"** field in [Ex01: Extra button](/docs/extra-button).
+
+Field **"overlays"**: port for overlay, more details in [Ex04: Overlays](/docs/overlays).
+
+:::
+
+:::tip
+
+** `package.json **
+
+Field **"name"**: name of the dapplet.
+
+Field **"version"**: version a module.
+
+Field **"description"**: what is doing module .
+
+
+:::
+
 #### 4. Change icons to yours in `src/icons` folder.
 
 The icon `src/dapplet-icon.png` is used for the injected button in source code `src/index.ts` and for display in the Dapplets store. The link to this icon is defined in `dapplet.json` manifest.
@@ -130,11 +164,23 @@ created lib\index.js in 783ms
 [2021-02-01 13:58:36] waiting for changes...
 ```
 
+:::tip
+
+Dependencies **'rollup config'** is used for compiles modules
+
+:::
+
 The address [http://localhost:3001/dapplet.json](http://localhost:3001/dapplet.json) is a link to your dapplet manifest file. Copy it to clipboard.
 
 #### 11. Connect the development server to Dapplet Extension.
 
 Paste URL to Developer tab of Dapplet Extension's popup and click **Add**.
+
+:::tip
+
+If an error occurs, go to the url, you must agree to use the certificate
+
+:::
 
 ![Developer tab of Extension](/img/gs_1.png)
 
