@@ -8,6 +8,7 @@ module.exports = {
         'introduction',
         'installation',
         'get-started',
+        'how-to-use-dapplets',
       ]
     },
     {
