@@ -48,20 +48,21 @@ gh repo clone dapplets/dapplet-template
 
 :::tip
 
-** `dapplet.json` **
+** dapplet.json **
 
-In a ** `dapplet.json` **, fields marked with "$ref" refer to the **`package.json`**.
+In a ** `dapplet.json` **, fields marked with "$ref" refer to the **`package.json`**. Changes to these fields are done in the file **`package.json`**.
 
-**"branch"** field - should be changed if the dapplet needs to be published not from the main branch.
+**"branch"** field - development branch from which the dapplet is deployed. Should be changed if the dapplet needs to be published not from the main branch.
 
-Field **"type"**: "FEATURE" indicates the type of module.
+Field **"type"**: indicates the type of module (FEATURE - dapplet's module, ADAPTER - allows modules to work with site specific interfaces, INTERFACE - dynamic adapter. ).
 
 Field **"title"**: name of the dapplet.
 
 Field **"icon"**: link to dapplet icon.
 
-Field  **"contextIds"**: name of the module (adapter, interface), site domain, dynamic context, contexts determined by content-detecors
-more about the **"config"** field in [Ex01: Extra button](/docs/extra-button).
+Field  **"contextIds"**: name of the module (adapter, interface), site domain, dynamic context, contexts determined by content-detecors.
+
+More about the **"config"** field in [Ex01: Extra button](/docs/extra-button).
 
 Field **"overlays"**: port for overlay, more details in [Ex04: Overlays](/docs/overlays).
 
@@ -69,7 +70,7 @@ Field **"overlays"**: port for overlay, more details in [Ex04: Overlays](/docs/o
 
 :::tip
 
-** `package.json **
+**  package.json **
 
 Field **"name"**: name of the dapplet.
 
