@@ -31,5 +31,5 @@ This means that:
 
 ## The Auditor’s reward
 1. The Auditor's reward is created in a separate auditors' pool, which is filled from different sources and by various actors.
-2. For example the Owner and Listers may fill the pool, because they are interested to get the Dapplet audited. Stakes of refuted audits may fill the pool as well. More donors may join later on - the auditors pool is generally permissionless.
-3. The dapplet Owner can conduct the first audit themselves and receive the reward from the auditors' pool. If their audit is correct and is not refuted, then the commissions from the pool will go to the Owner of the dapplet.
+2. For example Listers as well as the Owner may fill the pool as they wish to get the Dapplet audited. Stakes of refuted audits may fill the pool as well. More donors may join later on - the auditors pool is generally permissionless.
+3. A dapplet Owner can conduct the first audit on their own and receive the reward from the auditors' pool. If their audit is correct and is not refuted, then the commissions from the pool will go to the Owner of the dapplet.
