@@ -30,3 +30,5 @@ this.adapter.attachConfig({
 Also `ctx` contains `theme` parameter, which can be `'LIGHT'` or `'DARK'`. This information is determined by the adapter and can be used in the dapplet-feature or in the overlay.
 
 The complete code for this example can be found here: [ex12-dark-theme-support.](https://github.com/dapplets/dapplet-template/tree/ex12-dark-theme-support)
+
+![video](/video/ex_12.gif)

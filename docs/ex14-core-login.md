@@ -86,7 +86,7 @@ const tweets = await contract.getTweets(accountIds[0]); // read
 console.log('Tweets from Ethereum contract', tweets);
 await contract.addTweet(JSON.stringify(tweet)); // write
 ```
-
+![video](/video/ex_14_2.gif)
 ### LP: 6. Open the overlay if you want to show a login pop-up in it
 
 The same like in the LP 2.
@@ -137,3 +137,5 @@ Run the dapplet:
 npm i
 npm start
 ```
+![video](/video/ex_14_1.gif)
+
