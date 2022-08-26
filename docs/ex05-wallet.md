@@ -484,4 +484,4 @@ There is another way to get a **Wallet** connection by using `Core.login()`. It'
 
 :::
 
-![video](/video/ex_05_1.gif)
+![video](/video/ex_05.gif)
