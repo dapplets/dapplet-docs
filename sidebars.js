@@ -6,9 +6,10 @@ module.exports = {
       collapsed: false,
       items: [
         'introduction',
-        'installation',
-        'get-started',
+        'installation', 
         'how-to-use-dapplets',
+        'get-started',
+       
       ]
     },
     {
