@@ -48,3 +48,5 @@ Run the dapplet:
 npm i
 npm start
 ```
+
+![video](/video/ex_06.gif)

@@ -483,3 +483,5 @@ Here is the result code of the example: [ex05-wallet-solution.](https://github.c
 There is another way to get a **Wallet** connection by using `Core.login()`. It's described in [Ex14: Core Login](/docs/core-login).
 
 :::
+
+![video](/video/ex_05.gif)
