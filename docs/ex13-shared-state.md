@@ -127,7 +127,7 @@ state[someId].someParameter.next(newValue);
   To use this feature in the widget you have to add event listener:
   
   ```
-  ch.addEventListener('input', (e: any) => {
+  element.addEventListener('input', (e: any) => {
       this.state.text = e.target.value;
   });
   ```
