@@ -8,7 +8,7 @@ title: "Listers"
 
 Because dapplets are published in decentralized repositories, they are all available to any user: unfiltered and uncensored. But how will the user know which apps are useful for them and which are not?
 
-The Lister's job is to find "diamond" apps and compile a list of them. Users can subscribe to Listers of their choice. Having subscribed to a Lister, the user begins to see the world "with the Lister's eyes". All apps added by the Lister to his list automatically appear for their subscribed users.
+A Lister's job is to find "diamond" apps and compile a list of them. Users can subscribe to Listers of their choice. Having subscribed to a Lister, the user begins to see the world "with the Lister's eyes". All apps added by the Lister to his list automatically appear for their subscribed users.
 
 For users, the Lister becomes a guide to the world of dapplets. For a developer, the Lister becomes an ambassador for their apps. A developer can motivate a Lister to add his dapplet to the listing.
 

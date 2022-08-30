@@ -195,7 +195,7 @@ Pseudo-classes like `:hover` are also available here. You can use all of CSS pow
 
 Together we have realized a button, that will be inserted into search results on the Google search page. 
 
-![](/video/ex16-search-result-button.gif)
+![video](/video/ex_16.gif)
 
 The final solution is available in this branch: [`ex16-web-components-solution`](https://github.com/dapplets/dapplet-template/tree/ex16-web-components-solution).
 

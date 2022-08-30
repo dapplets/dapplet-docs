@@ -17,7 +17,7 @@ The platform owner completely determines which business processes are available 
 We don’t like that.
 
 ### Augmented Web fixes that. 
-It gives users a tool to combine complementary sources of information seamlessly in one picture.
+It gives users a tool that's able to combine complementary sources of information seamlessly in one picture.
 
 Users shape their global picture actively instead of being a Passive Bullshit Consumer (PBC).
 

@@ -8,7 +8,7 @@ Although social platforms should only provide a technical service, usually they 
 
 The way in which decentralization is usually applied now does not help. It makes the site owner even more powerful by enhancing his ability to perform censorship. This is because even though the infrastructure becomes decentralized, the owner’s role remains its central power.
 
-Augmented Web platform breaks this monopoly and begins a transition to a new web, where any centralized website owner becomes forcibly decentralized on the UX level. 
+The Augmented Web platform breaks this monopoly and begins a transition to a new web, where any centralized website owner becomes forcibly decentralized on the UX level. 
 
 This means that even if a provider (like any social network), misuses their power and restricts some content, accounts or operations, the community always remains in power to overcome these restrictions.
 
@@ -23,24 +23,24 @@ Because in case of any pressure or service disruptions, any community member can
 We envision a world where communities become self-sovereign, even if they were created by a central actor. Like children who become independent of their parents when they grow up. 
 
 ## Embedded Business Processes
-The protocol offers new ways in marketing and allows new business cases on the legacy web. Instead of buying traffic to a website, the owner can embed his business processes into other communities.
+The protocol offers new ways in marketing and allows new business cases on the legacy web. Instead of buying traffic on a website, the owner can embed his business processes into other communities.
 
 ![](https://raw.githubusercontent.com/dapplets/dapplet-docs/master/docs/whitepapers/06-1-embedded-processes.png)
 
-There are many business cases where embedding own business processes into third party communities is better than trying to bring the audience to their own website. Executing your own business processes in place where the people are could be the better choice.
+There are many business cases which show that embedding your own business processes into third party communities is better than trying to bring the audience to your own website. Executing your business processes in a place where people have already established communities could be the better choice.
 
-Commenting and content tagging, for example, is much more efficient in the original context than in some separated place.
+Commenting and content tagging, for example, is much more efficient in the original context than anywhere else.
 
-It becomes possible to embed new services into the legacy websites even if the website is not prepared to run them.
+It becomes possible to embed new services into legacy websites even if the website is not prepared to run them.
 
 ![](https://raw.githubusercontent.com/dapplets/dapplet-docs/master/docs/whitepapers/06-2-embedded-crypto.png)
 
-A good example could be any crypto-based services like payments and identity embedded on the top of existing legacy sites, but even without any knowledge of them about the integration.
+A good example could be any crypto-based services like payments or identity embedded on top of existing legacy websites, while the website owner does not necessarily have any knowledge about the integration.
 
-## Extend Existing Functionality
-In addition to self-sovereign, community members can expand the functionality of websites and add new features to them. 
+## Extend Existing Functionalities
+In addition to being self-sovereign, community members can also expand websites' functionalities and add new features to them. 
 
-For example, they can be like:
+For example:
 
 **Public Stickers** - a dapplet that allows users to place stickers directly on public content
 
