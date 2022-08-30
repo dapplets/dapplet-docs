@@ -121,6 +121,20 @@ state[someId].someParameter.next(newValue);
   ```
 
   Here we pass an optional parameter - **id** to the `overlay.open` method. Then we can get it in the overlay and use for getting and setting an appropriate part of the state.
+  
+7.  Input HTML element has its own state. When we are talking about the elements like input, textarea and select, we can build them with **two-way data binding**. It means that the element's state and Shared State are connected and updated automatically. So we can type some text and it will appear in the Shared State. And if you update the Shared State the value of the HTML element will also be updated.
+
+  To use this feature in the widget you have to add event listener:
+  
+  ```
+  element.addEventListener('input', (e: any) => {
+      this.state.text = e.target.value;
+  });
+  ```
+  
+  You can see the example here: [Input Widget](https://github.com/dapplets/dapplet-modules/blob/56e1c37dae399ef8e9688dad021b38010053b888/packages/twitter-adapter-new/src/input.ts#L40)
+  
+  As a result we don't need to add `exec` for the input widget.
 
 The entire `activate` method:
 
@@ -158,7 +172,7 @@ activate() {
 
 In this example we don't talk about native JavaScript overlay because the interaction with the shared state goes through the **React's HOC** (Higher-Order Component). To know more about this technique check out [the official documentation page](https://reactjs.org/docs/higher-order-components.html).
 
-7.  Add **Share State HOC** into the `./overlay/src/index.tsx`
+8.  Add **Share State HOC** into the `./overlay/src/index.tsx`
 
   Import **`dappletState`** from **@dapplets/dapplet-overlay-bridge**. This function is typed with IState interface, receives `App` and returns a new React component.
 
@@ -175,7 +189,7 @@ In this example we don't talk about native JavaScript overlay because the intera
   );
   ```
 
-8.  In **App** we paste the copied **IState** interface from the dapplet and export it. Then we type the module's props with **IDappStateProps** typed with **IState**.
+9.  In **App** we paste the copied **IState** interface from the dapplet and export it. Then we type the module's props with **IDappStateProps** typed with **IState**.
 
   ```typescript
   // ...
@@ -191,7 +205,7 @@ In this example we don't talk about native JavaScript overlay because the intera
   }
   ```
 
-9.  In `render` method get props: **sharedState, changeSharedState, id**
+10.  In `render` method get props: **sharedState, changeSharedState, id**
 
   ```typescript
   const { sharedState, changeSharedState, id } = this.props;
@@ -209,7 +223,7 @@ When you want to change its parameters in the overlay, you don't need to pass th
 
 :::
 
-10.  When we have an ID we need to show the counter, an input with the text and a button that increments the counter.
+11.  When we have an ID we need to show the counter, an input with the text and a button that increments the counter.
 When there is no ID (click the **home** button) we need to show all the states: keys with the counters' and texts' values.
 
   ```typescript
