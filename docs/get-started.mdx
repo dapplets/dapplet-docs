@@ -46,6 +46,12 @@ gh repo clone dapplets/dapplet-template
 
 #### 3. Fill in the fields in the following manifests: `package.json` and `dapplet.json`.
 
+In the `package.json` set the name, version, description, author and license for your dapp.
+The name is the ID of your dapplet so it must be unique.
+In the `dapplet.json` set the title.
+This second manifest is required to deploy the dapplet and add it to the dapplet registry.
+You can find more information about the dapplet manifest [here](/docs/manifest).
+
 #### 4. Change the icons to your own ones in the `src/icons` folder.
 
 The icon `src/dapplet-icon.png` is used for the injected button in source code `src/index.ts` and for display in the Dapplets store. The link to this icon is defined in the `dapplet.json` manifest.
@@ -130,6 +136,8 @@ created lib\index.js in 783ms
 [2021-02-01 13:58:36] waiting for changes...
 ```
 
+In this example we use Rollup bundler to compile modules but you can use whatever you want. Webpack for example.
+
 The address [http://localhost:3001/dapplet.json](http://localhost:3001/dapplet.json) is a link to your dapplet manifest file. Copy it to a clipboard.
 
 #### 11. Connect the development server to the Dapplets Extension.
@@ -137,6 +145,8 @@ The address [http://localhost:3001/dapplet.json](http://localhost:3001/dapplet.j
 Paste the URL to the Developer tab of the Dapplet Extension's popup and click **Add**.
 
 ![Developer tab of Extension](/img/gs_1.png)
+
+> If an error occurs, look [here](/docs/publishing).
 
 You will see your module in the list of development modules. Here you can start the deployment process.
 
