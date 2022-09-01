@@ -1,11 +1,11 @@
 ---
 id: manifest
-title: Dapplet Manifest
+title: Module Manifest
 ---
 
-The dapplet manifest – `dapplet.json` – is a JSON that is placed in the root of the module and contain all the required information to deploy the module and add it to the dapplet registry. It is a necessary part of every module.
+The module manifest – `dapplet.json` – is a JSON that is placed in the root of the module and contain all the required information to deploy the module and add it to the dapplet registry. It is a necessary part of every module.
 
-Here is the example of the dapplet's manifest:
+Here is the example of the module's manifest:
 
 ```json
 {
@@ -30,12 +30,17 @@ Here is the example of the dapplet's manifest:
 
 ### Manifest Structure
 
-Some fields refer to the `package.json`. They have `"$ref"` children with the field link values. All these fields are obligatory. Set them in the `package.json`:
+Some fields refer to the `package.json`. They have `"$ref"` children with the field link values.
+The `"$ref"` is a part of JSON Reference specification. More details:
+- https://datatracker.ietf.org/doc/html/draft-pbryan-zyp-json-ref-03
+- https://niem.github.io/json/reference/json-schema/references/
 
-- **name** – a name of the module. The name is the ID of your module so it must be unique
-- **version** – a version of the module
-- **description** – a brief description of your module
-- **main** – sets the entry point for the dapp
+All these fields are obligatory. Set them in the `package.json`:
+
+- **name** – a name of the module. The name is the ID of your module so it must be unique.
+- **version** – a version of the module. Refer to SemVer format: https://semver.org/
+- **description** – a brief description of your module. It's displayed in the dapplets list inside the extension's overlay and in the Dapplets Store.
+- **main** – sets the entry point for the dapp.
 
 The other parameters are specified in the `dapplet.json`:
 
@@ -116,6 +121,15 @@ For more information look [here](./#).
     "overlays": {
       "example-04-overlay": "http://localhost:3000"
     }
+  }
+  ```
+
+  An `assets-manifest.json` should be available at the root of overlay's URL. Example:
+
+  ```json
+  {
+    "index.html": "index.html",
+    "main.js": "main.js"
   }
   ```
 
