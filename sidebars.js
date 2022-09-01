@@ -89,7 +89,7 @@ module.exports = {
       type: 'category',
       collapsed: true,
       label: 'Publishing',
-      items: ['publishing'],
+      items: ['publishing', 'manifest'],
     },
     {
       type: 'category',

@@ -46,40 +46,11 @@ gh repo clone dapplets/dapplet-template
 
 #### 3. Fill in the fields in the following manifests: `package.json` and `dapplet.json`.
 
-:::tip
-
-** dapplet.json **
-
-In a ** `dapplet.json` **, fields marked with "$ref" refer to the **`package.json`**. Changes to these fields are done in the file **`package.json`**.
-
-**"branch"** field - development branch from which the dapplet is deployed. Should be changed if the dapplet needs to be published not from the main branch.
-
-Field **"type"**: indicates the type of module (FEATURE - dapplet's module, ADAPTER - allows modules to work with site specific interfaces, INTERFACE - dynamic adapter. ).
-
-Field **"title"**: name of the dapplet.
-
-Field **"icon"**: link to dapplet icon.
-
-Field  **"contextIds"**: name of the module (adapter, interface), site domain, dynamic context, contexts determined by content-detecors.
-
-More about the **"config"** field in [Ex01: Extra button](/docs/extra-button).
-
-Field **"overlays"**: port for overlay, more details in [Ex04: Overlays](/docs/overlays).
-
-:::
-
-:::tip
-
-**  package.json **
-
-Field **"name"**: name of the dapplet.
-
-Field **"version"**: version a module.
-
-Field **"description"**: what is doing module .
-
-
-:::
+In the `package.json` set the name, version, description, author and license for your dapp.
+The name is the ID of your dapplet so it must be unique.
+In the `dapplet.json` set the title.
+This second manifest is required to deploy the dapplet and add it to the dapplet registry.
+You can find more information about the dapplet manifest [here](/docs/manifest).
 
 #### 4. Change the icons to your own ones in the `src/icons` folder.
 
@@ -165,11 +136,7 @@ created lib\index.js in 783ms
 [2021-02-01 13:58:36] waiting for changes...
 ```
 
-:::tip
-
-Dependencies **'rollup config'** is used for compiles modules
-
-:::
+In this example we use Rollup bundler to compile modules but you can use whatever you want. Webpack for example.
 
 The address [http://localhost:3001/dapplet.json](http://localhost:3001/dapplet.json) is a link to your dapplet manifest file. Copy it to a clipboard.
 
@@ -177,13 +144,9 @@ The address [http://localhost:3001/dapplet.json](http://localhost:3001/dapplet.j
 
 Paste the URL to the Developer tab of the Dapplet Extension's popup and click **Add**.
 
-:::tip
-
-If an error occurs, go to the url, you must agree to use the certificate
-
-:::
-
 ![Developer tab of Extension](/img/gs_1.png)
+
+> If an error occurs, look [here](/docs/publishing).
 
 You will see your module in the list of development modules. Here you can start the deployment process.
 
