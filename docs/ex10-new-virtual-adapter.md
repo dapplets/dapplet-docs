@@ -94,3 +94,4 @@ npm start
 ```
 > In this example we run four servers concurrently. This means you have to add four registry addresses to the Dapplet extension in the Development tab. Click [here](/docs/get-started#11-connect-the-development-server-to-dapplet-extension) for instructions.
 
+![video](/video/ex_10.gif)

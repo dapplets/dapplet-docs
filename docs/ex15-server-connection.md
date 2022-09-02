@@ -161,3 +161,11 @@ Run the dapplet:
 npm i
 npm start
 ```
+
+:::caution
+
+if an error occurs in the 'src/index.ts' , delete the 'package-lock.json' and run **npm i**
+
+:::
+
+![video](/video/ex_15.gif)
