@@ -9,12 +9,12 @@ For example, let's connect and disconnect an Ethereum network account using a bu
 
 Here is the initial code for this example: [ex17-overlay-login-exercise](https://github.com/dapplets/dapplet-template/tree/ex17-overlay-login-exercise).
 
-## Dapplet
+### Dapplet
 
 More details about **useState** and **onAction** methods can be found in the [Ex13](/docs/shared-state).
 
 
-### LP: 1. Add method 'useState' to the overlay
+#### LP: 1. Add method 'useState' to the overlay
 
 Add method to overlay initialization. The state will transfer the account address from the dapplet to the overlay.
 
@@ -23,10 +23,11 @@ private overlay = Core.overlay<IBridge>({ name: 'overlay', title: 'Exercise 17' 
   .useState(this.state)
 ```
 
-### LP: 2. Declare the API in the overlay
+#### LP: 2. Declare the API in the overlay
 
 The `dapplet/src/api.ts` contains the functions that will be available in the overlay.
-Learn more about Core Login API [here](/docs/ex14-core-login.md).
+
+You can learn more about Core Login API [here](/docs/core-login).
 
 ```typescript
 .declare(this.api);
@@ -34,13 +35,13 @@ Learn more about Core Login API [here](/docs/ex14-core-login.md).
 
 More details about **declare**  method can be found in the [Ex04](/docs/overlays).
 
-### LP: 3. Use the API's function to get the account state
+#### LP: 3. Use the API's function to get the account state
 
 ```typescript
 await this.api.initializeCurrentAccount();
 ```
 
-### LP: 4. Add the action for the home button
+#### LP: 4. Add the action for the home button
 
 Add the `Core.onAction` method. The callback should open the overlay and update the data about the session by the home button click.
 
@@ -51,11 +52,11 @@ Core.onAction(() => {
 });
 ```
 
-## Overlay
+### Overlay
 
 To implement the overlay part, we use React functional components.
 
-### LP: 5. Add interface for Bridge, with functions
+#### LP: 5. Add interface for Bridge, with functions
 
 Dapplet and overlay are connected using **Bridge** and **IDappStateProps** which are imported from  `@dapplets/dapplet-overlay-bridge`. 
 
@@ -66,7 +67,7 @@ interface IBridge {
 }
 ```
 
-### LP: 6. Add functions to connect and disconnect the account
+#### LP: 6. Add functions to connect and disconnect the account
 
 Adding functions to the `App.tsx` .
 
@@ -82,7 +83,7 @@ const handleLogOut = (e: any) => {
 };
 ```
 
-### LP: 7 Add functions Login and Logout
+#### LP: 7 Add functions Login and Logout
 
 Use the **sharedState** to render the component and display the account address.
 
