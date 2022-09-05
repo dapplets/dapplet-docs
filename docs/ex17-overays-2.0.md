@@ -1,17 +1,17 @@
 ---
-id: overlays-2.0
-title: "Ex17: Overlays 2.0"
+id: overlay-login
+title: "Ex17: Overlay With Login"
 ---
 
 This example shows how to work with the overlay through the new Core Login API.
 
-For example, let's connect and disconnect an Ethereum network account. Implement connecting and disconnecting an account through an overlay
+For example, let's connect and disconnect an Ethereum network account using a button in the overlay.
 
-Here is the initial code for this example: [`ex17-overlay-v2.0-exercise`](https://github.com/dapplets/dapplet-template/tree/ex17-overlay-v2.0-exercise).
+Here is the initial code for this example: [ex17-overlay-login-exercise](https://github.com/dapplets/dapplet-template/tree/ex17-overlay-login-exercise).
 
-### Dapplet
+## Dapplet
 
-More details about **useState** and **onAction** methods can be found in the  [Ex13.](/docs/shared-state)
+More details about **useState** and **onAction** methods can be found in the [Ex13](/docs/shared-state).
 
 
 ### LP: 1. Add method 'useState' to the overlay
@@ -19,35 +19,39 @@ More details about **useState** and **onAction** methods can be found in the  [E
 Add method to overlay initialization. The state will transfer the account address from the dapplet to the overlay.
 
 ```typescript
- private overlay = Core.overlay<IBridge>({ name: 'overlay', title: 'Ex17' })
- .useState(this.state)
+private overlay = Core.overlay<IBridge>({ name: 'overlay', title: 'Exercise 17' })
+  .useState(this.state)
 ```
 
 ### LP: 2. Declare the API in the overlay
 
-The `dapplet/src/api.ts` contains the functions that will be available in the overlay. 
+The `dapplet/src/api.ts` contains the functions that will be available in the overlay.
+Learn more about Core Login API [here](/docs/ex14-core-login.md).
 
 ```typescript
- .declare(this.api);;
+.declare(this.api);
 ```
 
-### LP: 3. Let's add the 'Core.onAction' method.
+More details about **declare**  method can be found in the [Ex04](/docs/overlays).
 
-More details about **declare**  method can be found in the  [Ex4.](/docs/overlays)
-
-Add this method to the activation function.
-
-```typescript
- Core.onAction(() => this.overlay.open());
-```
-
-### LP: 4. Use the API's function for initialization account.
+### LP: 3. Use the API's function to get the account state
 
 ```typescript
 await this.api.initializeCurrentAccount();
 ```
 
-### Overlay
+### LP: 4. Add the action for the home button
+
+Add the `Core.onAction` method. The callback should open the overlay and update the data about the session by the home button click.
+
+```typescript
+Core.onAction(() => {
+  this.overlay.open()
+  this.api.initializeCurrentAccount();
+});
+```
+
+## Overlay
 
 To implement the overlay part, we use React functional components.
 
@@ -59,68 +63,58 @@ Dapplet and overlay are connected using **Bridge** and **IDappStateProps** which
 interface IBridge {
   login: () => Promise<void>;
   logout: () => Promise<void>;
- 
 }
 ```
 
-### LP: 6. Add functions for connect/disconnect by account
+### LP: 6. Add functions to connect and disconnect the account
 
 Adding functions to the `App.tsx` .
 
 ```typescript
-const handleLogIn = async (e: any) => {
-    e.preventDefault();
-    const res = await bridge.login();
+const handleLogIn = (e: any) => {
+  e.preventDefault();
+  bridge.login();
+};
 
-  };
-
-const handleLogOut = async (e: any) => {
-    e.preventDefault();
-    const res = await bridge.logout();
-
-  };
+const handleLogOut = (e: any) => {
+  e.preventDefault();
+  bridge.logout();
+};
 ```
 
-### LP: 7.1 Add function Login and LogOut
+### LP: 7 Add functions Login and Logout
 
 Use the **sharedState** to render the component and display the account address.
 
 ```typescript
-  return (
-    sharedState && (
-      <div className='wrapper' >
-        ...
-         {sharedState.global?.userAccount==="" ? (
+return (
+  sharedState && (
+    <div className='wrapper' >
+      ...
+        {sharedState.global?.userAccount === "" ? (
+        <button
+          className="login"
+          onClick={handleLogIn}
+        >
+          Log in
+        </button>
+      ) : (
+        <>
+          ...
           <button
-            className="login"
-            onClick={handleLogIn}
+            className="logout"
+            onClick={handleLogOut}
           >
-            Log in to my account
+            Log out
           </button>
-        ) : (
-          <>
-            ...
-            <button
-              className="logout"
-              onClick={handleLogOut}
-            >
-              Log out
-            </button>
-          </>
-        )}
-      </div>
-    )
-  );
+        </>
+      )}
+    </div>
+  )
+);
 ```
 
-
-Here is the result code of the example: [`ex17-overlay-v2.0-solution`](https://github.com/dapplets/dapplet-template/tree/ex17-overlay-v2.0-solution).
-
-:::caution
-
-overlay uses `https://localhost:3000/webpack-dev-server/`
-
-:::
+Here is the result code of the example: [ex17-overlay-login-solution](https://github.com/dapplets/dapplet-template/tree/ex17-overlay-login-solution).
 
 Run the dapplet:
 
@@ -128,5 +122,5 @@ Run the dapplet:
 npm i
 npm start
 ```
-![video](/video/ex_17.gif)
 
+![video](/video/ex_17.gif)

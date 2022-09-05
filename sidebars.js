@@ -65,7 +65,7 @@ module.exports = {
         'core-login',
         'server-connection',
         'web-components',
-        'overlays-2.0'
+        'overlay-login'
       ],
     },
     {
