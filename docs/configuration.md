@@ -16,7 +16,7 @@ In the production environment, we set up the **dapplet's config**, and specify t
 
 :::caution
 
-It is possible to edit and create a **dapplet's config** only from the working environment of the module in the extension, it is possible to use the **dapplet's config**, depending on how the developer configured them.
+You can edit and create a **dapplet config** only from the module's working environment. User can use **dapplet config**, in extension.
 
 :::
 
@@ -33,42 +33,38 @@ The scheme consists of parameters:
  {
 // schema type: always object
   "type": "object",
-// the fields you want to specify in your schema
+// the fields you want to specify in your schema. In this field you list only the names of the required parameters. There may be other parameters that are optional.
   "required": [
    ...
   ],
-// field properties
-  "properties": {
-   ...
-  }
-}
-  ```
-
-![img](/img/con_01.png)
-
-In the *"properties"* we specify the parameters for each field, also in the form of objects.
-
-  ```js
- "properties": {
-    // field's name
+// field parameters
+   "properties": {
+    // parameter's name
     "network": {
         // field's type: string or number
       "type": ...,
         // the title of the field that the user sees
       "title": ...,
-        // optional field visibility parameter. Boolean's value
+        // optional field visibility parameter. Boolean's value. Make the setting hidden for users. It's displayed in the developer and testing mode, not in the public.
       "hidden": ...,
-        // optional field in select format  
+        // optional field in select format. it sets the dropdown form for the setting. You should list the available values here. 
       "enum": [
         ...
       ]
     },
     }
+}
   ```
+
+![img](/img/con_01.png)
+
+In the *"properties"* we specify the parameters with their properties for each field, also in the form of objects.
 
 ![img](/img/con_02.png)
 
-  Fields in the format for entering numeric values with a maximum and minimum value limit and a step.
+  Fields in the format for entering numeric values can have a maximum and minimum value limit and a step.
+
+  ![img](/img/con_05.png)
 
  ```js
 {
@@ -77,13 +73,7 @@ In the *"properties"* we specify the parameters for each field, also in the form
     ...
   ],
   "properties": {
-    "network": {
-      "type": "string",
-      "title": ...,
-      "enum": [
-       ...
-      ]
-    },
+  ...
     "step": {
       "type": "number",
       "title": ...,
@@ -111,11 +101,11 @@ There are three environments:
 - `test` - used when a module is loaded from the Test Dapplet Registry;
 - `prod` or `main` - used when a module is loaded from the Production Dapplet Registry.
 
-Describing fields as an object:
+Describe the fields as an object:
 
   ```js
 {
-    // designate the development environment
+    // display properties in environments
   "main": {
     //  the name of the field that is specified in the **required** `schema.json`
     "network": ..., // field's value
@@ -130,8 +120,6 @@ Describing fields as an object:
   }
 }
   ```
-
-![img](/img/con_05.png)
 
 ### Dapplet
 
