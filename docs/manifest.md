@@ -30,14 +30,14 @@ Here is an example of the module's manifest:
 
 ### Manifest Structure
 
-Some fields refer to the `package.json`. They have `"$ref"` children with the field link values.
-The `"$ref"` is a part of JSON Reference specification. More details:
+Some fields refer to `package.json`. They have `"$ref"` children with the field link values.
+`"$ref"` is a part of JSON Reference specification. More details:
 - https://datatracker.ietf.org/doc/html/draft-pbryan-zyp-json-ref-03
 - https://niem.github.io/json/reference/json-schema/references/
 
 All these fields are obligatory. Set them in `package.json`:
 
-- **name** – a name of the module. The name is the ID of your module so it must be unique.
+- **name** – the name of the module. The name is the ID of your module so it must be unique.
 - **version** – a version of the module. Refer to SemVer format: https://semver.org/
 - **description** – a brief description of your module. It's displayed in the dapplets list inside the extension's overlay and in the Dapplets Store.
 - **main** – sets the entry point for the dapp.
@@ -47,13 +47,13 @@ Other parameters are specified in `dapplet.json`:
 - **branch** – used for resources with A/B testing. In most cases, you just need to leave the "default" value.
 However, if you want to create different versions of the module for different versions of the web-resource you can make several branches and run them depending on some condition.
 
-  The Twitter Adapter (`twitter-adapter.dapplet-base.eth`) use branches so you can see how it works:
+  The Twitter Adapter (`twitter-adapter.dapplet-base.eth`) uses branches, here is an example of how it works:
 
   - [default branch](https://github.com/dapplets/dapplet-modules/tree/master/packages/twitter-adapter)
   - [new branch](https://github.com/dapplets/dapplet-modules/tree/master/packages/twitter-adapter-new)
   - [legacy branch](https://github.com/dapplets/dapplet-modules/tree/master/packages/twitter-adapter-legacy)
 
-- **type** – indicates the type of the module. There are four types:
+- **type** – indicates the type of module. There are four types:
   - `FEATURE` – a dapplet, its main part that interacts with the adapter and the Core
   - `ADAPTER` – a site-specific adapter that allows dapplets to work with site specific contexts
   - `INTERFACE` – a virtual adapter which provides an interface for dapplets so they are able to use several site-specific adapters
@@ -100,7 +100,7 @@ However, if you want to create different versions of the module for different ve
   }
   ```
 
-  The last way is setting the contexts determined by content detectors. Currently they are specified in the Dapplets extension and only one is available – "video" context:
+  The last way to specify ContextIDs is setting the contexts determined by content detectors. Currently they are specified in the Dapplets extension and only one is available – "video" context:
 
   ```json
   {
