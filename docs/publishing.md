@@ -3,11 +3,11 @@ id: publishing
 title: Publishing
 ---
 
-1. Launch the application locally. Click on the link `Currently registry address:`
+1. Launch the application locally. Click on the `Current registry address:` link.
 
   ![Image to point 1](/img/pub_01.png)
 
-2. A window opens in the browser. If an error occurs, you must agree to use the certificate
+2. A window will open in the browser. If an error occurs, you must agree to use the certificate
 
   ![Image to point 2](/img/pub_02.png)
 
@@ -29,27 +29,27 @@ title: Publishing
 
   ![set dynamic adapter](/img/gs_6.jpg)
 
-  Reload the tab and you'll see the module.
+  Reload the tab and you will see the module.
 
   ![set dynamic adapter](/img/gs_7.jpg)
 
 :::
 
-4. Added a server and a module for deployment. Click **Deploy**
+4. Add a server and a module for deployment. Click **Deploy**
 
   ![Image to point 4](/img/pub_04.png)
 
-5. Connect the wallet, if it was not connected before
+5. Connect a wallet if it has not been connected yet
 
   ![Image to point 5](/img/pub_05_1.png)
 
   ![Image to point 5](/img/pub_05_2.png)
 
-6. Click **Deploy**. The modal window appears if the module is deployed for the first time. Click **Ok**
+6. Click **Deploy**. A modal window appears if the module is deployed for the first time. Click **Ok**
 
   ![Image to point 6](/img/pub_07.png)
 
-7. MetaMask opens. **Confirm** the transaction.
+7. MetaMask will open. **Confirm** the transaction.
 
   ![Image to point 7](/img/pub_08.png)
 
