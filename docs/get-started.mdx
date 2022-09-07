@@ -46,9 +46,9 @@ gh repo clone dapplets/dapplet-template
 
 #### 3. Fill in the fields in the following manifests: `package.json` and `dapplet.json`.
 
-In the `package.json` set the name, version, description, author and license for your dapp.
+In `package.json` set the name, version, description, author and license for your dapp.
 The name is the ID of your dapplet so it must be unique.
-In the `dapplet.json` set the title.
+In `dapplet.json` set the title.
 This second manifest is required to deploy the dapplet and add it to the dapplet registry.
 You can find more information about the dapplet manifest [here](/docs/manifest).
 
@@ -90,7 +90,7 @@ Here is our list of adapters available at the moment:
 - the domain name of a website that your dapplet will run on (e.g. `twitter.com`);
 - the identifier of a dynamic context (e.g. `twitter.com/1346093004537425927`).
 
-#### 8. Specify the argument of @Inject decorator with the chosen adapter in the `/src/index.ts` module and add the method `activate()` with a simple dapplet code.
+#### 8. Specify the argument of @Inject decorator with the chosen adapter in the `/src/index.ts` module and add the `activate()` method with a simple dapplet code.
 
 ```js
 import {} from '@dapplets/dapplet-extension';
@@ -136,7 +136,7 @@ created lib\index.js in 783ms
 [2021-02-01 13:58:36] waiting for changes...
 ```
 
-In this example we use Rollup bundler to compile modules but you can use whatever you want. Webpack for example.
+In this example we use a Rollup bundler to compile modules but you can use whatever you want. Webpack for example.
 
 The address [http://localhost:3001/dapplet.json](http://localhost:3001/dapplet.json) is a link to your dapplet manifest file. Copy it to a clipboard.
 
