@@ -3,9 +3,9 @@ id: manifest
 title: Module Manifest
 ---
 
-The module manifest – `dapplet.json` – is a JSON that is placed in the root of the module and contain all the required information to deploy the module and add it to the dapplet registry. It is a necessary part of every module.
+The module manifest – `dapplet.json` – is a JSON that is placed in the root of the module and contains all the required information that is needed to deploy the module and add it to the dapplet registry. It is a necessary part of every module.
 
-Here is the example of the module's manifest:
+Here is an example of the module's manifest:
 
 ```json
 {
@@ -35,17 +35,17 @@ The `"$ref"` is a part of JSON Reference specification. More details:
 - https://datatracker.ietf.org/doc/html/draft-pbryan-zyp-json-ref-03
 - https://niem.github.io/json/reference/json-schema/references/
 
-All these fields are obligatory. Set them in the `package.json`:
+All these fields are obligatory. Set them in `package.json`:
 
 - **name** – a name of the module. The name is the ID of your module so it must be unique.
 - **version** – a version of the module. Refer to SemVer format: https://semver.org/
 - **description** – a brief description of your module. It's displayed in the dapplets list inside the extension's overlay and in the Dapplets Store.
 - **main** – sets the entry point for the dapp.
 
-The other parameters are specified in the `dapplet.json`:
+Other parameters are specified in `dapplet.json`:
 
 - **branch** – used for resources with A/B testing. In most cases, you just need to leave the "default" value.
-But if you want to create the different versions of the module for the different versions of the web-resource you can make few branches and run them depending on some condition.
+However, if you want to create different versions of the module for different versions of the web-resource you can make several branches and run them depending on some condition.
 
   The Twitter Adapter (`twitter-adapter.dapplet-base.eth`) use branches so you can see how it works:
 
@@ -54,14 +54,14 @@ But if you want to create the different versions of the module for the different
   - [legacy branch](https://github.com/dapplets/dapplet-modules/tree/master/packages/twitter-adapter-legacy)
 
 - **type** – indicates the type of the module. There are four types:
-  - `FEATURE` – a dapplet, its main part that interacts with the adapter and Core
+  - `FEATURE` – a dapplet, its main part that interacts with the adapter and the Core
   - `ADAPTER` – a site-specific adapter that allows dapplets to work with site specific contexts
-  - `INTERFACE` – a virtual adapter which provides the interface for dapplets for using several site-specific adapters
-  - `LIBRARY` – a dynamic adapter. It provides the work of the all other adapters. It's specified in the extension's settings
+  - `INTERFACE` – a virtual adapter which provides an interface for dapplets so they are able to use several site-specific adapters
+  - `LIBRARY` – a dynamic adapter. It provides the work of all other adapters. It's specified in the extension's settings
 
     ![set dynamic adapter](/img/manif_03.jpg)
 
-- **title** – a module's name. It's displayed in the extension's dapplets' list, in the Dapplets Store, on the NFT etc.
+- **title** – a module's name. It's displayed in the extension's dapplets list, in the Dapplets Store, on the NFT, etc.
 - **icon** – a link to the dapplet's icon. It's an optional parameter.
 - **contextIds** – a list of resources where the module is loaded and activated. You should list site domains or a name of the module (adapter, interface), where domains are already listed.
 
@@ -90,9 +90,9 @@ But if you want to create the different versions of the module for the different
   }
   ```
 
-  So this dapplet will be loaded and activated at the same resources as the adapter.
+  So this dapplet will be loaded and activated with the same resources as the adapter.
 
-  There is an opportunity to specify the dynamic context. It means that this context can appear at any time on the page and the module will start working. It may be the tweet or another post:
+  There is an opportunity to specify the dynamic context. It means that this context can appear on the page at any time and the module will start working. It may be a tweet or another type of post:
 
   ```json
   {
@@ -100,7 +100,7 @@ But if you want to create the different versions of the module for the different
   }
   ```
 
-  And the last way is setting the contexts determined by content detectors. Currently they are specified in the Dapplet extension and only one is available – "video" context:
+  The last way is setting the contexts determined by content detectors. Currently they are specified in the Dapplets extension and only one is available – "video" context:
 
   ```json
   {
@@ -108,13 +108,13 @@ But if you want to create the different versions of the module for the different
   }
   ```
 
-  It means that the module works if there are <video\> elements on the page. It is also dynamic context.
+  This means that the module works if there are <video\> elements on the page. This is also dynamic context.
 
 - **config** – a dapplet's config. It's an optional field that's used only in dapplets.
 The idea is to add some settings to the dapplet which can be changed in the extension.
 For more information look [here](./#).
 
-- **overlays** – a list of the overlays using with the dapplet. If your dapplet uses the overlay you have to add here its name/ID and the development server:
+- **overlays** – a list of the overlays that use the dapplet. If your dapplet uses the overlay you have to add its name/ID and the development server here:
 
   ```json
   {
@@ -133,10 +133,10 @@ For more information look [here](./#).
   }
   ```
 
-  How to make a dapplet with the overlay you can find here: [Ex04: Overlays](/docs/overlays)
+ Check out how to make a dapplet with an overlay here: [Ex04: Overlays](/docs/overlays)
 
-- **dependencies** – adapters which are used in the module. You have to set dependencies for FEATURE and ADAPTER modules.
-In the dapplets you set the site-specific and virtual adapters, in the site-specific adapters – dynamic adapter:
+- **dependencies** – adapters which are used in the module. You have to set dependencies for the FEATURE and ADAPTER modules.
+Set the site-specific and virtual adapters in dapplets, in the site-specific adapters – the dynamic adapter:
 
   ```json
   {
@@ -148,7 +148,7 @@ In the dapplets you set the site-specific and virtual adapters, in the site-spec
 
 - **interfaces** – a list of interfaces (virtual adapters) that the adapter implements.
 It is an optional parameter for site-specific adapters.
-If some dapplet uses a virtual adapter from this list the site-specific adapter runs in supported contexts.
+If some dapplet use a virtual adapter from this list the site-specific adapter runs in supported contexts.
 
   ```json
   {
@@ -160,8 +160,8 @@ If some dapplet uses a virtual adapter from this list the site-specific adapter 
 
 ### Manifest Update
 
-The changes in `dapplet.json` will not be considered in the dapplet registry when you will deploy the new module versions.
-To change some information open the Dapplets extension, connect the wallet that is the owner or admin of the module, go to the Settengs -> Developer. You will see the Registry chapter with your published module. Open its settings.
+The changes in `dapplet.json` will not be considered in the dapplet registry when you will deploy new module versions.
+To change some information open the Dapplets extension, connect the wallet of the owner or admin of the module, and go to the Settengs -> Developer. You will see the Registry chapter with your published module. Open its settings.
 
 ![developers tab](/img/manif_01.jpg)
 
