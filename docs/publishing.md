@@ -35,7 +35,7 @@ title: Publishing
 
 :::
 
-4. Add a server and a module for deployment. Click **Deploy**
+4. The server and module have been added for deployment. Click **Deploy**
 
   ![Image to point 4](/img/pub_04.png)
 
