@@ -9,6 +9,7 @@ module.exports = {
         'installation', 
         'how-to-use-dapplets',
         'get-started',
+        'faq'
        
       ]
     },
@@ -91,12 +92,6 @@ module.exports = {
       collapsed: true,
       label: 'Publishing',
       items: ['publishing', 'manifest'],
-    },
-    {
-      type: 'category',
-      collapsed: true,
-      label: 'FAQ',
-      items: ['faq'],
     },
     {
       type: 'category',
