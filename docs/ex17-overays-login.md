@@ -5,7 +5,7 @@ title: "Ex17: Overlay With Login"
 
 This example shows how to work with the overlay through the new Core Login API.
 
-For example, let's connect and disconnect an Ethereum network account using a button in the overlay.
+As an example let's connect and disconnect an Ethereum network account using a button in the overlay.
 
 Here is the initial code for this example: [ex17-overlay-login-exercise](https://github.com/dapplets/dapplet-template/tree/ex17-overlay-login-exercise).
 
