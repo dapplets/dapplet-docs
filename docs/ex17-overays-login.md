@@ -11,12 +11,12 @@ Here is the initial code for this example: [ex17-overlay-login-exercise](https:/
 
 ### Dapplet
 
-More details about **useState** and **onAction** methods can be found in the [Ex13](/docs/shared-state).
+More details about the **useState** and **onAction** methods can be found in [Ex13](/docs/shared-state).
 
 
-#### LP: 1. Add method 'useState' to the overlay
+#### LP: 1. Add the 'useState' method to the overlay
 
-Add method to overlay initialization. The state will transfer the account address from the dapplet to the overlay.
+Add the method to overlay initialization. The state will transfer the account address from the dapplet to the overlay.
 
 ```typescript
 private overlay = Core.overlay<IBridge>({ name: 'overlay', title: 'Exercise 17' })
@@ -25,7 +25,7 @@ private overlay = Core.overlay<IBridge>({ name: 'overlay', title: 'Exercise 17' 
 
 #### LP: 2. Declare the API in the overlay
 
-The `dapplet/src/api.ts` contains the functions that will be available in the overlay.
+`dapplet/src/api.ts` contains the functions that will be available in the overlay.
 
 You can learn more about Core Login API [here](/docs/core-login).
 
@@ -33,7 +33,7 @@ You can learn more about Core Login API [here](/docs/core-login).
 .declare(this.api);
 ```
 
-More details about **declare**  method can be found in the [Ex04](/docs/overlays).
+More details about the **declare**  method can be found in [Ex04](/docs/overlays).
 
 #### LP: 3. Use the API's function to get the account state
 
@@ -43,7 +43,7 @@ await this.api.initializeCurrentAccount();
 
 #### LP: 4. Add the action for the home button
 
-Add the `Core.onAction` method. The callback should open the overlay and update the data about the session by the home button click.
+Add the `Core.onAction` method. The callback will open the overlay and update the data about the session when the home button is clicked.
 
 ```typescript
 Core.onAction(() => {
@@ -56,9 +56,9 @@ Core.onAction(() => {
 
 To implement the overlay part, we use React functional components.
 
-#### LP: 5. Add interface for Bridge, with functions
+#### LP: 5. Add the interface for Bridge, with functions
 
-Dapplet and overlay are connected using **Bridge** and **IDappStateProps** which are imported from  `@dapplets/dapplet-overlay-bridge`. 
+The Dapplet and the overlay are connected using **Bridge** and **IDappStateProps** which are imported from  `@dapplets/dapplet-overlay-bridge`. 
 
 ```typescript
 interface IBridge {
@@ -69,7 +69,7 @@ interface IBridge {
 
 #### LP: 6. Add functions to connect and disconnect the account
 
-Adding functions to the `App.tsx` .
+Add functions to `App.tsx` .
 
 ```typescript
 const handleLogIn = (e: any) => {
@@ -83,9 +83,9 @@ const handleLogOut = (e: any) => {
 };
 ```
 
-#### LP: 7 Add functions Login and Logout
+#### LP: 7 Add Login and Logout functions
 
-Use the **sharedState** to render the component and display the account address.
+Use **sharedState** to render the component and display the account address.
 
 ```typescript
 return (
