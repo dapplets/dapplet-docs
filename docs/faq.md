@@ -5,38 +5,57 @@ title: FAQ
 
 
 
-### I'm a developer and I'm interested in your technology, what's the best way for me to get started?
-
-Thank you, welcome aboard! How to quickly create a simple dapplet can be found [here](https://docs.dapplets.org/docs/get-started). There is also documentation and exercises that you can go through to deepen your knowledge and [create full-fledged applications](https://docs.dapplets.org/docs/exercises/) on our platform. And here are the [materials](https://hackmd.io/@heL9DJloSkKGQOtdOicgaQ/B1qZtuIY9) and [videos](https://www.youtube.com/watch?v=gB0-iBByXuA) from our workshop: EPAM Blockchain Professionals Workshop - HackMD Dapplets Project: "Practical Web3 programming experience".
-
-And do not forget that we have a public list of ideas for dapplets, take the one you like and implement [it](https://github.com/dapplets/dapplets-ideas).
+### I’m a developer interested in your technology, where do I start?
 
 
+Thanks, and welcome aboard!
 
-### And where can I see what dapplets are generally available to try?
+[Here](https://docs.dapplets.org/docs/get-started) you can find how to quickly create a basic dapplet.
 
-Install [Extension](https://docs.dapplets.org/docs/installation/) and go, for example, to twitter or YouTube. Dapplets that work on these resources will automatically appear in the extension.
+We also have documentation and [exercises](https://docs.dapplets.org/docs/exercises/) which you can complete to deepen your knowledge and create advanced and fully functional applications on our platform.
 
+We also have a video recording of our workshop with EPAM:[EPAM](https://hackmd.io/@heL9DJloSkKGQOtdOicgaQ/B1qZtuIY9),  [Dapplets Project](https://www.youtube.com/watch?v=gB0-iBByXuA) 
 
-
-### My extension doesn't work, I don't see any dapplets in the list, what should I do?
-
-To get started, you should open the desired website (twitter, youtube etc.) and click the Dapplets icon. It will show the list of dapplets that can be used on this site. 
-
-If this does not help, make sure you have the latest version of the extension installed. There is no automatic update yet, and development is underway. The current release is available [here](https://github.com/dapplets/dapplet-extension/releases/latest).If your version is older, uninstall it and install the latest one.
-
-If the problem still persists, please take a screenshot and send it to us on [Discord](https://discord.com/channels/569770026412933140/993845099580641312) or [Telegram](https://t.me/dapplets).
+Furthermore, don’t miss our public list of [dapplet ideas](https://github.com/dapplets/dapplets-ideas). You can take whichever one you like and realize it!
 
 
 
-### What browsers does your extension currently work in, is there any mobile support? Android?
-
-Android and mobile versions are currently not supported. It is best to use Chrome or Brave.
+### Where can I find different dapplets to try them out?
 
 
+Download our [extension](https://docs.dapplets.org/docs/installation/). 
 
-### Where to send error messages? Share ideas? Cooperation proposals?
+Go to Twitter or YouTube. 
 
-Come to our [Discord](https://discord.com/invite/YcxbkcyjMV) or [Telegram](https://t.me/dapplets)
+In the extension you will see several dapplets that work on these webpages. 
+
+Try them out!
+
+
+
+### The extension doesn’t work. I don’t see any dapplets, what do I do?
+
+
+Begin by opening the desired website (Twitter, YouTube etc.) and clicking on the Dapplets extension. It should show you a list of dapplets that can be used on this website.
+
+If this doesn’t help please check that you have the latest version of the extension. Unfortunately, the extension is not yet updated automatically and we have a fast-paced development process. You can find the latest release [here](https://github.com/dapplets/dapplet-extension/releases/latest).
+
+If your version in outdated delete it and download the correct one. 
+
+If the issue remains take a screenshot and contact us through [Discord](https://discord.com/channels/569770026412933140/993845099580641312) or [Telegram](https://t.me/dapplets).
+
+
+
+### Which browsers does your extension support? Is there a version for mobile\android?
+
+Currently, the Dapplets Extension only works on desktop and does not support androids\mobiles.
+
+It's best to use Chrome or Brave browsers.
+
+
+
+### Where can I send messages about issues I encounter? Share my suggestions? or ideas\partnership offers?
+
+Feel free to contact our team through our [Discord channel](https://discord.com/invite/YcxbkcyjMV) or [Telegram](https://t.me/dapplets).
 
 
