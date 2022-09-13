@@ -10,11 +10,11 @@ title: FAQ
 
 Thanks, and welcome aboard!
 
-[Here](https://docs.dapplets.org/docs/get-started) you can find how to quickly create a basic dapplet.
+[Here](/docs/get-started) you can find how to quickly create a basic dapplet.
 
-We also have documentation and [exercises](https://docs.dapplets.org/docs/exercises/) which you can complete to deepen your knowledge and create advanced and fully functional applications on our platform.
+We also have documentation and [exercises](/docs/exercises/) which you can complete to deepen your knowledge and create advanced and fully functional applications on our platform.
 
-We also have a video recording of our workshop with EPAM:[EPAM](https://hackmd.io/@heL9DJloSkKGQOtdOicgaQ/B1qZtuIY9),  [Dapplets Project](https://www.youtube.com/watch?v=gB0-iBByXuA) 
+We also have a video recording of our workshop with [EPAM](https://hackmd.io/@heL9DJloSkKGQOtdOicgaQ/B1qZtuIY9),  [Dapplets Project](https://www.youtube.com/watch?v=gB0-iBByXuA) 
 
 Furthermore, don’t miss our public list of [dapplet ideas](https://github.com/dapplets/dapplets-ideas). You can take whichever one you like and realize it!
 
@@ -23,7 +23,7 @@ Furthermore, don’t miss our public list of [dapplet ideas](https://github.com/
 ### Where can I find different dapplets to try them out?
 
 
-Download our [extension](https://docs.dapplets.org/docs/installation/). 
+Download our [extension](/docs/installation/). 
 
 Go to Twitter or YouTube. 
 
