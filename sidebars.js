@@ -9,6 +9,7 @@ module.exports = {
         'installation', 
         'how-to-use-dapplets',
         'get-started',
+        'faq'
        
       ]
     },
