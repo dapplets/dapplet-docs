@@ -25,9 +25,6 @@ The scheme consists of parameters:
 ```js
 {
 // schema type: always object
-/**
-
- */
 "type": "object",
  /**
   The fields you want to specify in your schema.
