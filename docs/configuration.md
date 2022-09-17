@@ -75,10 +75,9 @@ Inputs for numbers can have a limit on the maximum and minimum value and a step.
       "title": "Donation increase step",
       "maximum": 1,
       "minimum": 0.05,
-      // The value by which the data changes when using the widget (in this example, clicking on the arrow)
+      // The value by which the data changes when using the widget (in this example, clicking on the arrow). 
       "multipleOf": 0.05,
-      // Step by which the value changes
-      "step": 0.05
+   ...
     },
     "delay": {
       "type": "number",
@@ -86,7 +85,7 @@ Inputs for numbers can have a limit on the maximum and minimum value and a step.
       "maximum": 0.1,
       "minimum": 5,
       "multipleOf": 0.1,
-      "step": 0.1
+      ...
     },
   }
 }
