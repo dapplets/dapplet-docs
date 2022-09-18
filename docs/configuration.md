@@ -75,7 +75,7 @@ Inputs for numbers can have a limit on the maximum and minimum value and a step.
       "title": "Donation increase step",
       "maximum": 1,
       "minimum": 0.05,
-      // The value by which the data changes when using the widget (in this example, clicking on the arrow). 
+      // The property value must be a multiple of this parameter
       "multipleOf": 0.05,
    ...
     },
