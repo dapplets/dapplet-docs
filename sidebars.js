@@ -95,6 +95,12 @@ module.exports = {
     },
     {
       type: 'category',
+      collapsed: true,
+      label: 'Advanced',
+      items: ['config'],
+    },
+    {
+      type: 'category',
       label: 'Join Us',
       items: ['community'],
       collapsed: true,

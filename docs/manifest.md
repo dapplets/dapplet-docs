@@ -112,7 +112,7 @@ However, if you want to create different versions of the module for different ve
 
 - **config** – a dapplet's config. It's an optional field that's used only in dapplets.
 The idea is to add some settings to the dapplet which can be changed in the extension.
-For more information look [here](./#).
+For more information look [here](/docs/config).
 
 - **overlays** – a list of the overlays that use the dapplet. If your dapplet uses the overlay you have to add its name/ID and the development server here:
 
