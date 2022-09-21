@@ -32,6 +32,12 @@ In the extension you will see several dapplets that work on these webpages.
 Try them out!
 
 
+### Where can I find a template to create a module?
+
+
+We have a [npm package](https://www.npmjs.com/package/create-dapplet-app) in which you can choose to create a dapplet, adapter or interface.
+
+
 
 ### The extension doesn’t work. I don’t see any dapplets, what do I do?
 
