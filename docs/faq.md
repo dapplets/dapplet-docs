@@ -35,7 +35,11 @@ Try them out!
 ### Where can I find a template to create a module?
 
 
-We have a [npm package](https://www.npmjs.com/package/create-dapplet-app) in which you can choose to create a dapplet, adapter or interface.
+We have a create-dapplet-app node-based utility with which you can create dapplets, adapters, or interfaces. For use it, run:
+
+`npx create-dapplet-app`
+
+More info about settings you can find [here](https://www.npmjs.com/package/create-dapplet-app).
 
 
 
