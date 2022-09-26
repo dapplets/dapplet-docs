@@ -16,7 +16,7 @@ Change twitter adapter to a **common** adapter in `/dapplet.json` with a right v
   "contextIds": ["common-adapter.dapplet-base.eth"],
   ...
   "dependencies": {
-    "common-adapter.dapplet-base.eth": "0.3.6"
+    "common-adapter.dapplet-base.eth": "0.3.10"
   }
 }
 ```
