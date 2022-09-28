@@ -18,36 +18,40 @@ In `adapter/src/index.ts` implement **`config`**. It is an object which describe
 ```ts
 public config = {
   MENU: {
-    containerSelector: '#cnt, .ndYZfc',
-    contextSelector: '#top_nav, .jZWadf',
-    insPoints: {
-      MENU: {
-        selector: '.MUFPAc, .T47uwc',
-        insert: 'inside',
+      containerSelector: '#cnt, .ndYZfc',
+      contextSelector: '#top_nav, #topstuff .jZWadf #hdtb-msb',
+      insPoints: {
+        MENU: {
+          selector: '.MUFPAc, .T47uwc #hdtb-msb',
+          insert: 'inside',
+        },
       },
+      contextBuilder: (el): ContextBuilder => (  {
+        id: '',
+        insertPoint: '#rcnt, .mJxzWe',
+      }),
+    
     },
-    contextBuilder: (): ContextBuilder => ({
-      id: '',
-      insertPoint: '#rcnt, .mJxzWe',
-    }),
-  },
   SEARCH_RESULT: {
-    containerSelector: '#search',
-    contextSelector: '#rso > .g .jtfYYd, #rso > div > .g .jtfYYd, #rso > div > div > .g .jtfYYd',
-    insPoints: {
-      SEARCH_RESULT: {
-        selector: '.yuRUbf',
-        insert: 'inside',
+      containerSelector: '#search',
+      contextSelector: '#rso > .g .jtfYYd, #rso > div > .g .jtfYYd, #rso > div > div > .g .jtfYYd, .MjjYud',
+      insPoints: {
+        SEARCH_RESULT: {
+          selector: '.yuRUbf',
+          insert: 'inside',
+        },
       },
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      contextBuilder: (searchNode: any): ContextBuilder => (
+       {
+        id: searchNode.querySelector('.yuRUbf > a')?.href,
+        title: searchNode.querySelector('h3')?.textContent,
+        link: searchNode.querySelector('.yuRUbf > a')?.href,
+        description:
+          searchNode.querySelector('.uUuwM')?.textContent ||
+          searchNode.querySelector('.IsZvec')?.textContent,
+      }),
     },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    contextBuilder: (searchNode: any): ContextBuilder => ({
-      id: searchNode.querySelector('.yuRUbf > a')?.href,
-      title: searchNode.querySelector('h3')?.textContent,
-      link: searchNode.querySelector('.yuRUbf > a')?.href,
-      description: searchNode.querySelector('.uUuwM')?.textContent || searchNode.querySelector('.IsZvec')?.textContent,
-    }),
-  },
 ```
 
 :::tip
@@ -85,7 +89,7 @@ document.querySelectorAll('#search #rso > .g .jtfYYd')
 In some cases there are several relevant selectors for different places on the page or different pages. In this case you can define them separating by using commas.
 
 ```js
-document.querySelectorAll('#search #rso > .g .jtfYYd, #rso > div > .g .jtfYYd, #rso > div > div > .g .jtfYYd')
+document.querySelectorAll('#search #rso > .g .jtfYYd, #rso > div > .g .jtfYYd, #rso > div > div > .g .jtfYYd, .MjjYud')
 ▸ NodeList(11) [div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd]
 ```
 
@@ -293,19 +297,20 @@ Complete **config** in `/adapter/src/index.ts`:
 ```ts
 public config = {
   ...
-  WIDGETS: {
-    containerSelector: '#search',
-    contextSelector: '#rso',
-    insPoints: {
-      WIDGETS: {
-        selector: '.ULSxyf',
-        insert: 'begin',
+    WIDGETS: {
+      containerSelector: '#search',
+      contextSelector: '#rso',
+      insPoints: {
+        WIDGETS: {
+          selector: '.MjjYud',
+          insert: 'begin',
+        },
       },
+      contextBuilder: (): ContextBuilder => (
+        {
+        id: '',
+      }),
     },
-    contextBuilder: (): ContextBuilder => ({
-      id: '',
-    }),
-  },
 }
 ```
 
