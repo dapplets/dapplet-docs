@@ -3,9 +3,6 @@ id: get-started
 title: Run Your Dapplet
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 To run a basic dapplet, follow these steps.
 
 #### 1. Dapplet is available:
