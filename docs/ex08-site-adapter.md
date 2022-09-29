@@ -18,40 +18,39 @@ In `adapter/src/index.ts` implement **`config`**. It is an object which describe
 ```ts
 public config = {
   MENU: {
-      containerSelector: '#cnt, .ndYZfc',
-      contextSelector: '#top_nav, #topstuff .jZWadf #hdtb-msb',
-      insPoints: {
-        MENU: {
-          selector: '.MUFPAc, .T47uwc #hdtb-msb',
-          insert: 'inside',
-        },
+    containerSelector: '#cnt, .ndYZfc',
+    contextSelector: '#top_nav, #topstuff .jZWadf #hdtb-msb',
+    insPoints: {
+      MENU: {
+        selector: '.MUFPAc, .T47uwc #hdtb-msb',
+        insert: 'inside',
       },
-      contextBuilder: (el): ContextBuilder => (  {
-        id: '',
-        insertPoint: '#rcnt, .mJxzWe',
-      }),
-    
     },
+    contextBuilder: (): ContextBuilder => ({
+      id: 'menu',
+      insertPoint: '#rcnt, .mJxzWe',
+    }),
+  },
   SEARCH_RESULT: {
-      containerSelector: '#search',
-      contextSelector: '#rso > .g .jtfYYd, #rso > div > .g .jtfYYd, #rso > div > div > .g .jtfYYd, .MjjYud',
-      insPoints: {
-        SEARCH_RESULT: {
-          selector: '.yuRUbf',
-          insert: 'inside',
-        },
+    containerSelector: '#search',
+    contextSelector: '#rso > .g .jtfYYd, #rso > div > .g .jtfYYd, #rso > div > div > .g .jtfYYd, .MjjYud',
+    insPoints: {
+      SEARCH_RESULT: {
+        selector: '.yuRUbf',
+        insert: 'inside',
       },
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      contextBuilder: (searchNode: any): ContextBuilder => (
-       {
-        id: searchNode.querySelector('.yuRUbf > a')?.href,
-        title: searchNode.querySelector('h3')?.textContent,
-        link: searchNode.querySelector('.yuRUbf > a')?.href,
-        description:
-          searchNode.querySelector('.uUuwM')?.textContent ||
-          searchNode.querySelector('.IsZvec')?.textContent,
-      }),
     },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    contextBuilder: (searchNode: any): ContextBuilder => ({
+      id: searchNode.querySelector('.yuRUbf > a')?.href,
+      title: searchNode.querySelector('h3')?.textContent,
+      link: searchNode.querySelector('.yuRUbf > a')?.href,
+      description:
+        searchNode.querySelector('.uUuwM')?.textContent ||
+        searchNode.querySelector('.IsZvec')?.textContent
+    })
+  }
+}
 ```
 
 :::tip
@@ -82,15 +81,15 @@ You can choose relevant selectors manually or you can left click on the element 
 In most cases the selector has to be edited.
 
 ```js
-document.querySelectorAll('#search #rso > .g .jtfYYd')
-▸ NodeList(6) [div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd]
+document.querySelectorAll('#search .MjjYud')
+▸ NodeList(10) [div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud]
 ```
 
 In some cases there are several relevant selectors for different places on the page or different pages. In this case you can define them separating by using commas.
 
 ```js
 document.querySelectorAll('#search #rso > .g .jtfYYd, #rso > div > .g .jtfYYd, #rso > div > div > .g .jtfYYd, .MjjYud')
-▸ NodeList(11) [div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd, div.jtfYYd]
+▸ NodeList(11) [div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud]
 ```
 
 Make sure not to include unwanted blocks.
@@ -297,20 +296,19 @@ Complete **config** in `/adapter/src/index.ts`:
 ```ts
 public config = {
   ...
-    WIDGETS: {
-      containerSelector: '#search',
-      contextSelector: '#rso',
-      insPoints: {
-        WIDGETS: {
-          selector: '.MjjYud',
-          insert: 'begin',
-        },
+  WIDGETS: {
+    containerSelector: '#search',
+    contextSelector: '#rso',
+    insPoints: {
+      WIDGETS: {
+        selector: '.MjjYud',
+        insert: 'begin',
       },
-      contextBuilder: (): ContextBuilder => (
-        {
-        id: '',
-      }),
     },
+    contextBuilder: (): ContextBuilder => ({
+      id: 'widgets',
+    }),
+  },
 }
 ```
 
