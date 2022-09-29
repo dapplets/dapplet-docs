@@ -91,7 +91,7 @@ module.exports = {
       type: 'category',
       collapsed: true,
       label: 'Publishing',
-      items: ['publishing', 'manifest', 'settings-module'],
+      items: ['publishing', 'manifest', 'settings-module', 'uc'],
     },
     {
       type: 'category',
