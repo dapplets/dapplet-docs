@@ -16,7 +16,7 @@ Here is the initial code for this example: [`ex15-server-connection-exercise`](h
   ```json
   {
     "dev": {
-      "serverUrl": "ws://localhost:8081/feature-1"
+      "serverUrl": "wss://example-15.mooo.com/feature-1"
     }
   }
   ```
