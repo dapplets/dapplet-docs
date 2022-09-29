@@ -3,9 +3,9 @@ id: config
 title: Dapplet config
 ---
 
-When creating a dapplet module, one of the important entities is the **dapplet config**. It provides settings that can be selected by the user in the Dapplets extension. It also allows you to set different parameter values depending on the environment.
+When you create a dapplet module, one of the important entities is the **dapplet config**. It provides settings that can be selected by the user in the Dapplets extension. It also allows you to set different parameter values depending on the environment.
 
-For example: the network in which the dapplet will work, configure the monetization of the dapplet, change the url addresses of the server and the overlay part of the dapplet.
+For example: you could define the network in which the dapplet will work, configure the monetization of the dapplet, change the url addresses of the server and the overlay part of the dapplet.
 
 The configuration is implemented through the `schema.json`.
 
