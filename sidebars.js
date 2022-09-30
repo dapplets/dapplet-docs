@@ -91,7 +91,7 @@ module.exports = {
       type: 'category',
       collapsed: true,
       label: 'Publishing',
-      items: ['publishing', 'manifest', 'settings-module', 'uc', 'tokenomics'],
+      items: ['publishing', 'manifest', 'settings-module', 'uc', 'tokenomics', 'rewards'],
     },
     {
       type: 'category',

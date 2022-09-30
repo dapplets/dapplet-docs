@@ -14,7 +14,7 @@ Open extension settings and switch to developer mode.
 
 Click on "Create Dapplet Under Construction".
 
-![settings](/img/uc/uc_01.png)
+![uc](/img/uc/uc_01.png)
 
 
 ### Dapplet Under Construction`s page
@@ -27,19 +27,19 @@ Click on "Create Dapplet Under Construction".
 
 **Full description** - description of the module (at the moment the functionality is under development).
 
-![settings](/img/uc/uc_02.png)
+![uc](/img/uc/uc_02.png)
 
 After filling in the fields press *done*.
 
-![settings](/img/uc/uc_03.png)
+![uc](/img/uc/uc_03.png)
 
 Press **ok** if you agree with the informational message. [More about AUGE token](/docs/whitepapers/auge-token-usage).
 
-![settings](/img/uc/uc_04.png)
+![uc](/img/uc/uc_04.png)
 
 Confirm the transaction and wait for it to complete.
 
-![settings](/img/uc/uc_05.png)
+![uc](/img/uc/uc_05.png)
 
 After the transaction is completed, you can go to the settings page Dapplet Under Construction by clicking **go to the details**
 
@@ -47,8 +47,8 @@ or
 
 go to the developer's page by clicking **remind later**.
 
-![settings](/img/uc/uc_06.png)
+![uc](/img/uc/uc_06.png)
 
 You can go to the [settings page](/docs/settings-module) by clicking on the icon.
 
-![settings](/img/uc/uc_07.png)
+![uc](/img/uc/uc_07.png)
