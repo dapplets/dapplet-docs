@@ -13,30 +13,20 @@ In order to launch your own token using the proposed model, the user just needs 
 
 #### Go to settings Dapplet Under Construction
 
- ![settings](/img/uc/uc_07.png)
-
 #### Open Tokenomics page
-
-![tokenomics](/img/tokenomics/toc_01.png)
 
 It is only possible to create a token in each Dapplet Under Construction module once.
 
-Click *create* to create a token.
-
-![tokenomics](/img/tokenomics/toc_02.png)
+Click `CREATE` to create a token.
 
 Enter Token Name (up to 17 characters).
 
 And enter Token Ticker (from 3-4 characters).
 
-![tokenomics](/img/tokenomics/toc_03.png)
-
 Confirm token creation.
-
-![tokenomics](/img/tokenomics/toc_04.png)
 
 Confirm transaction and wait for the transaction to end.
 
 #### Token created !
 
-![tokenomics](/img/tokenomics/toc_05.png)
+<!-- ![tokenomics](/video/token.gif) -->
