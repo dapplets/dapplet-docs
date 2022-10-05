@@ -29,4 +29,4 @@ Confirm transaction and wait for the transaction to end.
 
 #### Token created !
 
-<!-- ![tokenomics](/video/token.gif) -->
+![tokenomics](/video/token.gif)
