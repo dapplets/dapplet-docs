@@ -33,4 +33,4 @@ or
 
 go to the developer's page by clicking **remind later**.
 
-<!-- ![uc](/video/uc.gif) -->
+![uc](/video/uc.gif)
