@@ -114,6 +114,32 @@ module.exports = {
         },
       ],
     },
+    algolia: {
+      // The application ID provided by Algolia
+      appId: "RV9UMBHX9R",
+
+      // Public API key: it is safe to commit it
+      apiKey: "85ce5081b83416428f2a4e64d01d45b8",
+
+      indexName: "dapplets",
+
+      // Optional: see doc section below
+      contextualSearch: false,
+      searchParameters: {
+        facetFilters: ["language:en", ["filter1", "filter2"], "filter3"],
+      },
+
+      // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+      // externalUrlRegex: 'external\\.com|domain\\.com',
+
+      // Optional: Algolia search parameters
+      // searchParameters: {},
+
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      searchPagePath: "search",
+
+      //... other Algolia params
+    },
   },
   presets: [
     [
