@@ -7,10 +7,11 @@ title: "Ex18: Dapplet Actions"
 
 The initial code for this example is in [master.](https://github.com/dapplets/dapplet-template/tree/master).
 
-1. Inject of Overlay adapter to virtual adapter in `src/index.ts`.
+1. Open `src/index.ts`. In addition to the context adapter, add the Overlay adapter.
 
 ```ts
 @Inject('overlay-adapter.dapplet-base.eth') public adapterAction: any
+
 ```
 
 2. Import of widget **button** from Overlay adapter.
@@ -74,17 +75,17 @@ async activate(): Promise<void> {
 
 **parameters of the Dapplet Actions**
 
-Widget **button** have similar parameters to button widgets of other adapters. More about it [here](/docs/extra-button).
+The widget button has options similar to the button widgets of other adapters. More about it [here](/docs/extra-button).
 
-_icon_ - required parameter. Used svg format.
+_icon_ - required parameter. We recommend to use images in SVG format.
 
-_pinnedID_ - required parameter, for the user to pin the widget in the minimized extension. Must be uniq for each widget.
+_pinnedID_ - required parameter, for the user to pin the widget in the minimized extension. Must be unique for each widget.
 
 _action_ - analogue of _exec_ .
 
 _disabled_ - option parameter, default false.
 
-_hidden_ - option parameter, default false, hidding widget.
+_hidden_ - option parameter, default false, hiding a widget.
 :::
 
 Here is the result code of the example: [ex18-dapplet-actions](https://github.com/dapplets/dapplet-template/tree/ex18-dapplet-actions).
