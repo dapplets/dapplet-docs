@@ -3,24 +3,24 @@ id: dapplet-actions
 title: "Ex18: Dapplet Actions"
 ---
 
-**Dapplet Actions** widgets are used for quick user access to dapplet functions in a minimized extension.
+**Dapplet Actions** widgets are used for quick user access to dapplet functions in a minimized Extension view.
 
 The initial code for this example is in [master](https://github.com/dapplets/dapplet-template/tree/master).
 
-1. Open `src/index.ts`. In addition to the context adapter, add the Overlay adapter.
+1. Open `src/index.ts`. Add the Overlay adapter in addition to the context adapter.
 
 ```ts
 @Inject('overlay-adapter.dapplet-base.eth') public adapterAction: any
 
 ```
 
-2. Import of widget **button** as `buttonAction` from Overlay adapter.
+2. Import widget **button** as `buttonAction` from Overlay adapter.
 
 ```ts
 const { button: buttonAction } = this.adapterAction.exports
 ```
 
-3. We pass the parameters of the widget described in the adapter to states, and then use it in the attachConfig() function:
+3. Pass the parameters of the widget described in the adapter to states, and then use it in the attachConfig() function:
 
 ```ts
 const wallet = await Core.wallet({
@@ -63,7 +63,7 @@ this.adapterAction.attachConfig({
 
 **parameters of the Dapplet Actions**
 
-The widget button has options similar to the button widgets of other adapters. More about it [here](/docs/extra-button).
+The widget button has options similar to the button widgets of other adapters. More about it is [here](/docs/extra-button).
 
 _icon_ - required parameter. We recommend to use images in SVG format.
 
