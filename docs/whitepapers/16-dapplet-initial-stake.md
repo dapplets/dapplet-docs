@@ -1,6 +1,6 @@
 ---
 id: dapplet-initial-stake
-title: "Dapplet Initial Stake"
+title: 'Dapplet Initial Stake'
 ---
 
 When creating a dapplet the author needs to place an Initial Stake with the AUGE token to reserve a place in the registry.

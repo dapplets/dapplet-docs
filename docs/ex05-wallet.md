@@ -1,6 +1,6 @@
 ---
 id: wallet
-title: "Ex05: Wallet"
+title: 'Ex05: Wallet'
 ---
 
 In this exercise we connect **Ethereum** and **NEAR** wallets to a dapplet using **Core.wallet** interface.
@@ -19,7 +19,7 @@ However, you have to understand that APIs of different chains are not equal. So 
 Let's consider this situation and get the `ethereum/goerli` or `near/testnet` wallet:
 
 ```typescript
-const wallet = await Core.wallet({ authMethods: ['ethereum/goerli', 'near/testnet'] });
+const wallet = await Core.wallet({ authMethods: ['ethereum/goerli', 'near/testnet'] })
 ```
 
 On this stage we are not connected to any wallet so our `wallet` is typed with `IEthWallet | INearWallet` interfaces.
@@ -70,13 +70,13 @@ In this case the user would set any amounts they like.
 ```typescript
 // ./src/index.ts
 const transferAmountEth: number = await Core.storage.get('transferAmountEth')
-const transferAmountNear: number = await Core.storage.get('transferAmountNear');
+const transferAmountNear: number = await Core.storage.get('transferAmountNear')
 ```
 
 At last define the variable to save and reuse Ethereum addresses that we will get from the connected Ethereum wallet.
 
 ```typescript
-let currentEthAddresses: string[];
+let currentEthAddresses: string[]
 ```
 
 ### 2. Define the button states
@@ -97,7 +97,7 @@ ETH_CONNECTED: {
   loading: false,
   // LP: 4. Send the necessary data to Ethereum wallet and listen to the response
   exec: async (_, me) => {
-    
+
   },
   //
 },
@@ -107,7 +107,7 @@ NEAR_CONNECTED: {
   loading: false,
   // LP: 5. Send the necessary data to NEAR wallet and listen to the response
   exec: async (_, me) => {
-    
+
   },
   //
 },
@@ -140,7 +140,7 @@ FAILURE: {
 },
 ```
 
-These states appear after successful wallet connections, so `wallet`s have `authMetod` value. 
+These states appear after successful wallet connections, so `wallet`s have `authMetod` value.
 
 We can also reject any transaction. So we need the `REJECTED` state.
 
@@ -218,13 +218,13 @@ exec: async (_, me) => {
   } else {
     me.state = 'DEFAULT';
   }
-}, 
+},
 ```
 
 Switch the button's state to `PENDING`.
 
 ```typescript
-me.state = 'PENDING';
+me.state = 'PENDING'
 ```
 
 If we haven't got the `currentEthAddresses` yet, we need to get it using the **wallet.request()** method.
@@ -237,11 +237,11 @@ We use the `eth_accounts` JSON-RPC method with an empty array as the `params` va
 ```typescript
 if (!currentEthAddresses) {
   try {
-    currentEthAddresses = await wallet.request({ method: 'eth_accounts', params: [] });
+    currentEthAddresses = await wallet.request({ method: 'eth_accounts', params: [] })
   } catch (err) {
     console.log('Get ETH accounts ERROR:', err)
-    me.state = 'REJECTED';
-    return;
+    me.state = 'REJECTED'
+    return
   }
 }
 ```
@@ -252,7 +252,7 @@ The next step is to **send tokens**. We use the `eth_sendTransaction` method. It
 
 ```typescript
 try {
-  const transferAmount = BigInt(transferAmountEth * 1_000_000) * BigInt(1_000_000_000_000);
+  const transferAmount = BigInt(transferAmountEth * 1_000_000) * BigInt(1_000_000_000_000)
   const transactionHash = await wallet.request({
     method: 'eth_sendTransaction',
     params: [
@@ -262,15 +262,15 @@ try {
         value: transferAmount.toString(16),
       },
     ],
-  });
+  })
   console.log('transactionHash', transactionHash)
-  me.state = 'MINING';
+  me.state = 'MINING'
   /*
     ...
   */
 } catch (err) {
   console.log('Transaction ERROR:', err)
-  me.state = 'REJECTED';
+  me.state = 'REJECTED'
 }
 ```
 
@@ -281,8 +281,8 @@ Now all we can do is wait for the the chain to confirm the transaction.
 We have the **wallet.waitTransaction()** method.
 It receives two parameters:
 
-* `txHash`: string - (required) a transaction hash returned from `wallet.request()`;
-* `confirmations`?: number - (optional, default === 1) the number of blocks confirming the transaction;
+- `txHash`: string - (required) a transaction hash returned from `wallet.request()`;
+- `confirmations`?: number - (optional, default === 1) the number of blocks confirming the transaction;
 
 and returns `Promise<ITransactionReceipt>`. **ITransactionReceipt** has a `status` property
 that can tell us if the transaction has been completed successfully (`"0x1"`) or failed (`"0x0"`).
@@ -290,13 +290,13 @@ We can set an appropriate state for the button.
 
 ```typescript
 try {
-  const transactionReceipt = await wallet.waitTransaction(transactionHash, 2);
+  const transactionReceipt = await wallet.waitTransaction(transactionHash, 2)
   console.log('transactionReceipt', transactionReceipt)
-  await wallet.disconnect();
-  me.state = transactionReceipt.status === "0x1" ? 'COMPLETED' : 'FAILURE';
+  await wallet.disconnect()
+  me.state = transactionReceipt.status === '0x1' ? 'COMPLETED' : 'FAILURE'
 } catch (err) {
   console.log('Transaction waiting ERROR:', err)
-  me.state = 'FAILURE';
+  me.state = 'FAILURE'
 }
 ```
 
@@ -379,8 +379,8 @@ There are methods of [NEAR-API-JS](https://docs.near.org/docs/api/javascript-lib
 
 In the example we will use the [`wallet.sendMoney()`](https://docs.near.org/docs/api/naj-quick-reference#send-tokens) method. It receives two parameters:
 
-* `receiverId` — NEAR account receiving Ⓝ;
-* `amount` — Amount to send in yoctoⓃ;
+- `receiverId` — NEAR account receiving Ⓝ;
+- `amount` — Amount to send in yoctoⓃ;
 
 and returns `Promise<FinalExecutionOutcome>`.
 
@@ -398,30 +398,27 @@ Import it to the `./src/index.ts` module and get the `amount` value.
 
 ```typescript
 // ./src/index.ts
-import BN from 'bn.js';
-const { parseNearAmount } = Core.near.utils.format;
+import BN from 'bn.js'
+const { parseNearAmount } = Core.near.utils.format
 /*
   ...
 */
-const amount = new BN(parseNearAmount(transferAmountNear.toString()));
+const amount = new BN(parseNearAmount(transferAmountNear.toString()))
 ```
 
 Now we can call the `wallet.sendMoney()` method.
 
 ```typescript
 try {
-  const finalExecutionOutcome = await wallet.sendMoney(
-    wallet.accountId,
-    amount
-  );
-  console.log('finalExecutionOutcome', finalExecutionOutcome);
-  await wallet.disconnect();
+  const finalExecutionOutcome = await wallet.sendMoney(wallet.accountId, amount)
+  console.log('finalExecutionOutcome', finalExecutionOutcome)
+  await wallet.disconnect()
   /*
     ...
   */
 } catch (err) {
   console.log('Transaction ERROR:', err)
-  me.state = 'REJECTED';
+  me.state = 'REJECTED'
 }
 ```
 
@@ -429,10 +426,8 @@ try {
 If the key is `'SuccessValue'` or `'SuccessReceiptId'`, we consider that the transaction was successful.
 
 ```typescript
-const status = Object.keys(finalExecutionOutcome.status)[0];
-me.state = status === 'SuccessValue' || status === 'SuccessReceiptId'
-  ? 'COMPLETED'
-  : 'FAILURE';
+const status = Object.keys(finalExecutionOutcome.status)[0]
+me.state = status === 'SuccessValue' || status === 'SuccessReceiptId' ? 'COMPLETED' : 'FAILURE'
 ```
 
 Result of this step:

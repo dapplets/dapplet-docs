@@ -1,50 +1,48 @@
 .container > .row > .col > div {
-	padding: 0 30px;
+  padding: 0 30px;
 }
 
 .main-wrapper {
-	margin-top: 50px;
+  margin-top: 50px;
 }
 
 .main-wrapper main {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .doc-custom-wrapper {
-	max-width: 1360px;
-	margin: 0 auto;
+  max-width: 1360px;
+  margin: 0 auto;
 }
 
-@media screen and (max-width: 1185px){
-	.doc-custom-toc {
-		display: none;
-	}
+@media screen and (max-width: 1185px) {
+  .doc-custom-toc {
+    display: none;
+  }
 
-	.doc-custom-col {
-		overflow: visible;
-	}
+  .doc-custom-col {
+    overflow: visible;
+  }
 }
 
 @media screen and (max-width: 420px) {
-	.container > .row > .col > div {
-		padding: 0 30px;
-	}
+  .container > .row > .col > div {
+    padding: 0 30px;
+  }
 }
 
 .doc-custom-col {
-	overflow: hidden;
+  overflow: hidden;
 }
 
-
-@media screen and (max-width: 996px){
-	.doc-custom-wrapper {
-		margin-top: 140px;
-	}
+@media screen and (max-width: 996px) {
+  .doc-custom-wrapper {
+    margin-top: 140px;
+  }
 }
 
-@media screen and (max-width: 450px){
-	.doc-custom-wrapper {
-		margin-top: 90px;
-	}
+@media screen and (max-width: 450px) {
+  .doc-custom-wrapper {
+    margin-top: 90px;
+  }
 }
-

@@ -9,7 +9,25 @@
     "swizzle": "docusaurus swizzle --danger",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
-    "clear": "docusaurus clear"
+    "clear": "docusaurus clear",
+    "lint": "npm run prettify && npm run stylelint && npm run eslint",
+    "prettify": "prettier --write ../dapplet-docs",
+    "eslint": "eslint ../dapplet-docs --ext  .js --fix",
+    "stylelint": "stylelint ../dapplet-docs/**/*.{css,scss,module.scss} --fix"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "prettier": "^2.8.3",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "stylelint": "^14.14.1",
+    "stylelint-config-standard-scss": "^6.1.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.3.0"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.70",

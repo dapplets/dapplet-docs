@@ -1,6 +1,6 @@
 ---
 id: dark-theme-support
-title: "Ex12: Dark theme support"
+title: 'Ex12: Dark theme support'
 ---
 
 You can add different icons for **light** and **dark** themes.
@@ -19,12 +19,12 @@ this.adapter.attachConfig({
           DARK: DARK_IMG,
         },
         exec: () => {
-          console.log(ctx);
-          alert('Hello, Themes!');
+          console.log(ctx)
+          alert('Hello, Themes!')
         },
       },
     }),
-});
+})
 ```
 
 Also `ctx` contains `theme` parameter, which can be `'LIGHT'` or `'DARK'`. This information is determined by the adapter and can be used in the dapplet-feature or in the overlay.

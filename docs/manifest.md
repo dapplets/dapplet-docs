@@ -32,6 +32,7 @@ Here is an example of the module's manifest:
 
 Some fields refer to `package.json`. They have `"$ref"` children with the field link values.
 `"$ref"` is a part of JSON Reference specification. More details:
+
 - https://datatracker.ietf.org/doc/html/draft-pbryan-zyp-json-ref-03
 - https://niem.github.io/json/reference/json-schema/references/
 
@@ -45,7 +46,7 @@ All these fields are obligatory. Set them in `package.json`:
 Other parameters are specified in `dapplet.json`:
 
 - **branch** – used for resources with A/B testing. In most cases, you just need to leave the "default" value.
-However, if you want to create different versions of the module for different versions of the web-resource you can make several branches and run them depending on some condition.
+  However, if you want to create different versions of the module for different versions of the web-resource you can make several branches and run them depending on some condition.
 
   The Twitter Adapter (`twitter-adapter.dapplet-base.eth`) uses branches, here is an example of how it works:
 
@@ -54,6 +55,7 @@ However, if you want to create different versions of the module for different ve
   - [legacy branch](https://github.com/dapplets/dapplet-modules/tree/master/packages/twitter-adapter-legacy)
 
 - **type** – indicates the type of module. There are four types:
+
   - `FEATURE` – a dapplet, its main part that interacts with the adapter and the Core
   - `ADAPTER` – a site-specific adapter that allows dapplets to work with site specific contexts
   - `INTERFACE` – a virtual adapter which provides an interface for dapplets so they are able to use several site-specific adapters
@@ -77,7 +79,7 @@ However, if you want to create different versions of the module for different ve
       "twitter.com/id",
       "www.twitter.com/id",
       "mobile.twitter.com/id"
-    ],
+    ]
   }
   ```
 
@@ -86,7 +88,7 @@ However, if you want to create different versions of the module for different ve
   ```json
   // ./dapplet/dapplet.json
   {
-    "contextIds": ["twitter-adapter.dapplet-base.eth"],
+    "contextIds": ["twitter-adapter.dapplet-base.eth"]
   }
   ```
 
@@ -96,7 +98,7 @@ However, if you want to create different versions of the module for different ve
 
   ```json
   {
-    "contextIds": ["twitter.com/1551967807428071431"],
+    "contextIds": ["twitter.com/1551967807428071431"]
   }
   ```
 
@@ -104,15 +106,15 @@ However, if you want to create different versions of the module for different ve
 
   ```json
   {
-    "contextIds": ["video"],
+    "contextIds": ["video"]
   }
   ```
 
   This means that the module works if there are <video\> elements on the page. This is also dynamic context.
 
 - **config** – a dapplet's config. It's an optional field that's used only in dapplets.
-The idea is to add some settings to the dapplet which can be changed in the extension.
-For more information look [here](/docs/config).
+  The idea is to add some settings to the dapplet which can be changed in the extension.
+  For more information look [here](/docs/config).
 
 - **overlays** – a list of the overlays that use the dapplet. If your dapplet uses the overlay you have to add its name/ID and the development server here:
 
@@ -133,22 +135,22 @@ For more information look [here](/docs/config).
   }
   ```
 
- Check out how to make a dapplet with an overlay here: [Ex04: Overlays](/docs/overlays)
+Check out how to make a dapplet with an overlay here: [Ex04: Overlays](/docs/overlays)
 
 - **dependencies** – adapters which are used in the module. You have to set dependencies for the FEATURE and ADAPTER modules.
-Set the site-specific and virtual adapters in dapplets, in the site-specific adapters – the dynamic adapter:
+  Set the site-specific and virtual adapters in dapplets, in the site-specific adapters – the dynamic adapter:
 
   ```json
   {
     "dependencies": {
       "dynamic-adapter.dapplet-base.eth": "0.6.22"
-    },
+    }
   }
   ```
 
 - **interfaces** – a list of interfaces (virtual adapters) that the adapter implements.
-It is an optional parameter for site-specific adapters.
-If some dapplet use a virtual adapter from this list the site-specific adapter runs in supported contexts.
+  It is an optional parameter for site-specific adapters.
+  If some dapplet use a virtual adapter from this list the site-specific adapter runs in supported contexts.
 
   ```json
   {

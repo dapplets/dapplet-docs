@@ -1,6 +1,6 @@
 ---
 id: extra-button
-title: "Ex01: Extra button"
+title: 'Ex01: Extra button'
 ---
 
 Here is the initial code for this example: [ex01-add-button-exercise](https://github.com/dapplets/dapplet-template/tree/ex01-add-button-exercise).
@@ -8,18 +8,18 @@ Here is the initial code for this example: [ex01-add-button-exercise](https://gi
 The **basic template** for `your_dapplet/src/index.ts` looks like this:
 
 ```ts
-import { } from '@dapplets/dapplet-extension';
-import EXAMPLE_IMG from './icons/ex01.png';
+import {} from '@dapplets/dapplet-extension'
+import EXAMPLE_IMG from './icons/ex01.png'
 
 @Injectable
 export default class TwitterFeature {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
-  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any;
+  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any
 
   activate() {
-    const { button } = this.adapter.exports;
+    const { button } = this.adapter.exports
     this.adapter.attachConfig({
-      POST: (ctx: any) => 
+      POST: (ctx: any) =>
         button({
           initial: 'DEFAULT',
           DEFAULT: {
@@ -33,17 +33,17 @@ export default class TwitterFeature {
             // LP end
           },
         }),
-    });
+    })
   }
 }
 ```
 
-The dapplet injects a **button** to every Tweet on a Twitter page. This button is displayed below the main content, near the buttons *Like*, *Retweet* etc. The function passed to `POST` takes `ctx` and returns the **widget**, the **array of widgets** or **null**.
+The dapplet injects a **button** to every Tweet on a Twitter page. This button is displayed below the main content, near the buttons _Like_, _Retweet_ etc. The function passed to `POST` takes `ctx` and returns the **widget**, the **array of widgets** or **null**.
 
-`ctx` - is an *object* that contains parameters of the current **context** where the dapplet widgets were injected. Parameters are defined by the adapter.
+`ctx` - is an _object_ that contains parameters of the current **context** where the dapplet widgets were injected. Parameters are defined by the adapter.
 
 ```typescript
-POST:  (ctx) => [ button({ ... }) ] 
+POST:  (ctx) => [ button({ ... }) ]
 ```
 
 or
@@ -58,7 +58,7 @@ from `this.adapter.exports`.
 This button has only one state - `DEFAULT`. In this case you can choose not to set the initial state and delete this field.
 
 ```typescript
- button({
+button({
   DEFAULT: {
     img: EXAMPLE_IMG,
     exec: () => alert('Hello, World!'),
@@ -82,7 +82,7 @@ button({
   SECOND_STATE: {
     img: DISLIKE_IMG,
     exec: () => alert('Hello, World!'),
-  }
+  },
 })
 ```
 
@@ -113,8 +113,8 @@ exec: async (ctx, me) => {
 
 The extension provides **exec** function with two parameters:
 
-* **ctx** — the current parsed context;
-* **me** — a *Proxy* of the widget.
+- **ctx** — the current parsed context;
+- **me** — a _Proxy_ of the widget.
 
 We got the `ctx` object earlier so in our example we don't need to get it here.
 
@@ -122,16 +122,16 @@ Using `me` we can change the widget's parameters and its state.
 
 ```ts
 // Changing the state
-exec: (ctx, me) => me.state = 'SECOND';
+exec: (ctx, me) => (me.state = 'SECOND')
 
 // Changing the label
-exec: (ctx, me) => me.label = 'Hello';
+exec: (ctx, me) => (me.label = 'Hello')
 ```
 
 Increase the counter value on the button click.
 
 ```ts
-me.label += 1;
+me.label += 1
 ```
 
 Let's display a message in the browser alert by clicking on the widget. We will also give an opportunity to customize the message text in the extension’s dapplet settings.
@@ -143,21 +143,21 @@ The dapplet settings are as follows:
 To do this, add the following code to the dapplet's `exec`:
 
 ```ts
-const message1 = await Core.storage.get('exampleString');
-const message2 = await Core.storage.get('exampleHiddenString');
-alert(`I wrote: ${message1}. Then wrote: ${message2}.`);
+const message1 = await Core.storage.get('exampleString')
+const message2 = await Core.storage.get('exampleHiddenString')
+alert(`I wrote: ${message1}. Then wrote: ${message2}.`)
 ```
 
 Here is the complete `exec` code:
 
 ```ts
 exec: async (_, me) => {
-  console.log(ctx);
-  console.log(me);
-  me.label += 1;
-  const message1 = await Core.storage.get('exampleString');
-  const message2 = await Core.storage.get('exampleHiddenString');
-  alert(`I wrote: ${message1}. Then wrote: ${message2}.`);
+  console.log(ctx)
+  console.log(me)
+  me.label += 1
+  const message1 = await Core.storage.get('exampleString')
+  const message2 = await Core.storage.get('exampleHiddenString')
+  alert(`I wrote: ${message1}. Then wrote: ${message2}.`)
 }
 ```
 

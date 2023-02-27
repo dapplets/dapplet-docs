@@ -107,7 +107,7 @@ Describe the fields as an object:
 {
   // Environment type
   "main": {
-    // <property name>: <default value> 
+    // <property name>: <default value>
     "network": "mainnet",
     "step": 0.05,
     "delay": 3

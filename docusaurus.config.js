@@ -1,20 +1,20 @@
 module.exports = {
-  title: "Documentation | Dapplets Platform",
-  tagline: "Welcome to the Dapplets",
-  url: "https://docs.dapplets.org",
-  baseUrl: "/",
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
-  favicon: "img/logo.svg",
-  organizationName: "Dapplets", // Usually your GitHub org/user name.
-  projectName: "dapplet-extension", // Usually your repo name.
+  title: 'Documentation | Dapplets Platform',
+  tagline: 'Welcome to the Dapplets',
+  url: 'https://docs.dapplets.org',
+  baseUrl: '/',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+  favicon: 'img/logo.svg',
+  organizationName: 'Dapplets', // Usually your GitHub org/user name.
+  projectName: 'dapplet-extension', // Usually your repo name.
   themeConfig: {
     colorMode: {
       disableSwitch: true,
     },
     sidebarCollapsible: true,
     prism: {
-      theme: require("./src/theme/custom-theme-code"),
+      theme: require('./src/theme/custom-theme-code'),
     },
     navbar: {
       items: [
@@ -23,15 +23,15 @@ module.exports = {
         //   position: 'left',
         // },
         {
-          to: "https://dapplets.org/",
-          label: "Home",
-          position: "right",
-          className: "home-hover-menu",
+          to: 'https://dapplets.org/',
+          label: 'Home',
+          position: 'right',
+          className: 'home-hover-menu',
         },
         {
-          href: "https://forum.augmentedweb.club/",
-          label: "Forum",
-          position: "right",
+          href: 'https://forum.augmentedweb.club/',
+          label: 'Forum',
+          position: 'right',
         },
       ],
     },
@@ -39,76 +39,76 @@ module.exports = {
       links: [
         // 1 Coll
         {
-          title: "Home",
+          title: 'Home',
           items: [
             {
-              label: "What is Dapplets Project?",
-              href: "https://dapplets.org/#what-is",
+              label: 'What is Dapplets Project?',
+              href: 'https://dapplets.org/#what-is',
             },
             {
-              label: "Innovation",
-              href: "https://dapplets.org/#innovation",
+              label: 'Innovation',
+              href: 'https://dapplets.org/#innovation',
             },
             {
-              label: "How to use it?",
-              href: "https://dapplets.org/#to-use",
+              label: 'How to use it?',
+              href: 'https://dapplets.org/#to-use',
             },
             {
-              label: "Role model",
-              href: "https://dapplets.org/#economic",
+              label: 'Role model',
+              href: 'https://dapplets.org/#economic',
             },
           ],
         },
 
         // 2 Coll
         {
-          title: "Join Us",
+          title: 'Join Us',
           items: [
             {
-              label: "Owner ",
-              href: "https://dapplets.org/join-us.html#owner",
+              label: 'Owner ',
+              href: 'https://dapplets.org/join-us.html#owner',
             },
             {
-              label: "Lister",
-              href: "https://dapplets.org/join-us.html#lister",
+              label: 'Lister',
+              href: 'https://dapplets.org/join-us.html#lister',
             },
             {
-              label: "Developer",
-              href: "https://dapplets.org/join-us.html#auditors",
+              label: 'Developer',
+              href: 'https://dapplets.org/join-us.html#auditors',
             },
             {
-              label: "Auditor",
-              href: "https://dapplets.org/join-us.html#auditors",
+              label: 'Auditor',
+              href: 'https://dapplets.org/join-us.html#auditors',
             },
           ],
         },
 
         // 4 Coll
         {
-          title: "About Dapplets",
+          title: 'About Dapplets',
           items: [
             {
-              label: "Our Mission ",
-              href: "https://dapplets.org/about.html#mission",
+              label: 'Our Mission ',
+              href: 'https://dapplets.org/about.html#mission',
             },
             {
-              label: "Motivation",
-              href: "https://dapplets.org/about.html#motivation",
+              label: 'Motivation',
+              href: 'https://dapplets.org/about.html#motivation',
             },
             {
-              label: "Career at Dapplets",
-              href: "https://dapplets.org/about.html#career",
+              label: 'Career at Dapplets',
+              href: 'https://dapplets.org/about.html#career',
             },
           ],
         },
 
         // 5 Coll
         {
-          title: "Forum",
+          title: 'Forum',
           items: [
             {
-              label: "Forum Dapplets",
-              href: "https://forum.augmentedweb.club/",
+              label: 'Forum Dapplets',
+              href: 'https://forum.augmentedweb.club/',
             },
           ],
         },
@@ -116,17 +116,17 @@ module.exports = {
     },
     algolia: {
       // The application ID provided by Algolia
-      appId: "RV9UMBHX9R",
+      appId: 'RV9UMBHX9R',
 
       // Public API key: it is safe to commit it
-      apiKey: "85ce5081b83416428f2a4e64d01d45b8",
+      apiKey: '85ce5081b83416428f2a4e64d01d45b8',
 
-      indexName: "dapplets",
+      indexName: 'dapplets',
 
       // Optional: see doc section below
       contextualSearch: false,
       searchParameters: {
-        facetFilters: ["language:en", ["filter1", "filter2"], "filter3"],
+        facetFilters: ['language:en', ['filter1', 'filter2'], 'filter3'],
       },
 
       // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
@@ -136,27 +136,27 @@ module.exports = {
       // searchParameters: {},
 
       // Optional: path for search page that enabled by default (`false` to disable it)
-      searchPagePath: "search",
+      searchPagePath: 'search',
 
       //... other Algolia params
     },
   },
   presets: [
     [
-      "@docusaurus/preset-classic",
+      '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: "https://github.com/dapplets/dapplet-docs/blob/master/",
+          editUrl: 'https://github.com/dapplets/dapplet-docs/blob/master/',
         },
         theme: {
-          customCss: require.resolve("./src/scss/custom.scss"),
+          customCss: require.resolve('./src/scss/custom.scss'),
         },
       },
     ],
   ],
-  plugins: ["docusaurus-plugin-sass", "docusaurus-plugin-fontloader"],
+  plugins: ['docusaurus-plugin-sass', 'docusaurus-plugin-fontloader'],
   ssrTemplate: `<!DOCTYPE html>
 <html <%~ it.htmlAttributes %>>
   <head>
@@ -202,4 +202,4 @@ module.exports = {
   //   defaultLocale: 'ENG',
   //   locales: ['ENG']
   // }
-};
+}

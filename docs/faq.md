@@ -11,17 +11,17 @@ Thanks, and welcome aboard!
 
 We also have documentation and [exercises](/docs/exercises/) which you can complete to deepen your knowledge and create advanced and fully functional applications on our platform.
 
-We also have a video recording of our [workshop](https://hackmd.io/@heL9DJloSkKGQOtdOicgaQ/B1qZtuIY9) with EPAM: [Dapplets Project: «Practical Web3 programming experience»](https://www.youtube.com/watch?v=gB0-iBByXuA) 
+We also have a video recording of our [workshop](https://hackmd.io/@heL9DJloSkKGQOtdOicgaQ/B1qZtuIY9) with EPAM: [Dapplets Project: «Practical Web3 programming experience»](https://www.youtube.com/watch?v=gB0-iBByXuA)
 
 Furthermore, don’t miss our public list of [dapplet ideas](https://github.com/dapplets/dapplets-ideas). You can take whichever one you like and realize it!
 
 ### Where can I find different dapplets to try them out?
 
-Download our [extension](/docs/installation/). 
+Download our [extension](/docs/installation/).
 
-Go to Twitter or YouTube. 
+Go to Twitter or YouTube.
 
-In the extension you will see several dapplets that work on these webpages. 
+In the extension you will see several dapplets that work on these webpages.
 
 Try them out!
 
@@ -41,7 +41,7 @@ Begin by opening the desired website (Twitter, YouTube etc.) and clicking on the
 
 If this doesn’t help please check that you have the latest version of the extension. Unfortunately, the extension is not yet updated automatically and we have a fast-paced development process. You can find the latest release [here](https://github.com/dapplets/dapplet-extension/releases/latest).
 
-If your version in outdated delete it and download the correct one. 
+If your version in outdated delete it and download the correct one.
 
 If the issue remains take a screenshot and contact us through [Discord](https://discord.com/channels/569770026412933140/993845099580641312) or [Telegram](https://t.me/dapplets).
 

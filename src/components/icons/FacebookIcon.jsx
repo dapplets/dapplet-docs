@@ -1,11 +1,19 @@
-import React from 'react';
+import React from 'react'
 
-export default function FacebookIcon ({ className }) {
+export default function FacebookIcon({ className }) {
   return (
-    <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg
+      width="41"
+      height="41"
+      viewBox="0 0 41 41"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
       <path
         d="M40.8937 20.125C40.8937 9.01 31.9387 0 20.8937 0C9.84367 0.0025 0.888672 9.01 0.888672 20.1275C0.888672 30.17 8.20367 38.495 17.7637 40.005V25.9425H12.6887V20.1275H17.7687V15.69C17.7687 10.6475 20.7562 7.8625 25.3237 7.8625C27.5137 7.8625 29.8012 8.255 29.8012 8.255V13.205H27.2787C24.7962 13.205 24.0212 14.7575 24.0212 16.35V20.125H29.5662L28.6812 25.94H24.0187V40.0025C33.5787 38.4925 40.8937 30.1675 40.8937 20.125Z"
-        fill="#F5F5F5" />
+        fill="#F5F5F5"
+      />
     </svg>
-  );
+  )
 }

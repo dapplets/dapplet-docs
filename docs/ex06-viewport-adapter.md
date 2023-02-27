@@ -1,6 +1,6 @@
 ---
 id: viewport-adapter
-title: "Ex06: Viewport adapter"
+title: 'Ex06: Viewport adapter'
 ---
 
 Task: change the twitter adapter to a **common** adapter and check it on Twitter, YouTube, Instagram and Dapplets.org.
@@ -12,7 +12,7 @@ Change twitter adapter to a **common** adapter in `/dapplet.json` with a right v
 ```json
 {
   ...
-  
+
   "contextIds": ["common-adapter.dapplet-base.eth"],
   ...
   "dependencies": {
@@ -30,7 +30,7 @@ In `src/index.ts` change injected adapter:
 and set the right insertion point:
 
 ```ts
-BODY: () => 
+BODY: () =>
   button({
     DEFAULT: {
       tooltip: 'Injected Button',

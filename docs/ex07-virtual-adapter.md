@@ -1,6 +1,6 @@
 ---
 id: virtual-adapter-int
-title: "Ex07: Virtual adapter (interface)"
+title: 'Ex07: Virtual adapter (interface)'
 ---
 
 Task: change the twitter adapter to an **identity** adapter and check it on Twitter and Instagram.
@@ -34,4 +34,5 @@ Run the dapplet:
 npm i
 npm start
 ```
+
 ![video](/video/ex_7.gif)

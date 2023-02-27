@@ -1,6 +1,6 @@
 ---
 id: new-viewport-adapter
-title: "Ex09: New Viewport adapter"
+title: 'Ex09: New Viewport adapter'
 ---
 
 In this example we create a new viewport adapter and a dapplet for it.
@@ -70,7 +70,7 @@ public config = {
 ```typescript
 // class Button
 // LP: 2. implement the button markup with "image" and "tooltip".
-const { img, tooltip } = this.state;
+const { img, tooltip } = this.state
 const htmlString = `
     <div style="
         position:fixed;
@@ -88,9 +88,9 @@ const htmlString = `
         background: no-repeat center/100% url(${img}) #d4e0e9;
     ">
     </div>
-`;
-this.el.title = tooltip ?? '';
-this.el.innerHTML = htmlString;
+`
+this.el.title = tooltip ?? ''
+this.el.innerHTML = htmlString
 // LP end
 ```
 
@@ -106,7 +106,7 @@ public static contextInsPoints = {
 
 ```typescript
 // LP: 3. Implement the popup markup with "text", "link", "img" and "closed".
-const { text, link, img, closed } = this.state;
+const { text, link, img, closed } = this.state
 const htmlString = `
   <style>
     .dapplet-widget-basic-container {
@@ -182,8 +182,8 @@ const htmlString = `
       <a href='${link}' target='_blank'>${text}</a>
     </div>
   </div>
-`;
-this.el.innerHTML = htmlString;
+`
+this.el.innerHTML = htmlString
 // LP end
 ```
 

@@ -11,9 +11,8 @@
 }
 
 .DocSearch-Button {
-  transition: all var(--ifm-transition-fast)
-    var(--ifm-transition-timing-default);
-    margin: 0 16px 0 16px;
+  transition: all var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+  margin: 0 16px 0 16px;
 }
 
 [data-theme='light'] .DocSearch {
