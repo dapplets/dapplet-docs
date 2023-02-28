@@ -49,7 +49,7 @@ export default class Notification {
 
 **parameters of the notify's function**
 
-_title_ - required parameter. Title a notification.
+_title_ - required parameter. Title of the notification.
 
 _message_ - optional parameter. Message to user.
 
