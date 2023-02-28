@@ -59,7 +59,9 @@ Read more about other Lit possibilities in its [official documentation](https://
 Inherit the widget class from the `LitElement` class, and implement the interface with public properties `IButtonProps`.
 
 ```typescript
-export class Button extends LitElement implements IButtonProps {}
+export class Button extends LitElement implements IButtonProps {
+  // ...
+}
 ```
 
 Most likey, your IDE will not like that unrealized class properties are missing. Do not worry, we will do this below.
