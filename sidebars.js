@@ -69,6 +69,7 @@ module.exports = {
         "web-components",
         "overlay-login",
         "dapplet-actions",
+        "notifications",
       ],
     },
     {
