@@ -109,7 +109,7 @@ export default class MyDapplet {
 Widgets are taken from the adapter's **`exports`**:
 
 ```ts
-const { button, popup } = this.adapter.exports;
+const { button, popup } = this.adapter.exports
 ```
 
 and then used in the **`attachConfig()`** function:
@@ -128,7 +128,7 @@ const { $ } = this.adapter.attachConfig({
 });
 ```
 
-`attachConfig` receives an object with context names as keys. The values of the object are  functions which return a widget or an array of widgets. `attachConfig` returns the object with `$(ctx, 'element_id')` function,
+`attachConfig` receives an object with context names as keys. The values of the object are functions which return a widget or an array of widgets. `attachConfig` returns the object with `$(ctx, 'element_id')` function,
 which returns the Proxy of the widget by its **id**.
 
 Widgets have **states**. The **DEFAULT** (case sensitive) state is used as initial.
@@ -158,6 +158,7 @@ button({
   ...
 }),
 ```
+
 We pass **parameters** of the widget described in the adapter into states.
 
 ## Using events

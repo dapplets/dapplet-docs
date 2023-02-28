@@ -1,6 +1,6 @@
 ---
 id: state-machine
-title: "Ex02: State machine"
+title: 'Ex02: State machine'
 ---
 
 Now let’s try to have the button change its appearance when clicked.
@@ -10,19 +10,19 @@ Here is the initial code for this example: [ex02-state-machine-exercise](https:/
 Here is `src/index.ts`:
 
 ```ts
-import {} from '@dapplets/dapplet-extension';
-import COOL_BADGE_IMG from './icons/smile19.png';
+import {} from '@dapplets/dapplet-extension'
+import COOL_BADGE_IMG from './icons/smile19.png'
 // import ANGRY_BADGE_IMG from './icons/angry-smile19.png';
 
 @Injectable
 export default class TwitterFeature {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
-  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any;
+  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any
 
   activate() {
-    const { button } = this.adapter.exports;
+    const { button } = this.adapter.exports
     this.adapter.attachConfig({
-      POST: () => 
+      POST: () =>
         button({
           initial: 'DEFAULT',
           DEFAULT: {
@@ -36,7 +36,7 @@ export default class TwitterFeature {
 
           // LP end
         }),
-    });
+    })
   }
 }
 ```
@@ -60,19 +60,19 @@ exec: (_, me) => (me.state = 'ANOTHER'),
 Result:
 
 ```ts
-import {} from '@dapplets/dapplet-extension';
-import COOL_BADGE_IMG from './icons/smile19.png';
-import ANGRY_BADGE_IMG from './icons/angry-smile19.png';
+import {} from '@dapplets/dapplet-extension'
+import COOL_BADGE_IMG from './icons/smile19.png'
+import ANGRY_BADGE_IMG from './icons/angry-smile19.png'
 
 @Injectable
 export default class TwitterFeature {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
-  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any;
-  
+  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any
+
   activate() {
-    const { button } = this.adapter.exports;
+    const { button } = this.adapter.exports
     this.adapter.attachConfig({
-      POST: (ctx) => 
+      POST: (ctx) =>
         button({
           initial: 'DEFAULT',
           DEFAULT: {
@@ -90,7 +90,7 @@ export default class TwitterFeature {
           },
           // LP end
         }),
-    });
+    })
   }
 }
 ```

@@ -1,6 +1,6 @@
 ---
 id: new-virtual-adapter
-title: "Ex10: New Virtual adapter (interface)"
+title: 'Ex10: New Virtual adapter (interface)'
 ---
 
 The point of a virtual adapter is to run one dapplet on many adapters.
@@ -28,7 +28,7 @@ example-virtual-adapter
 3. The `/example-virtual-adapter/src/` folder should contain only `index.ts` that exports an empty object.
 
 ```ts
-export default {};
+export default {}
 ```
 
 4. In the `/example-virtual-adapter/dapplet.json` set `"type": "INTERFACE"` and remove `"contextIds"` and `"dependencies"`.
@@ -92,6 +92,7 @@ Run the dapplet:
 npm i
 npm start
 ```
+
 > In this example we run four servers concurrently. This means you have to add four registry addresses to the Dapplet extension in the Development tab. Click [here](/docs/get-started#11-connect-the-development-server-to-dapplet-extension) for instructions.
 
 ![video](/video/ex_10.gif)

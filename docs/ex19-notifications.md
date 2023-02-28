@@ -1,6 +1,6 @@
 ---
 id: notifications
-title: "Ex19: Notifications"
+title: 'Ex19: Notifications'
 ---
 
 **Notifications** are used to send notifications to users.

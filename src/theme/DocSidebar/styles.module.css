@@ -14,7 +14,7 @@
 }
 
 .customHeader:hover .headerLogo {
-  transform: translateY(-5px)
+  transform: translateY(-5px);
 }
 
 @media (min-width: 997px) {
@@ -127,7 +127,6 @@
   height: 0px !important;
 }
 
-
 .headerLogo {
   background-image: url('../../../static/img/sidebar-header-logo.svg');
   width: 324px;
@@ -137,7 +136,7 @@
   background-size: cover;
 }
 
-@media screen and (max-width: 450px){
+@media screen and (max-width: 450px) {
   .headerLogo {
     width: 220px;
     height: 80px;

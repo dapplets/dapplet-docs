@@ -49,7 +49,7 @@
 }
 
 .copyButton:hover {
-  color: var(--ifm-code-copy-color-hover)
+  color: var(--ifm-code-copy-color-hover);
 }
 
 .copyButton:hover::before {
@@ -79,7 +79,7 @@
   float: left;
   min-width: 100%;
   padding: var(--ifm-pre-padding);
-  background-color: #F5F5F5 !important;
+  background-color: #f5f5f5 !important;
 }
 
 .codeLine {

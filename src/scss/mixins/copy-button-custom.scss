@@ -1,50 +1,50 @@
 @mixin copyButtonCustom {
-	.copy-button-custom {
-		position: absolute;
-		top: -43px;
-		right: 13px;
-		background: transparent;
-		border: none;
-		color: var(--ifm-link-color);
-		cursor: pointer;
-		user-select: none;
-		padding: 8px 13px;
-		transition: opacity 200ms ease-in-out;
+  .copy-button-custom {
+    position: absolute;
+    top: -43px;
+    right: 13px;
+    background: transparent;
+    border: none;
+    color: var(--ifm-link-color);
+    cursor: pointer;
+    user-select: none;
+    padding: 8px 13px;
+    transition: opacity 200ms ease-in-out;
 
-		font-size: 16px;
-		line-height: 24px;
+    font-size: 16px;
+    line-height: 24px;
     text-decoration: none;
-		color: var(--ifm-code-copy-color);
-		margin-left: auto;
-		opacity: 1;
+    color: var(--ifm-code-copy-color);
+    margin-left: auto;
+    opacity: 1;
 
-		&:hover {
-			color: var(--ifm-code-copy-color-hover);
-			
-			&::before {
+    &:hover {
+      color: var(--ifm-code-copy-color-hover);
+
+      &::before {
         background: no-repeat 2px url('../../static/img/copy-icon-hover.png') #c9c9c945;
-			}
-		}
-		
-		&::before {
-			content: '';
-			position: absolute;
-			width: 74px;
-			height: 28px;
-			top: 50%;
-			transform: translateY(-50%);
-			left: -15px;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 74px;
+      height: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -15px;
       background: no-repeat 2px url('../../static/img/copy-icon.png') #c9c9c945;
       border-radius: 6px;
       box-shadow: 0px 4px 6px -2px #c4c4c4;
-		}
-	}
+    }
+  }
 }
 
 @media screen and (max-width: 465px) {
-	.copy-button-custom {
-		pointer-events: none;
-		opacity: 0;
-		display: none;
-	}
+  .copy-button-custom {
+    pointer-events: none;
+    opacity: 0;
+    display: none;
+  }
 }

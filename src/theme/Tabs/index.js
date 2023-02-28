@@ -4,111 +4,130 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, { useState, cloneElement, Children } from 'react';
-import useUserPreferencesContext from '@theme/hooks/useUserPreferencesContext';
-import clsx from 'clsx';
-import styles from './styles.module.css';
+import useUserPreferencesContext from '@theme/hooks/useUserPreferencesContext'
+import clsx from 'clsx'
+import React, { Children, cloneElement, useState } from 'react'
+import styles from './styles.module.css'
 const keys = {
   left: 37,
-  right: 39
-};
+  right: 39,
+}
 
 function Tabs(props) {
-  const {
-    lazy,
-    block,
-    defaultValue,
-    values,
-    groupId,
-    className
-  } = props;
-  const {
-    tabGroupChoices,
-    setTabGroupChoices
-  } = useUserPreferencesContext();
-  const [selectedValue, setSelectedValue] = useState(defaultValue);
-  const children = Children.toArray(props.children);
+  const { lazy, block, defaultValue, values, groupId, className } = props
+  const { tabGroupChoices, setTabGroupChoices } = useUserPreferencesContext()
+  const [selectedValue, setSelectedValue] = useState(defaultValue)
+  const children = Children.toArray(props.children)
 
   if (groupId != null) {
-    const relevantTabGroupChoice = tabGroupChoices[groupId];
+    const relevantTabGroupChoice = tabGroupChoices[groupId]
 
-    if (relevantTabGroupChoice != null && relevantTabGroupChoice !== selectedValue && values.some(value => value.value === relevantTabGroupChoice)) {
-      setSelectedValue(relevantTabGroupChoice);
+    if (
+      relevantTabGroupChoice != null &&
+      relevantTabGroupChoice !== selectedValue &&
+      values.some((value) => value.value === relevantTabGroupChoice)
+    ) {
+      setSelectedValue(relevantTabGroupChoice)
     }
   }
 
-  const changeSelectedValue = newValue => {
-    setSelectedValue(newValue);
+  const changeSelectedValue = (newValue) => {
+    setSelectedValue(newValue)
 
     if (groupId != null) {
-      setTabGroupChoices(groupId, newValue);
+      setTabGroupChoices(groupId, newValue)
     }
-  };
+  }
 
-  const tabRefs = [];
+  const tabRefs = []
 
   const focusNextTab = (tabs, target) => {
-    const next = tabs.indexOf(target) + 1;
+    const next = tabs.indexOf(target) + 1
 
     if (!tabs[next]) {
-      tabs[0].focus();
+      tabs[0].focus()
     } else {
-      tabs[next].focus();
+      tabs[next].focus()
     }
-  };
+  }
 
   const focusPreviousTab = (tabs, target) => {
-    const prev = tabs.indexOf(target) - 1;
+    const prev = tabs.indexOf(target) - 1
 
     if (!tabs[prev]) {
-      tabs[tabs.length - 1].focus();
+      tabs[tabs.length - 1].focus()
     } else {
-      tabs[prev].focus();
+      tabs[prev].focus()
     }
-  };
+  }
 
   const handleKeydown = (tabs, target, event) => {
     switch (event.keyCode) {
       case keys.right:
-        focusNextTab(tabs, target);
-        break;
+        focusNextTab(tabs, target)
+        break
 
       case keys.left:
-        focusPreviousTab(tabs, target);
-        break;
+        focusPreviousTab(tabs, target)
+        break
 
       default:
-        break;
+        break
     }
-  };
+  }
 
-  return <div>
-    <ul role="tablist" aria-orientation="horizontal" className={clsx('tabs', {
-      'tabs--block': block
-    }, className)}>
-      {values.map(({
-        value,
-        label
-      }) => <li role="tab" tabIndex={0} aria-selected={selectedValue === value} className={clsx('tabs__item', styles.tabItem, {
-        'tabs__item--active': selectedValue === value
-      })} key={value} ref={tabControl => tabRefs.push(tabControl)} onKeyDown={event => {
-        handleKeydown(tabRefs, event.target, event);
-      }} onFocus={() => changeSelectedValue(value)} onClick={() => {
-        changeSelectedValue(value);
-      }}>
-          {label}
-        </li>)}
-    </ul>
+  return (
+    <div>
+      <ul
+        role="tablist"
+        aria-orientation="horizontal"
+        className={clsx(
+          'tabs',
+          {
+            'tabs--block': block,
+          },
+          className
+        )}
+      >
+        {values.map(({ value, label }) => (
+          <li
+            role="tab"
+            tabIndex={0}
+            aria-selected={selectedValue === value}
+            className={clsx('tabs__item', styles.tabItem, {
+              'tabs__item--active': selectedValue === value,
+            })}
+            key={value}
+            ref={(tabControl) => tabRefs.push(tabControl)}
+            onKeyDown={(event) => {
+              handleKeydown(tabRefs, event.target, event)
+            }}
+            onFocus={() => changeSelectedValue(value)}
+            onClick={() => {
+              changeSelectedValue(value)
+            }}
+          >
+            {label}
+          </li>
+        ))}
+      </ul>
 
-    {lazy ? cloneElement(children.filter(tabItem => tabItem.props.value === selectedValue)[0], {
-      className: 'margin-vert--md'
-    }) : <div className="margin-vert--md">
-      {children.map((tabItem, i) => cloneElement(tabItem, {
-        key: i,
-        hidden: tabItem.props.value !== selectedValue
-      }))}
-    </div>}
-  </div>;
+      {lazy ? (
+        cloneElement(children.filter((tabItem) => tabItem.props.value === selectedValue)[0], {
+          className: 'margin-vert--md',
+        })
+      ) : (
+        <div className="margin-vert--md">
+          {children.map((tabItem, i) =>
+            cloneElement(tabItem, {
+              key: i,
+              hidden: tabItem.props.value !== selectedValue,
+            })
+          )}
+        </div>
+      )}
+    </div>
+  )
 }
 
-export default Tabs;
+export default Tabs

@@ -1,4 +1,3 @@
-
 .adVersion {
   --ifm-h1-vertical-rhythm-top: 3;
   --ifm-h2-vertical-rhythm-top: 2;
@@ -14,10 +13,10 @@
 }
 
 .adVersion:after {
-    clear: both;
-    content: '';
-    display: table;
-  }
+  clear: both;
+  content: '';
+  display: table;
+}
 .adVersion > *:first-child {
   margin-top: 0 !important;
 }
@@ -29,39 +28,29 @@
 .adVersion > h1 {
   --ifm-h1-font-size: 3rem;
 
-  margin-bottom: calc(
-    var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading)
-  );
+  margin-bottom: calc(var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading));
   margin-top: calc(var(--ifm-h1-vertical-rhythm-top) * var(--ifm-leading));
 }
 
 .adVersion > h2 {
   --ifm-h2-font-size: 2rem;
 
-  margin-bottom: calc(
-    var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
-  );
+  margin-bottom: calc(var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading));
   margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading));
 }
 
 .adVersion > h3 {
   --ifm-h3-font-size: 1.5rem;
 
-  margin-bottom: calc(
-    var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
-  );
+  margin-bottom: calc(var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading));
   margin-top: calc(var(--ifm-h3-vertical-rhythm-top) * var(--ifm-leading));
 }
 
 .adVersion > h4,
 .adVersion > h5,
 .adVersion > h6 {
-  margin-bottom: calc(
-    var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
-  );
-  margin-top: calc(
-    var(--ifm-heading-vertical-rhythm-top) * var(--ifm-leading)
-  );
+  margin-bottom: calc(var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading));
+  margin-top: calc(var(--ifm-heading-vertical-rhythm-top) * var(--ifm-leading));
 }
 
 .adVersion > pre,

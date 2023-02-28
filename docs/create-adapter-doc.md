@@ -16,11 +16,11 @@ my-adapter
 
 Documentation should contain:
 
-  1. Adapter name
-  2. General information about the adapter
-  3. Contexts with insertion points for the widgets (pictures, table, additions)
-  4. Widgets with their types, description and parameters. It is better if this information is presented in the form of a table or tables
-  5. Events (text, code)
-  6. Supported virtual adapters
+1. Adapter name
+2. General information about the adapter
+3. Contexts with insertion points for the widgets (pictures, table, additions)
+4. Widgets with their types, description and parameters. It is better if this information is presented in the form of a table or tables
+5. Events (text, code)
+6. Supported virtual adapters
 
 Look at the examples [here.](https://github.com/dapplets/dapplet-docs/blob/master/static/md/atV050.md)

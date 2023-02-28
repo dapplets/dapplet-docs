@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import ReactMarkdown from 'react-markdown';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import gfm from 'remark-gfm';
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import ReactMarkdown from 'react-markdown'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import gfm from 'remark-gfm'
 
 const renderers = {
   code: ({ language, value }) => {
-    return <SyntaxHighlighter style={tomorrow} language={language} children={value} />;
+    return <SyntaxHighlighter style={tomorrow} language={language} children={value} />
   },
-};
+}
 
 const tsJsonParse = (value) => `
 
@@ -17,53 +17,65 @@ const tsJsonParse = (value) => `
 ${value.join('\n')}
 ~~~
 
-`;
+`
 
 export default function AdapterDocVersion(props) {
-  const [adapterData, getData] = useState(false);
-  const [docType, setDocType] = useState('');
-  const cancelToken = axios.CancelToken;
-  const source = cancelToken.source();
+  const [adapterData, getData] = useState(false)
+  const [docType, setDocType] = useState('')
+  const cancelToken = axios.CancelToken
+  const source = cancelToken.source()
 
-  const { url } = props;
+  const { url } = props
 
-  let counter = 0;
+  let counter = 0
 
   const addElOfType = {
-    text: (value, elClass) => <ReactMarkdown plugins={[gfm]} key={counter++} className={elClass}>{value}</ReactMarkdown>,
+    text: (value, elClass) => (
+      <ReactMarkdown plugins={[gfm]} key={counter++} className={elClass}>
+        {value}
+      </ReactMarkdown>
+    ),
     image: ({ link, alt }) => <img src={link} alt={alt} key={counter++} />,
-    ts: (value) => <ReactMarkdown renderers={renderers} plugins={[gfm]} key={counter++}>{tsJsonParse(value)}</ReactMarkdown>,
-  };
+    ts: (value) => (
+      <ReactMarkdown renderers={renderers} plugins={[gfm]} key={counter++}>
+        {tsJsonParse(value)}
+      </ReactMarkdown>
+    ),
+  }
 
   const docTypes = {
-    'md': 'text/markdown',
-    'json': 'application/json',
+    md: 'text/markdown',
+    json: 'application/json',
   }
 
   const setData = async () => {
-    const tmp = url.split('.');
-    setDocType(tmp[tmp.length - 1]);
+    const tmp = url.split('.')
+    setDocType(tmp[tmp.length - 1])
     try {
       const { data } = await axios.get(url, {
         headers: { 'Content-Type': `${docTypes[docType]}` },
         cancelToken: source.token,
-      });
-      getData(data);
+      })
+      getData(data)
     } catch (err) {
       if (axios.isCancel(err)) {
-        return "axios request cancelled";
+        return 'axios request cancelled'
       }
-      return err;
+      return err
     }
-  };
+  }
 
   useEffect(() => {
-    if (adapterData === false) setData();
-    return () => source.cancel();
-  });
+    if (adapterData === false) setData()
+    return () => source.cancel()
+  })
 
   const createElementOfType = {
-    md: () => <ReactMarkdown renderers={renderers} plugins={[gfm]}>{adapterData}</ReactMarkdown>,
+    md: () => (
+      <ReactMarkdown renderers={renderers} plugins={[gfm]}>
+        {adapterData}
+      </ReactMarkdown>
+    ),
     json: () => (
       <>
         <h2>Name to connect:</h2>
@@ -77,22 +89,26 @@ export default function AdapterDocVersion(props) {
           <thead>
             <tr>
               <th>Parameters</th>
-              {adapterData.widgets.names.map((name) => <th key={counter++}>{name}</th>)}
+              {adapterData.widgets.names.map((name) => (
+                <th key={counter++}>{name}</th>
+              ))}
               <th>Type</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
-            {Object.entries(adapterData.widgets.parameters).map(([param, { widgets, type, description }]) => (
-              <tr key={counter++}>
-                <th>{addElOfType.text(`\`${param}\``, 'table-left')}</th>
-                {widgets.map((widget) => (
-                  <th key={counter++}>{widget ? '✔️' : ''}</th>
-                ))}
-                <td>{addElOfType.text(`\`${type}\``, 'table-center')}</td>
-                <td>{description}</td>
-              </tr>
-            ))}
+            {Object.entries(adapterData.widgets.parameters).map(
+              ([param, { widgets, type, description }]) => (
+                <tr key={counter++}>
+                  <th>{addElOfType.text(`\`${param}\``, 'table-left')}</th>
+                  {widgets.map((widget) => (
+                    <th key={counter++}>{widget ? '✔️' : ''}</th>
+                  ))}
+                  <td>{addElOfType.text(`\`${type}\``, 'table-center')}</td>
+                  <td>{description}</td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
         <h2>Insertion points</h2>
@@ -107,27 +123,37 @@ export default function AdapterDocVersion(props) {
           <thead>
             <tr>
               <th>Insertion point</th>
-              {adapterData.instPoints.table.names.map((name) => <th key={counter++}>{name}</th>)}
+              {adapterData.instPoints.table.names.map((name) => (
+                <th key={counter++}>{name}</th>
+              ))}
             </tr>
           </thead>
           <tbody>
-            {Object.entries(adapterData.instPoints.table.insertion_point).map(([instPoint, widgets]) => (
-              <tr key={counter++}>
-                <td>{addElOfType.text(`\`${instPoint}\``, 'table-left')}</td>
-                {widgets.map((widget) => (
-                  <th key={counter++}>{widget ? '✔️' : ''}</th>
-                ))}
-              </tr>
-            ))}
+            {Object.entries(adapterData.instPoints.table.insertion_point).map(
+              ([instPoint, widgets]) => (
+                <tr key={counter++}>
+                  <td>{addElOfType.text(`\`${instPoint}\``, 'table-left')}</td>
+                  {widgets.map((widget) => (
+                    <th key={counter++}>{widget ? '✔️' : ''}</th>
+                  ))}
+                </tr>
+              )
+            )}
           </tbody>
         </table>
-        {adapterData.instPoints.additions.map((addition) => addElOfType[addition.type](addition.value))}
+        {adapterData.instPoints.additions.map((addition) =>
+          addElOfType[addition.type](addition.value)
+        )}
         <h2>Events</h2>
         {adapterData.events.map(({ subtitle, field_events }) => (
           <React.Fragment key={counter++}>
             <h4>{subtitle}</h4>
             <ul>
-              {field_events.map(({ name }) => <li key={counter++}><a href={`#${subtitle.concat(name)}`}>{name}</a></li>)}
+              {field_events.map(({ name }) => (
+                <li key={counter++}>
+                  <a href={`#${subtitle.concat(name)}`}>{name}</a>
+                </li>
+              ))}
             </ul>
           </React.Fragment>
         ))}
@@ -148,13 +174,15 @@ export default function AdapterDocVersion(props) {
         <ul>
           {adapterData.virtualAdapters.map(({ name, versions }) => (
             <li key={counter++}>
-              {addElOfType.text(`\`${name}\`: `.concat(versions.map((version) => `ver. ${version}`).join(', ')))}
+              {addElOfType.text(
+                `\`${name}\`: `.concat(versions.map((version) => `ver. ${version}`).join(', '))
+              )}
             </li>
           ))}
         </ul>
       </>
-    )
-  };
+    ),
+  }
 
-  return <>{adapterData && createElementOfType[docType]()}</>;
+  return <>{adapterData && createElementOfType[docType]()}</>
 }

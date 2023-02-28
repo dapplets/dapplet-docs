@@ -1,5 +1,5 @@
 .table-of-contents {
-  padding: 0
+  padding: 0;
 }
 
 .table-of-contents__left-border {
@@ -30,8 +30,7 @@
   opacity: 1;
 }
 
-
-@media screen and (max-width: 1185px){
+@media screen and (max-width: 1185px) {
   .custom-toc-block {
     transition: opacity 0s;
     pointer-events: none;

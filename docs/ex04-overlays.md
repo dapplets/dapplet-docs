@@ -1,6 +1,6 @@
 ---
 id: overlays
-title: "Ex04: Overlays"
+title: 'Ex04: Overlays'
 ---
 
 In this example we will add an overlay to a `POST`. This overlay will be opened with a button click.
@@ -21,30 +21,30 @@ Now let's create overlays.
 1. In `pure-html-page/index.html` import Bridge class from `https://unpkg.com/@dapplets/dapplet-overlay-bridge` package.
 
 ```js
-import Bridge from 'https://unpkg.com/@dapplets/dapplet-overlay-bridge';
+import Bridge from 'https://unpkg.com/@dapplets/dapplet-overlay-bridge'
 ```
 
 2. Create Bridge class instance and subscribe it to the `data` event.
 
 ```js
-const bridge = new Bridge();
+const bridge = new Bridge()
 
 bridge.on('data', ({ message, counter }) => {
-  document.querySelector('.dappletMessage').innerText = message;
-  document.querySelector('.dappletCounter').innerText = counter ?? 0;
-});
+  document.querySelector('.dappletMessage').innerText = message
+  document.querySelector('.dappletCounter').innerText = counter ?? 0
+})
 ```
 
 3. Add an event handler to the button click.
 
 ```js
-let isTick = true;
-const button = document.querySelector('.ch-state-btn');
+let isTick = true
+const button = document.querySelector('.ch-state-btn')
 button.addEventListener('click', async () => {
-  const counter = await bridge.increaseCounterAndToggleLabel(isTick);
-  document.querySelector('.dappletCounter').innerText = counter;
-  isTick = !isTick;
-});
+  const counter = await bridge.increaseCounterAndToggleLabel(isTick)
+  document.querySelector('.dappletCounter').innerText = counter
+  isTick = !isTick
+})
 ```
 
 ### React.js based overlay
@@ -60,17 +60,17 @@ cd ..
 1. In `/overlayWithReact/src/App.tsx` import Bridge class from @dapplets/dapplet-overlay-bridge package.
 
 ```tsx
-import Bridge from '@dapplets/dapplet-overlay-bridge';
+import Bridge from '@dapplets/dapplet-overlay-bridge'
 ```
 
 2. Create `IDappletApi` interface and Bridge class instance typing with the inteface.
 
 ```tsx
 interface IDappletApi {
-  increaseCounterAndToggleLabel: (isTick: boolean) => Promise<number>,
+  increaseCounterAndToggleLabel: (isTick: boolean) => Promise<number>
 }
 
-const bridge = new Bridge<IDappletApi>();
+const bridge = new Bridge<IDappletApi>()
 ```
 
 3. Add a listener to the 'data' event.
@@ -85,9 +85,9 @@ componentDidMount() {
 
 ```tsx
 handleClick = async () => {
-  const counter = await bridge.increaseCounterAndToggleLabel(this.state.isTick);
-  this.setState({ isTick: !this.state.isTick, counter });
-};
+  const counter = await bridge.increaseCounterAndToggleLabel(this.state.isTick)
+  this.setState({ isTick: !this.state.isTick, counter })
+}
 ```
 
 ### Change the dapplet
@@ -96,14 +96,14 @@ handleClick = async () => {
 
 ```ts
 interface IDappletApi {
-  increaseCounterAndToggleLabel: (isTick: boolean) => Promise<number>,
+  increaseCounterAndToggleLabel: (isTick: boolean) => Promise<number>
 }
 ```
 
 2. Implement the overlay opening on the button click. To get the current overlay use `Core.overlay({ name: string, title: string })`.
 
 ```ts
-const overlay = Core.overlay({ name: 'example-04-overlay', title: 'Example 4' });
+const overlay = Core.overlay({ name: 'example-04-overlay', title: 'Example 4' })
 ```
 
 3. Create an object that implements the interface. Write increaseCounterAndToggleLabel function. Declare the API in the overlay.
@@ -111,24 +111,24 @@ const overlay = Core.overlay({ name: 'example-04-overlay', title: 'Example 4' })
 ```ts
 const dappletApi: IDappletApi = {
   increaseCounterAndToggleLabel: (isTick: boolean) => {
-    ctx.counter = ctx.counter === undefined ? 1 : ctx.counter + 1;
-    me.label = `${isTick ? 'tick' : 'tock'} ${ctx.counter}`;
-    return ctx.counter;
-  }
-};
-overlay.declare(dappletApi);
+    ctx.counter = ctx.counter === undefined ? 1 : ctx.counter + 1
+    me.label = `${isTick ? 'tick' : 'tock'} ${ctx.counter}`
+    return ctx.counter
+  },
+}
+overlay.declare(dappletApi)
 ```
 
 4. Send 'Hello, World!' message and ctx.counter to the overlay using 'data' event.
 
 ```ts
-overlay.send('data', { message: 'Hello, World!', counter: ctx.counter });
+overlay.send('data', { message: 'Hello, World!', counter: ctx.counter })
 ```
 
 There is also an `onClose` function. It allows handling the closing of the overlay.
 
 ```ts
-overlay.onClose(() => console.log('The overlay closed!'));
+overlay.onClose(() => console.log('The overlay closed!'))
 ```
 
 5. Add to the `dapplet.json` manifest the following option:
@@ -180,6 +180,5 @@ To publish a dapplet with an overlay, you need `assets-manifest.json`. When over
 :::
 
 Here is the result code of the example: [ex04-overlays-solution.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-solution)
-
 
 ![video](/video/ex_4.gif)

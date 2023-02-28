@@ -11,7 +11,7 @@ In addition to the master branch, there are numbered branches with examples mark
 
 Each of the following topics corresponds to examples in the same order. You can change the `exercise` templates locally according to this tutorial or try to implement them yourself and compare with the `solution`.
 
-The code of exercises' main areas that need to be changed are marked with `LP` *(Learning Points)* comments:
+The code of exercises' main areas that need to be changed are marked with `LP` _(Learning Points)_ comments:
 
 ```js
 // LP: 1. Add a label with a counter for it.

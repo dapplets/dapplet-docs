@@ -1,6 +1,6 @@
 ---
 id: name-branch-versioning
-title: "Name, Branch, Versioning"
+title: 'Name, Branch, Versioning'
 ---
 
 Any module is uniquely identified by the triplet of its name, branch and version.

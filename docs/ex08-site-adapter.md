@@ -1,6 +1,6 @@
 ---
 id: new-site-adapter
-title: "Ex08: New Site specific adapter"
+title: 'Ex08: New Site specific adapter'
 ---
 
 In this example we implement an adapter for Google Search and a dapplet for it.
@@ -9,7 +9,7 @@ Here is the initial code for this example: [ex08-new-adapter-exercise.](https://
 
 The adapter and the dapplet are divided into two directories: `/adapter` and `/dapplet-feature`.
 
-### Create an adapter with one widget `button` for two contexts.  
+### Create an adapter with one widget `button` for two contexts.
 
 At the beginning we change the adapter template. Let's add buttons under each element’s title of standard Google search results and one button in the top navigation bar.
 
@@ -151,7 +151,7 @@ Adapters allow the dapplet to **customize** the widgets. This can be the `text` 
 :::
 
 ```ts
-const activeNavEl: HTMLElement = document.querySelector('.hdtb-msel, .rQEFy');
+const activeNavEl: HTMLElement = document.querySelector('.hdtb-msel, .rQEFy')
 if (this.insPointName === 'MENU') {
   this.el.innerHTML = `
     <div style="margin: 1px 1px 0; padding: 16px 12px 12px 10px;
@@ -160,10 +160,14 @@ if (this.insPointName === 'MENU') {
       ${tooltip ? `title="${tooltip}"` : ''}
     >
       <img style="width: 20px; margin-right: 5px; margin-bottom: -3px;" src="${img}"/>
-      <div style="display: inline-block; font-size: 13px; line-hight: 16px; ${isActive ? 'color: #1a73e8;' : '-webkit-tap-highlight-color: rgba(0,0,0,.10); color: #5f6368;'}">${label}</div>
+      <div style="display: inline-block; font-size: 13px; line-hight: 16px; ${
+        isActive
+          ? 'color: #1a73e8;'
+          : '-webkit-tap-highlight-color: rgba(0,0,0,.10); color: #5f6368;'
+      }">${label}</div>
     </div>
-  `;
-  activeNavEl.style.borderBottom = isActive ? 'none' : '3px solid #1a73e8';
+  `
+  activeNavEl.style.borderBottom = isActive ? 'none' : '3px solid #1a73e8'
 } else if (this.insPointName === 'SEARCH_RESULT') {
   this.el.innerHTML = `
     <div 
@@ -173,7 +177,7 @@ if (this.insPointName === 'MENU') {
       <img style="width: 20px; margin-right: 1em; margin-bottom: 3px;" src="${img}"/>
       <div style="display: inline-block; font-size: 1.1em; color: #F5504A; font-weight: bold;">${label}</div>
     </div>
-  `;
+  `
 }
 ```
 
@@ -220,7 +224,7 @@ export class Button {
 }
 ```
 
-Then change the dapplet. 
+Then change the dapplet.
 
 Add buttons to search results and top navigation bar in `/dapplet-feature/src/index.ts`.
 
@@ -234,6 +238,7 @@ exec: () => {
   alert(`  title: ${title}\n  link: ${link}\n  description: ${description}`);
 },
 ```
+
 Implement two states for the top navigation bar button. Actions: replace search results with `HI_GIF` and return to default results.
 
 ```ts
@@ -289,7 +294,7 @@ npm start
 
 ### Add a widget `result` to the adapter with one context insertion point
 
-Add new context **`WIDGETS`**. `insPoint` should be on the top of Google widgets like *Videos*, *Images of ...*, *People also ask* etc.
+Add new context **`WIDGETS`**. `insPoint` should be on the top of Google widgets like _Videos_, _Images of ..._, _People also ask_ etc.
 
 Complete **config** in `/adapter/src/index.ts`:
 
@@ -370,7 +375,7 @@ WIDGETS: () =>
       title: 'clouds',
       searchResults,
     },
-  }), 
+  }),
 ```
 
 ```ts
@@ -400,7 +405,7 @@ const searchResults = [
       often called a thunderhead because torrential rain, vivid lightning and thunder come \
       from it. The tops of such clouds may ...',
   },
-];
+]
 ```
 
 Implement the insertion of buttons into our widget.
@@ -466,6 +471,7 @@ Run the dapplet:
 npm i
 npm start
 ```
+
 ![video](/video/ex_8_2.gif)
 
 To see the full result, please enter `clouds` into Google
