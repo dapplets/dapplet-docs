@@ -1,3 +1,5 @@
+<img width="1245" alt="dapplet-docs" src="https://user-images.githubusercontent.com/43613968/225053352-0e655e09-c42c-49ab-8b57-5ff8283c2e9f.png">
+
 # Documentation for Dapplet Platform
 
 Documentation for the Dapplet Platform. Includes instructions for using the [Dapplet Browser Extension](https://github.com/dapplets/dapplet-extension), [exercises](https://github.com/dapplets/dapplet-template) for creating dapplets and adapters for the platform, and documentation for community-created adapters.
