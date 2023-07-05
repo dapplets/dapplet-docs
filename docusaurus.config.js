@@ -101,17 +101,6 @@ module.exports = {
             },
           ],
         },
-
-        // 5 Coll
-        {
-          title: 'Forum',
-          items: [
-            {
-              label: 'Forum Dapplets',
-              href: 'https://forum.augmentedweb.club/',
-            },
-          ],
-        },
       ],
     },
     algolia: {
