@@ -7,7 +7,6 @@ Join us!
 
 - [Discord server](https://discord.gg/YcxbkcyjMV)
 - [Telegram](https://t.me/dapplets)
-- [Forum](https://forum.augmentedweb.club/)
 
 Other sources:
 
