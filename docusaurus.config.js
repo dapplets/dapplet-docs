@@ -28,11 +28,6 @@ module.exports = {
           position: 'right',
           className: 'home-hover-menu',
         },
-        {
-          href: 'https://forum.augmentedweb.club/',
-          label: 'Forum',
-          position: 'right',
-        },
       ],
     },
     footer: {
