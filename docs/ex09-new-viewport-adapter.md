@@ -33,7 +33,6 @@ When you create an adapter don't forget to set **`contextIds`** in `/adapter/dap
   "contextIds": [
     "dapplets.org",
     "127.0.0.1",
-    "forum.dapplets.org",
     "youtube.com",
     "www.youtube.com",
     "twitter.com",
