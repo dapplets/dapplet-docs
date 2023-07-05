@@ -255,11 +255,6 @@ function DocSidebar({ path, sidebar, sidebarCollapsible = true, onCollapse, isHi
                     Home
                   </a>
                 </li>
-                <li className="custom-doc-sidebar-links-item">
-                  <a href="https://forum.dapplets.org/" target="_blank" rel="noreferrer">
-                    Forum
-                  </a>
-                </li>
               </ul>
 
               <ul className="custom-doc-sidebar-socials">
