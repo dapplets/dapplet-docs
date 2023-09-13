@@ -61,47 +61,70 @@ The Twitter adapter is used by default.
 
 Here is our list of adapters available at the moment:
 
-- [twitter-adapter.dapplet-base.eth](https://github.com/dapplets/dapplet-modules/tree/master/packages/twitter-adapter) - site-specific adapter for [Twitter](https://twitter.com);
-- [instagram-adapter.dapplet-base.eth](https://github.com/dapplets/dapplet-modules/tree/master/packages/instagram-adapter) - site-specific adapter for [Instagram](https://instagram.com);
-- [identity-adapter.dapplet-base.eth](https://github.com/dapplets/dapplet-modules/tree/master/packages/identity-adapter) - virtual adapter (interface), which is an abstract of two adapters above;
-- [common-adapter.dapplet-base.eth](https://github.com/dapplets/dapplet-modules/tree/master/packages/common-adapter) - viewport adapter is a universal adapter which contains generic insertion points and is compatible with any web-sites.
+- [twitter-config.dapplet-base.eth](https://github.com/dapplets/modules-monorepo/tree/main/packages/adapters/twitter-config) - site-specific adapter for [Twitter](https://twitter.com);
+- [github-config.dapplet-base.eth](https://github.com/dapplets/modules-monorepo/tree/develop/packages/adapters/github-config) - site-specific adapter for [GitHub](https://github.com);
+- [social-virtual-config.dapplet-base.eth](https://github.com/dapplets/modules-monorepo/tree/develop/packages/adapters/social-virtual-config) - Virtual config for social networks;
 
-More about Twitter Adapter you can find [here](/docs/adapters-docs-list).
 
 #### 7. Fill in the `contextIds` section of the `dapplet.json` file.
 
 `ContextId` is an identifier of a context to which your module is bound. This is usually the same as the name of an adapter you are using. It may be:
 
-- the name of an adapter you depend on (e.g. `twitter-adapter.dapplet-base.eth`);
+- the name of an adapter you depend on (e.g. `twitter-config.dapplet-base.eth`);
 - the domain name of a website that your dapplet will run on (e.g. `twitter.com`);
 - the identifier of a dynamic context (e.g. `twitter.com/1346093004537425927`).
 
 #### 8. Specify the argument of @Inject decorator with the chosen adapter in the `/src/index.ts` module and add the `activate()` method with a simple dapplet code.
 
 ```js
-import {} from '@dapplets/dapplet-extension';
-import EXAMPLE_IMG from './icons/dapplet-icon.png';
+import {} from '@dapplets/dapplet-extension'
+import EXAMPLE_IMG from './icons/dapplet-icon.png'
 
 @Injectable
 export default class TwitterFeature {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
-  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any;
+ 
+  @Inject('twitter-config.dapplet-base.eth')
+  public adapter
+  private _config: any
+  private _adapterDescription: {
+    contextsNames: string[]
+    widgets?: any
+  }
+  private _$: any
+  private _globalContext = {}
+  async activate(): Promise<void> {
+    console.log('this.adapter', this.adapter)
+    if (this.adapter._attachedConfig) {
+      const contextsNames = Object.keys(this.adapter._attachedConfig)
+      console.log(contextsNames)
 
-  activate() {
-    const { button } = this.adapter.exports;
-    this.adapter.attachConfig({
-      POST: () =>
-        button({
-          initial: 'DEFAULT',
-          DEFAULT: {
-            label: 'Injected Button',
-            img: EXAMPLE_IMG,
-            exec: () => alert('Hello, World!'),
-          }
-        })
-    });
+      this._adapterDescription = { contextsNames, widgets: {} }
+    }
+
+    const { button } = this.adapter.exports
+
+    this._config = {
+      GLOBAL: (global) => {
+        Object.assign(this._globalContext, global)
+      },
+      POST: (ctx) => {
+        return [
+          button({
+            DEFAULT: {
+              id: 'button',
+              label: 'Injected Button',
+              img: EXAMPLE_IMG,
+              exec: async () => await Core.alert('Hello Word!'),
+            },
+          }),
+        ]
+      },
+    }
+    const { $ } = this.adapter.attachConfig(this._config)
+    this._$ = $
   }
 }
+
 ```
 
 #### 9. Install the Dapplets Extension for your Chrome browser (if not installed) - follow the [Installation](/docs/installation) steps.
