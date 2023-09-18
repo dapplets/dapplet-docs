@@ -65,7 +65,6 @@ Here is our list of adapters available at the moment:
 - [github-config.dapplet-base.eth](https://github.com/dapplets/modules-monorepo/tree/develop/packages/adapters/github-config) - site-specific adapter for [GitHub](https://github.com);
 - [social-virtual-config.dapplet-base.eth](https://github.com/dapplets/modules-monorepo/tree/develop/packages/adapters/social-virtual-config) - Virtual config for social networks;
 
-
 #### 7. Fill in the `contextIds` section of the `dapplet.json` file.
 
 `ContextId` is an identifier of a context to which your module is bound. This is usually the same as the name of an adapter you are using. It may be:
@@ -82,7 +81,7 @@ import EXAMPLE_IMG from './icons/dapplet-icon.png'
 
 @Injectable
 export default class TwitterFeature {
- 
+
   @Inject('twitter-config.dapplet-base.eth')
   public adapter
   private _config: any
@@ -127,9 +126,7 @@ export default class TwitterFeature {
 
 ```
 
-#### 9. Install the Dapplets Extension for your Chrome browser (if not installed) - follow the [Installation](/docs/installation) steps.
-
-#### 10. Install dependencies and run the code:
+#### 9. Install dependencies and run the code:
 
 ```bash
 npm i

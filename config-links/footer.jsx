@@ -25,7 +25,7 @@ export const footerSocials = [
   {
     id: 2,
     component: <TelegramIcon />,
-    href: 'https://t.me/dapplets ',
+    href: 'https://t.me/dapplets',
     type: 'link',
     title: 'Telegram',
   },
@@ -36,8 +36,20 @@ export const footerSocials = [
     type: 'link',
     title: 'Meduim',
   },
-  { id: 4, component: <TwitterIcon />, href: '', type: 'link', title: 'Twitter' },
-  { id: 5, component: <FacebookIcon />, href: '', type: 'link', title: 'Facebook' },
+  {
+    id: 4,
+    component: <TwitterIcon />,
+    href: 'https://twitter.com/dapplets_org',
+    type: 'link',
+    title: 'Twitter',
+  },
+  {
+    id: 5,
+    component: <FacebookIcon />,
+    href: 'https://www.facebook.com/dapplets',
+    type: 'link',
+    title: 'Facebook',
+  },
   { id: 6, component: <MailIcon />, href: 'business@dapplets.org', type: 'email', title: 'Email' },
 ]
 
