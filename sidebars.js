@@ -4,7 +4,7 @@ module.exports = {
       type: 'category',
       label: 'Getting Started',
       collapsed: false,
-      items: ['introduction', 'how-to-use-dapplets', 'get-started', 'faq'],
+      items: ['introduction', 'what-are-dapplets', 'how-to-use-dapplets', 'get-started', 'faq'],
     },
     {
       type: 'category',
