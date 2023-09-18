@@ -36,3 +36,21 @@
     url('../../static/fonts/montserrat/montserrat-v18-latin_cyrillic-700.woff2') format('woff2'),
     url('../../static/fonts/montserrat/montserrat-v18-latin_cyrillic-700.woff') format('woff');
 }
+
+@font-face {
+  font-family: 'Segoe';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('../../static/fonts/segoe/Segoe_UI.ttf') format('ttf'),
+    url('../../static/fonts/segoe/SegoeUI.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Segoe';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+    url('../../static/fonts/segoe//Segoe_UI_Bold.ttf') format('ttf'),
+
+}

@@ -32,6 +32,7 @@ export function Feature({ image, title, subtitle, url, highlight = false, isCont
     <div className={styles.line_flex}>
       <a
         className={isContacts ? styles.avatarContacts : styles.avatar}
+        target={isContacts ? '_blank' : '_self'}
         href={url}
         style={{ backgroundColor: highlight && 'rgb(240, 255, 240)' }}
       >
