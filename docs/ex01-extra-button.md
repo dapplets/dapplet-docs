@@ -13,23 +13,23 @@ import EXAMPLE_IMG from './icons/ex01.png'
 
 @Injectable
 export default class TwitterFeature {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
-  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any
+  @Inject('twitter-config.dapplet-base.eth')
+  public adapter
 
-  activate() {
+  async activate() {
     const { button } = this.adapter.exports
     this.adapter.attachConfig({
-      POST: (ctx: any) =>
+      POST: () =>
         button({
-          initial: 'DEFAULT',
           DEFAULT: {
+            id: 'button',
             img: EXAMPLE_IMG,
             // LP: 1. Add label with counter for it.
 
             // LP end
             // LP: 2. Listen for the button click - output into console.
-            //     3: Increase the counter value on the button click
-            exec: () => alert('Hello, World!'),
+            //     3: Make counter incrementing on button click.
+            exec: () => Core.alert('Hello Word!'),
             // LP end
           },
         }),
@@ -61,7 +61,7 @@ This button has only one state - `DEFAULT`. In this case you can choose not to s
 button({
   DEFAULT: {
     img: EXAMPLE_IMG,
-    exec: () => alert('Hello, World!'),
+    exec: () => Core.alert('Hello Word!'),
   },
 })
 ```
@@ -75,13 +75,13 @@ button({
   // First state button
   FIRST_STATE: {
     img: LIKE_IMG,
-    exec: () => alert('Hello, World!'),
+    exec: () => Core.alert('Hello Word!'),
   },
 
   // Second state button
   SECOND_STATE: {
     img: DISLIKE_IMG,
-    exec: () => alert('Hello, World!'),
+    exec: () => Core.alert('Hello Word!'),
   },
 })
 ```
@@ -89,7 +89,7 @@ button({
 The `label`, `img` and `exec` are defined in the state. In this case `exec` takes the function that will be executed with a
 button click.
 
-The whole list of **widgets** and **contexts** is defined in the adapter. The **twitter-adapter** API can be found [here](/docs/adapters-docs-list).
+The whole list of **widgets** and **contexts** is defined in the adapter. The **twitter-config** API can be found [here](/docs/adapters-docs-list).
 
 In the first exercise we will add a counter to the button label in `POST`.
 
@@ -145,20 +145,21 @@ To do this, add the following code to the dapplet's `exec`:
 ```ts
 const message1 = await Core.storage.get('exampleString')
 const message2 = await Core.storage.get('exampleHiddenString')
-alert(`I wrote: ${message1}. Then wrote: ${message2}.`)
+Core.alert(`I wrote: ${message1}. Then wrote: ${message2}.`)
 ```
 
 Here is the complete `exec` code:
 
 ```ts
 exec: async (_, me) => {
-  console.log(ctx)
-  console.log(me)
-  me.label += 1
-  const message1 = await Core.storage.get('exampleString')
-  const message2 = await Core.storage.get('exampleHiddenString')
-  alert(`I wrote: ${message1}. Then wrote: ${message2}.`)
-}
+        console.log(ctx)
+        console.log(me)
+        console.log(typeof ctx)
+        me.label += 1
+        const message1 = await Core.storage.get('exampleString')
+        const message2 = await Core.storage.get('exampleHiddenString')
+        Core.alert(`I wrote: ${message1}. Then wrote: ${message2}.`)
+            },
 ```
 
 In the `config/default.json` define your own defaults.
