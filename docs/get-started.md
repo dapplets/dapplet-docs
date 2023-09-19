@@ -7,15 +7,15 @@ The Dapplets Project team provides a number of tools that make creating a new da
 
 To run a basic dapplet, follow these steps.
 
-Choose the environment to start the project. There are three ways:
+#### 1 Choose the environment to start the project. There are three ways:
 
-#### 1. Run the dapplet using **Gitpod**. It is the easiest way to launch **the remotely located dapplet** into the web-browser and try to work with it:
+#### 1.1 Run the dapplet using **Gitpod**. It is the easiest way to launch **the remotely located dapplet** into the web-browser and try to work with it:
 
 [![Open in Gitpod!](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/dapplets/dapplet-template)
 
 Gitpod can provide fully initialized, perfectly set-up developer environments for any kind of software project. More about Gitpod you can find on its [official website](https://www.gitpod.io/).
 
-#### 2. [Create Dapplet App](https://www.npmjs.com/package/create-dapplet-app) is the best way to start building your own dapplet.
+#### 1.2. [Create Dapplet App](https://www.npmjs.com/package/create-dapplet-app) is the best way to start building your own dapplet.
 
 To create **a local project**, run:
 
@@ -25,15 +25,15 @@ npx create-dapplet-app
 
 This method is currently the most advanced and allows you to flexibly configure your project. You can immediately select the type of project, add an adapter, overlay or server to the dapplet.
 
-#### 3. You can use [Dapplet Template](https://github.com/dapplets/dapplet-template) as a template for **your GitHub repository**.
+#### 1.3 You can use [Dapplet Template](https://github.com/dapplets/dapplet-template) as a template for **your GitHub repository**.
 
 Use the button on the project page:
 
 ![Template](/img/run_template.png)
 
-#### 4. Change the module name from "dapplet-template.dapplet-base.eth" to your own one in the `package.json` file.
+#### 2. Change the module name from "dapplet-template.dapplet-base.eth" to your own one in the `package.json` file.
 
-#### 5. Fill in the fields in the following manifests: `package.json` and `dapplet.json`.
+#### 3. Fill in the fields in the following manifests: `package.json` and `dapplet.json`.
 
 In `package.json` set the name, version, description, author and license for your dapp.
 The name is the ID of your dapplet so it must be unique.
@@ -41,11 +41,11 @@ In `dapplet.json` set the title.
 This second manifest is required to deploy the dapplet and add it to the dapplet registry.
 You can find more information about the dapplet manifest [here](/docs/manifest).
 
-#### 6. Change the icons to your own ones in the `src/icons` folder.
+#### 4. Change the icons to your own ones in the `src/icons` folder.
 
 The icon `src/dapplet-icon.png` is used for the injected button in source code `src/index.ts` and for display in the Dapplets store. The link to this icon is defined in the `dapplet.json` manifest.
 
-#### 7. Edit the necessary Dapplet settings in the `config/schema.json` file.
+#### 5. Edit the necessary Dapplet settings in the `config/schema.json` file.
 
 The default setting values are defined in the `config/default.json` file.
 The schema follows the rules defined in http://json-schema.org/.
@@ -59,7 +59,7 @@ There are three environments:
 
 More about [Dapplet Config](/docs/config).
 
-#### 8. You can use another Adapter in your Dapplet.
+#### 6. You can use another Adapter in your Dapplet.
 
 Dependencies are defined in the `dependencies` section of the `dapplet.json` file and are injected in the dapplet's `index.ts` file.
 
@@ -71,7 +71,7 @@ Here is our list of adapters available at the moment:
 - [github-config.dapplet-base.eth](https://github.com/dapplets/modules-monorepo/tree/develop/packages/adapters/github-config) - site-specific adapter for [GitHub](https://github.com);
 - [social-virtual-config.dapplet-base.eth](https://github.com/dapplets/modules-monorepo/tree/develop/packages/adapters/social-virtual-config) - Virtual config for social networks;
 
-#### 9. Fill in the `contextIds` section of the `dapplet.json` file.
+#### 7. Fill in the `contextIds` section of the `dapplet.json` file.
 
 `ContextId` is an identifier of a context to which your module is bound. This is usually the same as the name of an adapter you are using. It may be:
 
@@ -79,7 +79,7 @@ Here is our list of adapters available at the moment:
 - the domain name of a website that your dapplet will run on (e.g. `twitter.com`);
 - the identifier of a dynamic context (e.g. `twitter.com/1346093004537425927`).
 
-#### 10. Specify the argument of @Inject decorator with the chosen adapter in the `/src/index.ts` module and add the `activate()` method with a simple dapplet code.
+#### 8. Specify the argument of @Inject decorator with the chosen adapter in the `/src/index.ts` module and add the `activate()` method with a simple dapplet code.
 
 ```js
 import {} from '@dapplets/dapplet-extension'
@@ -87,52 +87,28 @@ import EXAMPLE_IMG from './icons/dapplet-icon.png'
 
 @Injectable
 export default class TwitterFeature {
-
   @Inject('twitter-config.dapplet-base.eth')
   public adapter
-  private _config: any
-  private _adapterDescription: {
-    contextsNames: string[]
-    widgets?: any
-  }
-  private _$: any
-  private _globalContext = {}
-  async activate(): Promise<void> {
-    console.log('this.adapter', this.adapter)
-    if (this.adapter._attachedConfig) {
-      const contextsNames = Object.keys(this.adapter._attachedConfig)
-      console.log(contextsNames)
 
-      this._adapterDescription = { contextsNames, widgets: {} }
-    }
-
+  async activate() {
     const { button } = this.adapter.exports
-
-    this._config = {
-      GLOBAL: (global) => {
-        Object.assign(this._globalContext, global)
-      },
-      POST: (ctx) => {
-        return [
-          button({
-            DEFAULT: {
-              id: 'button',
-              label: 'Injected Button',
-              img: EXAMPLE_IMG,
-              exec: async () => await Core.alert('Hello Word!'),
-            },
-          }),
-        ]
-      },
-    }
-    const { $ } = this.adapter.attachConfig(this._config)
-    this._$ = $
+    this.adapter.attachConfig({
+      POST: () =>
+        button({
+          DEFAULT: {
+            id: 'button',
+            label: 'Injected Button',
+            img: EXAMPLE_IMG,
+            exec: () => Core.alert('Hello Word!'),
+          },
+        }),
+    })
   }
 }
 
 ```
 
-#### 11. Install dependencies and run the code:
+#### 9. Install dependencies and run the code:
 
 ```bash
 npm i
@@ -153,7 +129,7 @@ In this example we use a Rollup bundler to compile modules but you can use whate
 
 The address [http://localhost:3001/dapplet.json](http://localhost:3001/dapplet.json) is a link to your dapplet manifest file. Copy it to a clipboard.
 
-#### 12. Connect the development server to the Dapplets Extension.
+#### 10. Connect the development server to the Dapplets Extension.
 
 Paste the URL to the Developer tab of the Dapplet Extension's popup and click **Add**.
 
@@ -165,7 +141,7 @@ You will see your module in the list of development modules. Here you can start 
 
 ![Developer tab of Extension](/img/gs_2.png)
 
-#### 13. Run your dapplet on the website.
+#### 11. Run your dapplet on the website.
 
 ![Developer tab of Extension](/img/pub_10.png)
 
