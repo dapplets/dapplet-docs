@@ -42,6 +42,7 @@ h3 {
 .avatar {
   display: flex !important;
   align-items: flex-start;
+  color: #2a2a2a!important;
 }
 
 .avatar:hover{
@@ -51,6 +52,7 @@ h3 {
 .avatarContacts{
   display: flex !important;
   align-items: flex-start;
+  color: #2a2a2a!important;
 }
 
 .avatarContacts:hover{
@@ -58,6 +60,7 @@ h3 {
 }
 .avatar__intro {
   color: #2a2a2a;
+  margin-left: 10px;
 }
 .avatar__name {
   color: #2a2a2a;
@@ -93,7 +96,7 @@ h3 {
 .avatar__photo {
   width: 40px;
   height: 40px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   border-radius: 50%;
   object-fit: none;
   background: #f5f5f5;
@@ -102,7 +105,7 @@ h3 {
 .avatar__photoContacts {
   width: 40px;
   height: 40px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   border-radius: 4px;
 
 }
