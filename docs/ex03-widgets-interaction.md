@@ -18,26 +18,22 @@ export default class TwitterFeature {
   @Inject('twitter-config.dapplet-base.eth')
   public adapter
 
-  async activate() {
-    // LP: 1. Get the widget 'avatarBadge' from adapter
+  activate() {
+    // LP: 1. Get the widget "avatarBadge" from adapter
     const { button } = this.adapter.exports
     // LP end
-    // $ returns object "me". Use it to change state or params of the other widget
-    // Example 1: exec: () => $(ctx, 'another_el_id').state = 'SECOND'
-    // Example 2: exec: () => $(ctx, 'another_el_id').label = 'Hello'
     const { $ } = this.adapter.attachConfig({
       POST: (ctx) => [
         button({
-          id: 'button',
           DEFAULT: {
-            label: 'Injected Button',
+            label: 'GOLD',
             img: EXAMPLE_IMG,
-            // LP: 2. Toggle the state “hidden/shown” of the avatarBadge on button click
+            // LP: 2. Toggle the state “hidden/shown” of the "avatarBadge" widget on button click
 
             // LP end
           },
         }),
-        // LP: 1. Add extra avatarBadge and make it hidden by default
+        // LP: 1. Add extra "avatarBadge" widget and make it hidden by default
 
         // LP end
       ],
@@ -75,18 +71,21 @@ Let's get the widget `avatarBadge` from the adapter
 const { button, avatarBadge } = this.adapter.exports
 ```
 
-Add an extra avatarBadge to `POST` and make it hidden by default.
+Add an extra avatar badge to `POST` and make it hidden by default.
 
 ```ts
 POST: () => [
   ...
 
   avatarBadge({
-    id: 'avatarBadge',
+    id: 'badge',
     initial: 'DEFAULT',
     DEFAULT: {
-      img: STAMP_IMG,
+      img: BADGE_IMG,
+      vertical: 'bottom',
+      horizontal: 'right',
       hidden: true,
+      exec: () => console.log(ctx),
     },
   }),
 ],
@@ -96,7 +95,7 @@ With a button click, toggle the avatarBadge’s state - "hidden/shown".
 
 ```ts
 exec: () => {
-  $(ctx, 'avatarBadge').hidden = !$(ctx, 'avatarBadge').hidden;
+  $(ctx, 'badge').hidden = !$(ctx, 'badge').hidden;
 },
 ```
 
@@ -105,7 +104,7 @@ Result:
 ```ts
 import {} from '@dapplets/dapplet-extension'
 import EXAMPLE_IMG from './icons/ex03.png'
-import STAMP_IMG from './icons/fakeStamp.png'
+import BADGE_IMG from './icons/gold-eth.jpg'
 
 @Injectable
 export default class TwitterFeature {
@@ -116,30 +115,29 @@ export default class TwitterFeature {
     // LP: 1. Get the widget 'avatarBadge' from adapter
     const { button, avatarBadge } = this.adapter.exports
     // LP end
-    // $ returns object "me". Use it to change state or params of the other widget
-    // Example 1: exec: () => $(ctx, 'another_el_id').state = 'SECOND'
-    // Example 2: exec: () => $(ctx, 'another_el_id').label = 'Hello'
     const { $ } = this.adapter.attachConfig({
       POST: (ctx) => [
         button({
-          id: 'button',
           DEFAULT: {
-            label: 'Injected Button',
+            label: 'GOLD',
             img: EXAMPLE_IMG,
-            // LP: 2. Toggle the state “hidden/shown” of the avatarBadge on button click
+            // LP: 3. Toggle the state “hidden/shown” of the "avatarBadge" widget on button click
             exec: () => {
-              $(ctx, 'avatarBadge').hidden = !$(ctx, 'avatarBadge').hidden
+              $(ctx, 'badge').hidden = !$(ctx, 'badge').hidden
             },
             // LP end
           },
         }),
-        // LP: 1. Add extra avatarBadge and make it hidden by default
+        // LP: 2. Add extra "avatarBadge" widget and make it hidden by default
         avatarBadge({
-          id: 'avatarBadge',
+          id: 'badge',
           initial: 'DEFAULT',
           DEFAULT: {
-            img: STAMP_IMG,
+            img: BADGE_IMG,
+            vertical: 'bottom',
+            horizontal: 'right',
             hidden: true,
+            exec: () => console.log(ctx),
           },
         }),
         // LP end

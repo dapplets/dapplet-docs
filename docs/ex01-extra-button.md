@@ -16,13 +16,12 @@ export default class TwitterFeature {
   @Inject('twitter-config.dapplet-base.eth')
   public adapter
 
-  async activate() {
+  activate() {
     const { button } = this.adapter.exports
     this.adapter.attachConfig({
-      POST: () =>
+      POST: (ctx) =>
         button({
           DEFAULT: {
-            id: 'button',
             img: EXAMPLE_IMG,
             // LP: 1. Add label with counter for it.
 
@@ -107,7 +106,6 @@ Listen for the button click - output into console.
 exec: async (ctx, me) => {
   console.log(ctx);
   console.log(me);
-...
 }
 ```
 
@@ -152,14 +150,13 @@ Here is the complete `exec` code:
 
 ```ts
 exec: async (_, me) => {
-        console.log(ctx)
-        console.log(me)
-        console.log(typeof ctx)
-        me.label += 1
-        const message1 = await Core.storage.get('exampleString')
-        const message2 = await Core.storage.get('exampleHiddenString')
-        Core.alert(`I wrote: ${message1}. Then wrote: ${message2}.`)
-            },
+  console.log(ctx)
+  console.log(me)
+  me.label += 1
+  const message1 = await Core.storage.get('exampleString')
+  const message2 = await Core.storage.get('exampleHiddenString')
+  Core.alert(`I wrote: ${message1}. Then wrote: ${message2}.`)
+}
 ```
 
 In the `config/default.json` define your own defaults.
