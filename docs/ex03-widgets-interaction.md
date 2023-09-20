@@ -12,32 +12,28 @@ Here is `src/index.ts`:
 ```ts
 import {} from '@dapplets/dapplet-extension'
 import EXAMPLE_IMG from './icons/ex03.png'
-//import STAMP_IMG from './icons/fakeStamp.png';
 
 @Injectable
 export default class TwitterFeature {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
-  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any
+  @Inject('twitter-config.dapplet-base.eth')
+  public adapter
 
   activate() {
-    // LP: 1. Get the element 'picture' from adapter
+    // LP: 1. Get the widget "avatarBadge" from adapter
     const { button } = this.adapter.exports
     // LP end
     const { $ } = this.adapter.attachConfig({
-      POST: () => [
+      POST: (ctx) => [
         button({
-          id: 'button',
-          initial: 'DEFAULT',
           DEFAULT: {
-            label: 'Injected Button',
+            label: 'GOLD',
             img: EXAMPLE_IMG,
-            // LP: 3. Toggle the state “hidden/shown” of the picture on button click
+            // LP: 2. Toggle the state “hidden/shown” of the "avatarBadge" widget on button click
 
             // LP end
           },
         }),
-
-        // LP: 2. Add extra picture to POST and make it hidden by default
+        // LP: 1. Add extra "avatarBadge" widget and make it hidden by default
 
         // LP end
       ],
@@ -69,34 +65,37 @@ exec: () => ($(ctx, 'another_el_id').label = 'Hello')
 
 :::
 
-Let's get the widget `picture` from the adapter
+Let's get the widget `avatarBadge` from the adapter
 
 ```ts
-const { button, picture } = this.adapter.exports
+const { button, avatarBadge } = this.adapter.exports
 ```
 
-Add an extra picture to `POST` and make it hidden by default.
+Add an extra avatar badge to `POST` and make it hidden by default.
 
 ```ts
 POST: () => [
   ...
 
-  picture({
-    id: 'pic',
+  avatarBadge({
+    id: 'badge',
     initial: 'DEFAULT',
     DEFAULT: {
-      img: STAMP_IMG,
+      img: BADGE_IMG,
+      vertical: 'bottom',
+      horizontal: 'right',
       hidden: true,
+      exec: () => console.log(ctx),
     },
   }),
 ],
 ```
 
-With a button click, toggle the picture’s state - "hidden/shown".
+With a button click, toggle the avatarBadge’s state - "hidden/shown".
 
 ```ts
 exec: () => {
-  $(ctx, 'pic').hidden = !$(ctx, 'pic').hidden;
+  $(ctx, 'badge').hidden = !$(ctx, 'badge').hidden;
 },
 ```
 
@@ -105,40 +104,40 @@ Result:
 ```ts
 import {} from '@dapplets/dapplet-extension'
 import EXAMPLE_IMG from './icons/ex03.png'
-import STAMP_IMG from './icons/fakeStamp.png'
+import BADGE_IMG from './icons/gold-eth.jpg'
 
 @Injectable
 export default class TwitterFeature {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any,  @typescript-eslint/explicit-module-boundary-types
-  @Inject('twitter-adapter.dapplet-base.eth') public adapter: any
+  @Inject('twitter-config.dapplet-base.eth')
+  public adapter
 
-  activate() {
-    // LP: 1. Get the element 'picture' from adapter
-    const { button, picture } = this.adapter.exports
+  async activate() {
+    // LP: 1. Get the widget 'avatarBadge' from adapter
+    const { button, avatarBadge } = this.adapter.exports
     // LP end
     const { $ } = this.adapter.attachConfig({
       POST: (ctx) => [
         button({
-          id: 'button',
-          initial: 'DEFAULT',
           DEFAULT: {
-            label: 'FAKE',
+            label: 'GOLD',
             img: EXAMPLE_IMG,
-            // LP: 3. Toggle the state “hidden/shown” of the picture on button click
+            // LP: 3. Toggle the state “hidden/shown” of the "avatarBadge" widget on button click
             exec: () => {
-              $(ctx, 'pic').hidden = !$(ctx, 'pic').hidden
+              $(ctx, 'badge').hidden = !$(ctx, 'badge').hidden
             },
             // LP end
           },
         }),
-
-        // LP: 2. Add extra picture to POST and make it hidden by default
-        picture({
-          id: 'pic',
+        // LP: 2. Add extra "avatarBadge" widget and make it hidden by default
+        avatarBadge({
+          id: 'badge',
           initial: 'DEFAULT',
           DEFAULT: {
-            img: STAMP_IMG,
+            img: BADGE_IMG,
+            vertical: 'bottom',
+            horizontal: 'right',
             hidden: true,
+            exec: () => console.log(ctx),
           },
         }),
         // LP end

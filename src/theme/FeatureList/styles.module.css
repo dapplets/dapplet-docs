@@ -1,0 +1,116 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.line_block {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
+font-family: 'Segoe',sans-serif;
+}
+h3 {
+  color: #2a2a2a;
+
+  font-size: 36px;
+
+  font-weight: 400;
+  line-height: 100%;
+  margin-bottom: 20px;
+  font-family: 'Segoe',sans-serif;
+}
+.line_child {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.desc {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  color: #747376;
+
+  font-size: 16px;
+  font-family: 'Segoe',sans-serif;
+  font-weight: 400;
+  line-height: 149%;
+}
+.line_flex {
+  width: 30%;
+}
+.avatar {
+  display: flex !important;
+  align-items: flex-start;
+}
+
+.avatar:hover{
+  color: #2a2a2a!important;
+}
+
+.avatarContacts{
+  display: flex !important;
+  align-items: flex-start;
+}
+
+.avatarContacts:hover{
+  color: #2a2a2a!important;
+}
+.avatar__intro {
+  color: #2a2a2a;
+}
+.avatar__name {
+  color: #2a2a2a;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 149%;
+  font-family: 'Segoe',sans-serif;
+}
+.avatar__nameContacts {
+  color: #2a2a2a;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 149%;
+  font-family: 'Segoe',sans-serif;
+}
+.avatar__subtitle {
+  color: #747376;
+
+  font-size: 14px;
+  font-family: 'Segoe',sans-serif;
+  font-weight: 400;
+  line-height: 149%;
+}
+.avatar__subtitleContacts {
+  color: #588ca3;
+
+  font-size: 14px;
+  font-family: 'Segoe',sans-serif;
+  font-weight: 400;
+  line-height: 149%;
+  text-decoration-line: underline;
+}
+.avatar__photo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+  object-fit: none;
+  background: #f5f5f5;
+}
+
+.avatar__photoContacts {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 4px;
+
+}
+@media only screen and (min-width: 997px) {
+}
+
+@media only screen and (max-width: 996px) {
+}
+
+@media screen and (max-width: 420px) {
+}
