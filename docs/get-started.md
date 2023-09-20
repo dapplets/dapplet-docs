@@ -7,15 +7,15 @@ The Dapplets Project team provides a number of tools that make creating a new da
 
 To run a basic dapplet, follow these steps.
 
-#### 1 Choose the environment to start the project. There are three ways:
+#### 1. Choose the environment to start the project. There are three ways:
 
-#### 1.1 Run the dapplet using **Gitpod**. It is the easiest way to launch **the remotely located dapplet** into the web-browser and try to work with it:
+1.1. Run the dapplet using **Gitpod**. It is the easiest way to launch **the remotely located dapplet** into the web-browser and try to work with it:
 
 [![Open in Gitpod!](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/dapplets/dapplet-template)
 
 Gitpod can provide fully initialized, perfectly set-up developer environments for any kind of software project. More about Gitpod you can find on its [official website](https://www.gitpod.io/).
 
-#### 1.2. [Create Dapplet App](https://www.npmjs.com/package/create-dapplet-app) is the best way to start building your own dapplet.
+1.2. [Create Dapplet App](https://www.npmjs.com/package/create-dapplet-app) is the best way to start building your own dapplet.
 
 To create **a local project**, run:
 
@@ -25,7 +25,7 @@ npx create-dapplet-app
 
 This method is currently the most advanced and allows you to flexibly configure your project. You can immediately select the type of project, add an adapter, overlay or server to the dapplet.
 
-#### 1.3 You can use [Dapplet Template](https://github.com/dapplets/dapplet-template) as a template for **your GitHub repository**.
+1.3. You can use [Dapplet Template](https://github.com/dapplets/dapplet-template) as a template for **your GitHub repository**.
 
 Use the button on the project page:
 
@@ -96,12 +96,11 @@ export default class TwitterFeature {
       POST: () =>
         button({
           DEFAULT: {
-            id: 'button',
             label: 'Injected Button',
             img: EXAMPLE_IMG,
-            exec: () => Core.alert('Hello Word!'),
-          },
-        }),
+            exec: () => Core.alert('Hello, World!')
+          }
+        })
     })
   }
 }
