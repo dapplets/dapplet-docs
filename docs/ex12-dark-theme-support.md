@@ -9,19 +9,15 @@ Usually we pass an image encoded as `base64` to `img`. This can also be an absol
 
 ```typescript
 this.adapter.attachConfig({
-  POST: (ctx) =>
+  POST: () =>
     button({
-      initial: 'DEFAULT',
       DEFAULT: {
         label: 'Injected Button',
         img: {
           LIGHT: LIGHT_IMG,
           DARK: DARK_IMG,
         },
-        exec: () => {
-          console.log(ctx)
-          alert('Hello, Themes!')
-        },
+        exec: () => Core.alert('Hello, Themes!'),
       },
     }),
 })
