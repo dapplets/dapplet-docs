@@ -1,29 +1,30 @@
 ---
 id: virtual-adapter-int
-title: 'Ex07: Virtual adapter (interface)'
+title: 'Ex07: Virtual config (interface)'
 ---
 
-Task: change the twitter adapter to an **identity** adapter and check it on Twitter and Instagram.
+Task: change the twitter adapter to an **virtual** config and check it on Twitter and Github.
 
 The initial code for this example is in [master.](https://github.com/dapplets/dapplet-template/tree/master)
 
-Change the twitter adapter to an **identity** adapter in `/dapplet.json` with a right version:
+Change the twitter adapter to an **virtual** config in `/dapplet.json` with a right version:
 
 ```json
 {
   ...
-  "contextIds": ["identity-adapter.dapplet-base.eth"],
+  "contextIds": ["social-virtual-config.dapplet-base.eth"],
   ...
   "dependencies": {
-    "identity-adapter.dapplet-base.eth": "0.3.0"
+      "social-virtual-config.dapplet-base.eth": "0.1.0"
   }
 }
 ```
 
-In `src/index.ts` change the injected adapter:
+In `src/index.ts` change the virtual config:
 
 ```ts
-@Inject('identity-adapter.dapplet-base.eth') public adapter: any;
+@Inject('social-virtual-config.dapplet-base.eth')
+public adapter: any;
 ```
 
 Here is the result code of the example: [ex07-virtual-adapter.](https://github.com/dapplets/dapplet-template/tree/ex07-virtual-adapter)
