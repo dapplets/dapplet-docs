@@ -1,6 +1,6 @@
 ---
 id: dapplet-actions
-title: 'Ex18: Dapplet Actions'
+title: '17.Dapplet Actions'
 ---
 
 **Dapplet Actions** widgets are used for quick user access to dapplet functions in a minimized Extension view.

@@ -1,6 +1,6 @@
 ---
 id: virtual-adapter-int
-title: 'Ex07: Virtual adapter (interface)'
+title: '06.Virtual adapter (interface)'
 ---
 
 Task: change the twitter adapter to an **identity** adapter and check it on Twitter and Instagram.

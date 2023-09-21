@@ -1,6 +1,6 @@
 ---
 id: extra-button
-title: 'Ex01: Extra button'
+title: '01.Extra button'
 ---
 
 Here is the initial code for this example: [ex01-add-button-exercise](https://github.com/dapplets/dapplet-template/tree/ex01-add-button-exercise).
@@ -104,8 +104,8 @@ Listen for the button click - output into console.
 
 ```ts
 exec: async (ctx, me) => {
-  console.log(ctx);
-  console.log(me);
+  console.log(ctx)
+  console.log(me)
 }
 ```
 

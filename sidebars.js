@@ -49,7 +49,6 @@ module.exports = {
         'state-machine',
         'widgets-interaction',
         'overlays',
-        'wallet',
         'viewport-adapter',
         'virtual-adapter-int',
         'new-site-adapter',
