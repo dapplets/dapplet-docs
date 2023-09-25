@@ -7,7 +7,7 @@ title: Publishing
 
 ![Image to point 1](/img/pub_01.png)
 
-2. A window will open in the browser. If an error occurs, you must agree to use the certificate
+2. A window will open in the browser.
 
 ![Image to point 2](/img/pub_02.png)
 
@@ -21,17 +21,13 @@ If an error occurs, click on the URL.
 
 ![set dynamic adapter](/img/gs_4.jpg)
 
-A new tab will open. Click Advanced.
+You can:
 
-![set dynamic adapter](/img/gs_5.jpg)
+- run on http via serve
+- add a current certificate
+- add the certificate to browser exceptions.
 
-Agree to use the certificate.
-
-![set dynamic adapter](/img/gs_6.jpg)
-
-Reload the tab and you will see the module.
-
-![set dynamic adapter](/img/gs_7.jpg)
+After reload the tab and you will see the module.
 
 :::
 
