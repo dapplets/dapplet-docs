@@ -16,7 +16,7 @@ Change twitter adapter to a **common** adapter in `/dapplet.json` with a right v
   "contextIds": ["common-adapter.dapplet-base.eth"],
   ...
   "dependencies": {
-    "common-adapter.dapplet-base.eth": "0.3.10"
+    "common-adapter.dapplet-base.eth": "0.1.0"
   }
 }
 ```
@@ -30,13 +30,13 @@ In `src/index.ts` change injected adapter:
 and set the right insertion point:
 
 ```ts
-BODY: () =>
-  button({
-    DEFAULT: {
-      tooltip: 'Injected Button',
-      img: EXAMPLE_IMG,
-      exec: () => alert('Hello, World!'),
-    },
+ POST: () =>
+        button({
+          DEFAULT: {
+            label: 'Injected Button',
+            img: EXAMPLE_IMG,
+            exec: () => Core.alert('Hello, World!'),
+          },
   }),
 ```
 
