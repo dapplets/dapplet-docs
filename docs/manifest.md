@@ -9,21 +9,30 @@ Here is an example of the module's manifest:
 
 ```json
 {
-  "name": { "$ref": "package.json#/name" },
+  "name": {
+    "$ref": "package.json#/name"
+  },
   "branch": "default",
-  "version": { "$ref": "package.json#/version" },
+  "version": {
+    "$ref": "package.json#/version"
+  },
   "type": "FEATURE",
-  "title": "Dapplet Template",
-  "description": { "$ref": "package.json#/description" },
-  "main": { "$ref": "package.json#/main" },
-  "icon": "src/icons/dapplet-icon.png",
-  "contextIds": ["twitter-adapter.dapplet-base.eth"],
+  "title": "Dapplet Template Publishing",
+  "description": {
+    "$ref": "package.json#/description"
+  },
+  "main": {
+    "$ref": "package.json#/main"
+  },
+  "icon": "src/icons/example.png",
+  "contextIds": ["twitter-config.dapplet-base.eth"],
   "config": {
     "schema": "config/schema.json",
     "default": "config/default.json"
   },
+  "overlays": {},
   "dependencies": {
-    "twitter-adapter.dapplet-base.eth": "0.9.0"
+    "twitter-config.dapplet-base.eth": "0.1.5"
   }
 }
 ```
@@ -48,20 +57,15 @@ Other parameters are specified in `dapplet.json`:
 - **branch** – used for resources with A/B testing. In most cases, you just need to leave the "default" value.
   However, if you want to create different versions of the module for different versions of the web-resource you can make several branches and run them depending on some condition.
 
-  The Twitter Adapter (`twitter-adapter.dapplet-base.eth`) uses branches, here is an example of how it works:
+  The Twitter Adapter (`twitter-config.dapplet-base.eth`) uses branch, here is an example of how it works:
 
-  - [default branch](https://github.com/dapplets/dapplet-modules/tree/master/packages/twitter-adapter)
-  - [new branch](https://github.com/dapplets/dapplet-modules/tree/master/packages/twitter-adapter-new)
-  - [legacy branch](https://github.com/dapplets/dapplet-modules/tree/master/packages/twitter-adapter-legacy)
+  - [default branch](https://github.com/dapplets/modules-monorepo/tree/main/packages/adapters/twitter-config)
 
 - **type** – indicates the type of module. There are four types:
 
   - `FEATURE` – a dapplet, its main part that interacts with the adapter and the Core
-  - `ADAPTER` – a site-specific adapter that allows dapplets to work with site specific contexts
+  - `CONFIG` – a site-specific adapter that allows dapplets to work with site specific contexts
   - `INTERFACE` – a virtual adapter which provides an interface for dapplets so they are able to use several site-specific adapters
-  - `LIBRARY` – a dynamic adapter. It provides the work of all other adapters. It's specified in the extension's settings
-
-    ![set dynamic adapter](/img/manif_03.jpg)
 
 - **title** – a module's name. It's displayed in the extension's dapplets list, in the Dapplets Store, on the NFT, etc.
 - **icon** – a link to the dapplet's icon. It's an optional parameter.
@@ -72,14 +76,7 @@ Other parameters are specified in `dapplet.json`:
   ```json
   // ./adapter/dapplet.json
   {
-    "contextIds": [
-      "twitter.com",
-      "www.twitter.com",
-      "mobile.twitter.com",
-      "twitter.com/id",
-      "www.twitter.com/id",
-      "mobile.twitter.com/id"
-    ]
+    "contextIds": ["twitter.com", "www.twitter.com", "mobile.twitter.com"]
   }
   ```
 
@@ -88,7 +85,7 @@ Other parameters are specified in `dapplet.json`:
   ```json
   // ./dapplet/dapplet.json
   {
-    "contextIds": ["twitter-adapter.dapplet-base.eth"]
+    "contextIds": ["twitter-config.dapplet-base.eth"]
   }
   ```
 
@@ -138,15 +135,7 @@ Other parameters are specified in `dapplet.json`:
 Check out how to make a dapplet with an overlay here: [Ex04: Overlays](/docs/overlays)
 
 - **dependencies** – adapters which are used in the module. You have to set dependencies for the FEATURE and ADAPTER modules.
-  Set the site-specific and virtual adapters in dapplets, in the site-specific adapters – the dynamic adapter:
-
-  ```json
-  {
-    "dependencies": {
-      "dynamic-adapter.dapplet-base.eth": "0.6.22"
-    }
-  }
-  ```
+  Set the site-specific and virtual adapters in dapplets.
 
 - **interfaces** – a list of interfaces (virtual adapters) that the adapter implements.
   It is an optional parameter for site-specific adapters.
@@ -155,7 +144,7 @@ Check out how to make a dapplet with an overlay here: [Ex04: Overlays](/docs/ove
   ```json
   {
     "interfaces": {
-      "identity-adapter.dapplet-base.eth": "0.3.0"
+      "social-virtual-config.dapplet-base.eth": "0.1.0"
     }
   }
   ```
@@ -165,8 +154,8 @@ Check out how to make a dapplet with an overlay here: [Ex04: Overlays](/docs/ove
 The changes in `dapplet.json` will not be considered in the dapplet registry when you will deploy new module versions.
 To change some information open the Dapplets extension, connect the wallet of the owner or admin of the module, and go to the Settengs -> Developer. You will see the Registry chapter with your published module. Open its settings.
 
-![developers tab](/img/manif_01.jpg)
+![developers tab](/img/manif_01.png)
 
 Here you can change: title, description, icon, ownership, admins, context IDs.
 
-![module settings](/img/manif_02.jpg)
+![module settings](/img/manif_02.png)
