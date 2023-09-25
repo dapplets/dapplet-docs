@@ -19,7 +19,7 @@ Furthermore, don’t miss our public list of [dapplet ideas](https://github.com/
 
 Install our extension for [Google Chrome](https://chrome.google.com/webstore/detail/dapplets/pjjnaojpjhgbhpfffnjleidmdbajagdj) or [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/dapplets/icpdagldaielgidgdiaanollkfgdclop) from browser extension stores, or directly from our [GitHub repository](https://github.com/dapplets/dapplet-extension).
 
-Go to Twitter or YouTube.
+Go to Twitter or GitHub.
 
 In the extension you will see several dapplets that work on these webpages.
 
@@ -37,9 +37,9 @@ More info about settings you can find [here](https://www.npmjs.com/package/creat
 
 ### The extension doesn’t work. I don’t see any dapplets, what do I do?
 
-Begin by opening the desired website (Twitter, YouTube etc.) and clicking on the Dapplets extension. It should show you a list of dapplets that can be used on this website.
+Begin by opening the desired website (Twitter, GitHub etc.) and clicking on the Dapplets extension. It should show you a list of dapplets that can be used on this website.
 
-If this doesn’t help please check that you have the latest version of the extension. Unfortunately, the extension is not yet updated automatically and we have a fast-paced development process. You can find the latest release [here](https://github.com/dapplets/dapplet-extension/releases/latest).
+If this doesn’t help please check that you have the latest version of the extension. Unfortunately, the extension is not yet updated automatically and we have a fast-paced development process. You can find the latest release [here](https://chrome.google.com/webstore/detail/dapplets/pjjnaojpjhgbhpfffnjleidmdbajagdj).
 
 If your version in outdated delete it and download the correct one.
 
@@ -49,7 +49,7 @@ If the issue remains take a screenshot and contact us through [Discord](https://
 
 Currently, the Dapplets Extension only works on desktop and does not support androids\mobiles.
 
-It's best to use Chrome or Brave browsers.
+It's best to use Chrome or Edge browsers.
 
 ### Where can I send messages about issues I encounter? Share my suggestions? or ideas\partnership offers?
 
