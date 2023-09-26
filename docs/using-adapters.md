@@ -22,71 +22,22 @@ Then create the manifest **`/dapplet.json`**:
   "description": { "$ref": "package.json#/description" },
   "main": { "$ref": "package.json#/main" },
   "icon": "src/icons/YOUR_ICON.png",
-  "contextIds": ["twitter-adapter.dapplet-base.eth"],
+  "contextIds": ["twitter-config.dapplet-base.eth"],
   "config": {
     "schema": "config/schema.json",
     "default": "config/default.json"
   },
   "dependencies": {
-    "twitter-adapter.dapplet-base.eth": "0.9.0"
+    "twitter-config.dapplet-base.eth": "0.1.8"
   }
 }
 ```
 
 Here set the title and icon and check if the other fields match your project.
 
-As you can see **`"contextIds"`** and **`"dependencies"`** contain the name of our Twitter adapter: `"twitter-adapter.dapplet-base.eth"`. The last field specifies which **version** should be used.
+As you can see **`"contextIds"`** and **`"dependencies"`** contain the name of our Twitter adapter: `"twitter-config.dapplet-base.eth"`. The last field specifies which **version** should be used.
 
-Add the `/config` directory with the following structure:
-
-```bash
-config
-├── default.json
-└── schema.json
-```
-
-In the `schema.json` we specify the settings for the dapplet, which will be available in a browser through the extension. `default.json` contains defaults for the schema for three environments: **main**, **test** and **dev**.
-
-```json
-// /config/schema.json
-{
-  "type": "object",
-  "required": ["exampleString", "exampleHiddenString"],
-  "properties": {
-    "exampleString": {
-      "type": "string",
-      "title": "Example of string property"
-    },
-    "exampleHiddenString": {
-      "type": "string",
-      "title": "Example of hidden string property",
-      "hidden": true
-    }
-  }
-}
-```
-
-```json
-// /config/default.json
-{
-  "main": {
-    "exampleString": "some string value",
-    "exampleHiddenString": "some string value"
-  },
-  "test": {
-    "exampleString": "some string value",
-    "exampleHiddenString": "some string value"
-  },
-  "dev": {
-    "exampleString": "some string value",
-    "exampleHiddenString": "some string value"
-  }
-}
-```
-
-![Dapplet Settings](/img/a_twitter_1.png)
-
-Finally, implement the dapplet’s `/src/index.ts` according to the example:
+Implement the dapplet’s `/src/index.ts` according to the example:
 
 ```ts
 import {} from '@dapplets/dapplet-extension';
@@ -95,7 +46,7 @@ import {} from '@dapplets/dapplet-extension';
 @Injectable
 export default class MyDapplet {
 
-  @Inject('exercise-viewport-adapter.dapplet-base.eth')
+  @Inject('twitter-config.dapplet-base.ethh')
   public adapter: any;
 
   activate(): any {
@@ -109,23 +60,18 @@ export default class MyDapplet {
 Widgets are taken from the adapter's **`exports`**:
 
 ```ts
-const { button, popup } = this.adapter.exports
+const { button } = this.adapter.exports
 ```
 
 and then used in the **`attachConfig()`** function:
 
 ```ts
-const { $ } = this.adapter.attachConfig({
-  BODY: (ctx) => [
-    button({
-      ...
-    }),
-    popup({
-      id: 'popup',
-      ...
-    }),
-  ],
-});
+ this.adapter.attachConfig({
+      POST: () =>
+        button({
+        ...
+        }),
+    })
 ```
 
 `attachConfig` receives an object with context names as keys. The values of the object are functions which return a widget or an array of widgets. `attachConfig` returns the object with `$(ctx, 'element_id')` function,
