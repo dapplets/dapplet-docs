@@ -13,10 +13,10 @@ Change twitter adapter to a **common** adapter in `/dapplet.json` with a right v
 {
   ...
 
-  "contextIds": ["common-adapter.dapplet-base.eth"],
+  "contextIds": ["common-config.dapplet-base.eth"],
   ...
   "dependencies": {
-    "common-adapter.dapplet-base.eth": "0.1.0"
+    "common-config.dapplet-base.eth": "0.1.0"
   }
 }
 ```
@@ -24,7 +24,7 @@ Change twitter adapter to a **common** adapter in `/dapplet.json` with a right v
 In `src/index.ts` change injected adapter:
 
 ```ts
-@Inject('common-adapter.dapplet-base.eth') public adapter: any;
+@Inject('common-config.dapplet-base.eth') public adapter: any;
 ```
 
 and set the right insertion point:
