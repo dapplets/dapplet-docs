@@ -60,7 +60,6 @@ module.exports = {
         'shared-state',
         'core-login',
         'server-connection',
-        'web-components',
         'overlay-login',
         'dapplet-actions',
         'notifications',
