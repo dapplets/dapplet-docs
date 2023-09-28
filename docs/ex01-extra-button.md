@@ -184,7 +184,7 @@ Run the dapplet in your terminal
 npm start
 ```
 
-> If you don't know how to run the dapplet in a browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
+> If you don't know how to run the dapplet in a browser, see [Get Started](/docs/get-started#10-connect-the-development-server-to-the-dapplets-extension).
 
 Here is the result code of the example: [ex01-add-button-solution](https://github.com/dapplets/dapplet-template/tree/ex01-add-button-solution)
 
