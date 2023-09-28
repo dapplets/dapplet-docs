@@ -19,40 +19,33 @@ example-virtual-adapter
 ├── dapplet.json
 ├── package-lock.json
 ├── package.json
-├── rollup.config.js
-├── src
-|  └── index.ts
 └── tsconfig.json
 ```
 
-3. The `/example-virtual-adapter/src/` folder should contain only `index.ts` that exports an empty object.
-
-```ts
-export default {}
-```
-
-4. In the `/example-virtual-adapter/dapplet.json` set `"type": "INTERFACE"` and remove `"contextIds"` and `"dependencies"`.
+3. In the `/example-virtual-adapter/dapplet.json` set `"type": "INTERFACE"` and remove `"contextIds"` and `"dependencies"`.
 
 ```json
 {
-  "name": { "$ref": "package.json#/name" },
+  "name": "example-virtual-adapter.dapplet-base.eth",
   "branch": "default",
-  "version": { "$ref": "package.json#/version" },
+  "version": "0.1.0",
   "type": "INTERFACE",
-  "title": "Virtual Adapter Example",
-  "description": { "$ref": "package.json#/description" },
-  "main": { "$ref": "package.json#/main" }
+  "title": "Social Virtual Config",
+  "main": {
+    "$ref": "package.json#/main"
+  },
+  "description": "Virtual config for social networks"
 }
 ```
 
-5. Add virtual adapter to `"interfaces: []"` in `dapplet.json` of Google and Yahoo adapters and to `"contextIds"` and `"dependencies"` of the dapplet-feature.
+4. Add virtual adapter to `"interfaces: []"` in `dapplet.json` of Google and Yahoo adapters and to `"contextIds"` and `"dependencies"` of the dapplet-feature.
 
 ```json
 // example-google-adapter/dapplet.json example-yahoo-adapter/dapplet.json
 {
   ...
   "interfaces": {
-    "example-virtual-adapter.dapplet-base.eth": "0.2.0"
+    "example-virtual-adapter.dapplet-base.eth": "0.1.0"
   }
 }
 ```
@@ -64,7 +57,7 @@ export default {}
   "contextIds": ["example-virtual-adapter.dapplet-base.eth"],
   ...
   "dependencies": {
-    "example-virtual-adapter.dapplet-base.eth": "0.2.0"
+    "example-virtual-adapter.dapplet-base.eth": "0.1.0"
   }
 }
 ```
