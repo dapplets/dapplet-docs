@@ -1,6 +1,6 @@
 ---
 id: web-components
-title: '15.Using Web Components'
+title: 'Using Web Components'
 ---
 
 In this example you will learn how to write Web Components style widgets for adapters.

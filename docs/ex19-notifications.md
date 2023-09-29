@@ -1,6 +1,6 @@
 ---
 id: notifications
-title: '18.Notifications'
+title: 'Notifications'
 ---
 
 **Notifications** are used to send notifications to users.

@@ -1,6 +1,6 @@
 ---
 id: viewport-adapter
-title: '05.Viewport adapter'
+title: 'Viewport adapter'
 ---
 
 Task: change the twitter adapter to a **common** adapter and check it on Twitter, YouTube, Instagram and Dapplets.org.

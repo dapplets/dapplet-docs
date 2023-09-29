@@ -1,6 +1,6 @@
 ---
 id: new-site-adapter
-title: '07.New Site specific adapter'
+title: 'New Site specific adapter'
 ---
 
 In this example we implement an adapter for Google Search and a dapplet for it.

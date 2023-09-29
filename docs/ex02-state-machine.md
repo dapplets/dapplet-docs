@@ -1,6 +1,6 @@
 ---
 id: state-machine
-title: '02.State machine'
+title: 'State machine'
 ---
 
 Now let’s try to have the button change its appearance when clicked.

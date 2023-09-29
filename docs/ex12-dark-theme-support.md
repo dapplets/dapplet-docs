@@ -1,6 +1,6 @@
 ---
 id: dark-theme-support
-title: '11.Dark theme support'
+title: 'Dark theme support'
 ---
 
 You can add different icons for **light** and **dark** themes.

@@ -1,6 +1,6 @@
 ---
 id: widgets-interaction
-title: '03.Widgets interaction'
+title: 'Widgets interaction'
 ---
 
 In this exercise we will add two interactive widgets to `POST` context.

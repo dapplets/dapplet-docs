@@ -1,6 +1,6 @@
 ---
 id: overlays
-title: '04.Overlays'
+title: 'Overlays'
 ---
 
 In this example we will add an overlay to a `POST`. This overlay will be opened with a button click.

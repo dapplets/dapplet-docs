@@ -1,6 +1,6 @@
 ---
 id: new-virtual-adapter
-title: '09.New Virtual adapter (interface)'
+title: 'Create Virtual adapter (interface)'
 ---
 
 The point of a virtual adapter is to run one dapplet on many adapters.
