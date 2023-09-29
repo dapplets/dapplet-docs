@@ -5,13 +5,59 @@ title: 'Ex04: Overlays'
 
 In this example we will add an overlay to a `POST`. This overlay will be opened with a button click.
 
-Here are example of an overlay, the React based component:
+Here are two examples of an overlay:
 
+- [Pure HTML page](https://github.com/dapplets/dapplet-overlay-bridge/tree/master/examples/pure-html-page)
 - [React.js based example](https://github.com/dapplets/dapplet-overlay-bridge/tree/master/examples/react-overlay)
 
-Here is the initial code for this example: [ex04-overlays-exercise.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-exercise)
+First we implement an overlay written on HTML with pure JavaScript. Second - the React based component.
+
+Here is the initial code for this example, including both of the above overlays: [ex04-overlays-exercise.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-exercise)
 
 Now let's create overlays.
+
+:::tip
+
+We recommend using an overlay written on the React based component. When implement an overlay written on HTML with pure JavaScript, some functions are not available.
+
+Such as:
+
+- [Share State HOC](/dapplet-docs/docs/ex13-shared-state.md),
+
+... and some others
+
+:::
+
+### HTML with JavaScript overlay
+
+1. In `pure-html-page/index.html` import Bridge class from `https://unpkg.com/@dapplets/dapplet-overlay-bridge` package.
+
+```js
+import Bridge from 'https://unpkg.com/@dapplets/dapplet-overlay-bridge'
+```
+
+2. Create Bridge class instance and subscribe it to the `data` event.
+
+```js
+const bridge = new Bridge()
+
+bridge.on('data', ({ message, counter }) => {
+  document.querySelector('.dappletMessage').innerText = message
+  document.querySelector('.dappletCounter').innerText = counter ?? 0
+})
+```
+
+3. Add an event handler to the button click.
+
+```js
+let isTick = true
+const button = document.querySelector('.ch-state-btn')
+button.addEventListener('click', async () => {
+  const counter = await bridge.increaseCounterAndToggleLabel(isTick)
+  document.querySelector('.dappletCounter').innerText = counter
+  isTick = !isTick
+})
+```
 
 ### React.js based overlay
 
@@ -23,20 +69,20 @@ npm i @dapplets/dapplet-overlay-bridge
 cd ..
 ```
 
-1. In `/overlayWithReact/src/App.tsx` import GeneralBridge class from @dapplets/dapplet-overlay-bridge package.
+1. In `/overlayWithReact/src/App.tsx` import Bridge class from @dapplets/dapplet-overlay-bridge package.
 
 ```tsx
 
 ```
 
-2. Create `IDappletApi` interface and GeneralBridge class instance typing with the inteface.
+2. Create `IDappletApi` interface and Bridge class instance typing with the inteface.
 
 ```tsx
 interface IDappletApi {
   increaseCounterAndToggleLabel: (isTick: boolean) => Promise<number>
 }
 
-const bridge = new GeneralBridge<IDappletApi>()
+const bridge = new Bridge<IDappletApi>()
 ```
 
 3. Add a listener to the 'data' event.
@@ -70,15 +116,13 @@ interface IDappletApi {
 
 ```ts
 
-  activate() {
+   async activate(): Promise<void>  {
     ...
     this.adapter.attachConfig({
       ...
     })
 
-    Core.onAction(async () => {
-      this.overlay.open()
-    })
+    Core.onAction(() => this.overlay.open())
   }
 
 ```
@@ -88,8 +132,10 @@ interface IDappletApi {
 ```ts
 const dappletApi: IDappletApi = {
   increaseCounterAndToggleLabel: (isTick: boolean) => {
-    ctx.counter = ctx.counter === undefined ? 1 : ctx.counter + 1
-    me.label = `${isTick ? 'tick' : 'tock'} ${ctx.counter}`
+    ctx.counter = ctx.counter ? ++ctx.counter : 1
+
+    me.label = `${ctx.counter}`
+
     return ctx.counter
   },
 }
@@ -119,7 +165,7 @@ Dependencies must be installed before running:
 npm i
 ```
 
-To run the dapplet with ReactJS overlay, change `start` script to the following:
+To run the dapplet with React overlay, change `start` script to the following:
 
 ```json
 "start": "concurrently -c \"yellow,blue\" -n \"dapplet,overlay\" \"rollup -w --config rollup.config.js\" \"cd overlayWithReact && npm start\"",
