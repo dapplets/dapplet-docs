@@ -7,7 +7,7 @@ In this exercise we create a dapplet with an overlay with shared state.
 
 The overlay will be React App with Typescript (TSX).
 
-In our dapplet we will add `button` with a counter and `input` to every tweet and to the overlay. The values of all the counters and inputs will be kept in a single shared state.
+In our dapplet we will add `button` with a counter to every tweet and add button and input to the overlay. The values of all the counters and input will be kept in a single shared state.
 
 Here is the initial code for this example, which is similar to the base template: [`ex13-shared-state-exercise`](https://github.com/dapplets/dapplet-template/tree/ex13-shared-state-exercise)
 
@@ -66,11 +66,6 @@ this.adapter.attachConfig({
         // ...
       },
     }),
-    input({
-      DEFAULT: {
-        // ...
-      },
-    }),
   ],
 })
 ```
@@ -82,10 +77,7 @@ We want to create different states for every tweet. So the keys will be the twee
   // ...
   label: state[ctx.id].counter,
 }
-// ...
-{
-  text: state[ctx.id].text
-}
+
 ```
 
 You don't need to create the current context state in advance. It will be created from the default state when the key is not found in the storage.
@@ -133,10 +125,6 @@ element.addEventListener('input', (e: any) => {
 })
 ```
 
-You can see the example here: [Input Widget](https://github.com/dapplets/dapplet-modules/blob/56e1c37dae399ef8e9688dad021b38010053b888/packages/twitter-adapter-new/src/input.ts#L40)
-
-As a result we don't need to add `exec` for the input widget.
-
 The entire `activate` method:
 
 ```typescript
@@ -158,11 +146,6 @@ activate() {
             overlay.open(ctx.id);
           },
         },
-      }),
-      input({
-        DEFAULT: {
-          text: state[ctx.id].text
-        }
       })
     ])
   });
