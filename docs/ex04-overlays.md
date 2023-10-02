@@ -8,9 +8,15 @@ In this example we will add an overlay to a `POST`. This overlay will be opened 
 Here are two examples of an overlay:
 
 - [Pure HTML page](https://github.com/dapplets/dapplet-overlay-bridge/tree/master/examples/pure-html-page)
-- [React.js based example](https://github.com/dapplets/dapplet-overlay-bridge/tree/master/examples/react-overlay)
+- [React based example](https://github.com/dapplets/dapplet-overlay-bridge/tree/master/examples/react-overlay)
 
 First we implement an overlay written on HTML with pure JavaScript. Second - the React based component.
+
+:::tip
+
+We recommend using an overlay written on the React based component. When implement an overlay written on HTML with pure JavaScript, some functions such as [Share State HOC](/docs/shared-state) are not available.
+
+:::
 
 Here is the initial code for this example, including both of the above overlays: [ex04-overlays-exercise.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-exercise)
 
@@ -18,10 +24,10 @@ Now let's create overlays.
 
 ### HTML with JavaScript overlay
 
-1. In `pure-html-page/index.html` import Bridge class from `https://unpkg.com/@dapplets/dapplet-overlay-bridge` package.
+1. In `pure-html-page/index.html` import Bridge class from `https://unpkg.com/@dapplets/dapplet-overlay-bridge@0.1.1` package.
 
 ```js
-import Bridge from 'https://unpkg.com/@dapplets/dapplet-overlay-bridge'
+import Bridge from 'https://unpkg.com/@dapplets/dapplet-overlay-bridge@0.1.1'
 ```
 
 2. Create Bridge class instance and subscribe it to the `data` event.
@@ -47,7 +53,22 @@ button.addEventListener('click', async () => {
 })
 ```
 
-### React.js based overlay
+:::tip
+
+To publish a dapplet with an overlay, you need `assets-manifest.json`. When overlay is written in React, webpack or another module bundler builds it on its own. As you will see, if you create a React based overlay from the example, the manifest will have the following structure:
+
+```json
+{
+  "index.html": "index.html",
+  "main.js": "main.js"
+}
+```
+
+Here we create manually the same manifest but without `main.js` module.
+
+:::
+
+### React based overlay
 
 First install [Dapplet-Overlay Bridge:](https://github.com/dapplets/dapplet-overlay-bridge) in `/overlayWithReact` module.
 
@@ -96,11 +117,11 @@ handleClick = async () => {
 
 ```ts
 interface IDappletApi {
-  increaseCounterAndToggleLabel: (isTick: boolean) => Promise<number>
+  increaseCounterAndToggleLabel: (isTick: boolean) => number
 }
 ```
 
-2. Implement the overlay opening on the button click. To get the current overlay use `Core.overlay({ name: string, title: string })`.
+2. Create an overlay object using Core API: `Core.overlay({ name: string, title: string })`.
 
 ```ts
 const overlay = Core.overlay({ name: 'example-04-overlay', title: 'Example 4' })
@@ -111,27 +132,31 @@ const overlay = Core.overlay({ name: 'example-04-overlay', title: 'Example 4' })
 ```ts
 const dappletApi: IDappletApi = {
   increaseCounterAndToggleLabel: (isTick: boolean) => {
-    ctx.counter = ctx.counter === undefined ? 1 : ctx.counter + 1
-    me.label = `${isTick ? 'tick' : 'tock'} ${ctx.counter}`
-    return ctx.counter
+    this.currentContext.counter =
+      this.currentContext.counter === undefined ? 1 : this.currentContext.counter + 1
+    this._currentProxy.label = `${isTick ? 'tick' : 'tock'} ${this.currentContext.counter}`
+    return this.currentContext.counter
   },
 }
 overlay.declare(dappletApi)
 ```
 
-4. Send 'Hello, World!' message and ctx.counter to the overlay using 'data' event.
+4. Save current context and proxy to the global variables to use them in `increaseCounterAndToggleLabel` function.
 
 ```ts
+this.currentContext = ctx
+this._currentProxy = proxy
+```
+
+5. By click open the overlay using `send()` method. Send 'Hello, World!' message and ctx.counter to the overlay using 'data' event.
+
+```ts
+this.currentContext = ctx
+this._currentProxy = me
 overlay.send('data', { message: 'Hello, World!', counter: ctx.counter })
 ```
 
-There is also an `onClose` function. It allows handling the closing of the overlay.
-
-```ts
-overlay.onClose(() => console.log('The overlay closed!'))
-```
-
-5. Add to the `dapplet.json` manifest the following option:
+6. Add to the `dapplet.json` manifest the following option:
 
 ```json
 {
@@ -148,36 +173,17 @@ Dependencies must be installed before running:
 npm i
 ```
 
-To run the dapplet with pure JS overlay, change `start` script in `package.json`:
-
-```json
-"start": "concurrently -c \"yellow,green\" -n \"dapplet,overlay\" \"rollup -w --config rollup.config.js\" \"cd pure-html-page && npx serve -l 3000\"",
-```
-
-To run the dapplet with ReactJS overlay, change `start` script to the following:
-
-```json
-"start": "concurrently -c \"yellow,blue\" -n \"dapplet,overlay\" \"rollup -w --config rollup.config.js\" \"cd overlayWithReact && npm start\"",
-```
-
 Run the dapplet
 
 ```bash
 npm start
 ```
 
-:::tip
-
-To publish a dapplet with an overlay, you need `assets-manifest.json`. When overlay is written in React, webpack or another module bundler builds it on its own. But when you write it in pure JS, you need to create the manifest yourself. As you can see, if you create a React based overlay from the example, the manifest will have the following structure:
+To run the dapplet with React overlay, change `start` script to the following:
 
 ```json
-{
-  "index.html": "index.html",
-  "main.js": "main.js"
-}
+"start": "npm run start:react",
 ```
-
-:::
 
 Here is the result code of the example: [ex04-overlays-solution.](https://github.com/dapplets/dapplet-template/tree/ex04-overlays-solution)
 
