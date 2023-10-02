@@ -1,7 +1,9 @@
 ---
-id: extra-button
-title: 'Ex01: Extra button'
+id: using-widgets
+title: 'Using widgets'
 ---
+
+Let's take a closer look at how to write the main module of a dapplet, what it consists of, how to add a widget, and how to use some Core API methods.
 
 Here is the initial code for this example: [ex01-add-button-exercise](https://github.com/dapplets/dapplet-template/tree/ex01-add-button-exercise).
 
@@ -23,13 +25,7 @@ export default class TwitterFeature {
         button({
           DEFAULT: {
             img: EXAMPLE_IMG,
-            // LP: 1. Add label with counter for it.
-
-            // LP end
-            // LP: 2. Listen for the button click - output into console.
-            //     3: Make counter incrementing on button click.
-            exec: () => Core.alert('Hello, World!'),
-            // LP end
+            exec: () => Core.alert('Hello Word!'),
           },
         }),
     })
@@ -54,7 +50,7 @@ POST: (ctx) => button({})
 Before using the `button` or/and other widgets in `this.adapter.attachConfig()` it has to be received
 from `this.adapter.exports`.
 
-This button has only one state - `DEFAULT`. In this case you can choose not to set the initial state and delete this field.
+Our button has only one state - `DEFAULT`. In this case you can choose not to set the initial state and delete this field.
 
 ```typescript
 button({
@@ -90,9 +86,7 @@ button click.
 
 The whole list of **widgets** and **contexts** is defined in the adapter. The **twitter-config** API can be found [here](/docs/adapters-docs-list).
 
-In the first exercise we will add a counter to the button label in `POST`.
-
-Let's implement counters for the buttons.
+Let’s add a counter to the button label in `POST` to show how we can manipulate the widget’s state.
 
 Add a label with a counter.
 
@@ -104,8 +98,8 @@ Listen for the button click - output into console.
 
 ```ts
 exec: async (ctx, me) => {
-  console.log(ctx);
-  console.log(me);
+  console.log(ctx)
+  console.log(me)
 }
 ```
 
@@ -192,4 +186,4 @@ In the browser:
 
 ![video](/video/ex_1_2.gif)
 
-> If you want to save counters' values and get them from the server, look at [example 15](/docs/server-connection).
+> If you want to save counters' values and get them from the server, look at [Server Connection](/docs/server-connection).

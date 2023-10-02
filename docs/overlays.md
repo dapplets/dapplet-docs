@@ -1,6 +1,6 @@
 ---
 id: overlays
-title: 'Ex04: Overlays'
+title: 'Overlays'
 ---
 
 In this example we will add an overlay to a `POST`. This overlay will be opened with a button click.
@@ -81,7 +81,7 @@ cd ..
 1. In `/overlayWithReact/src/App.tsx` import Bridge class from @dapplets/dapplet-overlay-bridge package.
 
 ```tsx
-import Bridge from '@dapplets/dapplet-overlay-bridge'
+
 ```
 
 2. Create `IDappletApi` interface and Bridge class instance typing with the inteface.

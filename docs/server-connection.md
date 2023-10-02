@@ -1,6 +1,6 @@
 ---
 id: server-connection
-title: 'Ex15: Server Connection'
+title: 'Server Connection'
 ---
 
 In this example we use `Core` methods for connecting to the server using WebSockets.

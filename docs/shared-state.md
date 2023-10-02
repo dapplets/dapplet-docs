@@ -1,6 +1,6 @@
 ---
 id: shared-state
-title: 'Ex13: Shared State'
+title: 'Shared State'
 ---
 
 In this exercise we create a dapplet with an overlay with shared state.

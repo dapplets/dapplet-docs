@@ -1,6 +1,6 @@
 ---
 id: dapplet-actions
-title: 'Ex18: Dapplet Actions'
+title: 'Dapplet Actions'
 ---
 
 **Dapplet Actions** widgets are used for quick user access to dapplet functions in a minimized Extension view.
@@ -63,7 +63,7 @@ this.adapterAction.attachConfig({
 
 **parameters of the Dapplet Actions**
 
-The widget button has options similar to the button widgets of other adapters. More about it is [here](/docs/extra-button).
+The widget button has options similar to the button widgets of other adapters. More about it is [here](/docs/using-widgets).
 
 _icon_ - required parameter. We recommend to use images in SVG format.
 

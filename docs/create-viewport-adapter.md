@@ -1,6 +1,6 @@
 ---
-id: new-viewport-adapter
-title: 'Ex09: New Viewport adapter'
+id: create-viewport-adapter
+title: 'Create viewport adapter'
 ---
 
 In this example we create a new viewport adapter and a dapplet for it.

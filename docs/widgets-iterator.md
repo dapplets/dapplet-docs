@@ -1,6 +1,6 @@
 ---
 id: widgets-iterator
-title: 'Ex11: Widgets Iterator'
+title: 'Widgets Iterator'
 ---
 
 The function that we pass to augment the context can return either a **single widget**, or an **array of widgets**, or a **null**. The widgets in the array can be of the same or different types. The function itself can be either **synchronous** or **asynchronous**.

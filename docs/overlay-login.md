@@ -1,6 +1,6 @@
 ---
 id: overlay-login
-title: 'Ex17: Overlay With Login'
+title: 'Overlay With Login'
 ---
 
 This example shows how to work with the overlay through the new Core Login API.
