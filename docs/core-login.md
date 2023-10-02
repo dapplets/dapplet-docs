@@ -1,6 +1,6 @@
 ---
 id: core-login
-title: 'Ex14: Core Login'
+title: 'Wallets and smart contracts'
 ---
 
 This example shows how to work with Ethereum and NEAR wallets and smart-contracts via new Core Login API.

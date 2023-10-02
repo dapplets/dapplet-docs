@@ -1,6 +1,6 @@
 ---
 id: state-machine
-title: 'Ex02: State machine'
+title: 'State machine'
 ---
 
 Now let’s try to have the button change its appearance when clicked.
@@ -108,4 +108,4 @@ In the browser:
 
 ![video](/video/ex_2.gif)
 
-> If you don't know how to run a dapplet in your browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
+> If you don't know how to run a dapplet in your browser, see [Get Started](/docs/get-started#10-connect-the-development-server-to-the-dapplets-extension).
