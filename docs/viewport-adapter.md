@@ -13,10 +13,10 @@ Change twitter adapter to a **common** adapter in `/dapplet.json` with a right v
 {
   ...
 
-  "contextIds": ["common-config.dapplet-base.eth"],
+  "contextIds": ["example-common-config.dapplet-base.eth"],
   ...
   "dependencies": {
-    "common-config.dapplet-base.eth": "0.1.0"
+    "example-common-config.dapplet-base.eth": "0.1.0"
   }
 }
 ```
@@ -24,20 +24,34 @@ Change twitter adapter to a **common** adapter in `/dapplet.json` with a right v
 In `src/index.ts` change injected adapter:
 
 ```ts
-@Inject('common-config.dapplet-base.eth') public adapter: any;
+@Inject('example-common-config.dapplet-base.eth') public adapter: any;
 ```
 
 and set the right insertion point:
 
 ```ts
- POST: () =>
+...
+  async activate(): Promise<void> {
+    const { button } = this.adapter.exports
+    this.adapter.attachConfig({
+      GLOBAL: (global) => {
+        this._globalContext = global
+      },
+      BODY: () =>
         button({
+          initial: 'DEFAULT',
           DEFAULT: {
-            label: 'Injected Button',
+            label: 'Hi',
             img: EXAMPLE_IMG,
-            exec: () => Core.alert('Hello, World!'),
+            exec: this.onAlert,
           },
-  }),
+        }),
+    })
+  }
+  onAlert = async () => {
+    Core.alert('Hello world')
+  }
+  ...
 ```
 
 Here is the result code of the example: [ex06-viewport-adapter.](https://github.com/dapplets/dapplet-template/tree/ex06-viewport-adapter)
