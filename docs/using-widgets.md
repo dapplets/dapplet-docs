@@ -57,7 +57,7 @@ Our button has only one state - `DEFAULT`. In this case you can choose not to se
 button({
   DEFAULT: {
     img: EXAMPLE_IMG,
-    exec: () => Core.alert('Hello Word!'),
+    exec: () => Core.alert('Hello, World!'),
   },
 })
 ```
@@ -71,13 +71,13 @@ button({
   // First state button
   FIRST_STATE: {
     img: LIKE_IMG,
-    exec: () => Core.alert('Hello Word!'),
+    exec: () => Core.alert('Hello, World!'),
   },
 
   // Second state button
   SECOND_STATE: {
     img: DISLIKE_IMG,
-    exec: () => Core.alert('Hello Word!'),
+    exec: () => Core.alert('Hello, World!'),
   },
 })
 ```
@@ -179,7 +179,7 @@ Run the dapplet in your terminal
 npm start
 ```
 
-> If you don't know how to run the dapplet in a browser, see [Get Started](/docs/get-started#11-connect-the-development-server-to-dapplet-extension).
+> If you don't know how to run the dapplet in a browser, see [Get Started](/docs/get-started#10-connect-the-development-server-to-the-dapplets-extension).
 
 Here is the result code of the example: [ex01-add-button-solution](https://github.com/dapplets/dapplet-template/tree/ex01-add-button-solution)
 
