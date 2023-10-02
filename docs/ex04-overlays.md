@@ -152,7 +152,7 @@ this._currentProxy = proxy
 
 ```ts
 this.currentContext = ctx
-this._currentProxy = me
+this._currentProxy = proxy
 overlay.send('data', { message: 'Hello, World!', counter: ctx.counter })
 ```
 
