@@ -8,7 +8,7 @@ In this exercise you should implement a virtual adapter for two search adapters.
 
 Here is the initial code for this example: [ex10-new-virtual-adapter-exercise.](https://github.com/dapplets/dapplet-template/tree/ex10-new-virtual-adapter-exercise)
 
-The starting point of exercise is the solution for the [Ex08: New Site specific adapter](/docs/new-site-adapter). There is an adapter for Google Search and a dapplet for it.
+The starting point of exercise is the solution for the [Ex08: New Site specific adapter](/docs/create-site-adapter). There is an adapter for Google Search and a dapplet for it.
 
 1. Add a search adapter for Yahoo. See the code on GitHub: [example-yahoo-adapter.](https://github.com/dapplets/dapplet-template/tree/ex10-new-virtual-adapter-solution/example-yahoo-adapter)
 
