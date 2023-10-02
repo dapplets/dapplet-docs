@@ -151,8 +151,6 @@ this._currentProxy = proxy
 5. By click open the overlay using `send()` method. Send 'Hello, World!' message and ctx.counter to the overlay using 'data' event.
 
 ```ts
-this.currentContext = ctx
-this._currentProxy = proxy
 overlay.send('data', { message: 'Hello, World!', counter: ctx.counter })
 ```
 
