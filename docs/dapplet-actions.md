@@ -63,7 +63,7 @@ this.adapterAction.attachConfig({
 
 **parameters of the Dapplet Actions**
 
-The widget button has options similar to the button widgets of other adapters. More about it is [here](/docs/extra-button).
+The widget button has options similar to the button widgets of other adapters. More about it is [here](/docs/using-widgets).
 
 _icon_ - required parameter. We recommend to use images in SVG format.
 

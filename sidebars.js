@@ -42,7 +42,7 @@ module.exports = {
       type: 'category',
       label: 'Adapters',
       collapsed: true,
-      items: ['new-site-adapter', 'new-viewport-adapter', 'new-virtual-adapter'],
+      items: ['create-site-adapter', 'create-viewport-adapter', 'create-virtual-adapter'],
     },
     {
       type: 'category',
@@ -50,7 +50,6 @@ module.exports = {
       collapsed: true,
       items: ['using-adapters', 'adapters-docs-list', 'create-adapter-doc'],
     },
-    { type: 'category', collapsed: true, label: 'Development', items: [] },
     {
       type: 'category',
       collapsed: true,
