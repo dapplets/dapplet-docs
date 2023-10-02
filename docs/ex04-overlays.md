@@ -55,7 +55,16 @@ button.addEventListener('click', async () => {
 
 :::tip
 
-To publish a dapplet with an overlay, you need `assets-manifest.json`. When overlay is written in React, webpack or another module bundler builds it on its own.
+To publish a dapplet with an overlay, you need `assets-manifest.json`. When overlay is written in React, webpack or another module bundler builds it on its own. As you will see, if you create a React based overlay from the example, the manifest will have the following structure:
+
+```json
+{
+  "index.html": "index.html",
+  "main.js": "main.js"
+}
+```
+
+Here we create manually the same manifest but without `main.js` module.
 
 :::
 
