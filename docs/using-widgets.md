@@ -25,7 +25,6 @@ export default class TwitterFeature {
         button({
           DEFAULT: {
             img: EXAMPLE_IMG,
-
             exec: () => Core.alert('Hello Word!'),
           },
         }),
