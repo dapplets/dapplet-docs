@@ -3,11 +3,11 @@ id: virtual-adapter-int
 title: 'Ex07: Virtual config (interface)'
 ---
 
-Task: change the twitter adapter to an **virtual** config and check it on Twitter and Github.
+Task: change the Twitter Config to an **Social Virtual Config** config and check it on Twitter and Github.
 
 The initial code for this example is in [master.](https://github.com/dapplets/dapplet-template/tree/master)
 
-Change the twitter adapter to an **virtual** config in `/dapplet.json` with a right version:
+Change the "twitter-config.dapplet-base.eth" to an **social-virtual-config.dapplet-base.eth** in `/dapplet.json` with a right version:
 
 ```json
 {
@@ -20,7 +20,7 @@ Change the twitter adapter to an **virtual** config in `/dapplet.json` with a ri
 }
 ```
 
-In `src/index.ts` change the virtual config:
+In `src/index.ts` change the injected adapter:
 
 ```ts
 @Inject('social-virtual-config.dapplet-base.eth')
