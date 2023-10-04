@@ -15,7 +15,7 @@ module.exports = {
         'using-widgets',
         'state-machine',
         'widgets-interaction',
-        'viewport-adapter',
+        // 'viewport-adapter',
         'virtual-adapter-int',
       ],
     },
