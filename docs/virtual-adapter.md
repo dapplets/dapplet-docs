@@ -9,7 +9,7 @@ Task: change the Twitter Config to **Social Virtual Config** config and check it
 
 The initial code for this example is in [master.](https://github.com/dapplets/dapplet-template/tree/master)
 
-Change the "twitter-config.dapplet-base.eth" to an **"social-virtual-config.dapplet-base.eth"** in `/dapplet.json` with a right version:
+Change "twitter-config.dapplet-base.eth" to **"social-virtual-config.dapplet-base.eth"** in `/dapplet.json` with the correct version:
 
 ```json
 {
