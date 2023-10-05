@@ -3,11 +3,13 @@ id: virtual-adapter-int
 title: 'Virtual adapter (interface)'
 ---
 
-Task: change the Twitter Config to an **Social Virtual Config** config and check it on Twitter and Github.
+It's often needed to run a dapplet on different websites but with the same functionality using the same widgets in similar contexts. We provide **Interfaces** or **Virtual Adapters** to make things easier and avoid boilerplate. They describe the interface that site-specific adapters must implement. Thus, if a dapplet uses a particular virtual adapter, it will work with all adapters that support that virtual adapter across many websites.
+
+Task: change the Twitter Config to **Social Virtual Config** config and check it on Twitter and Github.
 
 The initial code for this example is in [master.](https://github.com/dapplets/dapplet-template/tree/master)
 
-Change the "twitter-config.dapplet-base.eth" to an **social-virtual-config.dapplet-base.eth** in `/dapplet.json` with a right version:
+Change the "twitter-config.dapplet-base.eth" to an **"social-virtual-config.dapplet-base.eth"** in `/dapplet.json` with a right version:
 
 ```json
 {
