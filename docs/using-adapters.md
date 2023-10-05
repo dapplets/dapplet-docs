@@ -4,7 +4,7 @@ sidebar_label: Using adapters
 title: How to connect a dapplet to an adapter?
 ---
 
-First you need to install the **Dapplet extension** package to your project. Use npm for this:
+First you need to install the **Dapplet Browser Extension** package to your project. Use npm for this:
 
 ```bash
 npm i -D @dapplets/dapplet-extension
@@ -41,7 +41,6 @@ Implement the dapplet’s `/src/index.ts` according to the example:
 
 ```ts
 import {} from '@dapplets/dapplet-extension';
-...
 
 @Injectable
 export default class MyDapplet {
@@ -50,7 +49,7 @@ export default class MyDapplet {
   public adapter: any;
 
   activate(): any {
-    ...
+    // ...
   }
 }
 ```
@@ -69,7 +68,7 @@ and then used in the **`attachConfig()`** function:
  this.adapter.attachConfig({
       POST: () =>
         button({
-        ...
+        // ...
         }),
     })
 ```
@@ -82,9 +81,9 @@ Widgets have **states**. The **DEFAULT** (case sensitive) state is used as initi
 ```ts
 button({
   DEFAULT: {
-    ...
+    // ...
   },
-  ...
+  // ...
 }),
 ```
 
@@ -96,31 +95,13 @@ If the **DEFAULT** state is not presented, the **initial** state has to be speci
 button({
   initial: 'FIRST',
   FIRST: {
-    ...
+    // ...
   },
   SECOND: {
-    ...
+    // ...
   },
-  ...
+  // ...
 }),
 ```
 
 We pass **parameters** of the widget described in the adapter into states.
-
-## Using events
-
-Adapters provide a number of events for different contexts that dapplets can listen to.
-They are used in the **`attachConfig`** function near the insertion points:
-
-```ts
-// /src/index.ts > TwitterFeature > activate
-
-this.adapter.attachConfig({
-  events: {
-    like: async (ctx) => {
-      ...
-    },
-  },
-  ...
-});
-```
