@@ -17,7 +17,7 @@ Furthermore, don’t miss our public list of [dapplet ideas](https://github.com/
 
 ### Where can I find different dapplets to try them out?
 
-Download our [extension](/docs/installation/).
+Install our extension for [Google Chrome](https://chrome.google.com/webstore/detail/dapplets/pjjnaojpjhgbhpfffnjleidmdbajagdj) or [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/dapplets/icpdagldaielgidgdiaanollkfgdclop) from browser extension stores, or directly from our [GitHub repository](https://github.com/dapplets/dapplet-extension).
 
 Go to Twitter or YouTube.
 
