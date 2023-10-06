@@ -41,7 +41,7 @@ Begin by opening the desired website (Twitter, GitHub etc.) and clicking on the 
 
 If this doesn’t help please check that you have the latest version of the extension. Unfortunately, the extension is not yet updated automatically and we have a fast-paced development process. You can find the latest release [here](https://chrome.google.com/webstore/detail/dapplets/pjjnaojpjhgbhpfffnjleidmdbajagdj).
 
-If your version in outdated delete it and download the correct one.
+If your version is outdated, delete it and download the correct one.
 
 If the issue remains take a screenshot and contact us through [Discord](https://discord.com/channels/569770026412933140/993845099580641312) or [Telegram](https://t.me/dapplets).
 
