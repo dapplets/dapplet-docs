@@ -54,16 +54,9 @@ All these fields are obligatory. Set them in `package.json`:
 
 Other parameters are specified in `dapplet.json`:
 
-- **branch** – used for resources with A/B testing. In most cases, you just need to leave the "default" value.
-  However, if you want to create different versions of the module for different versions of the web-resource you can make several branches and run them depending on some condition.
+- **type** – indicates the type of module. There are three types:
 
-  The Twitter Adapter (`twitter-config.dapplet-base.eth`) uses branch, here is an example of how it works:
-
-  - [default branch](https://github.com/dapplets/modules-monorepo/tree/main/packages/adapters/twitter-config)
-
-- **type** – indicates the type of module. There are four types:
-
-  - `FEATURE` – a dapplet, its main part that interacts with the adapter and the Core
+  - `FEATURE` – a dapplet, the main part that interacts with the adapter and the Core API
   - `CONFIG` – a site-specific adapter that allows dapplets to work with site specific contexts
   - `INTERFACE` – a virtual adapter which provides an interface for dapplets so they are able to use several site-specific adapters
 
@@ -107,7 +100,14 @@ Other parameters are specified in `dapplet.json`:
   }
   ```
 
-  This means that the module works if there are <video\> elements on the page. This is also dynamic context.
+:::caution
+
+Video contextId is currently not working, but it is planned to return in the near future.
+Follow our news and updates
+
+:::
+
+This means that the module works if there are <video\> elements on the page. This is also dynamic context.
 
 - **config** – a dapplet's config. It's an optional field that's used only in dapplets.
   The idea is to add some settings to the dapplet which can be changed in the extension.
@@ -132,9 +132,9 @@ Other parameters are specified in `dapplet.json`:
   }
   ```
 
-Check out how to make a dapplet with an overlay here: [Ex04: Overlays](/docs/overlays)
+Check out how to make a dapplet with an overlay here: [Overlays](/docs/overlays)
 
-- **dependencies** – adapters which are used in the module. You have to set dependencies for the FEATURE and ADAPTER modules.
+- **dependencies** – adapters which are used in the module. Currently you can set dependencies only for FEATURE modules (dapplets). Set site-specific and virtual adapters which you want to interact with.
   Set the site-specific and virtual adapters in dapplets.
 
 - **interfaces** – a list of interfaces (virtual adapters) that the adapter implements.
