@@ -100,14 +100,14 @@ Other parameters are specified in `dapplet.json`:
   }
   ```
 
-:::caution
+  This means that the module works if there are <video\> elements on the page. This is also dynamic context.
 
-Video contextId is currently not working, but it is planned to return in the near future.
-Follow our news and updates
+  :::note
 
-:::
+  Video contextId is currently not working, but it is planned to return in the near future.
+  Follow our news and updates.
 
-This means that the module works if there are <video\> elements on the page. This is also dynamic context.
+  :::
 
 - **config** – a dapplet's config. It's an optional field that's used only in dapplets.
   The idea is to add some settings to the dapplet which can be changed in the extension.
@@ -135,7 +135,6 @@ This means that the module works if there are <video\> elements on the page. Thi
 Check out how to make a dapplet with an overlay here: [Overlays](/docs/overlays)
 
 - **dependencies** – adapters which are used in the module. Currently you can set dependencies only for FEATURE modules (dapplets). Set site-specific and virtual adapters which you want to interact with.
-  Set the site-specific and virtual adapters in dapplets.
 
 - **interfaces** – a list of interfaces (virtual adapters) that the adapter implements.
   It is an optional parameter for site-specific adapters.
