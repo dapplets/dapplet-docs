@@ -23,9 +23,9 @@ If an error occurs, click on the URL.
 
 You can:
 
-- run on http via serve
-- add a current certificate
-- add the certificate to browser exceptions.
+- run on http via [serve](https://www.npmjs.com/package/serve)
+- check the ssl certificate for validity
+- add the certificate to your browser exceptions
 
 After reload the tab and you will see the module.
 
@@ -33,7 +33,23 @@ After reload the tab and you will see the module.
 
 4. The server and module have been added for deployment. Click **Deploy**
 
+:::tip
+
+Now in the settings you can select one of two registries for work and deployment - `v3.registry.dapplet-base.eth` and `test.v3.registry.dapplet-base.eth`.
+
+Choose a `test.v3.registry.dapplet-base.eth` registry for trial deployment of new applications or for testing new features.
+
+:::
+
 ![Image to point 4](/img/pub_04.png)
+
+:::tip
+
+At this stage, you can launch the developed dapplet from the list of dapplets and test it.
+
+If the module works as you expect, open tab Dveloper again and click on the **Deploy**.
+
+:::
 
 5. Connect a wallet if it has not been connected yet
 
@@ -44,6 +60,14 @@ After reload the tab and you will see the module.
 6. Click **Deploy**. A modal window appears if the module is deployed for the first time. Click **Ok**
 
 ![Image to point 6](/img/pub_07.png)
+
+:::note
+
+Currently only the registry is supported on the Ethereum Goerli network.
+
+You need connect MetaMask wallet for publishing a module.
+
+:::
 
 7. MetaMask will open. **Confirm** the transaction.
 
