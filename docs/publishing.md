@@ -31,11 +31,9 @@ After reload the tab and you will see the module.
 
 :::
 
-4. The server and module have been added for deployment. Click **Deploy**
+4. The module was connected to the extension. Currently in the settings you can select one of two registries for work and deployment - `v3.registry.dapplet-base.eth` and `test.v3.registry.dapplet-base.eth`. If the module works as you expect, you can return to deployment. Now open the Developer tab and click on Deploy.
 
 :::tip
-
-Now in the settings you can select one of two registries for work and deployment - `v3.registry.dapplet-base.eth` and `test.v3.registry.dapplet-base.eth`.
 
 Choose a `test.v3.registry.dapplet-base.eth` registry for trial deployment of new applications or for testing new features.
 
@@ -57,17 +55,17 @@ If the module works as you expect, open tab Dveloper again and click on the **De
 
 ![Image to point 5](/img/pub_05_2.png)
 
+:::note
+
+Currently, Dapplets Team only supports two Ethereum Goerli registries.
+
+To publish the module, you need to connect the MetaMask wallet.
+
+:::
+
 6. Click **Deploy**. A modal window appears if the module is deployed for the first time. Click **Ok**
 
 ![Image to point 6](/img/pub_07.png)
-
-:::note
-
-Currently only the registry is supported on the Ethereum Goerli network.
-
-You need connect MetaMask wallet for publishing a module.
-
-:::
 
 7. MetaMask will open. **Confirm** the transaction.
 
