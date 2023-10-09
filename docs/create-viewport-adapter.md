@@ -11,14 +11,14 @@ Our template has an adapter:
 
 ```bash
 adapter
-├── .gitignore
-├── dapplet.json
-├── package-lock.json
-├── package.json
 ├── styles
 |  ├── body
         ├── button.css
-└── index.json
+├── .gitignore
+├── dapplet.json
+├── index.json
+├── package-lock.json
+└── package.json
 ```
 
 When you create an adapter don't forget to set **`contextIds`** in `/adapter/dapplet.json`. On these sites, the adapter will work:
@@ -27,26 +27,19 @@ When you create an adapter don't forget to set **`contextIds`** in `/adapter/dap
 {
   ...
   "contextIds": [
-   "https://twitter.com",
-   "https://www.instagram.com/",
-   "https://www.youtube.com/",
-   "https://dapplets.org/",
    "twitter.com",
    "instagram.com",
    "youtube.com",
    "dapplets.org",
-   "http://twitter.com",
-   "http://www.instagram.com",
-   "http://www.youtube.com",
-   "http://dapplets.org",
-   "www.instagram.com",
-   "www.youtube.com"
+   "github.com",
+   "google.com",
+   "facebook.com"
   ],
   ...
 }
 ```
 
-1. Implement communication between dapplets and pages in `/adapter/index.json`:
+1. Implement a parser configuration for the adapter in `/adapter/index.json` to determine widget insertion points and parse some common data for the dapplet. Let's insert a widget into the top level of the html and get the page title information. Don’t forget to set the ID for the context:
 
 ```ts
  "contexts": {
@@ -75,7 +68,7 @@ When you create an adapter don't forget to set **`contextIds`** in `/adapter/dap
     }
 ```
 
-2. Implement the **button** style :
+2. Specify the insertion point for the widget and provide the path to its style:
 
 ```typescript
  "button": {
@@ -113,7 +106,7 @@ button({
   DEFAULT: {
     label: 'GOOGLE_EXAMPLE',
     img: EXAMPLE_IMG,
-    exec: () => this.onAlert(ctx),
+    exec: () => {},
   },
 })
 ```
@@ -121,9 +114,9 @@ button({
 7. On button click show the website name:
 
 ```ts
-onAlert = async (ctx) => {
-  Core.alert(`${ctx.websiteName}`)
-}
+...
+exec: async () => Core.alert(`${ctx.websiteName}`)
+...
 ```
 
 Here is the result: [ex09-new-viewport-adapter-solution.](https://github.com/dapplets/dapplet-template/tree/ex09-new-viewport-adapter-solution)
