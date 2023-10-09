@@ -9,11 +9,11 @@ Here is the initial code for this example: [ex08-new-adapter-exercise.](https://
 
 The adapter and the dapplet are divided into two directories: `/adapter` and `/dapplet-feature`.
 
-### Create an adapter with one widget `button` for two states.
+### Create an adapter.
 
 At the beginning we change the adapter template. Let's add a button for standard Google search results.
 
-In `adapter/index.json` implement **`config`**. It is an object which describes different **contexts** on the page. Selectors for container, context data and insertion points for widgets are described here. `contextBuilder` defines context information that widget receives in this context type: `BODY` in our case (named **`ctx`** in our examples).
+In `adapter/index.json` implement **`config`**. It is an object which describes different **contexts** on the page. Selectors for container, context data and insertion points for widgets are described here. `contextBuilder` defines context information that widget receives in this context types: `POST` and `PROFILE` in our case (named **`ctx`** in our examples).
 
 ```ts
 {
@@ -29,26 +29,36 @@ In `adapter/index.json` implement **`config`**. It is an object which describes 
         "websiteName": "string(//title)"
       }
     },
-    "BODY": {
+    "POST": {
       "containerSelector": "html",
-      "contextSelector": "",
+      "contextSelector": "div[data-snf=x5WNvb]",
       "widgets": {
         "button": {
           "styles": "",
-          "insertionPoint": "body",
-          "insert": "end"
-        },
-        "popup": {
-          "styles": "",
-          "insertionPoint": "body",
+          "insertionPoint": "",
           "insert": "end"
         }
       },
       "contextBuilder": {
-        "id": "string(//title)"
+        "id": "string(.//*[(@jsname='UWckNb')]/@href)"
+      }
+    },
+    "PROFILE": {
+      "containerSelector": "html",
+      "contextSelector": ".gb_d.gb_Da.gb_H",
+      "widgets": {
+        "avatarBadge": {
+          "styles": "",
+          "insertionPoint": "",
+          "insert": "end"
+        }
+      },
+      "contextBuilder": {
+        "id": "substring-before(string(@aria-label), '\n')"
       }
     }
   }
+
 }
 ```
 
@@ -109,23 +119,26 @@ So let's go back to our exercise.
 
 :::
 
-Now we have one context: **BODY**.
+Now we have two contexts: **POST** and **PROFILE**.
 
-The next step - is creating styles for **widget**. We have a template of the button's style in `adapter/styles/body/button.css`.
+The next step - is creating styles for **widgets**. We have a template of the button's style in `styles/post/button.csss`. Template of the avatarBadge's style in `styles/profile/avatarBadge.css`.
 
-For example, let's define the styles for `button` and `popup`
+For example, let's define the styles for `button` and `avatarBadge`
 
 ```ts
-"button": {
-          "styles": "styles/body/button.css",
-          "insertionPoint": "body",
-          "insert": "end"
-        },
- "popup": {
-          "styles": "styles/body/popup.css",
-          "insertionPoint": "body",
+...
+ "button": {
+          "styles": "styles/post/button.css",
+          "insertionPoint": "",
           "insert": "end"
         }
+        ...
+  "avatarBadge": {
+          "styles": "styles/profile/avatarBadge.css",
+          "insertionPoint": "",
+          "insert": "end"
+        }
+        ...
 ```
 
 :::tip
@@ -134,9 +147,9 @@ Adapters allow the dapplet to **customize** the widgets. This can be the `text` 
 
 :::
 
-Then change the dapplet.
+### Change the dapplet.
 
-Add button to page in `/dapplet-feature/src/index.ts`.
+Add widgets to page in `/dapplet-feature/src/index.ts`.
 
 Implement an alert that would be triggered when you click the button.
 
@@ -150,28 +163,48 @@ exec: () => {
 Full code example
 
 ```ts
-button({
-          initial: 'RESULTS',
-          RESULTS: {
-            label: 'Hi',
-            img: GRAY_IMG,
-            tooltip: 'Results',
+this.adapter.attachConfig({
+  POST: (ctx) =>
+    button({
+      initial: 'RESULTS',
+      id: 'RESULTS',
+      // LP:. implement two states:
+      RESULTS: {
+        label: 'Hi',
+        img: GRAY_IMG,
+        tooltip: 'Results',
+        init: () => {
+          console.log(ctx)
+        },
+        exec: (_, me) => {
+          me.state = 'SECOND'
+        },
+      },
+      SECOND: {
+        id: 'SECOND',
+        label: 'SECOND',
+        img: EXAMPLE_IMG,
+        tooltip: 'SECOND',
 
-            exec: (_, me) => {
-              me.state = 'SECOND'
-            },
-          },
-          SECOND: {
-            label: 'SECOND',
-            img: EXAMPLE_IMG,
-            tooltip: 'SECOND',
-            exec: (_, me) => {
-              const { id } = ctx
-              Core.alert(`  title: ${id}\n`)
-            },
-          },
-
-        }),
+        exec: (_, me) => {
+          const { id } = ctx
+          Core.alert(`  title: ${id}\n`)
+        },
+      },
+      // LP end
+    }),
+  PROFILE: (ctx) =>
+    avatarBadge({
+      DEFAULT: {
+        vertical: 'bottom',
+        horizontal: 'right',
+        img: EXAMPLE_IMG,
+        init: () => {
+          console.log('ctx = ', ctx)
+        },
+      },
+    }),
+})
 ```
 
 Here is the result of this part: [ex08.1-new-adapter-solution.](https://github.com/dapplets/dapplet-template/tree/ex08.1-new-adapter-solution)
