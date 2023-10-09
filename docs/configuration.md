@@ -140,7 +140,7 @@ async activate(): Promise<void> {
 }
 ```
 
-There are also `set(key: string)`, `remove(key: string)` and `clear()` methods. They can be used to change a setting, restore a specific setting or all settings to their default values.
+There are also `set(key: string, value: any)`, `remove(key: string)` and `clear()` methods. They can be used to change a setting, restore a specific setting or all settings to their default values.
 
 ### Extension
 
