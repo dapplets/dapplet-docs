@@ -3,20 +3,22 @@ id: viewport-adapter
 title: 'Viewport adapter'
 ---
 
-Task: change the twitter adapter to a **common** adapter and check it on Twitter, YouTube, Instagram and Dapplets.org.
+Adapters do not need to know the site markup to work with it. Some of them may simply insert pop-ups, floating buttons, or something else onto the screen. We can call them viewport, universal or common adapters.
+
+Task: change the Twitter Adapter to a **Common Adapter** and check it on Twitter, YouTube, Instagram and Dapplets.org.
 
 The initial code for this example is in [master](https://github.com/dapplets/dapplet-template/tree/master).
 
-Change twitter adapter to a **common** adapter in `/dapplet.json` with a right version:
+Change `twitter-config.dapplet-base.eth` to a `common-config.dapplet-base.eth` adapter in `/dapplet.json` with a right version:
 
 ```json
 {
   ...
 
-  "contextIds": ["common-adapter.dapplet-base.eth"],
+  "contextIds": ["common-config.dapplet-base.eth"],
   ...
   "dependencies": {
-    "common-adapter.dapplet-base.eth": "0.3.10"
+    "common-config.dapplet-base.eth": "0.1.1"
   }
 }
 ```
@@ -24,20 +26,25 @@ Change twitter adapter to a **common** adapter in `/dapplet.json` with a right v
 In `src/index.ts` change injected adapter:
 
 ```ts
-@Inject('common-adapter.dapplet-base.eth') public adapter: any;
+@Inject('common-config.dapplet-base.eth') public adapter: any;
 ```
 
 and set the right insertion point:
 
 ```ts
-BODY: () =>
-  button({
-    DEFAULT: {
-      tooltip: 'Injected Button',
-      img: EXAMPLE_IMG,
-      exec: () => alert('Hello, World!'),
-    },
-  }),
+activate() {
+  const { button } = this.adapter.exports
+  this.adapter.attachConfig({
+    BODY: () =>
+      button({
+        DEFAULT: {
+          label: 'Injected Button',
+          img: EXAMPLE_IMG,
+          exec: () => Core.alert('Hello, World!'),
+        },
+      }),
+  })
+}
 ```
 
 Here is the result code of the example: [ex06-viewport-adapter.](https://github.com/dapplets/dapplet-template/tree/ex06-viewport-adapter)
