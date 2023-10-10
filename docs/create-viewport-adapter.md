@@ -11,14 +11,14 @@ Our template has an adapter:
 
 ```bash
 adapter
-├── styles
-|  ├── body
-        ├── button.css
 ├── .gitignore
 ├── dapplet.json
 ├── index.json
+├── package.json
 ├── package-lock.json
-└── package.json
+└── styles
+    └── body
+        └── button.css
 ```
 
 When you create an adapter don't forget to set **`contextIds`** in `/adapter/dapplet.json`. On these sites, the adapter will work:
@@ -28,12 +28,15 @@ When you create an adapter don't forget to set **`contextIds`** in `/adapter/dap
   ...
   "contextIds": [
    "twitter.com",
-   "instagram.com",
-   "youtube.com",
-   "dapplets.org",
-   "github.com",
-   "google.com",
-   "facebook.com"
+    "instagram.com",
+    "youtube.com",
+    "dapplets.org",
+    "github.com",
+    "google.com",
+    "facebook.com",
+    "x.com",
+    "www.x.com",
+    "www.google.com"
   ],
   ...
 }
@@ -71,11 +74,11 @@ When you create an adapter don't forget to set **`contextIds`** in `/adapter/dap
 2. Specify the insertion point for the widget and provide the path to its style:
 
 ```typescript
- "button": {
-                    "styles": "styles/body/button.css",
-                    "insertionPoint": "body",
-                    "insert": "end"
-                }
+"button": {
+    "styles": "styles/body/button.css",
+    "insertionPoint": "body",
+    "insert": "end"
+}
 ```
 
 3. Change `dependencies` and `contextIds` in `/dapplet-feature/dapplet.json` to new adapter:
@@ -115,7 +118,7 @@ button({
 
 ```ts
 ...
-exec: async () => Core.alert(`${ctx.websiteName}`)
+exec: () => Core.alert(ctx.websiteName)
 ...
 ```
 
