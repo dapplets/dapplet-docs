@@ -52,9 +52,7 @@ We add a callback to the overlay opening event.
 Core.onAction(() => overlay.open())
 ```
 
-5.  Let's pass the state's **counter** and **text** to the button's `label` and input's `text` respectively.
-
-We have two widgets in `POST`: `button` and `input`.
+5.  Let's pass the state's **counter** and **text** to widgets.
 
 ```typescript
 const { button, input } = this.adapter.exports
@@ -70,7 +68,7 @@ this.adapter.attachConfig({
 })
 ```
 
-We want to create different states for every tweet. So the keys will be the tweets' IDs.
+We want to create different states for every post. So the keys will be the posts' IDs.
 
 ```typescript
 {
@@ -116,14 +114,6 @@ state[someId].someParameter.next(newValue)
 Here we pass an optional parameter - **id** to the `overlay.open` method. Then we can get it in the overlay and use for getting and setting an appropriate part of the state.
 
 7.  Input HTML element has its own state. When we are talking about the elements like input, textarea and select, we can build them with **two-way data binding**. It means that the element's state and Shared State are connected and updated automatically. So we can type some text and it will appear in the Shared State. And if you update the Shared State the value of the HTML element will also be updated.
-
-To use this feature in the widget you have to add event listener:
-
-```typescript
-element.addEventListener('input', (e: any) => {
-  this.state.text = e.target.value
-})
-```
 
 The entire `activate` method:
 
