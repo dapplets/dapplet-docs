@@ -1,6 +1,6 @@
 ---
 id: exercises
-title: About exercises
+title: Dapplet templates
 ---
 
 In this section we will look at how to use and implement the basic elements of a dapplet structure. If you went through [Get started](/docs/get-started) you had to install the [Dapplet Template](https://github.com/dapplets/dapplet-template) locally and change some params in the master branch.
