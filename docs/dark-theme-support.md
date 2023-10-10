@@ -9,25 +9,19 @@ Usually we pass an image encoded as `base64` to `img`. This can also be an absol
 
 ```typescript
 this.adapter.attachConfig({
-  POST: (ctx) =>
+  POST: () =>
     button({
-      initial: 'DEFAULT',
       DEFAULT: {
         label: 'Injected Button',
         img: {
           LIGHT: LIGHT_IMG,
           DARK: DARK_IMG,
         },
-        exec: () => {
-          console.log(ctx)
-          alert('Hello, Themes!')
-        },
+        exec: () => Core.alert('Hello, Themes!'),
       },
     }),
 })
 ```
-
-Also `ctx` contains `theme` parameter, which can be `'LIGHT'` or `'DARK'`. This information is determined by the adapter and can be used in the dapplet-feature or in the overlay.
 
 The complete code for this example can be found here: [ex12-dark-theme-support.](https://github.com/dapplets/dapplet-template/tree/ex12-dark-theme-support)
 
