@@ -9,9 +9,9 @@ Here is the initial code for this example: [ex08-new-adapter-exercise.](https://
 
 The adapter and the dapplet are divided into two directories: `/adapter` and `/dapplet-feature`.
 
-### Create an adapter.
+### Create an adapter
 
-At the beginning we change the adapter template. Let's add a button for standard Google search results.
+At the beginning we change the adapter template. Let's add a button for Google search results and a badge for the profile icon.
 
 In `adapter/index.json` implement **`config`**. It is an object which describes different **contexts** on the page. Selectors for container, context data and insertion points for widgets are described here. `contextBuilder` defines context information that widget receives in this context types: `POST` and `PROFILE` in our case (named **`ctx`** in our examples).
 
@@ -23,14 +23,14 @@ In `adapter/index.json` implement **`config`**. It is an object which describes 
   },
   "contexts": {
     "GLOBAL": {
-      "containerSelector": "html",
+      "containerSelector": "div#center_col",
       "contextBuilder": {
         "id": "string('global')",
         "websiteName": "string(//title)"
       }
     },
     "POST": {
-      "containerSelector": "html",
+      "containerSelector": "div#center_col",
       "contextSelector": "div[data-snf=x5WNvb]",
       "widgets": {
         "button": {
@@ -44,7 +44,7 @@ In `adapter/index.json` implement **`config`**. It is an object which describes 
       }
     },
     "PROFILE": {
-      "containerSelector": "html",
+      "containerSelector": "div#center_col",
       "contextSelector": ".gb_d.gb_Da.gb_H",
       "widgets": {
         "avatarBadge": {
@@ -73,16 +73,16 @@ The idea of **separating adapters from dapplets** is to provide **dapplets' deve
 This way, **dapplets developers** don't need to worry about how to add their code in certain places or how to parse different blocks of information on the page. They get the template, customize it and add the behavior they need.
 
 The goals of the **adapters' developer** are to create this template, define the data that can be parsed from the context, that can be useful in the dapplet.
-**Adapters' developer** also need to describe exact places on the pages where the widgets will be inserted. To describe them we use valid CSS selectors that can be used.
+**Adapters' developer** also need to describe exact places on the pages where the widgets will be inserted.
 
-For example, let's look at the Google Search page. Enter some search query, `clouds` for example.
+For example, let's look at the Google Search page. Enter some search query.
 Look at the structure of the page in the browser's developer tools, Elements tab.
-There you can find the block with `search` id, that contains all the main search results.
+There you can find the block with `center_col`, that contains all the main search results.
 It will be our **containerSelector** where we will search some separate results.
 
 ```js
-document.querySelector('#search')
-▸ <div id="search">…</div>
+document.querySelector('#rso')
+▸ <div id="rso">…</div>
 ```
 
 Then try to pick out the selectors' chain that provides access to separate context — **contextSelector**.
@@ -90,15 +90,8 @@ You can choose relevant selectors manually or you can left click on the element 
 In most cases the selector has to be edited.
 
 ```js
-document.querySelectorAll('#search .MjjYud')
+document.querySelectorAll('#rso .MjjYud')
 ▸ NodeList(10) [div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud]
-```
-
-In some cases there are several relevant selectors for different places on the page or different pages. In this case you can define them separating by using commas.
-
-```js
-document.querySelectorAll('#search #rso > .g .jtfYYd, #rso > div > .g .jtfYYd, #rso > div > div > .g .jtfYYd, .MjjYud')
-▸ NodeList(11) [div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud, div.MjjYud]
 ```
 
 Make sure not to include unwanted blocks.
@@ -107,11 +100,19 @@ Using the same method define selectors for insertion points — exact places whe
 There are 3 insert options: `end`, `begin` and `inside`. The first one is default.
 
 ```typescript
- "insertionPoint": "body",
+ "insertionPoint": "div[data-snf=x5WNvb]",
  "insert": "end"
 ```
 
 **!!** Note that websites can be changed and you will get errors trying to get properties when the nodes will not be found.
+
+For the contextBuilder configuration - in order to parse useful information from the context - we must specify queries in `XPath` format.
+
+```typescript
+"contextBuilder": {
+        "id": "substring-before(string(@aria-label), '\n')"
+      }
+```
 
 It is assumed that **all interactions with DOM** happen in the adapters and not in the dapplets.
 
@@ -121,7 +122,7 @@ So let's go back to our exercise.
 
 Now we have two contexts: **POST** and **PROFILE**.
 
-The next step - is creating styles for **widgets**. We have a template of the button's style in `styles/post/button.csss`. Template of the avatarBadge's style in `styles/profile/avatarBadge.css`.
+The next step - is creating styles for **widgets**. We have a template of the button's style in `styles/post/button.css`. Template of the avatarBadge's style in `styles/profile/avatarBadge.css`.
 
 For example, let's define the styles for `button` and `avatarBadge`
 
@@ -143,11 +144,16 @@ For example, let's define the styles for `button` and `avatarBadge`
 
 :::tip
 
-Adapters allow the dapplet to **customize** the widgets. This can be the `text` of the button, the `image` on the icon, the choice of one of the `location` options, etc. The adapter developer decides what **parameters** to make customizable. They should be described in the documentation as follows: parameter's `name`, `mandatory` or not, data `TYPE`, text `description`. If you need to select one of several value options for a parameter, they must be listed (this can be specified in the parameter type). If the parameter type is a number, then it is recommended to indicate in which units it will be converted: pixels, percentages, fractions, etc.
+Widgets are currently defined in the extension.
+
+The adapter developer can style widgets for his adapter using CSS at his discretion.
+This can be the `text` of the button, the `image` on the icon, the choice of one of the `location` options, etc. The adapter developer decides what **parameters** to make customizable. They should be described in the documentation as follows: parameter's `name`, `mandatory` or not, data `TYPE`, text `description`. If you need to select one of several value options for a parameter, they must be listed (this can be specified in the parameter type). If the parameter type is a number, then it is recommended to indicate in which units it will be converted: pixels, percentages, fractions, etc.
+
+At the moment, only button and avatarBadge widgets are available; their list is planned to be expanded in the near future.
 
 :::
 
-### Change the dapplet.
+### Change the dapplet
 
 Add widgets to page in `/dapplet-feature/src/index.ts`.
 
@@ -166,26 +172,12 @@ Full code example
 this.adapter.attachConfig({
   POST: (ctx) =>
     button({
-      initial: 'RESULTS',
       id: 'RESULTS',
       // LP:. implement two states:
-      RESULTS: {
+      DEFAULT: {
         label: 'Hi',
-        img: GRAY_IMG,
-        tooltip: 'Results',
-        init: () => {
-          console.log(ctx)
-        },
-        exec: (_, me) => {
-          me.state = 'SECOND'
-        },
-      },
-      SECOND: {
-        id: 'SECOND',
-        label: 'SECOND',
         img: EXAMPLE_IMG,
-        tooltip: 'SECOND',
-
+        tooltip: 'Results',
         exec: (_, me) => {
           const { id } = ctx
           Core.alert(`  title: ${id}\n`)
@@ -199,7 +191,7 @@ this.adapter.attachConfig({
         vertical: 'bottom',
         horizontal: 'right',
         img: EXAMPLE_IMG,
-        init: () => {
+        exec: () => {
           console.log('ctx = ', ctx)
         },
       },
