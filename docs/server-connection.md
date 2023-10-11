@@ -5,7 +5,7 @@ title: 'Server Connection'
 
 In this example we use `Core` methods for connecting to the server using WebSockets.
 
-We implement a button with counters like in `ex01`. The difference is that the state of the counters is kept in the simple Node.js (Express) server.
+We implement a button with counters like in [Using widgets](/docs/using-widgets). The difference is that the state of the counters is kept in the simple Node.js (Express) server.
 
 Here is the initial code for this example: [`ex15-server-connection-exercise`](https://github.com/dapplets/dapplet-template/tree/ex15-server-connection-exercise)
 
@@ -40,7 +40,7 @@ const defaultState: IDappState = { amount: 0 }
 const server = Core.connect<IDappState>({ url: serverUrl }, defaultState)
 ```
 
-> To understand how the dapplet's state works look at [example 13](/docs/shared-state).
+> To understand how the dapplet's state works read the article [Shared State](/docs/shared-state).
 
 In this simple example we can only use `connection`'s state. But in your dapplet you might want to use one complex state for the entire app.
 
