@@ -11,7 +11,7 @@ Here is the initial code for this example: [ex17-overlay-login-exercise](https:/
 
 ### Dapplet
 
-More details about the **useState** and **onAction** methods can be found in [Ex13](/docs/shared-state).
+More details about the **useState** and **onAction** methods can be found in [Shared State](/docs/shared-state) section.
 
 #### LP: 1. Add the 'useState' method to the overlay
 
@@ -32,7 +32,7 @@ You can learn more about Core Login API [here](/docs/core-login).
 .declare(this.api);
 ```
 
-More details about the **declare** method can be found in [Ex04](/docs/overlays).
+More details about the **declare** method can be found in [Overlays](/docs/overlays) section.
 
 #### LP: 3. Use the API's function to get the account state
 
