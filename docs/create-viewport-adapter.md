@@ -25,20 +25,21 @@ When you create an adapter don't forget to set **`contextIds`** in `/adapter/dap
 
 ```json
 {
-  ...
   "contextIds": [
-   "twitter.com",
+    "twitter.com",
     "instagram.com",
+    "www.instagram.com",
     "youtube.com",
+    "www.youtube.com",
     "dapplets.org",
     "github.com",
     "google.com",
+    "www.google.com",
     "facebook.com",
+    "www.facebook.com",
     "x.com",
-    "www.x.com",
-    "www.google.com"
+    "www.x.com"
   ],
-  ...
 }
 ```
 
@@ -46,34 +47,34 @@ When you create an adapter don't forget to set **`contextIds`** in `/adapter/dap
 
 ```ts
  "contexts": {
-        "GLOBAL": {
-            "containerSelector": "html",
-            "contextBuilder": {
-                "id": "string('global')",
-                "websiteName": "string(//title)"
+    "GLOBAL": {
+        "containerSelector": "html",
+        "contextBuilder": {
+            "id": "string('global')",
+            "websiteName": "string(//title)"
+        }
+    },
+    "BODY": {
+        "containerSelector": "html",
+        "contextSelector": "",
+        "widgets": {
+            "button": {
+                "styles": "",
+                "insertionPoint": "",
+                "insert": ""
             }
         },
-        "BODY": {
-            "containerSelector": "html",
-            "contextSelector": "",
-            "widgets": {
-                "button": {
-                    "styles": "",
-                    "insertionPoint": "",
-                    "insert": ""
-                }
-            },
-            "contextBuilder": {
-                "id": "string('global')",
-                "websiteName": "string(//title)"
-            }
+        "contextBuilder": {
+            "id": "string('global')",
+            "websiteName": "string(//title)"
         }
     }
+}
 ```
 
-2. Specify the insertion point for the widget and provide the path to its style:
+2. Specify the widget's insertion point and provide the path to its styles:
 
-```typescript
+```ts
 "button": {
     "styles": "styles/body/button.css",
     "insertionPoint": "body",
@@ -85,9 +86,7 @@ When you create an adapter don't forget to set **`contextIds`** in `/adapter/dap
 
 ```json
 {
-  ...
   "contextIds": ["example-viewport-adapter.dapplet-base.eth"],
-  ...
   "dependencies": {
     "example-viewport-adapter.dapplet-base.eth": "0.2.0"
   }
@@ -97,7 +96,8 @@ When you create an adapter don't forget to set **`contextIds`** in `/adapter/dap
 5. Add a valid adapter in `/dapplet-feature/src/index.ts`:
 
 ```ts
-@Inject('example-viewport-adapter.dapplet-base.eth') public adapter: any;
+@Inject('example-viewport-adapter.dapplet-base.eth')
+public adapter: any;
 ```
 
 6. Add `button` from the page in `BODY`:
@@ -117,9 +117,7 @@ button({
 7. On button click show the website name:
 
 ```ts
-...
 exec: () => Core.alert(ctx.websiteName)
-...
 ```
 
 Here is the result: [ex09-new-viewport-adapter-solution.](https://github.com/dapplets/dapplet-template/tree/ex09-new-viewport-adapter-solution)
