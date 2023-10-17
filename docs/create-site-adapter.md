@@ -60,7 +60,6 @@ At the beginning we change the adapter template. There is a **config** in `adapt
       }
     }
   }
-
 }
 ```
 
@@ -137,6 +136,7 @@ Paths for the styles should be specified in the config:
   "styles": "styles/profile/avatarBadge.css",
 }
 ```
+
 Widgets are currently defined in the extension. The adapter developer can style widgets for his adapter using CSS at his discretion. This can be the `text` of the button, the `image` on the icon, the choice of one of the `location` options, etc. The adapter developer decides what **parameters** to make customizable. They should be described in the documentation as follows: parameter's `name`, `mandatory` or not, data `TYPE`, text `description`. If you need to select one of several value options for a parameter, they must be listed (this can be specified in the parameter type). If the parameter type is a number, then it is recommended to indicate in which units it will be converted: pixels, percentages, fractions, etc.
 
 Currently only **button** and **avatarBadge** widgets are available. The list of widgets is planned to be expanded in the near future.
@@ -145,33 +145,33 @@ Currently only **button** and **avatarBadge** widgets are available. The list of
 
 1. Insert the correct adapter name
 
-  ```ts
-  @Inject('example-google-adapter.dapplet-base.eth')
-  public adapter
-  ```
+```ts
+@Inject('example-google-adapter.dapplet-base.eth')
+public adapter
+```
 
 2. Log the POST context information to the console and show an alert with the title of the search result item on the button click
 
-  ```ts
-  exec: () => {
-    console.log('ctx:', ctx)
-    Core.alert('Title: ' + ctx.title)
-  },
-  ```
+```ts
+exec: () => {
+  console.log('ctx:', ctx)
+  Core.alert('Title: ' + ctx.title)
+},
+```
 
 3. Add an avatar badge to the profile icon and log the PROFILE context information to the console
 
-  ```ts
-  PROFILE: (ctx) =>
-    avatarBadge({
-      DEFAULT: {
-        vertical: 'bottom',
-        horizontal: 'right',
-        img: EXAMPLE_IMG,
-        exec: () => console.log('ctx:', ctx),
-      },
-    }),
-  ```
+```ts
+PROFILE: (ctx) =>
+  avatarBadge({
+    DEFAULT: {
+      vertical: 'bottom',
+      horizontal: 'right',
+      img: EXAMPLE_IMG,
+      exec: () => console.log('ctx:', ctx),
+    },
+  }),
+```
 
 Here is the result: [ex08-new-adapter-solution.](https://github.com/dapplets/dapplet-template/tree/ex08-new-adapter-solution)
 
@@ -182,4 +182,4 @@ npm i
 npm start
 ```
 
-![video](/video/ex_8_1.gif)
+![video](/video/ex_08.gif)
