@@ -131,4 +131,4 @@ npm start
 
 ![video](/video/ex_9.gif)
 
-> In this example we run **two servers** concurrently. So you have to add two registry addresses to Dapplet extension in Development tab. Click [here](/docs/get-started#11-connect-the-development-server-to-dapplet-extension) for instructions.
+> In this example we run **two servers** concurrently. So you have to add two registry addresses to Dapplet extension in Development tab. Click [here](/docs/get-started#10-connect-the-development-server-to-the-dapplets-extension) for instructions.
