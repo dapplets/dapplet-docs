@@ -1,13 +1,13 @@
 ---
 id: shared-state
-title: 'Shared State'
+title: Shared State
 ---
 
 In this exercise we create a dapplet with an overlay with shared state.
 
 The overlay will be React App with Typescript (TSX).
 
-In our dapplet we will add `button` with a counter to every tweet and add button and input to the overlay. The values of all the counters and input will be kept in a single shared state.
+In our dapplet we will add `button` with a counter to every post and add button and input to the overlay. The values of all the counters and inputs will be kept in a single shared state.
 
 Here is the initial code for this example, which is similar to the base template: [`ex13-shared-state-exercise`](https://github.com/dapplets/dapplet-template/tree/ex13-shared-state-exercise)
 
@@ -33,9 +33,8 @@ const state = Core.state<IState>({ counter: 0, text: '' })
 To share the state with the overlay add the **`useState`** method that returns the overlay itself.
 
 ```typescript
-const overlay = Core.overlay<IState>({ name: 'example-13-overlay', title: 'Example 13' }).useState(
-  state
-)
+const overlay = Core.overlay<IState>({ name: 'example-13-overlay', title: 'Example 13' })
+  .useState(state)
 ```
 
 :::tip
@@ -52,30 +51,20 @@ We add a callback to the overlay opening event.
 Core.onAction(() => overlay.open())
 ```
 
-5.  Let's pass the state's **counter** and **text** to widgets.
+5.  Let's pass the state's *counter* to the widget. We want to create different states for every post. So post IDs should be the keys for saving context information and associated data.
 
 ```typescript
-const { button, input } = this.adapter.exports
+const { button } = this.adapter.exports
 this.adapter.attachConfig({
   POST: (ctx: any) => [
     button({
       DEFAULT: {
         img: EXAMPLE_IMG,
-        // ...
-      },
-    }),
-  ],
+        label: state[ctx.id].counter
+      }
+    })
+  ]
 })
-```
-
-We want to create different states for every post. So the keys will be the posts' IDs.
-
-```typescript
-{
-  // ...
-  label: state[ctx.id].counter,
-}
-
 ```
 
 You don't need to create the current context state in advance. It will be created from the default state when the key is not found in the storage.
@@ -101,13 +90,10 @@ state[someId].someParameter.next(newValue)
 6.  Increase the counter by clicking the button and open the overlay.
 
 ```typescript
-{
-  // ...
-  exec: () => {
-    const oldValue = state[ctx.id].counter.value;
-    state[ctx.id].counter.next(oldValue + 1);
-    overlay.open(ctx.id);
-  },
+exec: () => {
+  const oldValue = state[ctx.id].counter.value;
+  state[ctx.id].counter.next(oldValue + 1);
+  overlay.open(ctx.id);
 }
 ```
 
@@ -119,32 +105,35 @@ The entire `activate` method:
 
 ```typescript
 activate() {
-  const state = Core.state<IState>({ counter: 0, text: '' });
-  const overlay = Core.overlay<IState>({ name: 'example-13-overlay', title: 'Example 13' })
-    .useState(state);
-  Core.onAction(() => overlay.open());
+  const state = Core.state<IState>({ counter: 0, text: '' })
+  const overlay = Core.overlay<IState>({
+    name: 'example-13-overlay',
+    title: 'Example 13',
+  }).useState(state)
+  Core.onAction(() => overlay.open())
 
-  const { button, input } = this.adapter.exports;
+  const { button } = this.adapter.exports
   this.adapter.attachConfig({
-    POST: (ctx: any) => ([
+    POST: (ctx) => [
       button({
         DEFAULT: {
           img: EXAMPLE_IMG,
           label: state[ctx.id].counter,
           exec: () => {
-            state[ctx.id].counter.next(state[ctx.id].counter.value + 1);
-            overlay.open(ctx.id);
-          },
-        },
+            const oldValue = state[ctx.id].counter.value
+            state[ctx.id].counter.next(oldValue + 1)
+            overlay.open(ctx.id)
+          }
+        }
       })
-    ])
-  });
+    ]
+  })
 }
 ```
 
 ### Overlay
 
-In this example we don't talk about native JavaScript overlay because the interaction with the shared state goes through the **React's HOC** (Higher-Order Component). To know more about this technique check out [the official documentation page](https://reactjs.org/docs/higher-order-components.html).
+In this example we don't talk about pure JavaScript overlay because the interaction with the shared state goes through the **React's HOC** (Higher-Order Component). To know more about this technique check out [the official documentation page](https://reactjs.org/docs/higher-order-components.html).
 
 8.  Add **Share State HOC** into the `./overlay/src/index.tsx`
 
