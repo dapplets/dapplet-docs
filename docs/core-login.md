@@ -1,6 +1,6 @@
 ---
 id: core-login
-title: 'Wallets and smart contracts'
+title: Wallets and smart contracts
 ---
 
 This example shows how to work with Ethereum and NEAR wallets and smart-contracts via new Core Login API.
@@ -77,15 +77,15 @@ console.log('Your Ethereum addresses', accountIds)
 
 ### LP: 5. Ethereum contract interaction
 
-In this example we call the contract developed for [Dapplets x Ethereum tutorial](https://github.com/dapplets/dapplets-eth-example). You can find the source code of the contract there. The contract stores a user's tweets and returns them.
+In this example we call the contract developed for [Dapplets x Ethereum tutorial](https://github.com/dapplets/dapplets-eth-example). You can find the source code of the contract there. The contract stores a user's posts and returns them.
 
 To interact with contracts you need to create wrapper object with `session.contract()` method. It is similar to the legacy `Core.contract()` interface.
 
 ```typescript
 const contract = await session.contract('0x7702aE3E1E0a96A428052BF3E4CB94965F5C0d7F', ABI)
-const tweets = await contract.getTweets(accountIds[0]) // read
-console.log('Tweets from Ethereum contract', tweets)
-await contract.addTweet(JSON.stringify(tweet)) // write
+const posts = await contract.getTweets(accountIds[0]) // read
+console.log('Posts from Ethereum contract', posts)
+await contract.addTweet(JSON.stringify(ctx)) // write
 ```
 
 ![video](/video/ex_14_2.gif)
@@ -134,10 +134,35 @@ const contract = await session.contract('dev-1634890606019-41631155713650', {
   changeMethods: ['addTweet', 'removeTweet'],
 })
 
-const tweets = await contract.getTweets({ nearId: wallet.accountId }) // read
-console.log('Tweets from NEAR contract', tweets)
-await contract.addTweet({ tweet: JSON.stringify(tweet) }) // write
+const posts = await contract.getTweets({ nearId: wallet.accountId }) // read
+console.log('Posts from NEAR contract', posts)
+await contract.addTweet({ tweet: JSON.stringify(ctx) }) // write
 ```
+
+If you need to receive the transaction call information, use another approach:
+
+```typescript
+const { account } = await session.contract('dev-1634890606019-41631155713650', {
+  viewMethods: ['getTweets'],
+  changeMethods: ['addTweet', 'removeTweet'],
+})
+
+const result = await account.functionCall({
+  contractId: 'dev-1634890606019-41631155713650',
+  methodName: 'addTweet',
+  args: {
+    tweet: JSON.stringify(ctx)
+  },
+  // gas,              // if you need more than default
+  // attachedDeposit,  // if you need to transfer tokens
+});
+
+console.log('result', result)
+```
+
+Result:
+
+![Transaction result](/img/core-login-01.png)
 
 Here is the result code of the example: [`ex14-core-login-solution`](https://github.com/dapplets/dapplet-template/tree/ex14-core-login-solution).
 
