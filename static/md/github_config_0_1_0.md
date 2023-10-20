@@ -12,7 +12,7 @@ The GitHub config provides you with a high-level interface for GitHub **augmenta
 
 Insertion points:
 
-![Profile insertion points](/img/a_twitter_14.png)
+![Profile insertion points](/img/adapter-g-02.png)
 
 Context parse result:
 
@@ -24,7 +24,7 @@ Context parse result:
 
 Insertion points:
 
-![Profile insertion points](/img/a_twitter_13.png)
+![Profile insertion points](/img/adapter-g-01.png)
 
 Context parse result:
 

@@ -12,7 +12,7 @@ The Common config provides you with a high-level interface for universal **augme
 
 Insertion points:
 
-![Profile insertion points](/img/a_twitter_14.png)
+![Profile insertion points](/img/adapter-c-01.png)
 
 Context parse result:
 

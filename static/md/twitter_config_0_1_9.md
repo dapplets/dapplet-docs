@@ -12,7 +12,7 @@ The Twitter config provides you with a high-level interface for Twitter **augmen
 
 Insertion points:
 
-![Profile insertion points](/img/a_twitter_14.png)
+![Profile insertion points](/img/adapter-x-01.png)
 
 Context parse result:
 
@@ -24,7 +24,7 @@ Context parse result:
 
 Insertion points:
 
-![Profile insertion points](/img/a_twitter_13.png)
+![Profile insertion points](/img/adapter-x-02.png)
 
 Context parse result:
 
