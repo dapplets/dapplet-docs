@@ -68,7 +68,7 @@ export default function AllAdaptersDocs() {
       {adapters &&
         (!currentAdapter.name ? (
           <React.Fragment>
-            <h1>Community-created adapters</h1>
+            <h1>Adapter catalog</h1>
             <ul>
               {Object.entries(adapters).map(([name, value]) => (
                 <li value={name} key={counter++}>

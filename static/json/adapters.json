@@ -1,10 +1,37 @@
 {
-  "twitter-adapter.dapplet-base.eth": {
-    "title": "Twitter adapter",
+  "twitter-config.dapplet-base.eth": {
+    "title": "Twitter Config",
     "versions": [
       {
-        "version": "v0_9_0",
-        "link": "/md/twitter_adapter_0_9_0.md"
+        "version": "v0_1_9",
+        "link": "/md/twitter_config_0_1_9.md"
+      }
+    ]
+  },
+  "github-config.dapplet-base.eth": {
+    "title": "GitHub Config",
+    "versions": [
+      {
+        "version": "v0_1_0",
+        "link": "/md/github_config_0_1_0.md"
+      }
+    ]
+  },
+  "common-config.dapplet-base.eth": {
+    "title": "Common Config",
+    "versions": [
+      {
+        "version": "v0_1_1",
+        "link": "/md/common_config_0_1_1.md"
+      }
+    ]
+  },
+  "social-virtual-config.dapplet-base.eth": {
+    "title": "Social Virtual Config",
+    "versions": [
+      {
+        "version": "v0_1_0",
+        "link": "/md/social_virtual_config_0_1_0.md"
       }
     ]
   }

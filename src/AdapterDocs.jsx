@@ -63,7 +63,7 @@ export default function AdapterDocs(props) {
   }
 
   return (
-    <>
+    <div>
       {currentVer && (
         <>
           <h1>{props.title}</h1>
@@ -86,6 +86,6 @@ export default function AdapterDocs(props) {
           </div>
         </>
       )}
-    </>
+    </div>
   )
 }
