@@ -8,6 +8,7 @@ import AnnouncementBar from '@theme/AnnouncementBar'
 import Footer from '@theme/Footer'
 import useKeyboardNavigation from '@theme/hooks/useKeyboardNavigation'
 import LayoutProviders from '@theme/LayoutProviders'
+import LayoutHead from '@theme/LayoutHead'
 import Navbar from '@theme/Navbar'
 import SkipToContent from '@theme/SkipToContent'
 import clsx from 'clsx'
@@ -20,7 +21,7 @@ function Layout(props) {
   return (
     <LayoutProviders>
       <Navbar />
-      {/* <LayoutHead {...props} /> */}
+      <LayoutHead {...props} />
       <SkipToContent />
       <AnnouncementBar />
       <div className={clsx('main-wrapper', wrapperClassName)}>{children}</div>

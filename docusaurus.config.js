@@ -5,7 +5,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/logo.svg',
+  favicon: '/svg/logo.svg',
   organizationName: 'Dapplets', // Usually your GitHub org/user name.
   projectName: 'dapplet-extension', // Usually your repo name.
   themeConfig: {
