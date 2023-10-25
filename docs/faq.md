@@ -3,7 +3,7 @@ id: faq
 title: FAQ
 ---
 
-### I’m a developer interested in your technology, where do I start?
+#### ▪ I’m a developer interested in your technology, where do I start?
 
 Thanks, and welcome aboard!
 
@@ -15,7 +15,7 @@ We also have a video recording of our [workshop](https://hackmd.io/@heL9DJloSkKG
 
 Furthermore, don’t miss our public list of [dapplet ideas](https://github.com/dapplets/dapplets-ideas). You can take whichever one you like and realize it!
 
-### Where can I find different dapplets to try them out?
+#### ▪ Where can I find different dapplets to try them out?
 
 Install our extension for [Google Chrome](https://chrome.google.com/webstore/detail/dapplets/pjjnaojpjhgbhpfffnjleidmdbajagdj) or [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/dapplets/icpdagldaielgidgdiaanollkfgdclop) from browser extension stores, or directly from our [GitHub repository](https://github.com/dapplets/dapplet-extension).
 
@@ -25,7 +25,7 @@ In the extension you will see several dapplets that work on these webpages.
 
 Try them out!
 
-### Where can I find a template to create a module?
+#### ▪ Where can I find a template to create a module?
 
 We have a `create-dapplet-app` node-based utility with which you can create dapplets, adapters, or interfaces. For use it, run:
 
@@ -35,7 +35,7 @@ npx create-dapplet-app
 
 More info about settings you can find [here](https://www.npmjs.com/package/create-dapplet-app).
 
-### The extension doesn’t work. I don’t see any dapplets, what do I do?
+#### ▪ The extension doesn’t work. I don’t see any dapplets, what do I do?
 
 Begin by opening the desired website (Twitter, GitHub etc.) and clicking on the Dapplets extension. It should show you a list of dapplets that can be used on this website.
 
@@ -45,12 +45,12 @@ If your version is outdated, delete it and download the correct one.
 
 If the issue remains take a screenshot and contact us through [Discord](https://discord.com/channels/569770026412933140/993845099580641312) or [Telegram](https://t.me/dapplets).
 
-### Which browsers does your extension support? Is there a version for mobile\android?
+#### ▪ Which browsers does your extension support? Is there a version for mobile\android?
 
 Currently, the Dapplets Extension only works on desktop and does not support androids\mobiles.
 
 It's best to use Chrome or Edge browsers.
 
-### Where can I send messages about issues I encounter? Share my suggestions? or ideas\partnership offers?
+#### ▪ Where can I send messages about issues I encounter? Share my suggestions? or ideas\partnership offers?
 
 Feel free to contact our team through our [Discord channel](https://discord.com/invite/YcxbkcyjMV) or [Telegram](https://t.me/dapplets).
