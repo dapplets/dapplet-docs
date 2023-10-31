@@ -19,7 +19,7 @@
   margin: 0 auto;
   padding: 0 0.5rem;
 }
-.docItemContainer img{
+.docItemContainer p img{
   border-style: none;
   box-sizing: content-box;
   max-width: 100%;

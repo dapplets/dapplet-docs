@@ -41,3 +41,17 @@
   margin-bottom: 0;
   text-align: center;
 }
+table {
+  border-collapse: collapse;
+  display: inline-block;
+  margin-bottom: var(--ifm-spacing-vertical);
+  overflow: auto;
+
+  text-align: center;
+
+  width: auto !important;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
