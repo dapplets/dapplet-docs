@@ -131,11 +131,11 @@ function DocItem(props) {
             </div>
           </div>
         </div>
-        {/* {!hideTableOfContents && DocContent.toc && (
+        {!hideTableOfContents && DocContent.toc && (
           <div className="col col--3 doc-custom-toc">
             <TOC toc={DocContent.toc} />
           </div>
-        )} */}
+        )}
       </div>
     </>
   )

@@ -19,6 +19,14 @@
   margin: 0 auto;
   padding: 0 0.5rem;
 }
+.docItemContainer img{
+  border-style: none;
+  box-sizing: content-box;
+  max-width: 100%;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  display: block;
+}
 
 @media only screen and (min-width: 997px) {
   .docItemCol {
