@@ -12,7 +12,6 @@ import DocPaginator from '@theme/DocPaginator'
 import DocVersionSuggestions from '@theme/DocVersionSuggestions'
 import { useActivePlugin, useActiveVersion, useVersions } from '@theme/hooks/useDocs'
 import IconEdit from '@theme/IconEdit'
-import TOC from '@theme/TOC'
 import clsx from 'clsx'
 import React from 'react'
 import styles from './styles.module.css'
@@ -132,11 +131,11 @@ function DocItem(props) {
             </div>
           </div>
         </div>
-        {!hideTableOfContents && DocContent.toc && (
+        {/* {!hideTableOfContents && DocContent.toc && (
           <div className="col col--3 doc-custom-toc">
             <TOC toc={DocContent.toc} />
           </div>
-        )}
+        )} */}
       </div>
     </>
   )
