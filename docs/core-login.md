@@ -14,16 +14,30 @@ The Core Login API is developed as a replacement of `Core.wallet()` and `Core.co
 - `Core.login()` – creates login sessions for a specified authorization method, during which wallet and contract interaction will take place. It shows a pop-up window for a user where he is able to select a suitable wallet.
 - `Core.sessions()` – returns existing sessions that are not expired, to reuse previous authorization and to avoid showing a login pop-up again.
 
+#### LoginRequest
+
 The `Core.login()` accepts one or more login requests as an input parameter. `LoginRequest` is an object with the following properties:
 
-- `authMethods` (required, `string[]`) – authorization method that affects the list of wallets available for user selection. Depending on the specified authorization method, the functions will return different interfaces for interacting with wallets and contracts (`session.wallet()`, `session.contract()`). Possible values: `ethereum/goerli`, `near/testnet`, `near/mainnet`.
-- `timeout` (optional, `number`, default: 7 days) – amount of time after which the session will become invalid in milliseconds.
-- `role` (optional, `string`) – a name of the set of operations and the operation profile that the user intends to work in. It can be missing if the dapplet works with only one role. The role is displayed in the login pop-up and included in signing messages when the secure mode is enabled. It can be any string. For example: `admin`, `moderator`, `writer` etc.
-- `help` (optional, `string`) – a link to dapplet documentation which is displayed at the message signing step when the secure mode is enabled.
-- `target` (optional, `Overlay`) – an overlay where the login popup window will be displayed. The overlay will be blurry and blocked for user interaction while login process is going.
-- `secureLogin` (optional, `string`, default: `disabled`) – a secure login mode which requires the user to sign a message to confirm wallet ownership. The valid values: `required`, `optional`, `disabled`.
-- `contractId` (optional) – an address of the contract to interact with. Currently used only for NEAR contracts to create a functional key and interact with the contract without confirming each transaction through the wallet. It is important to set the `secureLogin` property to `required`.
-- `from` (optinal, `string`, default: `any`) – a filter that defines which dapplets the login confirmation can be reused from.
+1. `authMethods` (required, `string[]`) – authorization method that affects the list of wallets available for user selection. Depending on the specified authorization method, the functions will return different interfaces for interacting with wallets and contracts (`session.wallet()`, `session.contract()`). Possible values:
+    - `ethereum/goerli`
+    - `near/testnet`
+    - `near/mainnet`
+2. `timeout` (optional, `number`, default: 7 days) – amount of time after which the session will become invalid in milliseconds.
+3. `role` (optional, `string`) – a name of the set of operations and the operation profile that the user intends to work in. It can be missing if the dapplet works with only one role. The role is displayed in the login pop-up and included in signing messages when the secure mode is enabled. It can be any string. For example: `admin`, `moderator`, `writer` etc.
+4. `help` (optional, `string`) – a link to dapplet documentation which is displayed at the message signing step when the secure mode is enabled.
+5. `target` (optional, `Overlay`) – an overlay where the login popup window will be displayed. The overlay will be blurry and blocked for user interaction while login process is going.
+6. `secureLogin` (optional, `string`, default: `disabled`) – a secure login mode which requires the user to sign a message to confirm wallet ownership. The valid values:
+    - `required`
+    - `optional`
+    - `disabled`
+7. `contractId` (optional) – an address of the contract to interact with. Currently used only for NEAR contracts to create a functional key and interact with the contract without confirming each transaction through the wallet. It is important to set the `secureLogin` property to `required`.
+8. `from` (optinal, `string`, default: `any`) – a filter that defines which dapplets the login confirmation can be reused from.
+9. `reusePolicy` (optional, `string`, default: `disabled`) – setting up reuse of login confirmations. There are 3 possible values:
+    - `disabled` – reuse of login confirmations is disabled and a new NEAR session will be automatically created each time.
+    - `auto` – the extension will automatically select the first of the available login confirmations, if any exist. If they do not exist, it will automatically create a new one.
+    - `manual` – the user manually selects login confirmation.
+
+#### LoginSession
 
 The `Core.login()` is the asynchronous function which returns `LoginSession` object through which you can call a wallet, a contract, save session info or log out a user. It includes the following asynchronous functions:
 

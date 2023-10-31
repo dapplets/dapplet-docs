@@ -1,33 +1,26 @@
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import React from 'react'
 import styles from './styles.module.css'
+
 export function FeatureList({ children }) {
   return (
-    <>
-      <div className="wrapper">
-        <div className="line">{children}</div>
-      </div>
-    </>
+    <div className={styles.wrapper}>
+      <div className="line">{children}</div>
+    </div>
   )
 }
 
 export function Line({ title, children, desc }) {
   return (
-    <>
-      <div className={styles.line_block}>
-        <h3>{title}</h3>
-        {desc && desc.length && <div className={styles.desc}>{desc}</div>}
+    <div className={styles.line_block}>
+      {title ? <h3>{title}</h3> : <p></p>}
+      {desc && desc.length && <div className={styles.desc}>{desc}</div>}
 
-        <div className={styles.line_child}>{children}</div>
-      </div>
-    </>
+      <div className={styles.line_child}>{children}</div>
+    </div>
   )
 }
 
 export function Feature({ image, title, subtitle, url, highlight = false, isContacts }) {
-  const { siteConfig, i18n } = useDocusaurusContext()
-  let link
-
   return (
     <div className={styles.line_flex}>
       <a
