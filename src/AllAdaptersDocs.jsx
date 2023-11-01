@@ -68,6 +68,7 @@ export default function AllAdaptersDocs() {
       {adapters &&
         (!currentAdapter.name ? (
           <React.Fragment>
+            <p></p>
             <h1>Adapter catalog</h1>
             <ul>
               {Object.entries(adapters).map(([name, value]) => (
