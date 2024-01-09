@@ -1,5 +1,5 @@
-![dapplet-docs](https://github.com/dapplets/dapplet-docs/blob/64a7dc685925d3f794ea499c889277e30759e7c0/banners/dapplet-docs.png#gh-dark-mode-only)
-![dapplet-docs](https://github.com/dapplets/dapplet-docs/blob/64a7dc685925d3f794ea499c889277e30759e7c0/banners/dapplet-docs-light.png#gh-light-mode-only)
+![dapplet-docs](/banners/dark.png#gh-dark-mode-only)
+![dapplet-docs](/banners/light.png#gh-light-mode-only)
 
 # Documentation for Dapplet Platform
 
