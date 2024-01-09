@@ -1,4 +1,5 @@
-<img width="1245" alt="dapplet-docs" src="https://user-images.githubusercontent.com/43613968/225053352-0e655e09-c42c-49ab-8b57-5ff8283c2e9f.png">
+![dapplet-docs](/banners/dark.png#gh-dark-mode-only)
+![dapplet-docs](/banners/light.png#gh-light-mode-only)
 
 # Documentation for Dapplet Platform
 
